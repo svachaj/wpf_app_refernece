@@ -1,0 +1,13 @@
+﻿<telerik:RadWindow x:Class="COS.Application.RadMainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        telerik:StyleManager.Theme="Expression_Dark"  MouseWheel="RadWindow_MouseWheel"     
+		Header="{DynamicResource App_MainWindowHeader}" Height="800" Width="1400" xmlns:my="clr-namespace:COS.Application.Views" CanClose="True" WindowStartupLocation="CenterScreen" CaptionHeight="20" ResizeMode="CanResize" BorderThickness="2" IsRestricted="True">
+                
+    
+    
+    <Grid>
+        <my:MainView  />
+    </Grid>
+</telerik:RadWindow>

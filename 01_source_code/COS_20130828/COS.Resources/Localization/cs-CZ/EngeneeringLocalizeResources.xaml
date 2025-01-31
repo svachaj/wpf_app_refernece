@@ -1,0 +1,268 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:my="clr-namespace:System;assembly=mscorlib">
+
+
+
+
+
+    <my:String x:Key="eng_DowntimeGroup">
+        Skupiny prostojů
+    </my:String>
+    <my:String x:Key="eng_AssignedDowntime">
+        Přiřazené prostoje
+    </my:String>
+    <my:String x:Key="eng_UnassignedDowntime">
+        Nepřiřazené prostoje
+    </my:String>
+    <my:String x:Key="eng_ID">
+        ID
+    </my:String>
+    <my:String x:Key="eng_CZtext">
+        Český popisek
+    </my:String>
+    <my:String x:Key="eng_ENtext">
+        Anglický popisek
+    </my:String>
+    <my:String x:Key="eng_Division">
+        Divize
+    </my:String>
+    <my:String x:Key="eng_Value">
+        Hodnota
+    </my:String>
+    <my:String x:Key="eng_RunFactor">
+        Run Factor (%)
+    </my:String>
+    <my:String x:Key="eng_RonID">
+        RON ID
+    </my:String>
+    <my:String x:Key="eng_save">
+        Uložit
+    </my:String>
+    <my:String x:Key="eng_Cancel">
+        Zrušit
+    </my:String>
+    <my:String x:Key="eng_AssignedWorkCenter">
+        Přiřazená Pracovní střediska
+    </my:String>
+    <my:String x:Key="eng_UnassignedWorkCenter">
+        Nepřiřazená Pracovní střediska
+    </my:String>
+    <my:String x:Key="eng_IsLabourAffected">
+        Neovlivní produktivitu ?
+    </my:String>
+    <my:String x:Key="eng_ShiftType">
+        Typ směny
+    </my:String>
+    <my:String x:Key="eng_Hour24">
+        Hodina
+    </my:String>
+    <my:String x:Key="eng_HourCount">
+        Počet hodin
+    </my:String>
+    <my:String x:Key="eng_ItemNumber">
+        Číslo položky
+    </my:String>
+    <my:String x:Key="eng_IsConfig">
+        Config
+    </my:String>
+    <my:String x:Key="eng_Description">
+        Popis
+    </my:String>
+    <my:String x:Key="eng_Labour">
+        Operátoři
+    </my:String>
+    <my:String x:Key="eng_WorkGroup">
+        Pracovní skupina
+    </my:String>
+    <my:String x:Key="eng_WorkCenter">
+        Pracovní středisko
+    </my:String>
+    <my:String x:Key="eng_ItemGroup">
+        Skupina položek
+    </my:String>
+    <my:String x:Key="eng_Weight">
+        Váha (kg)
+    </my:String>
+    <my:String x:Key="eng_Setup">
+        Čas setupu
+    </my:String>
+    <my:String x:Key="eng_PcsMin">
+        Kusů za minutu
+    </my:String>
+    <my:String x:Key="eng_PcsHour">
+        Kusů za hodinu
+    </my:String>
+    <my:String x:Key="eng_StdOverview">
+        Přehled norem
+    </my:String>
+    <my:String x:Key="eng_StdExport">
+        Export norem
+    </my:String>
+    <my:String x:Key="eng_StdImport">
+        Import norem
+    </my:String>
+    <my:String x:Key="eng_IsBusy">
+        Nahrávám ....
+    </my:String>
+    <my:String x:Key="eng_tt_ExportStd">
+        Exportovat zobrazené normy do CSV souboru.
+    </my:String>
+    <my:String x:Key="eng_tt_RefreshStd">
+        Načíst normy pro export do CSV souboru.
+    </my:String>
+    <my:String x:Key="eng_tt_LoadFile">
+        Načíst normy z CSV souboru.
+    </my:String>
+    <my:String x:Key="eng_tt_ImportData">
+        Importovat načtené normy do COS.
+    </my:String>
+    <my:String x:Key="eng_DowntimesGroup">
+        Skupiny prostojů
+    </my:String>
+    <my:String x:Key="eng_Downtimes">
+        Prostoje
+    </my:String>
+    <my:String x:Key="eng_ShiftPattern">
+        Směnové vzory
+    </my:String>
+    <my:String x:Key="eng_Shifts">
+        Směny
+    </my:String>
+    <my:String x:Key="eng_NotFilled">
+        Směny
+    </my:String>
+    <my:String x:Key="eng_BadCollNumber">
+        Počet sloupců z importovaného souboru není správný.
+    </my:String>
+    <my:String x:Key="eng_InvalidData">
+        Špatný formát dat.
+    </my:String>
+    <my:String x:Key="eng_Empty">
+        Není vyplňeno.
+    </my:String>
+    <my:String x:Key="eng_WgNotExist">
+        WG neexistuje
+    </my:String>
+    <my:String x:Key="eng_WcNotExist">
+        WC neexistuje
+    </my:String>
+    <my:String x:Key="eng_IgNotExist">
+        SP neexistuje
+    </my:String>
+    <my:String x:Key="eng_tt_StdNotExist">
+        Načíst neexistující normy.
+    </my:String>
+    <my:String x:Key="eng_tt_ShowInHp">
+        Ukázat v hodinové produkci.
+    </my:String>
+    <my:String x:Key="eng_tt_CreateStd">
+        Vytvořit normu.
+    </my:String>
+    <my:String x:Key="eng_StdDate">
+        Datum
+    </my:String>
+    <my:String x:Key="eng_StdShift">
+        Směna
+    </my:String>
+    <my:String x:Key="eng_StdShiftType">
+        Typ Směny
+    </my:String>
+    <my:String x:Key="eng_StdOrder">
+        Zakázka
+    </my:String>
+    <my:String x:Key="eng_StdAction">
+        Akce
+    </my:String>
+    <my:String x:Key="eng_StdConfigName">
+        Název konfigurátoru
+    </my:String>
+    <my:String x:Key="eng_Preview">
+        Náhled
+    </my:String>
+    <my:String x:Key="eng_Formula">
+        Vzorec:
+    </my:String>
+    <my:String x:Key="eng_tt_Update">
+        Uložit konfigurátor
+    </my:String>
+    <my:String x:Key="eng_tt_Align">
+        Zarovnat položky do mřížky
+    </my:String>
+    <my:String x:Key="eng_tt_Delete">
+        Smazat vybranou položku
+    </my:String>
+    <my:String x:Key="eng_Name">
+        Položka
+    </my:String>
+    <my:String x:Key="eng_DefaultValue">
+        Výchozí Hodnota
+    </my:String>
+    <my:String x:Key="eng_NameFormula">
+        Název (ʄx)
+    </my:String>
+    <my:String x:Key="eng_AxisX">
+        Osa X
+    </my:String>
+    <my:String x:Key="eng_AxisY">
+        Osa Y
+    </my:String>
+    <my:String x:Key="eng_Width">
+        Šířka
+    </my:String>
+    <my:String x:Key="eng_Height">
+        Výška
+    </my:String>
+    <my:String x:Key="eng_Text">
+        Text/Hodnota
+    </my:String>
+    <my:String x:Key="eng_List">
+        Seznam
+    </my:String>
+    <my:String x:Key="eng_ItemProps">
+        Vlastnosti položky:
+    </my:String>
+    <my:String x:Key="eng_ConfMatImport">
+       Importovat 
+    </my:String>
+
+    <my:String x:Key="eng_ConfMatPcs">
+        Ks/hod :
+    </my:String>
+    <my:String x:Key="eng_ConfMatOps">
+        Počet operátorů :
+    </my:String>
+    <my:String x:Key="eng_ConfMatSetup">
+        Setup (min) :
+    </my:String>
+    <my:String x:Key="eng_ConfMatResult">
+      Náhled :
+    </my:String>
+    <my:String x:Key="eng_isBusy_export">
+        Čekejte prosím ....
+    </my:String>
+   
+    <my:String x:Key="eng_WorkCenters">
+        Pracovní střediska
+    </my:String>
+    <my:String x:Key="eng_Groups">
+        Skupiny
+    </my:String>
+    <my:String x:Key="eng_SetupWc">
+        Nastavení
+    </my:String>
+    <my:String x:Key="eng_ExportConf">
+        Export konfigurátoru
+    </my:String>
+
+
+
+
+
+
+
+
+
+
+
+</ResourceDictionary>

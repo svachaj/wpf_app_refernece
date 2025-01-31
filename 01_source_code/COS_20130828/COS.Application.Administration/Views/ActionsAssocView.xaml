@@ -1,0 +1,48 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" x:Class="COS.Application.Administration.Views.ActionsAssocView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="300" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <telerik:RadGridView ItemsSource="{Binding ActionsUsed}" AutoGenerateColumns="False" ShowGroupPanel="False" MouseDoubleClick="used_MouseDoubleClick" telerik:StyleManager.Theme="Expression_Dark" RowIndicatorVisibility="Collapsed" Margin="3" >
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn Header="Použité akce" DataMemberBinding="{Binding Name}">
+                        
+                    </telerik:GridViewDataColumn>
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+            <telerik:RadGridView Grid.Column="1" ItemsSource="{Binding ActionsToAdd}"  AutoGenerateColumns="False" ShowGroupPanel="False" MouseDoubleClick="toAdd_MouseDoubleClick" telerik:StyleManager.Theme="Expression_Dark"  RowIndicatorVisibility="Collapsed" Margin="3" >
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn Header="Použité akce" DataMemberBinding="{Binding Name}">
+
+                    </telerik:GridViewDataColumn>
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+
+        </Grid>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" Margin="3">
+            <telerik:RadButton telerik:StyleManager.Theme="Expression_Dark"  Content="{DynamicResource adm_save}" Height="Auto"  Width="Auto" Margin="3" Padding="10,5,10,5" Click="btnSave_click" />
+            <telerik:RadButton telerik:StyleManager.Theme="Expression_Dark" Content="{DynamicResource adm_Cancel}" Height="Auto"  Width="Auto" Margin="3" Padding="10,5,10,5" Click="btnCancel_click" />
+        </StackPanel>
+    </Grid>
+</bc:BaseUserControl>

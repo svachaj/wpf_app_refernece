@@ -1,0 +1,23 @@
+﻿<telerik:RadToolBar x:Class="COS.Common.WPF.Controls.COSToolBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"  xmlns:local="clr-namespace:COS.Common.WPF.Controls"
+             d:DesignHeight="30" d:DesignWidth="300" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+    <telerik:RadToolBar.Resources>
+        <local:EditModeEnabledConvertor x:Key="EditModeEnabledConvertor"></local:EditModeEnabledConvertor>
+    </telerik:RadToolBar.Resources>
+    <telerik:RadButton x:Name="btnInsert" VerticalAlignment="Center" Command="{Binding InsertToolBarCommand}" IsEnabled="{Binding EditingMode, Converter={StaticResource EditModeEnabledConvertor}, ConverterParameter=Insert}" ToolTip="{DynamicResource gen_tt_Insert}">
+        <Image Source="/COSResources;component/Images/Add_48x48.png" Height="32" VerticalAlignment="Center"></Image>
+    </telerik:RadButton>
+    <telerik:RadButton x:Name="btnUpdate" VerticalAlignment="Center" Command="{Binding UpdateToolBarCommand}" IsEnabled="{Binding EditingMode, Converter={StaticResource EditModeEnabledConvertor}, ConverterParameter=Update}" ToolTip="{DynamicResource gen_tt_Update}">
+        <Image Source="/COSResources;component/Images/Save_48x48.png" Height="32" VerticalAlignment="Center"></Image>
+    </telerik:RadButton>
+    <telerik:RadButton  x:Name="btnDelete" VerticalAlignment="Center" Command="{Binding DeleteToolBarCommand}" IsEnabled="{Binding EditingMode, Converter={StaticResource EditModeEnabledConvertor}, ConverterParameter=Delete}" ToolTip="{DynamicResource gen_tt_Delete}">
+        <Image Source="/COSResources;component/Images/Delete_48x48.png" Height="32" VerticalAlignment="Center"></Image>
+    </telerik:RadButton>
+    <telerik:RadButton x:Name="btnCancel" VerticalAlignment="Center" Command="{Binding CancelToolBarCommand}" IsEnabled="{Binding EditingMode, Converter={StaticResource EditModeEnabledConvertor}, ConverterParameter=Cancel}"  ToolTip="{DynamicResource gen_tt_Cancel}">
+        <Image Source="/COSResources;component/Images/Cancel_48x48.png" Height="32" VerticalAlignment="Center"></Image>
+    </telerik:RadButton>
+</telerik:RadToolBar>

@@ -1,0 +1,243 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:my="clr-namespace:System;assembly=mscorlib">
+    <my:String x:Key="log_Shipment">Shipment</my:String>
+    <my:String x:Key="log_CargoPrices">Cargo and prices</my:String>
+    <my:String x:Key="log_ShipmentContent">Shipment content</my:String>
+    <my:String x:Key="log_TRP">TRP</my:String>
+    <my:String x:Key="log_LoadCheck">Cargo check</my:String>
+    <my:String x:Key="log_TruckOnRamp">Truck on platform</my:String>
+    <my:String x:Key="log_Finished">Finished</my:String>
+    <my:String x:Key="log_Note">Note</my:String>
+    <my:String x:Key="log_pNote">Personal note</my:String>
+    <my:String x:Key="log_Destination">Destination</my:String>
+    <my:String x:Key="log_Forwarder">Forwarder</my:String>
+    <my:String x:Key="log_PlannedDate">Planned date</my:String>
+    <my:String x:Key="log_Platform">Loading platform</my:String>
+    <my:String x:Key="log_TimeWindow">Time window</my:String>
+    <my:String x:Key="log_Priority">Priority</my:String>
+    <my:String x:Key="log_OrderedBy">Order by</my:String>
+    <my:String x:Key="log_Unit">Unit</my:String>
+    <my:String x:Key="log_UnitNo">Number of unit</my:String>
+    <my:String x:Key="log_VolumeCbm">Volume (cbm)</my:String>
+    <my:String x:Key="log_ForwarderPrice">Forwarder price (CZK)</my:String>
+    <my:String x:Key="log_BafPrice">BAF price (CZK)</my:String>
+    <my:String x:Key="log_TollPrice">Toll price (CZK)</my:String>
+    <my:String x:Key="log_TotalPrice">Total price (CZK)</my:String>
+    <my:String x:Key="log_TransportPayment">Transport payer</my:String>
+    <my:String x:Key="log_CostCenter">Cost center</my:String>
+    <my:String x:Key="log_Country">Country</my:String>
+    <my:String x:Key="log_AddContent">Add destination</my:String>
+    <my:String x:Key="log_ShipmentDetail">Shipment - Detail</my:String>
+    <my:String x:Key="log_InvoiceCheck">Invoice check</my:String>
+    <my:String x:Key="log_tt_LoadFile">Load pricelist</my:String>
+    <my:String x:Key="log_tt_ImportData">import pricelist in COS</my:String>
+    <my:String x:Key="log_Zone">Zone</my:String>
+    <my:String x:Key="log_cbBaf">BAF pricelist</my:String>
+    <my:String x:Key="log_Id">ID</my:String>
+    <my:String x:Key="log_BafPercent">BAF %</my:String>
+    <my:String x:Key="log_ValidDate">Valid from</my:String>
+    <my:String x:Key="log_Save">Save</my:String>
+    <my:String x:Key="log_Cancel">Close</my:String>
+    <my:String x:Key="log_cbForwarder">Codebook: Forwarder</my:String>
+    <my:String x:Key="log_cbOrderedBy">Codebook: Division</my:String>
+    <my:String x:Key="log_cbOrderedByDiv">Division</my:String>
+    <my:String x:Key="log_cbplatform">Codebook: Loading platform</my:String>
+    <my:String x:Key="log_cbTimeWindow">Codebook: Time window</my:String>
+    <my:String x:Key="log_cbUnit">Codebook: Units</my:String>
+    <my:String x:Key="log_cbCountryCode">Country code</my:String>
+    <my:String x:Key="log_cbCountry">Codebook: Country code</my:String>
+    <my:String x:Key="log_cbCode">Zone code</my:String>
+    <my:String x:Key="log_cbDestination">Destination name</my:String>
+    <my:String x:Key="log_cblNumber">c.n. - Lindab</my:String>
+    <my:String x:Key="log_cbcNumber">c.n. - Customer</my:String>
+    <my:String x:Key="log_cbZone">Codebook: Zone</my:String>
+    <my:String x:Key="log_cbTransferPayment">Codebook: Transport payer</my:String>
+    <my:String x:Key="log_ForeignExportDetail">Foreign export - Detail</my:String>
+    <my:String x:Key="log_PricesTotal">Shipment - Notes</my:String>
+    <my:String x:Key="log_tt_DeleteCargo">Delete cargo</my:String>
+    <my:String x:Key="log_FaNote">Invoice- Note</my:String>
+    <my:String x:Key="log_Distance">Distance (km)</my:String>
+    <my:String x:Key="log_AllZones">Destinace (combination)</my:String>
+    <my:String x:Key="log_AssignedZone">Assigned destination</my:String>
+    <my:String x:Key="log_UnAssignedZone">Unassgined destination</my:String>
+    <my:String x:Key="log_OK">OK</my:String>
+    <my:String x:Key="log_isCombination">Combination</my:String>
+    <my:String x:Key="log_cNumberSetup">Setup</my:String>
+    <my:String x:Key="log_isCompleted">Closed</my:String>
+    <my:String x:Key="log_CompleteLoading">Complete load</my:String>
+    <my:String x:Key="log_IsOrderLocked">Lock order</my:String>
+    <my:String x:Key="log_LoadDepart">Load / Depart</my:String>
+    <my:String x:Key="log_LoadCheckVi">Cargo check VI</my:String>
+    <my:String x:Key="log_NoteVi">Note VI</my:String>
+    <my:String x:Key="log_All">All</my:String>
+    <my:String x:Key="log_Planned">Planned</my:String>
+    <my:String x:Key="log_default">Default</my:String>
+    <my:String x:Key="log_set1">Set 1</my:String>
+    <my:String x:Key="log_tt_refresh">Refresh data</my:String>
+    <my:String x:Key="log_TollPriceGerlach">Toll price Gerlach (CZK)</my:String>
+    <my:String x:Key="log_CountPlur">Count</my:String>
+    <my:String x:Key="log_Count">Count of transport</my:String>
+    <my:String x:Key="log_CountCondition">Load/leave</my:String>
+    <my:String x:Key="log_cbAddnewDest">New destination</my:String>
+    <my:String x:Key="log_lblvolume">Todays volume in (cbm)</my:String>
+    <my:String x:Key="log_IsThreeSome">Skladba - 3pl</my:String>
+    <my:String x:Key="log_IsInProgess">In progress</my:String>
+    <my:String x:Key="log_priceVI">price VI</my:String>
+    <my:String x:Key="log_priceVA">price VA</my:String>
+    <my:String x:Key="log_set2">Set 2</my:String>
+    <my:String x:Key="log_tt_BafRecalc">BAF and Total price recalculation</my:String>
+    <my:String x:Key="log_BafRecalcWnd">BAF and Total price recalculation:</my:String>
+    <my:String x:Key="log_Recalc">Re-Calculate</my:String>
+    <my:String x:Key="tm_SaveAndRewrite">Save - Recalculate volume check</my:String>
+    <my:String x:Key="log_PlVolumeVa">Ordered CBM ADS</my:String>
+    <my:String x:Key="log_VolumeVa">Real CBM ADS</my:String>
+    <my:String x:Key="log_LoadVa">Load % ADS</my:String>
+    <my:String x:Key="log_PlVolumeVi">Ordered CBM VI</my:String>
+    <my:String x:Key="log_VolumeVi">Real CBM VI</my:String>
+    <my:String x:Key="log_LoadVi">Load % VI</my:String>
+    <my:String x:Key="log_TotLoadDiff">Total diff %</my:String>
+    <my:String x:Key="log_TotVolDiff">CBM Diff</my:String>
+    <my:String x:Key="log_CmbPrice">Price/CBM</my:String>
+    <my:String x:Key="log_Cost">Total cost</my:String>
+    <my:String x:Key="log_ChangedBy">Changed By</my:String>
+    <my:String x:Key="log_ChangeDate">Changed Date</my:String>
+    <my:String x:Key="log_DriverName">Driver name</my:String>
+    <my:String x:Key="log_cbDomesticDriver">cb: Driver</my:String>
+    <my:String x:Key="log_cbDomesticContactType">cb: Contact type</my:String>
+    <my:String x:Key="log_cbCarTypeName">Car type</my:String>
+    <my:String x:Key="log_cbMaxCBM">Max. volume</my:String>
+    <my:String x:Key="log_cbDomesticCarType">cb: Car type</my:String>
+    <my:String x:Key="log_cbDomesticComposition">cb: Composition</my:String>
+    <my:String x:Key="log_cbDomesticForwarderName">Forwarder name</my:String>
+    <my:String x:Key="log_cbDomesticForwarderDeviation">% deviation for price calculation</my:String>
+    <my:String x:Key="log_cbDomesticForwarderCanRec">Allow BAF price recalculation (Y/N)</my:String>
+    <my:String x:Key="log_cbDomesticForwarder">cb: Forwarder</my:String>
+    <my:String x:Key="log_cbDomesticPricePerKm">Price per km</my:String>
+    <my:String x:Key="log_DomesticCarType">Car type</my:String>
+    <my:String x:Key="log_cbDomesticPriceList">cb: Price list</my:String>
+    <my:String x:Key="log_DomesticDestinationName">Destination name</my:String>
+    <my:String x:Key="log_DomesticGPS">GPS Coordinates</my:String>
+    <my:String x:Key="log_DomesticCity">City</my:String>
+    <my:String x:Key="log_DomesticStreet">Street</my:String>
+    <my:String x:Key="log_cbDomesticDestination">cb: Destination</my:String>
+    <my:String x:Key="log_DomesticDeliveryTime">Delivery time</my:String>
+
+
+
+
+    <my:String x:Key="log_DomesticPointOfOrigin">Shipped</my:String>
+    <my:String x:Key="log_DomesticDestination">Target destination</my:String>
+    <my:String x:Key="log_DomesticForwarder">Forwarder</my:String>
+    <my:String x:Key="log_DomesticDriver">Driver</my:String>
+    <my:String x:Key="log_DomesticComposition">Composition</my:String>
+    <my:String x:Key="log_DomesticTRP">TRP</my:String>
+    <my:String x:Key="log_DomesticPannedDate">Date</my:String>
+    <my:String x:Key="log_DomesticTotalvolume">Total volume</my:String>
+    <my:String x:Key="log_DomesticTotalPrice">Total price</my:String>
+    <my:String x:Key="log_DomesticTotalDistance">Total distance</my:String>
+    <my:String x:Key="log_DomesticCountOfDestinations">Count of destinations</my:String>
+    <my:String x:Key="log_DomesticPersonalNote">Personal note</my:String>
+    <my:String x:Key="log_DomesticNote">Note</my:String>
+    <my:String x:Key="log_DomesticDeliveryNote">Delivery note</my:String>
+    <my:String x:Key="log_DomesticIsComplete">Finished</my:String>
+    <my:String x:Key="log_DomesticCustomer">Customer</my:String>
+    <my:String x:Key="log_DomesticSalesOrder">SO</my:String>
+    <my:String x:Key="log_DomesticAction">Action</my:String>
+    <my:String x:Key="log_DomesticCostCenter">Cost center</my:String>
+    <my:String x:Key="log_DomesticVolume">Volume</my:String>
+    <my:String x:Key="log_DomesticDistance">Distance</my:String>
+    <my:String x:Key="log_DomesticForwarderPrice">Forwarder price</my:String>
+    <my:String x:Key="log_DomesticBafPrice">BAF</my:String>
+    <my:String x:Key="log_DomesticDiscount">Discount</my:String>
+    <my:String x:Key="log_DomesticDestinationMap">Map</my:String>
+    <my:String x:Key="log_DomesticExportDetail">Domestic export: Detail</my:String>
+    <my:String x:Key="log_BafRecalc">Re-Calculation BAF:</my:String>
+    <my:String x:Key="log_DomesticCustomers">Customers</my:String>
+    <my:String x:Key="log_DomesticRound">Round</my:String>
+    <my:String x:Key="log_DomesticMap">Map</my:String>
+
+
+    <my:String x:Key="log_DomesticName">Name</my:String>
+    <my:String x:Key="log_DomesticSurname">Last Name</my:String>
+    <my:String x:Key="log_DomesticPhone">Phone</my:String>
+    <my:String x:Key="log_DomesticEmail">Email</my:String>
+    <my:String x:Key="log_DomesticContactType">Contact type</my:String>
+
+    <my:String x:Key="log_DomesticCustomerName">Customer name</my:String>
+    <my:String x:Key="log_DomesticCustomerCountry">Country</my:String>
+    <my:String x:Key="log_DomesticCustomerContacts">Contacts:</my:String>
+
+    <my:String x:Key="log_priceVA4H">price VA - 4H</my:String>
+    <my:String x:Key="log_priceVAComp">price VA - Total</my:String>
+
+    <my:String x:Key="log_VolumeCbmTotal">Total volume (CBM)</my:String>
+    <my:String x:Key="log_DomesticPoO">Point of origin ? (Y/N)</my:String>
+    <my:String x:Key="log_DomesticPoOrig">Point of origin</my:String>
+    <my:String x:Key="log_DomesticCustomerNumber">Customer number</my:String>
+
+    <my:String x:Key="log_DomesticInvoiceCheck">Invoice check</my:String>
+
+    <my:String x:Key="log_DomesticRepBafPrice">Price BAF</my:String>
+    <my:String x:Key="log_DomesticExped">Shipped</my:String>
+    <my:String x:Key="log_DomesticLogDestination">Destination</my:String>
+    <my:String x:Key="log_GenerateMail">Sending - Time Window</my:String>
+    <my:String x:Key="log_TimewWindowSubj">Time windows -</my:String>
+    <my:String x:Key="log_ProdTimeWindow">Time window</my:String>
+    <my:String x:Key="log_tt_TimeWindow">Generate and send e-mail - Time windows</my:String>
+
+    <my:String x:Key="log_Week">Week</my:String>
+    <my:String x:Key="log_Year">Year</my:String>
+    <my:String x:Key="log_LastOrder">Last order</my:String>
+    <my:String x:Key="log_TranspCount">Number of transports</my:String>
+    <my:String x:Key="log_TransOrderedCount">Number of ordered transports</my:String>
+    <my:String x:Key="log_TranspOrder">Orders</my:String>
+    <my:String x:Key="log_Order">Order</my:String>
+    <my:String x:Key="log_isBusyTrpOrder">Generating order ....</my:String>
+    <my:String x:Key="log_TrpOrderWeekly">Transport Order - Weekly</my:String>
+    <my:String x:Key="log_ExportToExcel">Export to XLS</my:String>
+    <my:String x:Key="log_SendEmail">Send order</my:String>
+    <my:String x:Key="log_LindabNo">Lindab No.</my:String>
+    <my:String x:Key="log_Advices">Advices</my:String>
+    <my:String x:Key="log_Day1ofWeek">Day 1. of week -</my:String>
+    <my:String x:Key="log_Day2ofWeek">Day 2. of week -</my:String>
+    <my:String x:Key="log_Day3ofWeek">Day 3. of week -</my:String>
+    <my:String x:Key="log_Day4ofWeek">Day 4. of week -</my:String>
+    <my:String x:Key="log_Day5ofWeek">Day 5. of week -</my:String>
+    <my:String x:Key="log_Info">Info</my:String>
+    <my:String x:Key="log_Volume">Volume</my:String>
+
+    <my:String x:Key="log_AdviceAddWnd">Advices</my:String>
+    <my:String x:Key="log_IsOrdered">Ordered</my:String>
+    <my:String x:Key="log_Address">Address</my:String>
+
+    <my:String x:Key="log_ContactEmail">Contact e-mail</my:String>
+    <my:String x:Key="log_ReadReceiptEmail">Receipt e-mail</my:String>
+    <my:String x:Key="log_ConAdress">Contact address</my:String>
+    <my:String x:Key="log_ProdTimeWindowNot">Time window - Notification</my:String>
+    <my:String x:Key="log_EmailAddress">E-mail address</my:String>
+    <my:String x:Key="log_EmGroup">Group</my:String>
+    <my:String x:Key="log_CbConAdress">Contact address - Orders</my:String>
+    <my:String x:Key="log_CbReadReceiptEmail">Address - Receipt</my:String>
+    <my:String x:Key="log_CbEdit">Edit</my:String>
+
+    <my:String x:Key="log_TwSend">Send</my:String>
+    <my:String x:Key="log_TwCancel">Cancel</my:String>
+
+    <my:String x:Key="log_ProdTimeWindowEmail">List of e-mails</my:String>
+    <my:String x:Key="tt_logTimeWindowEdit">Edit time window</my:String>
+    <my:String x:Key="log_TimeWindowEdit">Edit time window</my:String>
+    <my:String x:Key="log_OrderedByDay">Count of Ordered Transports</my:String>
+
+    <my:String x:Key="log_ZnOrderInfo">Information for transport order</my:String>
+    <my:String x:Key="log_ZnCompany">Company name</my:String>
+    <my:String x:Key="log_ZnStreet">Street</my:String>
+    <my:String x:Key="log_ZnCity">City</my:String>
+    <my:String x:Key="log_ZnPostalCode">Postal code</my:String>
+
+    <my:String x:Key="log_AdvValue">Advice - Description</my:String>
+    <my:String x:Key="log_AdvAddAdvice">ADD / Edit  - Advices</my:String>
+
+    <my:String x:Key="log_AdvDefValue">Default</my:String>
+
+
+
+</ResourceDictionary>

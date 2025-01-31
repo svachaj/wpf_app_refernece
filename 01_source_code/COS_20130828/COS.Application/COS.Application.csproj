@@ -1,0 +1,986 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2CBCD5CA-5AD8-41CA-9C04-82AF852845BA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>COS.Application</RootNamespace>
+    <AssemblyName>COS.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>E:\Update\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>true</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <UpdateUrl>\\cz46SQL0001\COS_Update\COS_PRODUCTION\</UpdateUrl>
+    <ProductName>COS - Production</ProductName>
+    <PublisherName>COS Production</PublisherName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>246</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\COS.Application.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>DE472826A77AAE585C3D938444856638EABBBACD</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>COS.Application_2_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Cos_App.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Reporting, Version=6.2.13.110, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.Wpf, Version=6.2.13.110, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.DataVisualization, Version=0.0.0.0, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Docking, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.ImageEditor, Version=2012.3.1404.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2012.3.1404.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.Input.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2012.3.1404.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.Navigation.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RibbonView, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.RibbonView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RichTextBoxUI, Version=2011.3.1220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Documents.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AppStartClass.cs" />
+    <Compile Include="Modules\Administration\cbAccountTypePane.xaml.cs">
+      <DependentUpon>cbAccountTypePane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Administration\cbCostCentersPane.xaml.cs">
+      <DependentUpon>cbCostCentersPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Administration\cbDivisionPane.xaml.cs">
+      <DependentUpon>cbDivisionPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Administration\GroupsPane.xaml.cs">
+      <DependentUpon>GroupsPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Administration\LocalizationPane.xaml.cs">
+      <DependentUpon>LocalizationPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Administration\SecuritySettingsPane.xaml.cs">
+      <DependentUpon>SecuritySettingsPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Administration\UsersPane.xaml.cs">
+      <DependentUpon>UsersPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Engeneering\cbDowntimesGroupPane.xaml.cs">
+      <DependentUpon>cbDowntimesGroupPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Engeneering\cbDowntimesPane.xaml.cs">
+      <DependentUpon>cbDowntimesPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Engeneering\cbItemsGroupPane.xaml.cs">
+      <DependentUpon>cbItemsGroupPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Engeneering\cbShiftsPane.xaml.cs">
+      <DependentUpon>cbShiftsPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Engeneering\cbShiftsTypePane.xaml.cs">
+      <DependentUpon>cbShiftsTypePane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Engeneering\cbWorkCenterPane.xaml.cs">
+      <DependentUpon>cbWorkCenterPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Engeneering\cbWorkGroupPane.xaml.cs">
+      <DependentUpon>cbWorkGroupPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Engeneering\cbWorkGroupsWorkCentersPane.xaml.cs">
+      <DependentUpon>cbWorkGroupsWorkCentersPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Engeneering\cbDowntimesGroupDowntimePane.xaml.cs">
+      <DependentUpon>cbDowntimesGroupDowntimePane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Engeneering\cbShiftPatternsPane.xaml.cs">
+      <DependentUpon>cbShiftPatternsPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Engeneering\ConfiguratorsPane.xaml.cs">
+      <DependentUpon>ConfiguratorsPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Engeneering\ConfiguratorsMatrixPane.xaml.cs">
+      <DependentUpon>ConfiguratorsMatrixPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Engeneering\cbConfiguratorGroupPane.xaml.cs">
+      <DependentUpon>cbConfiguratorGroupPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Engeneering\StandardsPane.xaml.cs">
+      <DependentUpon>StandardsPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\HumanResources\cbDepartmentsPane.xaml.cs">
+      <DependentUpon>cbDepartmentsPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\HumanResources\cbInsuranceCompanyPane.xaml.cs">
+      <DependentUpon>cbInsuranceCompanyPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\cbForeignExportForwarderPane.xaml.cs">
+      <DependentUpon>cbForeignExportForwarderPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\cbForeignExportBafPane.xaml.cs">
+      <DependentUpon>cbForeignExportBafPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\cbForeignExportOrderedByPane.xaml.cs">
+      <DependentUpon>cbForeignExportOrderedByPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\cbForeignExportPlatformPane.xaml.cs">
+      <DependentUpon>cbForeignExportPlatformPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\cbForeignExportTimeWindowPane.xaml.cs">
+      <DependentUpon>cbForeignExportTimeWindowPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\cbForeignExportUnitPane.xaml.cs">
+      <DependentUpon>cbForeignExportUnitPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\cbForeignExportCountryPane.xaml.cs">
+      <DependentUpon>cbForeignExportCountryPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\cbForeignExportZonePane.xaml.cs">
+      <DependentUpon>cbForeignExportZonePane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\cbForeignExportTransportPaymentPane.xaml.cs">
+      <DependentUpon>cbForeignExportTransportPaymentPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\cbForeignExportZoneCombinationPane.xaml.cs">
+      <DependentUpon>cbForeignExportZoneCombinationPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\ForeignExportTrOrderCoPane.xaml.cs">
+      <DependentUpon>ForeignExportTrOrderCoPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\Domestic\cbDomesticExportPriceListPane.xaml.cs">
+      <DependentUpon>cbDomesticExportPriceListPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\Domestic\cbDomesticExportCustomerPane.xaml.cs">
+      <DependentUpon>cbDomesticExportCustomerPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\Domestic\cbDomesticExportContactTypePane.xaml.cs">
+      <DependentUpon>cbDomesticExportContactTypePane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\Domestic\cbDomesticExportForwarderPane.xaml.cs">
+      <DependentUpon>cbDomesticExportForwarderPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\Domestic\cbDomesticExportDriverPane.xaml.cs">
+      <DependentUpon>cbDomesticExportDriverPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\Domestic\cbDomesticExportCarTypePane.xaml.cs">
+      <DependentUpon>cbDomesticExportCarTypePane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\Domestic\cbDomesticExportCompositionPane.xaml.cs">
+      <DependentUpon>cbDomesticExportCompositionPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\Domestic\cbDomesticExportDestinationPane.xaml.cs">
+      <DependentUpon>cbDomesticExportDestinationPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\Domestic\cbDomesticExportBafPricePane.xaml.cs">
+      <DependentUpon>cbDomesticExportBafPricePane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\Domestic\DomesticExportPane.xaml.cs">
+      <DependentUpon>DomesticExportPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\ForeignVolumeCheckPane.xaml.cs">
+      <DependentUpon>ForeignVolumeCheckPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\ForeignExportPriceListImportPane.xaml.cs">
+      <DependentUpon>ForeignExportPriceListImportPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Logistic\ForeignExportPane.xaml.cs">
+      <DependentUpon>ForeignExportPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Orders\cbOrderExecuteUsrPane.xaml.cs">
+      <DependentUpon>cbOrderExecuteUsrPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Orders\cbOrderApproveUsrPane.xaml.cs">
+      <DependentUpon>cbOrderApproveUsrPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Orders\OrderApprovePane.xaml.cs">
+      <DependentUpon>OrderApprovePane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Orders\OrderCompletionPane.xaml.cs">
+      <DependentUpon>OrderCompletionPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Orders\OrderInputPane.xaml.cs">
+      <DependentUpon>OrderInputPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Production\AdsCustomerServicesViewPane.xaml.cs">
+      <DependentUpon>AdsCustomerServicesViewPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Production\cbP4hManufacturerViewPane.xaml.cs">
+      <DependentUpon>cbP4hManufacturerViewPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Production\cbP4hSupplierViewPane.xaml.cs">
+      <DependentUpon>cbP4hSupplierViewPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Production\cbP4hPlanExecutionViewPane.xaml.cs">
+      <DependentUpon>cbP4hPlanExecutionViewPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Production\cbP4hStateViewPane.xaml.cs">
+      <DependentUpon>cbP4hStateViewPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Production\cbP4hTransportTypeViewPane.xaml.cs">
+      <DependentUpon>cbP4hTransportTypeViewPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Production\cbP4hDifficultyViewPane.xaml.cs">
+      <DependentUpon>cbP4hDifficultyViewPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Production\Planning4hProductionViewPane.xaml.cs">
+      <DependentUpon>Planning4hProductionViewPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Production\HourlyProductionCalculationViewPane.xaml.cs">
+      <DependentUpon>HourlyProductionCalculationViewPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Production\HourlyProductionMainViewPane.xaml.cs">
+      <DependentUpon>HourlyProductionMainViewPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\HumanResources\cbBonusGroupsPane.xaml.cs">
+      <DependentUpon>cbBonusGroupsPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\HumanResources\cbEmployersPane.xaml.cs">
+      <DependentUpon>cbEmployersPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\HumanResources\cbSalaryGroupsPane.xaml.cs">
+      <DependentUpon>cbSalaryGroupsPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\HumanResources\cbWorkPositionsPane.xaml.cs">
+      <DependentUpon>cbWorkPositionsPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\HumanResources\EmployeePane.xaml.cs">
+      <DependentUpon>EmployeePane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Reporting\AdsEmpProductivityReportPane.xaml.cs">
+      <DependentUpon>AdsEmpProductivityReportPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Reporting\cbKpiReportPane.xaml.cs">
+      <DependentUpon>cbKpiReportPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Reporting\LogisticDomForwarderPrReportPane.xaml.cs">
+      <DependentUpon>LogisticDomForwarderPrReportPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Reporting\LogisticLoadsReportPane.xaml.cs">
+      <DependentUpon>LogisticLoadsReportPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Reporting\LogisticForwarderReportPane.xaml.cs">
+      <DependentUpon>LogisticForwarderReportPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Reporting\WgWcComparationReportPane.xaml.cs">
+      <DependentUpon>WgWcComparationReportPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Reporting\ShiftFollowUpRangePane.xaml.cs">
+      <DependentUpon>ShiftFollowUpRangePane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Reporting\LogisticReport2Pane.xaml.cs">
+      <DependentUpon>LogisticReport2Pane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Reporting\DowntimeParetoReportPane.xaml.cs">
+      <DependentUpon>DowntimeParetoReportPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Reporting\LogisticReportPane.xaml.cs">
+      <DependentUpon>LogisticReportPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Reporting\DowntimeDetailReportPane.xaml.cs">
+      <DependentUpon>DowntimeDetailReportPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Reporting\ProductionDetailDtSumReportPane.xaml.cs">
+      <DependentUpon>ProductionDetailDtSumReportPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Reporting\ProductionDetailReportPane.xaml.cs">
+      <DependentUpon>ProductionDetailReportPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Reporting\ShiftFollowUpPane.xaml.cs">
+      <DependentUpon>ShiftFollowUpPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Reporting\WcReportPane.xaml.cs">
+      <DependentUpon>WcReportPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\TechnicalMaintenance\cbTpmEquipmentPane.xaml.cs">
+      <DependentUpon>cbTpmEquipmentPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\TechnicalMaintenance\cbTpmPlansPane.xaml.cs">
+      <DependentUpon>cbTpmPlansPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\TechnicalMaintenance\cbTpmCheckListItemsPane.xaml.cs">
+      <DependentUpon>cbTpmCheckListItemsPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\TechnicalMaintenance\cbTmToolPane.xaml.cs">
+      <DependentUpon>cbTmToolPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\TechnicalMaintenance\TmToolHandlePane.xaml.cs">
+      <DependentUpon>TmToolHandlePane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\TechnicalMaintenance\TpmPlanOVerviewPane.xaml.cs">
+      <DependentUpon>TpmPlanOVerviewPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\TechnicalMaintenance\TpmCheckListSetupPane.xaml.cs">
+      <DependentUpon>TpmCheckListSetupPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\TechnicalMaintenance\TpmHolidayCalendarPane.xaml.cs">
+      <DependentUpon>TpmHolidayCalendarPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\TechnicalMaintenance\TpmCheckListPane.xaml.cs">
+      <DependentUpon>TpmCheckListPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RadMainWindow.xaml.cs">
+      <DependentUpon>RadMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateWindow.xaml.cs">
+      <DependentUpon>UpdateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Modules\Administration\cbAccountTypePane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Administration\cbCostCentersPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Administration\cbDivisionPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Administration\GroupsPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Administration\LocalizationPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Administration\SecuritySettingsPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Administration\UsersPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Engeneering\cbDowntimesGroupPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Engeneering\cbDowntimesPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Engeneering\cbItemsGroupPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Engeneering\cbShiftsPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Engeneering\cbShiftsTypePane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Engeneering\cbWorkCenterPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Engeneering\cbWorkGroupPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Engeneering\cbWorkGroupsWorkCentersPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Engeneering\cbDowntimesGroupDowntimePane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Engeneering\cbShiftPatternsPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Engeneering\ConfiguratorsPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Engeneering\ConfiguratorsMatrixPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Engeneering\cbConfiguratorGroupPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Engeneering\StandardsPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\HumanResources\cbDepartmentsPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\HumanResources\cbInsuranceCompanyPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\cbForeignExportForwarderPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\cbForeignExportBafPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\cbForeignExportOrderedByPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\cbForeignExportPlatformPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\cbForeignExportTimeWindowPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\cbForeignExportUnitPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\cbForeignExportCountryPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\cbForeignExportZonePane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\cbForeignExportTransportPaymentPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\cbForeignExportZoneCombinationPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\ForeignExportTrOrderCoPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\Domestic\cbDomesticExportPriceListPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\Domestic\cbDomesticExportCustomerPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\Domestic\cbDomesticExportContactTypePane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\Domestic\cbDomesticExportForwarderPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\Domestic\cbDomesticExportDriverPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\Domestic\cbDomesticExportCarTypePane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\Domestic\cbDomesticExportCompositionPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\Domestic\cbDomesticExportDestinationPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\Domestic\cbDomesticExportBafPricePane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\Domestic\DomesticExportPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\ForeignVolumeCheckPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\ForeignExportPriceListImportPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Logistic\ForeignExportPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Orders\cbOrderExecuteUsrPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Orders\cbOrderApproveUsrPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Orders\OrderApprovePane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Orders\OrderCompletionPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Orders\OrderInputPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Production\AdsCustomerServicesViewPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Production\cbP4hManufacturerViewPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Production\cbP4hSupplierViewPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Production\cbP4hPlanExecutionViewPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Production\cbP4hStateViewPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Production\cbP4hTransportTypeViewPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Production\cbP4hDifficultyViewPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Production\Planning4hProductionViewPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Production\HourlyProductionCalculationViewPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Production\HourlyProductionMainViewPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\HumanResources\cbBonusGroupsPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\HumanResources\cbEmployersPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\HumanResources\cbSalaryGroupsPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\HumanResources\cbWorkPositionsPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\HumanResources\EmployeePane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Reporting\AdsEmpProductivityReportPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Reporting\cbKpiReportPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Reporting\LogisticDomForwarderPrReportPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Reporting\LogisticLoadsReportPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Reporting\LogisticForwarderReportPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Reporting\WgWcComparationReportPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Reporting\ShiftFollowUpRangePane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Reporting\LogisticReport2Pane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Reporting\DowntimeParetoReportPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Reporting\LogisticReportPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Reporting\DowntimeDetailReportPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Reporting\ProductionDetailDtSumReportPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Reporting\ProductionDetailReportPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Reporting\ShiftFollowUpPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Reporting\WcReportPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\TechnicalMaintenance\cbTpmEquipmentPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\TechnicalMaintenance\cbTpmPlansPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\TechnicalMaintenance\cbTpmCheckListItemsPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\TechnicalMaintenance\cbTmToolPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\TechnicalMaintenance\TmToolHandlePane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\TechnicalMaintenance\TpmPlanOVerviewPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\TechnicalMaintenance\TpmCheckListSetupPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\TechnicalMaintenance\TpmHolidayCalendarPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\TechnicalMaintenance\TpmCheckListPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RadMainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UpdateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="COS.Application_TemporaryKey.pfx" />
+    <None Include="EmailTemplates\Logistics\Foreign\template_timewindow1.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\COS.Application.Administration\COS.Application.Administration.csproj">
+      <Project>{EB3FFEA1-1C8D-48B0-8E31-7C5ADD2B56FF}</Project>
+      <Name>COS.Application.Administration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Application.Engeneering\COS.Application.Engeneering.csproj">
+      <Project>{3EBBC63B-1A79-4469-ACA1-17613137EC44}</Project>
+      <Name>COS.Application.Engeneering</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Application.HumanResources\COS.Application.HumanResources.csproj">
+      <Project>{91F7532B-84BB-4BFB-8A0E-B5FA44997584}</Project>
+      <Name>COS.Application.HumanResources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Application.Logistics\COS.Application.Logistics.csproj">
+      <Project>{09FB407E-A64C-4ACA-90B9-368A775B5BA2}</Project>
+      <Name>COS.Application.Logistics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Application.Orders\COS.Application.Orders.csproj">
+      <Project>{C3F00633-0FB2-4316-B8B9-EC3C10BD5900}</Project>
+      <Name>COS.Application.Orders</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Application.Production\COS.Application.Production.csproj">
+      <Project>{128AFE9B-CAAD-41DE-80C6-0F089DF57C1D}</Project>
+      <Name>COS.Application.Production</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Application.Reporting\COS.Application.Reporting.csproj">
+      <Project>{7242A5BC-9F18-44BF-BF2C-49277CCCF057}</Project>
+      <Name>COS.Application.Reporting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Application.Shared\COS.Application.Shared.csproj">
+      <Project>{B2DBB0E3-4B9D-4C40-ACF3-ECC540868351}</Project>
+      <Name>COS.Application.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Application.TechnicalMaintenance\COS.Application.TechnicalMaintenance.csproj">
+      <Project>{0D26B4B4-ED45-4C4E-9B75-48531F916DDA}</Project>
+      <Name>COS.Application.TechnicalMaintenance</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Application.WorkSafety\COS.Application.WorkSafety.csproj">
+      <Project>{F7A310CF-CBB2-4E04-AA3E-20AF6ED9ECD6}</Project>
+      <Name>COS.Application.WorkSafety</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Common.WPF\COS.Common.WPF.csproj">
+      <Project>{97BDCC98-A0C1-4072-8834-311258B3A354}</Project>
+      <Name>COS.Common.WPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Common\COS.Common.csproj">
+      <Project>{94CB540B-4A30-49EF-8675-3DE324F2CEE4}</Project>
+      <Name>COS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Excel\COS.Excel.csproj">
+      <Project>{F49E8F45-4F30-4324-8EF0-CF3CC319510F}</Project>
+      <Name>COS.Excel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Security\COS.Security.csproj">
+      <Project>{4DFD8545-77B0-40DA-A309-2941DC4CEF24}</Project>
+      <Name>COS.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Resources\COS.Resources.csproj">
+      <Project>{8B4B7105-9B1A-429B-99EE-F8244C8CB3CA}</Project>
+      <Name>COS.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Splash\COS.Splash.csproj">
+      <Project>{757B48C0-E5B9-4FD2-A09C-B899581F6B82}</Project>
+      <Name>COS.Splash</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Modules\WorkSafety\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Cos_App.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Telerik.Reporting">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Telerik.ReportViewer.Wpf">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ResultPage.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

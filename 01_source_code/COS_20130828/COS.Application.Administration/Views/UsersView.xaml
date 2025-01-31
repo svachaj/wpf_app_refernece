@@ -1,0 +1,120 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" x:Class="COS.Application.Administration.Views.UsersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <my:COSToolBar telerik:StyleManager.Theme="Expression_Dark" SubmoduleName="Users" Grid.Row="0" UpdateButtonVisibility="Collapsed" CancelButtonVisibility="Collapsed">
+        </my:COSToolBar>
+        <Grid Grid.Row="1">
+
+            <telerik:RadGridView telerik:StyleManager.Theme="Expression_Dark" AutoGenerateColumns="False" MouseDoubleClick="grvUsers_MouseDoubleClick"
+                                 CanUserInsertRows="False" x:Name="grvUsers" RowIndicatorVisibility="Collapsed"
+                             ItemsSource="{Binding ViewUsers, Source={StaticResource COSC},Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
+                              ShowInsertRow="False"  DataLoading="grvUsers_DataLoading"
+                              RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="Auto">
+                <telerik:RadGridView.Columns >
+                    <!--<telerik:GridViewToggleRowDetailsColumn></telerik:GridViewToggleRowDetailsColumn>-->
+                    <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding CZ_accType}" Header="{DynamicResource adm_AccType}" x:Name="column_local_cz_accType"  >
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding EN_accType}" Header="{DynamicResource adm_AccType}" x:Name="column_local_en_accType"  >
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource adm_HrID}" DataMemberBinding="{Binding HR_ID,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" Tag="users_HR_ID_column"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource adm_LoginName}" DataMemberBinding="{Binding LoginName,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" Tag="users_LoginName_column"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True"  Header="{DynamicResource adm_Password}" Tag="users_pwd_column" >
+                        <telerik:GridViewDataColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock>*****</TextBlock>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellTemplate>
+                        <telerik:GridViewDataColumn.CellEditTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Margin="2" Text="{DynamicResource adm_OldPassword}"></TextBlock>
+                                    <TextBox Margin="2" Width="100"></TextBox>
+                                    <TextBlock Margin="2" Text="{DynamicResource adm_NewPassword}"></TextBlock>
+                                    <TextBox Margin="2" Width="100"></TextBox>
+                                    <TextBlock Margin="2" Text="{DynamicResource adm_ConfirmPassword}"></TextBlock>
+                                    <TextBox Margin="2" Width="100"></TextBox>
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellEditTemplate>
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource adm_FirstName}" DataMemberBinding="{Binding Name,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" Tag="users_Name_column"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource adm_Surname}" DataMemberBinding="{Binding Surname,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" Tag="users_Surname_column"></telerik:GridViewDataColumn>
+
+                    <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding GroupName}" Header="{DynamicResource adm_Group}" Tag="users_group_column" >
+                        <telerik:GridViewDataColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding GroupName}"></TextBlock>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellTemplate>
+                        <telerik:GridViewDataColumn.CellEditTemplate>
+                            <DataTemplate>
+                                <telerik:RadComboBox ItemsSource="{Binding SysGroups, Source={StaticResource COSC}}" DisplayMemberPath="Name"
+                                                  SelectedValuePath="ID" SelectedValue="{Binding Group_ID, Mode=TwoWay}"></telerik:RadComboBox>
+
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellEditTemplate>
+                    </telerik:GridViewDataColumn>
+
+                </telerik:RadGridView.Columns>
+
+                <telerik:RadGridView.RowDetailsTemplate>
+                    <DataTemplate>
+                        <Grid Margin="2" >
+                            <Grid Margin="5" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition  Width="Auto" MaxWidth="150"></ColumnDefinition>
+                                    <ColumnDefinition  Width="20"></ColumnDefinition>
+                                    <ColumnDefinition  Width="250"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock FontWeight="Bold" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="3" Text="{DynamicResource adm_Email}"></TextBlock>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Email,Mode=TwoWay}" VerticalAlignment="Center" Margin="3"></TextBlock>
+                                <TextBlock FontWeight="Bold"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="3" Text="{DynamicResource adm_IsActive}"></TextBlock>
+                                <CheckBox IsEnabled="False" Grid.Row="1" Grid.Column="1" IsChecked="{Binding IsActive, Mode=TwoWay}" VerticalAlignment="Center" Margin="3"></CheckBox>
+                                <TextBlock FontWeight="Bold"  Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="3" Text="{DynamicResource adm_AccountExpire}"></TextBlock>
+                                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding AccountExpireDays,Mode=TwoWay}" VerticalAlignment="Center" Margin="3"></TextBlock>
+                                <TextBlock FontWeight="Bold"  Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="3" Text="{DynamicResource adm_PasswordExpire}"></TextBlock>
+                                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding PwdExpireDays,Mode=TwoWay}" VerticalAlignment="Center" Margin="3"></TextBlock>
+                                <TextBlock FontWeight="Bold"  Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="3" Text="{DynamicResource adm_PwdForceChange}"></TextBlock>
+                                <CheckBox IsEnabled="False" Grid.Row="4" Grid.Column="1" IsChecked="{Binding PwdForceChange, Mode=TwoWay}" VerticalAlignment="Center" Margin="3"></CheckBox>
+
+                                <StackPanel Grid.Column="3" Margin="3" Grid.RowSpan="10">
+                                    <TextBlock FontWeight="Bold"  Margin="1" Text="{DynamicResource adm_Description}" FontSize="11"></TextBlock>
+                                    <TextBox IsReadOnly="True" Text="{Binding Description, Mode=TwoWay}"  Height="125" TextWrapping="Wrap" telerik:StyleManager.Theme="Expression_Dark"></TextBox>
+                                </StackPanel>
+
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </telerik:RadGridView.RowDetailsTemplate>
+            </telerik:RadGridView>
+        </Grid>
+        <!--<Button Content="{DynamicResource AccType_users}" Height="23" HorizontalAlignment="Left" Margin="141,73,0,0" Name="button1" VerticalAlignment="Top" Width="75" Grid.RowSpan="2" Click="button1_Click" />-->
+    </Grid>
+</bc:BaseUserControl>

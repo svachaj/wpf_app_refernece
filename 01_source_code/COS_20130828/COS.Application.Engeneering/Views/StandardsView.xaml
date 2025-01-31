@@ -1,0 +1,376 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF"  x:Class="COS.Application.Engeneering.Views.StandardsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF">
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+
+    </bc:BaseUserControl.Resources>
+    <Grid Background="#333333"  >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="238"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" telerik:StyleManager.Theme="Expression_Dark">
+            <Grid x:Name="part1Grid"  >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <my:COSToolBar  Grid.Row="0" Grid.Column="0" Margin="5,5,0,0" telerik:StyleManager.Theme="Expression_Dark" UpdateButtonEnabledForce="True" >
+
+                   
+                </my:COSToolBar>
+
+                <Grid Margin="5" Grid.Row="1" DataContext="{Binding SelectedStandard,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="wrapselectedGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Margin="4,4,0,0" FontWeight="Bold" Text="{DynamicResource eng_ItemNumber}"></TextBlock>
+                    <TextBox Grid.Row="1" Margin="4" Text="{Binding ItemNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"
+                         LostFocus="TextBox_LostFocus"  telerik:StyleManager.Theme="Expression_Dark" ></TextBox>
+
+                    <TextBlock Grid.Row="2" Margin="4,4,0,0" FontWeight="Bold" Text="{DynamicResource eng_IsConfig}"></TextBlock>
+                    <CheckBox Grid.Row="3" Margin="4" IsChecked="{Binding isConfig, Mode=TwoWay}" LostFocus="TextBox_LostFocus"  telerik:StyleManager.Theme="Expression_Dark" ></CheckBox>
+
+                    <TextBlock Grid.Row="4" Margin="4,4,0,0" FontWeight="Bold" Text="{DynamicResource eng_Description}" ></TextBlock>
+                    <TextBox Grid.Row="5" Margin="4" Text="{Binding ItemDescription, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" LostFocus="TextBox_LostFocus"  telerik:StyleManager.Theme="Expression_Dark" TextWrapping="Wrap" Height="0" MinHeight="90" HorizontalScrollBarVisibility="Auto" MinLines="4" VerticalScrollBarVisibility="Auto"></TextBox>
+
+                    <TextBlock Grid.Row="6" Margin="4,4,0,0" FontWeight="Bold" Text="{DynamicResource eng_Labour}"></TextBlock>
+                    <telerik:RadNumericUpDown Grid.Row="7" Margin="4" Value="{Binding Labour, Mode=TwoWay}" LostFocus="TextBox_LostFocus"  telerik:StyleManager.Theme="Expression_Dark" IsInteger="True" ></telerik:RadNumericUpDown>
+
+                    <TextBlock Grid.Row="8" Margin="4,4,0,0" FontWeight="Bold" Text="{DynamicResource eng_WorkGroup}"></TextBlock>
+                    <telerik:RadComboBox x:Name="cmbWorkGroup" Grid.Row="9" Margin="4" SelectedItem="{Binding WorkGroup, Mode=TwoWay}" SelectionChanged="cmbWorkGroup_changed"  telerik:StyleManager.Theme="Expression_Dark" 
+                                     ItemsSource="{Binding LocalWorkGroups,Source={StaticResource COSC}}" SelectedValuePath="ID"  >
+                        <telerik:RadComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Value}"></TextBlock>
+                            </DataTemplate>
+                        </telerik:RadComboBox.ItemTemplate>
+                    </telerik:RadComboBox>
+
+                    <TextBlock Grid.Row="10" Margin="4,4,0,0" FontWeight="Bold" Text="{DynamicResource eng_WorkCenter}" ></TextBlock>
+                    <telerik:RadComboBox x:Name="cmbWorkCenter" Grid.Row="11" Margin="4" SelectedItem="{Binding WorkCenter, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" 
+                                    ItemsSource="{Binding LocalWorkCenters,Source={StaticResource COSC}}"  SelectedValuePath="ID"  >
+                        <telerik:RadComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Value}"></TextBlock>
+                            </DataTemplate>
+                        </telerik:RadComboBox.ItemTemplate>
+                    </telerik:RadComboBox>
+
+
+                    <TextBlock Grid.Row="12" Margin="4,4,0,0" FontWeight="Bold" Text="{DynamicResource eng_ItemGroup}"></TextBlock>
+                    <telerik:RadComboBox x:Name="cmbItemGroups" Grid.Row="13" Margin="4" SelectedItem="{Binding ItemGroup, Mode=TwoWay}" SelectionChanged="cmbItemGroup_changed"  telerik:StyleManager.Theme="Expression_Dark" 
+                                       ItemsSource="{Binding ItemGroups,Source={StaticResource COSC}}" SelectedValuePath="ID"  >
+                        <telerik:RadComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Description}"></TextBlock>
+                            </DataTemplate>
+                        </telerik:RadComboBox.ItemTemplate>
+                    </telerik:RadComboBox>
+
+                    <TextBlock Grid.Row="14" Margin="4,4,0,0" FontWeight="Bold" Text="{DynamicResource eng_Weight}"></TextBlock>
+                    <telerik:RadNumericUpDown Grid.Row="15" Margin="4" Value="{Binding Weight_Kg, Mode=TwoWay}" LostFocus="TextBox_LostFocus"  telerik:StyleManager.Theme="Expression_Dark" NumberDecimalDigits="2" ></telerik:RadNumericUpDown>
+
+                    <TextBlock Grid.Row="16" Margin="4,4,0,0" FontWeight="Bold" Text="{DynamicResource eng_Setup}" ></TextBlock>
+                    <telerik:RadNumericUpDown Grid.Row="17" Margin="4" Value="{Binding SetupTime_mm, Mode=TwoWay}" LostFocus="TextBox_LostFocus"  telerik:StyleManager.Theme="Expression_Dark" IsInteger="True" ></telerik:RadNumericUpDown>
+
+                    <TextBlock Grid.Row="18" Margin="4,4,0,0" FontWeight="Bold" Text="{DynamicResource eng_PcsMin}"></TextBlock>
+                    <telerik:RadNumericUpDown Grid.Row="19" Margin="4" IsEnabled="False" Value="{Binding PcsPerMinute, Mode=TwoWay}" LostFocus="TextBox_LostFocus"  telerik:StyleManager.Theme="Expression_Dark" NumberDecimalDigits="2" ></telerik:RadNumericUpDown>
+
+                    <TextBlock Grid.Row="20" Margin="4,4,0,0" FontWeight="Bold" Text="{DynamicResource eng_PcsHour}" ></TextBlock>
+                    <telerik:RadNumericUpDown Grid.Row="21" Margin="4" Value="{Binding PcsPerHour, Mode=TwoWay}" LostFocus="TextBox_LostFocus"  telerik:StyleManager.Theme="Expression_Dark" NumberDecimalDigits="2" ></telerik:RadNumericUpDown>
+
+
+                </Grid>
+                <telerik:RadBusyIndicator BusyContent="{DynamicResource eng_IsBusy}" IsBusy="{Binding IsBusy}" telerik:StyleManager.Theme="Expression_Dark" Margin="0,3,-617,81" Grid.Row="1"></telerik:RadBusyIndicator>
+            </Grid>
+        </ScrollViewer>
+        <Grid x:Name="part2Grid" Grid.Column="1" IsEnabled="{Binding EditingMode, Converter={StaticResource EditModeEgpsConvertor}}">
+            <Grid Margin="5">
+                <telerik:RadTabControl SelectionChanged="RadTabControl_SelectionChanged">
+                    <telerik:RadTabControl.Items>
+                        <telerik:RadTabItem x:Name="tabItemAll" Header="{DynamicResource eng_StdOverview}" telerik:StyleManager.Theme="Expression_Dark">
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <telerik:RadToolBar telerik:StyleManager.Theme="Expression_Dark" Grid.Row="1" Grid.ColumnSpan="2">
+
+                                    <StackPanel Orientation="Horizontal" Margin="10,5,5,5">
+
+                                        <telerik:RadButton Click="btnrefreshAllStandards_click" VerticalAlignment="Center" Height="32" Margin="1,1,10,1" Padding="7,2,7,2" ToolTip="{DynamicResource log_tt_refresh}" telerik:StyleManager.Theme="Expression_Dark">
+                                            <Image Source="/COSResources;component/Images/Refresh_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center" ></Image>
+                                        </telerik:RadButton>
+
+                                        <telerik:RadButton  Margin="1" Padding="7,2,7,2" VerticalAlignment="Center" Height="32" Click="RadButton_Click_1" ToolTip="{DynamicResource gen_tt_CleanGrid}" telerik:StyleManager.Theme="Expression_Dark">
+                                            <Image Source="/COSResources;component/Images/DeleteAll_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                                        </telerik:RadButton>
+                                        
+                                    </StackPanel>
+
+                                </telerik:RadToolBar>
+
+                                <telerik:RadGridView Deleting="grvAllStandards_Deleting" Grid.Row="2"  x:Name="grvAllStandards" AutoGenerateColumns="False" ShowInsertRow="False" telerik:StyleManager.Theme="Expression_Dark" 
+                                                   SelectionMode="Extended"  RowIndicatorVisibility="Collapsed" ItemsSource="{Binding LocalStandards}" SelectedItem="{Binding SelectedStandard, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                                      >
+                                    <telerik:RadGridView.Columns>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ItemNumber}" Header="{DynamicResource eng_ItemNumber}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding isConfig}" Header="{DynamicResource eng_IsConfig}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ItemDescription}" Header="{DynamicResource eng_Description}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding Labour}" Header="{DynamicResource eng_Labour}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding WorkGroup.Value}" Header="{DynamicResource eng_WorkGroup}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding WorkCenter.Value}" Header="{DynamicResource eng_WorkCenter}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ItemGroup.SysLocalize.cs_Czech}" UniqueName="cz_itemgroupColumn" Header="{DynamicResource eng_ItemGroup}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ItemGroup.SysLocalize.en_English}" UniqueName="en_itemgroupColumn" Header="{DynamicResource eng_ItemGroup}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding Weight_Kg}" Header="{DynamicResource eng_Weight}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding SetupTime_mm}" Header="{DynamicResource eng_Setup}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding PcsPerMinute, StringFormat=\{0:0.##\}}" Header="{DynamicResource eng_PcsMin}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding PcsPerHour}" Header="{DynamicResource eng_PcsHour}" >
+                                        </telerik:GridViewDataColumn>
+
+                                    </telerik:RadGridView.Columns>
+                                </telerik:RadGridView>
+                                <!--<telerik:RadDataPager PageSize="40" Grid.Row="1" Source="{Binding Items, ElementName=grvAllStandards}" IsTotalItemCountFixed="True" 
+                                  DisplayMode="FirstLastPreviousNextNumeric, Text" telerik:StyleManager.Theme="Expression_Dark"  />-->
+                            </Grid>
+                        </telerik:RadTabItem>
+
+
+                        <telerik:RadTabItem Header="Neexistující" telerik:StyleManager.Theme="Expression_Dark">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <telerik:RadToolBar  telerik:StyleManager.Theme="Expression_Dark" >
+                                    <Button Click="btnUnexistsFilter_click" ToolTip="{DynamicResource eng_tt_StdNotExist}">
+                                        <Image Source="/COSResources;component/Images/Filter_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                                    </Button>
+                                    <telerik:RadButton Click="RefreshUnexists_Click" VerticalAlignment="Center" ToolTip="{DynamicResource rep_tt_Refresh}">
+                                        <Image Source="/COSResources;component/Images/Refresh_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                                    </telerik:RadButton>
+                                    <Button Click="btnExportUnexistsToCsv_click" ToolTip="{DynamicResource eng_tt_ExportStd}">
+                                        <Image Source="/COSResources;component/Images/ExportCSV_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                                    </Button>
+
+                                </telerik:RadToolBar>
+                                <telerik:RadGridView x:Name="grvUnexistsStandards" Grid.Row="1" AutoGenerateColumns="False" ShowInsertRow="False" telerik:StyleManager.Theme="Expression_Dark" 
+                                                      RowIndicatorVisibility="Collapsed" Visibility="Visible" ShowGroupPanel="False" ItemsSource="{Binding ExportDataUnexists}" SourceUpdated="grvUnexistsStandards_SourceUpdated" >
+                                    <telerik:RadGridView.Columns>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ItemNumber}" Header="{DynamicResource eng_ItemNumber}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding IsConfig}" Header="{DynamicResource eng_IsConfig}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ItemDescription}" Header="{DynamicResource eng_Description}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding Labour}" Header="{DynamicResource eng_Labour}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding WorkGroup}" Header="{DynamicResource eng_WorkGroup}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding WorkCenter}" Header="{DynamicResource eng_WorkCenter}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ItemGroup.Description}" Header="{DynamicResource eng_ItemGroup}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding Weight_Kg}" Header="{DynamicResource eng_Weight}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding SetupTime_mm}" Header="{DynamicResource eng_Setup}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding PcsPerMinute}" Header="{DynamicResource eng_PcsMin}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding PcsPerHour}" Header="{DynamicResource eng_PcsHour}" >
+                                        </telerik:GridViewDataColumn>
+
+                                    </telerik:RadGridView.Columns>
+                                </telerik:RadGridView>
+
+                                <telerik:RadGridView x:Name="grvUnexistsStandardsHPs" Grid.Row="1" AutoGenerateColumns="False" ShowInsertRow="False" telerik:StyleManager.Theme="Expression_Dark" 
+                                                      RowIndicatorVisibility="Collapsed" ShowGroupPanel="False" ItemsSource="{Binding UnexistStandardHPs}"  >
+                                    <telerik:RadGridView.Columns>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding Date,StringFormat=d}" Header="{DynamicResource eng_StdDate}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding Division.Value}" Header="{DynamicResource eng_Division}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding Shift.Description}" GroupMemberPath="ID_Shift" Header="{DynamicResource eng_StdShift}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ShiftType.Description}" GroupMemberPath="ID_ShiftType" Header="{DynamicResource eng_StdShiftType}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding WorkGroup.Value}" Header="{DynamicResource eng_WorkGroup}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding WorkCenter.Value}" Header="{DynamicResource eng_WorkCenter}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ProductionOrder}" Header="{DynamicResource eng_StdOrder}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ItemNumber}" Header="{DynamicResource eng_ItemNumber}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True"  Header="{DynamicResource eng_StdAction}" >
+                                            <telerik:GridViewDataColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <telerik:RadButton Click="btnHPlink_click" Margin="3" telerik:StyleManager.Theme="Expression_Dark" ToolTip ="{DynamicResource eng_tt_ShowInHp}" >
+                                                            <Image Source="/COSResources;component/Images/EngStdHpOpen_48x48.png" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                                                        </telerik:RadButton>
+                                                        <telerik:RadButton Click="btnstdCreateFromHP_click" Margin="3" telerik:StyleManager.Theme="Expression_Dark" ToolTip ="{DynamicResource eng_tt_CreateStd}">
+                                                            <Image Source="/COSResources;component/Images/EngStdCreate_48x48.png" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                                                        </telerik:RadButton>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </telerik:GridViewDataColumn.CellTemplate>
+                                        </telerik:GridViewDataColumn>
+
+                                    </telerik:RadGridView.Columns>
+                                </telerik:RadGridView>
+
+                            </Grid>
+                        </telerik:RadTabItem>
+
+
+                        <telerik:RadTabItem Header="{DynamicResource eng_StdExport}" telerik:StyleManager.Theme="Expression_Dark">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <telerik:RadToolBar  telerik:StyleManager.Theme="Expression_Dark" >
+                                    <Button Click="btnRefresh_click" ToolTip="{DynamicResource eng_tt_RefreshStd}">
+                                        <Image Source="/COSResources;component/Images/Filter_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                                    </Button>
+                                    <Button Click="btnExportToCsv_click" ToolTip="{DynamicResource eng_tt_ExportStd}">
+                                        <Image Source="/COSResources;component/Images/ExportCSV_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                                    </Button>
+                                </telerik:RadToolBar>
+                                <telerik:RadGridView x:Name="grvAllStandardsExport" Grid.Row="1" AutoGenerateColumns="False" ShowInsertRow="False" telerik:StyleManager.Theme="Expression_Dark" 
+                                                      RowIndicatorVisibility="Collapsed" ItemsSource="{Binding ExportData}" ShowGroupPanel="False" SourceUpdated="grvAllStandardsExport_SourceUpdated" >
+                                    <telerik:RadGridView.Columns>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ItemNumber}" Header="{DynamicResource eng_ItemNumber}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding isConfig}" Header="{DynamicResource eng_IsConfig}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ItemDescription}" Header="{DynamicResource eng_Description}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding Labour}" Header="{DynamicResource eng_Labour}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding WorkGroup.Value}" Header="{DynamicResource eng_WorkGroup}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding WorkCenter.Value}" Header="{DynamicResource eng_WorkCenter}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ItemGroup.Description}" GroupMemberPath="ID_ItemGroup" Header="{DynamicResource eng_ItemGroup}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding Weight_Kg}" Header="{DynamicResource eng_Weight}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding SetupTime_mm}" Header="{DynamicResource eng_Setup}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding PcsPerMinute}" Header="{DynamicResource eng_PcsMin}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding PcsPerHour}" Header="{DynamicResource eng_PcsHour}" >
+                                        </telerik:GridViewDataColumn>
+
+                                    </telerik:RadGridView.Columns>
+                                </telerik:RadGridView>
+                            </Grid>
+                        </telerik:RadTabItem>
+
+                        <telerik:RadTabItem Header="{DynamicResource eng_StdImport}" telerik:StyleManager.Theme="Expression_Dark">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <telerik:RadToolBar  telerik:StyleManager.Theme="Expression_Dark" >
+                                    <Button Click="btnLoadFile_click" Tag="btn_std_LoadFile" ToolTip="{DynamicResource eng_tt_LoadFile}">
+                                        <Image Source="/COSResources;component/Images/LoadFile_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                                    </Button>
+                                    <Button Click="btnImportData_click" Tag="btn_std_Import"  ToolTip="{DynamicResource eng_tt_ImportData}">
+                                        <Image Source="/COSResources;component/Images/Import_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                                    </Button>
+                                </telerik:RadToolBar>
+                                <telerik:RadGridView x:Name="grvImportStandards" Grid.Row="1" AutoGenerateColumns="False" ShowInsertRow="False" telerik:StyleManager.Theme="Expression_Dark" 
+                                                      RowIndicatorVisibility="Collapsed" ItemsSource="{Binding ImportData}" CellLoaded="grvImportStandards_CellLoaded" RowLoaded="grvImportStandards_RowLoaded"
+                                                      CellEditEnded="grvImportStandards_CellEditEnded" ShowGroupPanel="False">
+                                    <telerik:RadGridView.Columns>
+                                        <telerik:GridViewDataColumn x:Name="colItemNumber"  DataMemberBinding="{Binding NewStandard.ItemNumber}" Header="{DynamicResource eng_ItemNumber}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn x:Name="colIsConfig"  DataMemberBinding="{Binding NewStandard.isConfig}" Header="{DynamicResource eng_IsConfig}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn x:Name="colItemDescription"   DataMemberBinding="{Binding NewStandard.ItemDescription}" Header="{DynamicResource eng_Description}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn x:Name="colLabour"   DataMemberBinding="{Binding NewStandard.Labour}" Header="{DynamicResource eng_Labour}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn x:Name="colWorkGroup"  DataMemberBinding="{Binding NewStandard.WorkGroup.Value}" Header="{DynamicResource eng_WorkGroup}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn x:Name="colWorkCenter"  DataMemberBinding="{Binding NewStandard.WorkCenter.Value}" Header="{DynamicResource eng_WorkCenter}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn x:Name="colItemGroup"  DataMemberBinding="{Binding NewStandard.ItemGroup.Description}" GroupMemberPath="ID_ItemGroup" Header="{DynamicResource eng_ItemGroup}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn x:Name="colWeight_Kg"  DataMemberBinding="{Binding NewStandard.Weight_Kg}" Header="{DynamicResource eng_Weight}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn x:Name="colSetupTime_mm"  DataMemberBinding="{Binding NewStandard.SetupTime_mm}" Header="{DynamicResource eng_Setup}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn x:Name="colPcsPerMinute"  DataMemberBinding="{Binding NewStandard.PcsPerMinute}" Header="{DynamicResource eng_PcsMin}" >
+                                        </telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn x:Name="colPcsPerHour"  DataMemberBinding="{Binding NewStandard.PcsPerHour}" Header="{DynamicResource eng_PcsHour}" >
+                                        </telerik:GridViewDataColumn>
+
+                                    </telerik:RadGridView.Columns>
+                                </telerik:RadGridView>
+                            </Grid>
+                        </telerik:RadTabItem>
+
+                    </telerik:RadTabControl.Items>
+                </telerik:RadTabControl>
+            </Grid>
+        </Grid>
+
+        <telerik:RadBusyIndicator Grid.ColumnSpan="10" Grid.RowSpan="10" BusyContent="{DynamicResource eng_isBusy_export}" IsBusy="{Binding IsBusy}" telerik:StyleManager.Theme="Expression_Dark"></telerik:RadBusyIndicator>
+
+        <Button Content="Button" Visibility="Collapsed"   Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="53,297,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
+    </Grid>
+</bc:BaseUserControl>

@@ -1,0 +1,117 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:my="clr-namespace:System;assembly=mscorlib">
+
+
+
+    <my:String x:Key="vis_HeaderWgDashboard">
+        KPI DASHBOARD
+    </my:String>
+
+    <my:String x:Key="vis_cz_WorkCenters">
+        Pracovní Střediska
+    </my:String>
+
+    <my:String x:Key="vis_eng_WorkCenters">
+        WorkCenters
+    </my:String>
+
+    <my:String x:Key="vis_OEE">
+       OEE %
+    </my:String>
+
+    <my:String x:Key="vis_cz_Performance">
+        Výkon %
+    </my:String>
+
+    <my:String x:Key="vis_eng_Performance">
+        Performance %
+    </my:String>
+
+    <my:String x:Key="vis_cz_Availability">
+        Dostupnost %
+    </my:String>
+
+    <my:String x:Key="vis_eng_Availability">
+        Availability %
+    </my:String>
+
+    <my:String x:Key="vis_cz_Quality">
+      Kvalita %
+    </my:String>
+
+    <my:String x:Key="vis_eng_Quality">
+       Quality %
+    </my:String>
+
+    <my:String x:Key="vis_cz_Productivity">
+        Produktivita %
+    </my:String>
+
+    <my:String x:Key="vis_eng_Productivity">
+        Productivity %
+    </my:String>
+
+    <my:String x:Key="vis_cz_Target">
+        Cíl %
+    </my:String>
+
+    <my:String x:Key="vis_eng_Target">
+       Target %
+    </my:String>
+
+    <my:String x:Key="vis_cz_ActShift">
+        Aktuální směna: 
+    </my:String>
+
+    <my:String x:Key="vis_eng_ActShift">
+        Current shift: 
+    </my:String>
+
+    <my:String x:Key="vis_cz_Overall">
+        WG - Celkově
+    </my:String>
+
+    <my:String x:Key="vis_eng_Overall">
+       WG - Overall
+    </my:String>
+
+    <my:String x:Key="vis_cz_Slogan">
+       Zjednodušujeme výstavbu
+    </my:String>
+
+    <my:String x:Key="vis_eng_Slogan">
+        We simplify construction
+    </my:String>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ResourceDictionary>

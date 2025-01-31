@@ -1,0 +1,76 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF"  x:Class="COS.Application.WorkSafety.Views.AccidentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF">
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>           
+        </Grid.ColumnDefinitions>
+        <my:COSToolBar Grid.ColumnSpan="3" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="0" InsertButtonVisibility="Collapsed" DeleteButtonVisibility="Collapsed" UpdateButtonVisibility="Collapsed" CancelButtonVisibility="Collapsed">
+            <StackPanel Orientation="Horizontal" Margin="5,5,5,5">
+                <telerik:RadButton Click="filter_click" VerticalAlignment="Center" Height="32" Margin="1" Padding="7,2,7,2" ToolTip="{DynamicResource rep_tt_Filter}" telerik:StyleManager.Theme="Expression_Dark">
+                    <Image Source="/COSResources;component/Images/Filter_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                </telerik:RadButton>
+
+                <telerik:RadButton Command="{Binding RefreshToolBarCommand}" VerticalAlignment="Center" Height="32" Margin="1,1,10,1" Padding="7,2,7,2" ToolTip="{DynamicResource log_tt_refresh}" telerik:StyleManager.Theme="Expression_Dark">
+                    <Image Source="/COSResources;component/Images/Refresh_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center" ></Image>
+                </telerik:RadButton>
+
+                <telerik:RadButton Command="{Binding AddAccidentToolBarCommand}" VerticalAlignment="Center" Height="32" Margin="1,1,1,1" Padding="7,2,7,2" ToolTip="Nehoda" telerik:StyleManager.Theme="Expression_Dark">
+                    <Image Source="/COSResources;component/Images/Add_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center" ></Image>
+                </telerik:RadButton>
+                <telerik:RadButton Command="{Binding AddNearMissToolBarCommand}" VerticalAlignment="Center" Height="32" Margin="1,1,2,1" Padding="7,2,7,2" ToolTip="Nehoda" telerik:StyleManager.Theme="Expression_Dark">
+                    <Image Source="/COSResources;component/Images/Add_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center" ></Image>
+                </telerik:RadButton>
+
+                <telerik:RadButton Command="{Binding DeleteAccidentToolBarCommand}" VerticalAlignment="Center" Height="32" Margin="1,1,10,1" Padding="7,2,7,2" ToolTip="Smazat" telerik:StyleManager.Theme="Expression_Dark">
+                    <Image Source="/COSResources;component/Images/Delete_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center" ></Image>
+                </telerik:RadButton>
+            </StackPanel>          
+
+        </my:COSToolBar>
+
+
+        <telerik:RadGridView Grid.Row="1" telerik:StyleManager.Theme="Expression_Dark" AutoGenerateColumns="False" MouseDoubleClick="grvAccidents_MouseDoubleClick"
+                                 CanUserInsertRows="False" x:Name="grvAccidents" RowIndicatorVisibility="Collapsed" 
+                             ItemsSource="{Binding LocalAccidents}"
+                             SelectedItem="{Binding SelectedItem}"
+                              ShowInsertRow="False"  SelectionMode="Single" CanUserReorderColumns="false" ClipboardCopyMode="All"
+                              RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="Auto" SelectionUnit="FullRow" IsFilteringAllowed="False">
+            <telerik:RadGridView.Columns >
+                <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ID}" Header="ID - pracovní" >
+                </telerik:GridViewDataColumn>
+                
+                <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding DateOfAccident,StringFormat=d}" Header="Date of acc" >
+                </telerik:GridViewDataColumn>
+
+                <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding AreaOfAccident.Description}" Header="Area of acc" >
+                </telerik:GridViewDataColumn>
+              
+            </telerik:RadGridView.Columns>
+
+
+        </telerik:RadGridView>
+
+      
+
+        <telerik:RadBusyIndicator Grid.ColumnSpan="10" Grid.RowSpan="10" BusyContent="{DynamicResource log_isBusyTrpOrder}" IsBusy="{Binding IsBusy}" telerik:StyleManager.Theme="Expression_Dark"></telerik:RadBusyIndicator>
+
+
+    </Grid>
+</bc:BaseUserControl>

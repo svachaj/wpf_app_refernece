@@ -1,0 +1,134 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" x:Class="COS.Application.HumanResources.Views.EmployeesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             d:DesignHeight="500" d:DesignWidth="700">
+
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <telerik:RadToolBar telerik:StyleManager.Theme="Expression_Dark" Grid.Row="0">
+            <telerik:RadButton VerticalAlignment="Center" Command="{Binding SynchronizeCommand}" ToolTip="{DynamicResource hr_tt_Synchronize}">
+                <Image Source="/COSResources;component/Images/Synchro_48x48.png" Height="32" VerticalAlignment="Center"></Image>
+            </telerik:RadButton>
+        </telerik:RadToolBar>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <telerik:RadGridView telerik:StyleManager.Theme="Expression_Dark" AutoGenerateColumns="False" MouseDoubleClick="grvEmployees_MouseDoubleClick" CanUserInsertRows="False"
+                                     x:Name="grvEmployees" RowIndicatorVisibility="Collapsed" ItemsSource="{Binding EmployeesList, Source={StaticResource COSC}}" ShowInsertRow="False"  EnableRowVirtualization="True"
+                               RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="Auto" >
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource hr_IdEmployee}" DataMemberBinding="{Binding HR_ID}" Tag="users_HR_ID_column"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource hr_FirstName}" DataMemberBinding="{Binding Name}" Tag="users_LoginName_column"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource hr_Surname}" DataMemberBinding="{Binding Surname}" Tag="users_Name_column"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource hr_WorkGroup}" DataMemberBinding="{Binding WorkGroupValue}" Tag="users_Surname_column"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource hr_Shift}" DataMemberBinding="{Binding cz_shiftPattern}" Tag="users_Surname_column"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource hr_IsLeader}" DataMemberBinding="{Binding IsLeader}" Tag="users_Surname_column"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource hr_BonusGroup}" DataMemberBinding="{Binding cz_bonusGroup}" Tag="users_Surname_column"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource hr_WorkPosition}" DataMemberBinding="{Binding cz_workPosition}" Tag="users_Surname_column"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource hr_Division}" DataMemberBinding="{Binding DivisionValue}" Tag="users_Surname_column"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource hr_SalaryGroup}" DataMemberBinding="{Binding SalaryGroupValue}" Tag="users_Surname_column"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource hr_Active}" DataMemberBinding="{Binding IsActive}" Tag="users_Surname_column"></telerik:GridViewDataColumn>
+                </telerik:RadGridView.Columns>
+
+                <telerik:RadGridView.RowDetailsTemplate>
+                    <DataTemplate>
+                        <Grid Margin="10">
+                            <telerik:RadTabControl telerik:StyleManager.Theme="Expression_Dark" >
+                                <telerik:RadTabControl.Items>
+                                    <telerik:RadTabItem Header="{DynamicResource hr_BasicInformation}">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="25"></RowDefinition>
+                                                <RowDefinition Height="25"></RowDefinition>
+                                                <RowDefinition Height="25"></RowDefinition>
+                                                <RowDefinition Height="25"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                <ColumnDefinition  Width="Auto" MaxWidth="150"></ColumnDefinition>
+                                                <ColumnDefinition  Width="20"></ColumnDefinition>
+                                                <ColumnDefinition  Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock FontWeight="Bold" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="3" Text="{DynamicResource hr_Email}"></TextBlock>
+                                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Email}" VerticalAlignment="Center" Margin="3"></TextBlock>
+                                            <TextBlock FontWeight="Bold"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="3" Text="{DynamicResource hr_Employer}"></TextBlock>
+                                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding cz_employers}" VerticalAlignment="Center" Margin="3"></TextBlock>
+                                            <TextBlock FontWeight="Bold"  Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="3" Text="{DynamicResource hr_CostCenter}"></TextBlock>
+                                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding CostCenterValue}" VerticalAlignment="Center" Margin="3"></TextBlock>
+                                            <TextBlock FontWeight="Bold"  Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="3" Text="{DynamicResource hr_SalaryGroup}"></TextBlock>
+                                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding SalaryGroupValue}" VerticalAlignment="Center" Margin="3"></TextBlock>
+
+                                            <Grid Grid.Row="0" Grid.Column="3" Grid.RowSpan="10" Width="80" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4">
+                                                <Border BorderBrush="Gray" BorderThickness="2" CornerRadius="3"></Border>
+                                                <Image Stretch="None" ></Image>
+                                            </Grid>
+
+                                        </Grid>
+                                    </telerik:RadTabItem>
+                                    <telerik:RadTabItem Header="{DynamicResource hr_ExtendedInformation}">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="25"></RowDefinition>
+                                                <RowDefinition Height="25"></RowDefinition>
+                                                <RowDefinition Height="25"></RowDefinition>
+                                                <RowDefinition Height="25"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                <ColumnDefinition  Width="Auto" MaxWidth="150"></ColumnDefinition>
+                                                <ColumnDefinition  Width="20"></ColumnDefinition>
+                                                <ColumnDefinition  Width="250"></ColumnDefinition>
+                                                <ColumnDefinition  Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock FontWeight="Bold" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="3" Text="{DynamicResource hr_HireDate}"></TextBlock>
+                                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding HireDate,StringFormat=d}" VerticalAlignment="Center" Margin="3"></TextBlock>
+                                            <TextBlock FontWeight="Bold" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="3" Text="{DynamicResource hr_LeaveDate}"></TextBlock>
+                                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding LeaveDate, StringFormat=d}" VerticalAlignment="Center" Margin="3"></TextBlock>
+                                            <TextBlock FontWeight="Bold"  Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="3" Text="{DynamicResource hr_Street}"></TextBlock>
+                                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Street}" VerticalAlignment="Center" Margin="3"></TextBlock>
+                                            <TextBlock FontWeight="Bold"  Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="3" Text="{DynamicResource hr_City}"></TextBlock>
+                                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding City}" VerticalAlignment="Center" Margin="3"></TextBlock>
+                                            <TextBlock FontWeight="Bold"  Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="3" Text="{DynamicResource hr_PostalCode}"></TextBlock>
+                                            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding PostalCode}" VerticalAlignment="Center" Margin="3"></TextBlock>
+
+
+                                            <StackPanel Grid.Row="0" Grid.Column="3" Margin="3" Grid.RowSpan="10">
+                                                <TextBlock FontWeight="Bold"  Margin="1" Text="{DynamicResource hr_Note}" FontSize="11"></TextBlock>
+                                                <TextBox IsReadOnly="True" Text="{Binding Note}"  Height="80" TextWrapping="Wrap"></TextBox>
+                                            </StackPanel>
+
+
+                                        </Grid>
+                                    </telerik:RadTabItem>
+                                </telerik:RadTabControl.Items>
+                            </telerik:RadTabControl>
+                        </Grid>
+                    </DataTemplate>
+                </telerik:RadGridView.RowDetailsTemplate>
+            </telerik:RadGridView>
+            <telerik:RadDataPager PageSize="40" Grid.Row="1" Source="{Binding Items, ElementName=grvEmployees}" IsTotalItemCountFixed="True" 
+                                  DisplayMode="FirstLastPreviousNextNumeric, Text" telerik:StyleManager.Theme="Expression_Dark"  />
+        </Grid>
+        <!--<Button Content="{DynamicResource AccType_users}" Height="23" HorizontalAlignment="Left" Margin="141,73,0,0" Name="button1" VerticalAlignment="Top" Width="75" Grid.RowSpan="2" Click="button1_Click" />-->
+    </Grid>
+</bc:BaseUserControl>

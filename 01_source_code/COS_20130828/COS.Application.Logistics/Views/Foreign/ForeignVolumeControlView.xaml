@@ -1,0 +1,112 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF"  x:Class="COS.Application.Logistics.Views.ForeignVolumeControlView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                 
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF">
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <my:COSToolBar telerik:StyleManager.Theme="Expression_Dark" Grid.Row="0" UpdateButtonVisibility="Collapsed" CancelButtonVisibility="Collapsed" DeleteButtonVisibility="Collapsed" InsertButtonVisibility="Collapsed">
+            <StackPanel Orientation="Horizontal" Margin="30,5,5,5">
+                <telerik:RadButton Command="{Binding RefreshToolBarCommand}" VerticalAlignment="Center" Height="32" Margin="1,1,10,1" Padding="7,2,7,2" ToolTip="{DynamicResource log_tt_refresh}" telerik:StyleManager.Theme="Expression_Dark">
+                    <Image Source="/COSResources;component/Images/Refresh_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center" ></Image>
+                </telerik:RadButton>
+
+                <!--<telerik:RadButton Command="{Binding SaveToolBarCommand}" VerticalAlignment="Center" Height="32" Margin="1,1,10,1" Padding="7,2,7,2" ToolTip="Uložit všechna data" telerik:StyleManager.Theme="Expression_Dark">
+                    <Image Source="/COSResources;component/Images/Save_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center" ></Image>
+                </telerik:RadButton>
+
+                <telerik:RadButton Command="{Binding CancelToolBarCommand}" VerticalAlignment="Center" Height="32" Margin="1,1,10,1" Padding="7,2,7,2" ToolTip="Zrušit všechna změněná data" telerik:StyleManager.Theme="Expression_Dark">
+                    <Image Source="/COSResources;component/Images/Cancel_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center" ></Image>
+                </telerik:RadButton>-->
+
+                <telerik:RadButton  Padding="7,2,7,2" Margin="1,1,10,1" VerticalAlignment="Center" Height="32" Click="RadButton_Click_1" ToolTip="{DynamicResource gen_tt_CleanGrid}" telerik:StyleManager.Theme="Expression_Dark">
+                    <Image Source="/COSResources;component/Images/DeleteAll_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                </telerik:RadButton>
+                
+                <TextBlock Foreground="White" VerticalAlignment="Center" FontSize="15" Text="Od:"></TextBlock>
+                <telerik:RadDatePicker  Margin="5" SelectedValue="{Binding SelectedDateFrom, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark"></telerik:RadDatePicker>
+                <TextBlock Foreground="White" VerticalAlignment="Center" FontSize="15" Text="Do:"></TextBlock>
+                <telerik:RadDatePicker  Margin="5" SelectedValue="{Binding SelectedDateTo, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark"></telerik:RadDatePicker>
+            </StackPanel>
+
+        </my:COSToolBar>
+
+
+
+        <Grid Grid.Row="2">
+
+            <telerik:RadGridView telerik:StyleManager.Theme="Expression_Dark" AutoGenerateColumns="False" RowLoaded="grvForeigns_RowLoaded"
+                                 CanUserInsertRows="False" x:Name="grvForeigns" RowIndicatorVisibility="Collapsed" MouseDoubleClick="grvForeigns_MouseDoubleClick"
+                             ItemsSource="{Binding LocalForeignExports, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              ShowInsertRow="False"  SelectionMode="Extended" CanUserReorderColumns="True" ClipboardCopyMode="All"
+                              RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="Auto" SelectionUnit="FullRow" >
+                <telerik:RadGridView.Columns >
+                    
+                    <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding IsCompleted}" Header="{DynamicResource log_isCompleted}"  >
+                        <telerik:GridViewDataColumn.CellTemplate>
+                            <DataTemplate>
+                                <my:CheckBoxDisabled IsChecked="{Binding IsCompleted, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" ></my:CheckBoxDisabled>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellTemplate>
+                    </telerik:GridViewDataColumn>
+                    
+                    <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ForeignExport.PlannedDate, StringFormat=d}" Header="{DynamicResource log_PlannedDate}"  >
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ForeignExport.Destination.Country.Description}" Header="{DynamicResource log_Country}"   >
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ForeignExport.Destination.DisplayName}" Header="{DynamicResource log_Destination}"  >
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding PlannedVolume_VA}" Header="{DynamicResource log_PlVolumeVa}"  >
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn   IsReadOnly="True" DataMemberBinding="{Binding Volume_VA}" Header="{DynamicResource log_VolumeVa}"  >
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding Load_VA}" Header="{DynamicResource log_LoadVa}"  >
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding PlannedVolume_VI}" Header="{DynamicResource log_PlVolumeVi}"  >
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn  IsReadOnly="True" DataMemberBinding="{Binding Volume_VI}" Header="{DynamicResource log_VolumeVi}"  >
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding Load_VI}" Header="{DynamicResource log_LoadVi}"  >
+                    </telerik:GridViewDataColumn>
+
+                    <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding TotalLoadDifference}" Header="{DynamicResource log_TotLoadDiff}"  >
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding TotalVolumeDifference}" Header="{DynamicResource log_TotVolDiff}"  >
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding CBM_Price}" Header="{DynamicResource log_CmbPrice}"  >
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding Cost}" Header="{DynamicResource log_Cost}"  >
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn  IsReadOnly="True" DataMemberBinding="{Binding Note}" Header="{DynamicResource log_Note}"  >
+                    </telerik:GridViewDataColumn>
+
+                    <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ChangedDate}" Header="{DynamicResource log_ChangeDate}"  >
+                    </telerik:GridViewDataColumn>
+
+                    <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ChangedBy.FullName}" Header="{DynamicResource log_ChangedBy}"  >
+                    </telerik:GridViewDataColumn>
+
+                  
+
+                </telerik:RadGridView.Columns>
+
+
+            </telerik:RadGridView>
+        </Grid>
+    </Grid>
+</bc:BaseUserControl>

@@ -1,0 +1,617 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:my="clr-namespace:System;assembly=mscorlib">
+
+    
+    
+    
+    <!--**************GENERAL*************-->
+
+    <my:String x:Key="gen_tt_Update">
+        Save
+    </my:String>
+    <my:String x:Key="gen_tt_Insert">
+        New
+    </my:String>
+    <my:String x:Key="gen_tt_Delete">
+        Delete
+    </my:String>
+    <my:String x:Key="gen_tt_Cancel">
+        Cancel
+    </my:String>
+    <my:String x:Key="gen_tt_EditEmail">
+        Manage recipients email addresses. 
+    </my:String>
+
+
+    <my:String x:Key="gen_Monday">
+        Monday
+    </my:String>
+    <my:String x:Key="gen_Tuesday">
+        Tuesday
+    </my:String>
+    <my:String x:Key="gen_Wednesday">
+        Wednesday
+    </my:String>
+    <my:String x:Key="gen_Thursday">
+        Thursday
+    </my:String>
+    <my:String x:Key="gen_Friday">
+        Friday
+    </my:String>
+    <my:String x:Key="gen_Saturday">
+        Saturday
+    </my:String>
+    <my:String x:Key="gen_Sunday">
+        Sunday
+    </my:String>
+
+
+
+    <!--Aplication * Main Window ................................................................................................... -->
+
+    <!--<my:String x:Key="windownMain">
+        COS - Company Operation System - Lindab s.r.o.
+    </my:String>-->
+
+    <my:String x:Key="gen_tt_CleanGrid">
+        Clear all filters on table
+    </my:String>
+
+    <my:String x:Key="IDText">
+        ID
+    </my:String>
+
+    <my:String x:Key="CZtext">
+        Česky
+    </my:String>
+
+
+    <my:String x:Key="ENtext">
+        Anglicky
+    </my:String>
+
+    <my:String x:Key="AccType">
+        Typ účtu
+    </my:String>
+
+    <my:String x:Key="paneEmployee">
+        Zaměstnanci
+    </my:String>
+
+    <my:String x:Key="paneGroups">
+        Skupiny
+    </my:String>
+
+    <my:String x:Key="paneCbAccountType">
+        Číselník : Typy účtú
+    </my:String>
+
+    <my:String x:Key="paneUsers">
+        Uživatelé
+    </my:String>
+
+    <my:String x:Key="ChangePwdHeader">
+        Změna hesla :
+    </my:String>
+
+    <my:String x:Key="tpNew">
+        Nový
+    </my:String>
+
+    <my:String x:Key="tpSave">
+        Uložit
+    </my:String>
+
+    <my:String x:Key="tpDelete">
+        Smazat
+    </my:String>
+
+    <my:String x:Key="tpCancel">
+        Zrušit změny
+    </my:String>
+
+    <my:String x:Key="Cancel">
+        Uložit
+    </my:String>
+
+    <my:String x:Key="Save">
+        Zrušit
+    </my:String>
+
+    <my:String x:Key="grpReports">
+        Reporty
+    </my:String>
+
+    <my:String x:Key="ProductionReports">
+        Výrobní Reporty
+    </my:String>
+
+    <my:String x:Key="KpiReport">
+       KPIs Report
+    </my:String>
+
+    <my:String x:Key="paneKpiReport">
+        KPIs Report
+    </my:String>
+
+
+    
+
+    <!--Error Messages ................................................................................................... -->
+
+
+
+    <my:String x:Key="1ErrorHead">
+        Chyba
+    </my:String>
+
+    <my:String x:Key="2ErrorHead">
+        Oznámení
+    </my:String>
+
+    <my:String x:Key="3ErrorHead">
+        Smazat Uživatele
+    </my:String>
+
+    <my:String x:Key="4ErrorHead">
+        Synchronizace
+    </my:String>
+
+
+
+    <my:String x:Key="1ErrorCont">
+        Přihlášení se nezdařilo ! Zkontrolujte si správnost přihlašovacího jména a hesla.
+    </my:String>
+
+    <my:String x:Key="2ErrorCont">
+        Účet tohoto uživatele není aktivní.
+    </my:String>
+
+    <my:String x:Key="3ErrorCont">
+        Před příhlášením si musíte změnit heslo.
+    </my:String>
+
+    <my:String x:Key="4ErrorCont">
+        Vypršela platnost hesla. Prosím zadejte si nové heslo.
+    </my:String>
+
+    <my:String x:Key="5ErrorCont">
+        Vypršela platnost účtu. Účet je zablokován.
+    </my:String>
+
+    <my:String x:Key="6ErrorCont">
+        Nové heslo není vyplněno.
+    </my:String>
+
+    <my:String x:Key="7ErrorCont">
+        Špatně zadané původní heslo.
+    </my:String>
+
+    <my:String x:Key="8ErrorCont">
+        Nové heslo se nesmí shodovat s předchozím.
+    </my:String>
+
+    <my:String x:Key="9ErrorCont">
+        Nové heslo musí splňovat následující podmínky (minimální): Celková délka -
+    </my:String>
+
+    <my:String x:Key="10ErrorCont">
+        , počet malých písmen  -
+    </my:String>
+
+    <my:String x:Key="11ErrorCont">
+        , počet velkých písmen  -
+    </my:String>
+
+    <my:String x:Key="12ErrorCont">
+        , počet číslic  -
+    </my:String>
+
+    <my:String x:Key="13ErrorCont">
+        Potvrzení hesla se neshoduje s novým heslem.
+    </my:String>
+
+    <my:String x:Key="14ErrorCont">
+        Původní heslo musí být vyplněno.
+    </my:String>
+
+    <my:String x:Key="15ErrorCont">
+        Zadaný uživatelský účet neexistuje.
+    </my:String>
+
+    <my:String x:Key="16ErrorCont">
+        Opravdu chcete smazat vybraného uživatele?
+    </my:String>
+
+    <my:String x:Key="17ErrorCont">
+        Musíte vyplnit heslo.
+    </my:String>
+
+    <my:String x:Key="18ErrorCont">
+        HR ID musí být vyplněno.
+    </my:String>
+
+    <my:String x:Key="19ErrorCont">
+        Uživatelské jméno musí být vyplněno.
+    </my:String>
+
+    <my:String x:Key="20ErrorCont">
+        Skupina zabezpečení musí být vybrána.
+    </my:String>
+
+    <my:String x:Key="21ErrorCont">
+        Typ účtu musí být vybrán.
+    </my:String>
+
+    <my:String x:Key="22ErrorCont">
+        Přijmení musí být vyplněno.
+    </my:String>
+
+    <my:String x:Key="23ErrorCont">
+        Login musí být vyplněn.
+    </my:String>
+
+    <my:String x:Key="24ErrorCont">
+        Nové heslo musí být vyplněno.
+    </my:String>
+
+    <my:String x:Key="25ErrorCont">
+        Potvrzení nového hesla musí být vyplněno.
+    </my:String>
+
+    <my:String x:Key="26ErrorCont">
+        Opravdu chcete smazat tento typ účtu ?
+    </my:String>
+
+    <my:String x:Key="27ErrorCont">
+        Ano
+    </my:String>
+
+    <my:String x:Key="28ErrorCont">
+        Ne
+    </my:String>
+
+    <my:String x:Key="29ErrorCont">
+        Opravdu chcete tento záznam smazat ?
+    </my:String>
+
+    <my:String x:Key="30ErrorCont">
+        Pole hodnota musí být vyplněno.
+    </my:String>
+
+    <my:String x:Key="31ErrorCont">
+        Pole ID RON musí být vyplněno.
+    </my:String>
+
+    <my:String x:Key="32ErrorCont">
+        COS databáze zaměstnanců je aktuální.
+    </my:String>
+
+    <my:String x:Key="33ErrorCont">
+        Nejsou vybrána žádná data k synchronizaci.
+    </my:String>
+
+    <my:String x:Key="34ErrorCont">
+        Synchronizace byla úspěšně dokončena.
+    </my:String>
+
+    <my:String x:Key="35ErrorCont">
+        Pole Divize musí být vyplněno.
+    </my:String>
+
+    <my:String x:Key="36ErrorCont">
+        Číslo položky musí být vyplněno.
+    </my:String>
+
+    <my:String x:Key="37ErrorCont">
+        Počet oprátorů musí být zadán.
+    </my:String>
+
+    <my:String x:Key="38ErrorCont">
+       Pracovní skupina musí být vyplněna.
+    </my:String>
+
+    <my:String x:Key="39ErrorCont">
+        Pracovní středisko musí být vyplněno.
+    </my:String>
+
+    <my:String x:Key="40ErrorCont">
+        Čas setupu musí být vyplněn a nesmí být menší než 1.
+    </my:String>
+    
+    <my:String x:Key="41ErrorCont">
+      Počet kusů za minutu musí být vyplněn a nesmí být menší než 1.
+    </my:String>
+
+    <my:String x:Key="42ErrorCont">
+        Počet kusů za hodinu musí být vyplněn a nesmí být menší než 1.
+    </my:String>
+
+    <my:String x:Key="43ErrorCont">
+      Typ směny musí být vybrán.
+    </my:String>
+
+    <my:String x:Key="44ErrorCont">
+        Divize musí být nastavena.
+    </my:String>
+
+    <my:String x:Key="45ErrorCont">
+      Směna musí být nastavena.
+    </my:String>
+
+    <my:String x:Key="46ErrorCont">
+      Typ směny musí být nastaven.
+    </my:String>
+
+    <my:String x:Key="47ErrorCont">
+       Hodina musí být nastavena.
+    </my:String>
+    
+    <my:String x:Key="48ErrorCont">
+       Číslo zakázky musí být vyplněno.
+    </my:String>
+
+    <my:String x:Key="49ErrorCont">
+        Číslo položky musí být vyplněno.
+    </my:String>
+
+    <my:String x:Key="50ErrorCont">
+       Plánované kusy pro zakázku musí být vyplněny.
+    </my:String>
+
+    <my:String x:Key="51ErrorCont">
+      Vyskytla se neočekávaná chyba ....
+    </my:String>
+
+    <my:String x:Key="52ErrorCont">
+      Při načítání reportu se vyskytla chyba ....
+    </my:String>
+
+
+   
+
+
+
+
+    <!-- Administration * Groups ................................................................................................... -->
+    <my:String x:Key="agGroupName">
+        Název Skupiny
+    </my:String>
+
+    <my:String x:Key="agDescription">
+        Popis
+    </my:String>
+
+    <my:String x:Key="agGroupList">
+        Seznam Skupin
+    </my:String>
+
+    <my:String x:Key="agName">
+        Název Skupiny
+    </my:String>
+
+    <my:String x:Key="agAction">
+        Akce
+    </my:String>
+
+    <!-- Administration * Localize ................................................................................................... -->
+
+    <my:String x:Key="paneLocalization">
+       Lokalizace
+    </my:String>
+
+    <my:String x:Key="locDgvID">
+        ID Prvku
+    </my:String>
+
+    <my:String x:Key="locDgvCs_Czech">
+        Český popisek
+    </my:String>
+
+    <my:String x:Key="locDgvEn_Eng">
+        Anglický popisek
+    </my:String>
+
+   
+
+
+    <!-- přidáno jirka ................................................................................................... -->
+
+    <my:String x:Key="WorkGroups">
+        Pracovní skupiny
+    </my:String>
+
+    <my:String x:Key="WorkCenters">
+        Pracovní centra
+    </my:String>
+
+    <my:String x:Key="Shifts">
+        Směny
+    </my:String>
+
+    <my:String x:Key="ShiftTypes">
+        Typy směn
+    </my:String>
+
+    <my:String x:Key="Value">
+        Hodnota
+    </my:String>
+
+    <my:String x:Key="Division">
+        Divize
+    </my:String>
+
+   <my:String x:Key="RonID">
+        RON ID
+    </my:String>
+
+
+ 
+
+
+
+
+
+
+    <!-- přidáno Martin ................................................................................................... -->
+
+    <my:String x:Key="paneCbWorkGroups">
+        Číselník: Pracovní Skupiny
+    </my:String>
+
+    <my:String x:Key="paneCbWorkCenters">
+        Číselník: Pracovní Střediska
+    </my:String>
+
+    <my:String x:Key="Labour">
+        Operátoři
+    </my:String>
+
+    <my:String x:Key="RunFactor_Perc">
+        Run Faktor
+    </my:String>
+
+    <my:String x:Key="paneCbDowntimes">
+        Číselník: Prostoje
+    </my:String>
+
+    <my:String x:Key="txtIsLabourAffection">
+        Ovlivnění Produktivity
+    </my:String>
+
+    <my:String x:Key="Downtimes">
+        Prostoje
+    </my:String>
+
+    <my:String x:Key="cbDowntimesGroups">
+        Skupiny Prostojů
+    </my:String>
+
+    <my:String x:Key="paneCbDowntimesGroup">
+        Číselník: Skupiny Prostojů
+    </my:String>
+
+    <my:String x:Key="paneStandards">
+        Normy
+    </my:String>
+
+    <my:String x:Key="DowntimesGroup">
+        Skupiny Prostojů
+    </my:String>
+
+    <my:String x:Key="cbItemsGroup">
+        Skupiny Položek
+    </my:String>
+
+    <my:String x:Key="paneCbItemsGroup">
+        Číselník: Skupiny Položek
+    </my:String>
+
+    <my:String x:Key="ItemsGroup">
+        Skupiny Položek
+    </my:String>
+
+    <my:String x:Key="paneCbShifts">
+        Číselník: Směny
+    </my:String>
+
+    <my:String x:Key="paneCbShiftsType">
+        Číselník: Typy Směn
+    </my:String>
+
+    <my:String x:Key="ShiftHours">
+        Počet Hodin
+    </my:String>
+
+    <my:String x:Key="ShiftsType">
+        Typy Směn
+    </my:String>
+
+    <my:String x:Key="paneCbLokalization">
+        Číselník: Lokalizace
+    </my:String>
+
+    <my:String x:Key="CZlang">
+        Český Jazyk
+    </my:String>
+
+    <my:String x:Key="ENlang">
+        Anglicky Jazyk
+    </my:String>
+
+    <my:String x:Key="Divisions">
+        Divize
+    </my:String>
+
+    <my:String x:Key="paneCbDivision">
+        Číselník: Divize
+    </my:String>
+
+    <my:String x:Key="paneCbCostCenters">
+        Číselník: Nákladová Střediska
+    </my:String>
+
+    <my:String x:Key="CostCenters">
+        Nákladová Střediska
+    </my:String>
+
+    <my:String x:Key="paneCbBonusGroup">
+        Číselník: Bonusové Skupiny
+    </my:String>
+
+    <my:String x:Key="BonusGroups">
+        Bonusové Skupiny
+    </my:String>
+
+    <my:String x:Key="paneCbSalaryGroups">
+        Číselník: Mzdové Skupiny
+    </my:String>
+
+    <my:String x:Key="SalaryGroups">
+        Mzdové Skupiny
+    </my:String>
+
+    <my:String x:Key="paneCbEmployers">
+        Číselník: Zaměstnavatel
+    </my:String>
+
+    <my:String x:Key="Employers">
+        Zaměstnavatel
+    </my:String>
+
+    <my:String x:Key="paneCbWorkPositions">
+        Číselník: Pracovní Pozice
+    </my:String>
+
+    <my:String x:Key="WorkPositions">
+        Pracovní Pozice
+    </my:String>
+
+    <my:String x:Key="paneCbShiftPatterns">
+        Číselník: Směnové Vzory
+    </my:String>
+
+    <my:String x:Key="ShiftPatterns">
+        Směnové Vzory
+    </my:String>
+
+    <my:String x:Key="PaneWorkGroupsWorkCenters">
+        Číselník: Nastavení Pracovních Skupin
+    </my:String>
+
+    <my:String x:Key="Hour_24">
+        Číslo Hodiny
+    </my:String>
+
+    <my:String x:Key="ShiftType">
+        Typ Směny
+    </my:String>
+
+    <my:String x:Key="paneCbDowntimesDowntimeGroup">
+        Číselník: Nastavení Prostojů do Skupin
+    </my:String>
+
+
+    
+</ResourceDictionary>

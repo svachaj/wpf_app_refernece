@@ -1,0 +1,30 @@
+﻿<Application x:Class="COS.Application.App" xml:lang="cs-CZ"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"    >
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/Localization/cs-CZ/BaseLocalizeResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/Localization/cs-CZ/EngeneeringLocalizeResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/Localization/cs-CZ/SplashLocalizeResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/Localization/cs-CZ/MainLocalizeResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/Localization/cs-CZ/LauncherLocalizeResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/Localization/cs-CZ/EmployeesLocalizeResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/Localization/cs-CZ/HumanResourceLocalizeResource.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/Localization/cs-CZ/ProductionLocalizeResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/Localization/cs-CZ/ReportingLocalizeResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/Localization/cs-CZ/AdministrationLocalizeResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/Localization/cs-CZ/MessageLocalizeResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/Localization/cs-CZ/TelerikLocalizeResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/Localization/cs-CZ/TechnicalMaintenanceLocalizeResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/Localization/cs-CZ/LogisticLocalizeResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/Localization/cs-CZ/OrderLocalizeResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/Localization/cs-CZ/WorkSaferyLocalizeResource.xaml"></ResourceDictionary>
+
+
+               
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,301 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" x:Class="COS.Application.Reporting.Views.KPIWcWgReportView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             d:DesignHeight="600" d:DesignWidth="1200" HorizontalAlignment="Stretch">
+
+    <bc:BaseUserControl.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+
+
+    </bc:BaseUserControl.Resources>
+    <ScrollViewer  VerticalScrollBarVisibility="Disabled" telerik:StyleManager.Theme="Expression_Dark" HorizontalScrollBarVisibility="Auto" >
+        <Grid Background="#FF333333">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" ></ColumnDefinition>
+                <ColumnDefinition Width="Auto" ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <telerik:RadToolBar telerik:StyleManager.Theme="Expression_Dark">
+                <telerik:RadButton Click="RadButton_Click" VerticalAlignment="Center" Height="32" Margin="1" Padding="7,2,7,2" ToolTip="{DynamicResource rep_tt_Filter}">
+                    <Image Source="/COSResources;component/Images/Filter_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                </telerik:RadButton>
+
+                <telerik:RadButton Click="Refresh_Click" VerticalAlignment="Center" Height="32" Margin="1" Padding="7,2,7,2" ToolTip="{DynamicResource rep_tt_Refresh}">
+                    <Image Source="/COSResources;component/Images/Refresh_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                </telerik:RadButton>
+
+                <!--<telerik:RadButton>Show</telerik:RadButton>-->
+                <telerik:RadButton Visibility="Collapsed" Margin="1" Padding="7,2,7,2" VerticalAlignment="Center" Height="32" Click="RadButton_Click_1" ToolTip="{DynamicResource rep_tt_Print}">
+                    <Image Source="/COSResources;component/Images/Print_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                </telerik:RadButton>
+                <telerik:RadComboBox Width="170" Margin="3" VerticalAlignment="Center" telerik:StyleManager.Theme="Expression_Dark" ItemsSource="{Binding DisplayMembers}"
+                                    SelectedValuePath="Key" SelectedValue="{Binding DisplayMember, Mode=TwoWay}"
+                                     x:Name="cmbDisplayMembers" SelectionChanged="cmbDisplayMembers_SelectionChanged">
+                    <telerik:RadComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Value}"></TextBlock>
+                        </DataTemplate>
+                    </telerik:RadComboBox.ItemTemplate>
+
+                </telerik:RadComboBox>
+
+            </telerik:RadToolBar>
+
+            <!--<Grid Grid.Row="1">                
+                <telerik:RadExpander Foreground="White" HorizontalAlignment="Left" >
+                    <telerik:RadExpander.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center">Rychlý výběr období</TextBlock>
+                            <telerik:RadButton Click="btnClearDateSelection" Margin="13,2,3,0" telerik:StyleManager.Theme="Expression_Dark">Vymazat</telerik:RadButton>
+                        </StackPanel>
+                    </telerik:RadExpander.Header>
+                    <telerik:RadTimeBar x:Name="mainTimeBar" SelectionStart="{Binding SelectedDateFrom, Mode=TwoWay}" SelectionEnd="{Binding SelectedDateTo, Mode=TwoWay}" 
+                                        SelectionChanged="RadTimeBar_SelectionChanged" Language="cs-CZ"   PeriodStart="2012-01-01" PeriodEnd="2012-12-31" Margin="2" MinWidth="800" MaxWidth="1600"
+                                        Height="120" VisiblePeriodStart="2012-04-01" VisiblePeriodEnd="2012-04-30" telerik:StyleManager.Theme="Expression_Dark"
+                                         MinZoomRange="10">
+                        <telerik:RadTimeBar.Intervals>
+                            <telerik:QuarterInterval />
+                            <telerik:MonthInterval />
+                            <telerik:WeekInterval />
+                            <telerik:DayInterval />
+                        </telerik:RadTimeBar.Intervals>
+
+                    </telerik:RadTimeBar>
+                </telerik:RadExpander>
+            </Grid>-->
+
+            <Grid Grid.Row="2" x:Name="gridForPrint" Background="#FF333333" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Row="0" Grid.Column="0" Background="White">
+                    <telerik:RadListBox Margin="1" telerik:StyleManager.Theme="Expression_Dark" x:Name="listBoxSource1" SelectedItem="{Binding SelectedItem1, Mode=TwoWay}" DisplayMemberPath="Value">
+                        
+                    </telerik:RadListBox>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="1" Background="White">
+                    <telerik:RadChart x:Name="chartKPI1" Height="Auto" Margin="1"  telerik:StyleManager.Theme="Office_Black"  ItemsSource="{Binding ReportData1}">
+
+                        <telerik:RadChart.SeriesMappings>
+                            <telerik:SeriesMapping LegendLabel="{DynamicResource rep_Target}" x:Name="planSerie1" >
+                                <telerik:SeriesMapping.SeriesDefinition>
+                                    <telerik:LineSeriesDefinition AxisName="Secondary" ShowItemLabels="False"/>
+                                </telerik:SeriesMapping.SeriesDefinition>
+
+                                <telerik:ItemMapping DataPointMember="YValue" FieldName="TargetPlan" x:Name="planItemMapingY1" />
+                                <telerik:ItemMapping DataPointMember="XCategory" FieldName="Date" x:Name="planItemMapingX1" />
+                            </telerik:SeriesMapping>
+                            <telerik:SeriesMapping LegendLabel="Kpi Availability" x:Name="mainSerie1"  >
+                                <telerik:SeriesMapping.SeriesDefinition >
+                                    <telerik:LineSeriesDefinition >
+
+                                    </telerik:LineSeriesDefinition>
+                                </telerik:SeriesMapping.SeriesDefinition>
+                                <telerik:ItemMapping DataPointMember="YValue"  FieldName="KpiAvailability" x:Name="mainItemMapingY1" />
+                                <telerik:ItemMapping DataPointMember="XCategory" FieldName="Date" x:Name="mainItemMapingX1" />
+                            </telerik:SeriesMapping>
+
+                            <!--<telerik:SeriesMapping LegendLabel="Kpi Quality" x:Name="mainSerie2">
+                                <telerik:SeriesMapping.SeriesDefinition>
+                                    <telerik:StackedLineSeriesDefinition />
+                                </telerik:SeriesMapping.SeriesDefinition>
+                                <telerik:ItemMapping DataPointMember="YValue" FieldName="KpiQuality" x:Name="mainItemMapingY2" />
+                                <telerik:ItemMapping DataPointMember="XValue" FieldName="Date" x:Name="mainItemMapingX2" />
+                            </telerik:SeriesMapping>-->
+                        </telerik:RadChart.SeriesMappings>
+                        <telerik:RadChart.DefaultView>
+                            <telerik:ChartDefaultView>
+                                <telerik:ChartDefaultView.ChartTitle>
+                                    <telerik:ChartTitle x:Name="mainChartTitle1"  Height="0" telerik:StyleManager.Theme="Expression_Dark">
+                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" x:Name="tblMainChartTitle1">Nadpis</TextBlock>
+                                    </telerik:ChartTitle>
+                                </telerik:ChartDefaultView.ChartTitle>
+                                <telerik:ChartDefaultView.ChartLegend>
+                                    <telerik:ChartLegend Name="legend1" Header="{DynamicResource rep_Legend}" ReverseLegendItemsOrder="True" />
+                                </telerik:ChartDefaultView.ChartLegend>
+                                <telerik:ChartDefaultView.ChartArea>
+                                    <telerik:ChartArea LegendName="legend1" NoDataString="{DynamicResource rep_NoDataLoaded}" >
+                                        <telerik:ChartArea.AxisY>
+                                            <telerik:AxisY x:Name="mainaxisY1" >
+
+                                            </telerik:AxisY>
+                                        </telerik:ChartArea.AxisY>
+
+
+                                        <telerik:ChartArea.AdditionalYAxes>
+                                            <telerik:AxisY x:Name="secondaxis1" AxisName="Secondary" Title="Wind speed (m/s)" >
+                                            </telerik:AxisY>
+                                        </telerik:ChartArea.AdditionalYAxes>
+
+                                    </telerik:ChartArea>
+                                </telerik:ChartDefaultView.ChartArea>
+                            </telerik:ChartDefaultView>
+                        </telerik:RadChart.DefaultView>
+
+                    </telerik:RadChart>
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="0" Background="White">
+                    <telerik:RadListBox telerik:StyleManager.Theme="Expression_Dark" Margin="1" x:Name="listBoxSource2" SelectedItem="{Binding SelectedItem2, Mode=TwoWay}" DisplayMemberPath="Value">
+
+                    </telerik:RadListBox>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <telerik:RadChart x:Name="chartKPI2" Height="Auto"  telerik:StyleManager.Theme="Office_Black"  ItemsSource="{Binding ReportData2}">
+
+                        <telerik:RadChart.SeriesMappings>
+                            <telerik:SeriesMapping LegendLabel="{DynamicResource rep_Target}" x:Name="planSerie2" >
+                                <telerik:SeriesMapping.SeriesDefinition>
+                                    <telerik:LineSeriesDefinition AxisName="Secondary" ShowItemLabels="False"/>
+                                </telerik:SeriesMapping.SeriesDefinition>
+
+                                <telerik:ItemMapping DataPointMember="YValue" FieldName="TargetPlan" x:Name="planItemMapingY2" />
+                                <telerik:ItemMapping DataPointMember="XCategory" FieldName="Date" x:Name="planItemMapingX2" />
+                            </telerik:SeriesMapping>
+                            <telerik:SeriesMapping LegendLabel="Kpi Availability" x:Name="mainSerie2"  >
+                                <telerik:SeriesMapping.SeriesDefinition >
+                                    <telerik:LineSeriesDefinition >
+
+                                    </telerik:LineSeriesDefinition>
+                                </telerik:SeriesMapping.SeriesDefinition>
+                                <telerik:ItemMapping DataPointMember="YValue"  FieldName="KpiAvailability" x:Name="mainItemMapingY2" />
+                                <telerik:ItemMapping DataPointMember="XCategory" FieldName="Date" x:Name="mainItemMapingX2" />
+                            </telerik:SeriesMapping>
+
+                            <!--<telerik:SeriesMapping LegendLabel="Kpi Quality" x:Name="mainSerie2">
+                                <telerik:SeriesMapping.SeriesDefinition>
+                                    <telerik:StackedLineSeriesDefinition />
+                                </telerik:SeriesMapping.SeriesDefinition>
+                                <telerik:ItemMapping DataPointMember="YValue" FieldName="KpiQuality" x:Name="mainItemMapingY2" />
+                                <telerik:ItemMapping DataPointMember="XValue" FieldName="Date" x:Name="mainItemMapingX2" />
+                            </telerik:SeriesMapping>-->
+                        </telerik:RadChart.SeriesMappings>
+                        <telerik:RadChart.DefaultView>
+                            <telerik:ChartDefaultView>
+                                <telerik:ChartDefaultView.ChartTitle>
+                                    <telerik:ChartTitle x:Name="mainChartTitle2"  Height="0" telerik:StyleManager.Theme="Expression_Dark">
+                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" x:Name="tblMainChartTitle2">Nadpis</TextBlock>
+                                    </telerik:ChartTitle>
+                                </telerik:ChartDefaultView.ChartTitle>
+                                <telerik:ChartDefaultView.ChartLegend>
+                                    <telerik:ChartLegend Name="legend2" Header="{DynamicResource rep_Legend}" ReverseLegendItemsOrder="True" />
+                                </telerik:ChartDefaultView.ChartLegend>
+                                <telerik:ChartDefaultView.ChartArea>
+                                    <telerik:ChartArea LegendName="legend2" NoDataString="{DynamicResource rep_NoDataLoaded}" >
+                                        <telerik:ChartArea.AxisY>
+                                            <telerik:AxisY x:Name="mainaxisY2" >
+
+                                            </telerik:AxisY>
+                                        </telerik:ChartArea.AxisY>
+
+
+                                        <telerik:ChartArea.AdditionalYAxes>
+                                            <telerik:AxisY x:Name="secondaxis2" AxisName="Secondary" Title="Wind speed (m/s)" >
+                                            </telerik:AxisY>
+                                        </telerik:ChartArea.AdditionalYAxes>
+
+                                    </telerik:ChartArea>
+                                </telerik:ChartDefaultView.ChartArea>
+                            </telerik:ChartDefaultView>
+                        </telerik:RadChart.DefaultView>
+
+                    </telerik:RadChart>
+                </Grid>
+
+
+                <Grid Grid.Row="2" Grid.Column="0">
+                    <telerik:RadListBox telerik:StyleManager.Theme="Expression_Dark" x:Name="listBoxSource3" SelectedItem="{Binding SelectedItem3, Mode=TwoWay}" DisplayMemberPath="Value">
+
+                    </telerik:RadListBox>
+                </Grid>
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <telerik:RadChart x:Name="chartKPI3" Height="Auto"  telerik:StyleManager.Theme="Office_Black"  ItemsSource="{Binding ReportData3}">
+
+                        <telerik:RadChart.SeriesMappings>
+                            <telerik:SeriesMapping LegendLabel="{DynamicResource rep_Target}" x:Name="planSerie3" >
+                                <telerik:SeriesMapping.SeriesDefinition>
+                                    <telerik:LineSeriesDefinition AxisName="Secondary" ShowItemLabels="False"/>
+                                </telerik:SeriesMapping.SeriesDefinition>
+
+                                <telerik:ItemMapping DataPointMember="YValue" FieldName="TargetPlan" x:Name="planItemMapingY3" />
+                                <telerik:ItemMapping DataPointMember="XCategory" FieldName="Date" x:Name="planItemMapingX3" />
+                            </telerik:SeriesMapping>
+                            <telerik:SeriesMapping LegendLabel="Kpi Availability" x:Name="mainSerie3"  >
+                                <telerik:SeriesMapping.SeriesDefinition >
+                                    <telerik:LineSeriesDefinition >
+
+                                    </telerik:LineSeriesDefinition>
+                                </telerik:SeriesMapping.SeriesDefinition>
+                                <telerik:ItemMapping DataPointMember="YValue"  FieldName="KpiAvailability" x:Name="mainItemMapingY3" />
+                                <telerik:ItemMapping DataPointMember="XCategory" FieldName="Date" x:Name="mainItemMapingX3" />
+                            </telerik:SeriesMapping>
+
+                            <!--<telerik:SeriesMapping LegendLabel="Kpi Quality" x:Name="mainSerie2">
+                                <telerik:SeriesMapping.SeriesDefinition>
+                                    <telerik:StackedLineSeriesDefinition />
+                                </telerik:SeriesMapping.SeriesDefinition>
+                                <telerik:ItemMapping DataPointMember="YValue" FieldName="KpiQuality" x:Name="mainItemMapingY2" />
+                                <telerik:ItemMapping DataPointMember="XValue" FieldName="Date" x:Name="mainItemMapingX2" />
+                            </telerik:SeriesMapping>-->
+                        </telerik:RadChart.SeriesMappings>
+                        <telerik:RadChart.DefaultView>
+                            <telerik:ChartDefaultView>
+                                <telerik:ChartDefaultView.ChartTitle>
+                                    <telerik:ChartTitle x:Name="mainChartTitle3"  Height="0" telerik:StyleManager.Theme="Expression_Dark">
+                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" x:Name="tblMainChartTitle3">Nadpis</TextBlock>
+                                    </telerik:ChartTitle>
+                                </telerik:ChartDefaultView.ChartTitle>
+                                <telerik:ChartDefaultView.ChartLegend>
+                                    <telerik:ChartLegend Name="legend3" Header="{DynamicResource rep_Legend}" ReverseLegendItemsOrder="True" />
+                                </telerik:ChartDefaultView.ChartLegend>
+                                <telerik:ChartDefaultView.ChartArea>
+                                    <telerik:ChartArea LegendName="legend3" NoDataString="{DynamicResource rep_NoDataLoaded}" >
+                                        <telerik:ChartArea.AxisY>
+                                            <telerik:AxisY x:Name="mainaxisY3" >
+
+                                            </telerik:AxisY>
+                                        </telerik:ChartArea.AxisY>
+
+
+                                        <telerik:ChartArea.AdditionalYAxes>
+                                            <telerik:AxisY x:Name="secondaxis3" AxisName="Secondary" Title="Wind speed (m/s)" >
+                                            </telerik:AxisY>
+                                        </telerik:ChartArea.AdditionalYAxes>
+
+                                    </telerik:ChartArea>
+                                </telerik:ChartDefaultView.ChartArea>
+                            </telerik:ChartDefaultView>
+                        </telerik:RadChart.DefaultView>
+
+                    </telerik:RadChart>
+                </Grid>
+
+            </Grid>
+
+            <telerik:RadBusyIndicator Grid.ColumnSpan="10" Grid.RowSpan="10" BusyContent="{DynamicResource isBusy}" IsBusy="{Binding IsBusy}" telerik:StyleManager.Theme="Expression_Dark"></telerik:RadBusyIndicator>
+
+        </Grid>
+    </ScrollViewer>
+</bc:BaseUserControl>

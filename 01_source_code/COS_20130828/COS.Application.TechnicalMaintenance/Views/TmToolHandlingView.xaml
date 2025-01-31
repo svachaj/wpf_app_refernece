@@ -1,0 +1,62 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" x:Class="COS.Application.TechnicalMaintenance.Views.TmToolHandlingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             d:DesignHeight="500" d:DesignWidth="700">
+
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <Grid Background="Transparent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="1">
+
+            <telerik:RadGridView telerik:StyleManager.Theme="Expression_Dark" AutoGenerateColumns="False"  CanUserInsertRows="False"
+                                     x:Name="grvTools" RowIndicatorVisibility="Collapsed" ItemsSource="{Binding LocalTools}" ShowInsertRow="False"  EnableRowVirtualization="True"
+                               RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="Auto" SelectedItem="{Binding SelectedItem}" >
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource tm_Workcenter}" DataMemberBinding="{Binding WorkCenter.Value}" Tag=""></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource tm_ToolDescription}" DataMemberBinding="{Binding Tool.SysLocalize.cs_Czech }" Tag=""></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource tm_ToolAcPcs}" DataMemberBinding="{Binding ActualPcs}" Tag=""></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource tm_ToolLifeCycle}" DataMemberBinding="{Binding Tool.ServiceLifePcs}" Tag=""></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource tm_TpmStart}" DataMemberBinding="{Binding DiffPcs}" Tag=""></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource tm_ToolSett}" Tag="">
+                        <telerik:GridViewDataColumn.CellTemplate>
+                            <DataTemplate>
+                                <telerik:RadButton Content="Restart" Click="RadButton_Click"></telerik:RadButton>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellTemplate>
+                    </telerik:GridViewDataColumn>
+                </telerik:RadGridView.Columns>
+
+         
+            </telerik:RadGridView>
+
+        </Grid>
+        <Grid Grid.Column="1">
+            <telerik:RadGridView telerik:StyleManager.Theme="Expression_Dark" AutoGenerateColumns="False"  CanUserInsertRows="False"
+                                     x:Name="grvHistories" RowIndicatorVisibility="Collapsed" ItemsSource="{Binding LocalToolsHistory}" ShowInsertRow="False"  EnableRowVirtualization="True"
+                               RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="Auto"  >
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource tm_ToolChangeDate}" DataMemberBinding="{Binding ChangeDate}" Tag=""></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource tm_ToolUsrChange}" DataMemberBinding="{Binding User.FullName }" Tag=""></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource tm_ToolPcsSta}" DataMemberBinding="{Binding StatePcs}" Tag=""></telerik:GridViewDataColumn>
+                  
+                </telerik:RadGridView.Columns>
+
+
+            </telerik:RadGridView>
+        </Grid>
+    </Grid>
+</bc:BaseUserControl>

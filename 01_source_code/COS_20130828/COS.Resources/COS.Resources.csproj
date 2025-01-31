@@ -1,0 +1,517 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8B4B7105-9B1A-429B-99EE-F8244C8CB3CA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>COS.Resources</RootNamespace>
+    <AssemblyName>COSResources</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.Wpf, Version=6.2.13.110, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Convertors.cs" />
+    <Compile Include="Localization\CustomLocalizeManager.cs" />
+    <Compile Include="Localization\TelerikCustomResources.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ResourceHelper.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Localization\cs-CZ\AdministrationLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\cs-CZ\WorkSaferyLocalizeResource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\cs-CZ\OrderLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\cs-CZ\LogisticLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\cs-CZ\TechnicalMaintenanceLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\cs-CZ\MessageLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\cs-CZ\TelerikLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\cs-CZ\VisualizationLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\cs-CZ\ReportingLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\cs-CZ\ProductionLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\cs-CZ\EngeneeringLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\cs-CZ\EmployeesLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\cs-CZ\HumanResourceLocalizeResource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\cs-CZ\UsersLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\cs-CZ\MainLocalizeResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Localization\en-US\AdministrationLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\en-US\EmployeesLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\en-US\EngeneeringLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\en-US\HumanResourceLocalizeResource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\en-US\LogisticLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\en-US\MainLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\en-US\MessageLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\en-US\OrderLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\en-US\ProductionLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\en-US\ReportingLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\en-US\TechnicalMaintenanceLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\en-US\TelerikLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\en-US\UsersLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\en-US\VisualizationLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\en-US\WorkSaferyLocalizeResource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SplashResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="COSBaseResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LauncherResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Localization\cs-CZ\BaseLocalizeResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Localization\cs-CZ\SplashLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\cs-CZ\LauncherLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\en-US\BaseLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\en-US\LauncherLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localization\en-US\SplashLocalizeResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VisualizationResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cancel48.png" />
+    <Resource Include="Images\Cos_32x32.png" />
+    <Resource Include="Images\PlusGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cos_128x128.png" />
+    <Resource Include="Images\Cos_20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cosLogo_668x302_WithBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cosIco_32x32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Splash_650x350.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Splash_650x350_New.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Add_48x48.png" />
+    <Resource Include="Images\Cancel_48x48.png" />
+    <Resource Include="Images\CZE_Flag.png" />
+    <Resource Include="Images\Delete_48x48.png" />
+    <Resource Include="Images\Eng_Flag.png" />
+    <Resource Include="Images\HR_48x48.png" />
+    <Resource Include="Images\Save_48x48.png" />
+    <Resource Include="Images\Security_48x48.png" />
+    <Resource Include="Images\Synchro_48x48.png" />
+    <Resource Include="Images\User_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cos_32x32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Std_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AccType_48x48.png" />
+    <Resource Include="Images\BonusGroup_48x48.png" />
+    <Resource Include="Images\CostCenter_48x48.png" />
+    <Resource Include="Images\Division_48x48.png" />
+    <Resource Include="Images\DowntimesGroup_48x48.png" />
+    <Resource Include="Images\Downtimes_48x48.png" />
+    <Resource Include="Images\Employer_48x48.png" />
+    <Resource Include="Images\Groups_48x48.png" />
+    <Resource Include="Images\ItemsGroup_48x48.png" />
+    <Resource Include="Images\Localization_48x48.png" />
+    <Resource Include="Images\SalaryGroup_48x48.png" />
+    <Resource Include="Images\ShiftPattern_48x48.png" />
+    <Resource Include="Images\ShiftTypes_48x48.png" />
+    <Resource Include="Images\Shift_48x48.png" />
+    <Resource Include="Images\WorkCenter_48x48.png" />
+    <Resource Include="Images\WorkGroup_48x48.png" />
+    <Resource Include="Images\WorkPosition_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WorkGroupsWorkCenters_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DowntimeGroupDowntime_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\HourlyProduction_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DeleteAll_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NoPlan_48x48.png" />
+    <Resource Include="Images\PrevMaintenance_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cycle1_48x48.png" />
+    <Resource Include="Images\Cycle2_48x48.png" />
+    <Resource Include="Images\Cycle3_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Test16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AccType_16x16.png" />
+    <Resource Include="Images\BonusGroup_16x16.png" />
+    <Resource Include="Images\CostCenter_16x16.png" />
+    <Resource Include="Images\Division_16x16.png" />
+    <Resource Include="Images\DowntimeGroupDowntime_16x16.png" />
+    <Resource Include="Images\DowntimesGroup_16x16.png" />
+    <Resource Include="Images\Downtimes_16x16.png" />
+    <Resource Include="Images\Employer_16x16.png" />
+    <Resource Include="Images\SalaryGroup_16x16.png" />
+    <Resource Include="Images\ShiftPattern_16x16.png" />
+    <Resource Include="Images\ShiftTypes_16x16.png" />
+    <Resource Include="Images\Shift_16x16.png" />
+    <Resource Include="Images\WorkCenter_16x16.png" />
+    <Resource Include="Images\WorkGroupsWorkCenters_16x16.png" />
+    <Resource Include="Images\WorkGroup_16x16.png" />
+    <Resource Include="Images\WorkPosition_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\COS.Common\COS.Common.csproj">
+      <Project>{94CB540B-4A30-49EF-8675-3DE324F2CEE4}</Project>
+      <Name>COS.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ExportCSV_48x48.png" />
+    <Resource Include="Images\Import_48x48.png" />
+    <Resource Include="Images\LoadFile_48x48.png" />
+    <Resource Include="Images\Refresh_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Filter_48x48.png" />
+    <Resource Include="Images\Print_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Graph_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sp1.bmp" />
+    <Resource Include="Images\sp2.bmp" />
+    <Resource Include="Images\sp3.bmp" />
+    <Resource Include="Images\sp4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GreenDotWGD.jpg" />
+    <Resource Include="Images\Logo.jpg" />
+    <Resource Include="Images\Logo1.jpg" />
+    <Resource Include="Images\RedDotWGD.jpg" />
+    <Resource Include="Images\WhiteDotWGD.jpg" />
+    <Resource Include="Images\YellowDotWGD.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ReCalc_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ReCalc_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\EngStdCreate_48x48.png" />
+    <Resource Include="Images\EngStdHpOpen_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AdsCustService_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TpmPlan_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TpmCheckList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TpmCheckListItem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TpmEquipment_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\HolidayCalendar_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TpmOverview_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\allsize1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Configurators_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ForeignExport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PriceList_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CondFormatting_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ConfiguratorsMatrix_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ZoneCombinations_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Add_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Delete_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Engineering.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Home_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OrderCompletion_48x48.png" />
+    <Resource Include="Images\OrderInput_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CheckArrow_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OrderApprove_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Delete_16_Dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Tool_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\VolumeCheck_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DomesticExport_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ArrowDown_48x48.png" />
+    <Resource Include="Images\ArrowUp_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Planning_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LogForwarder_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TimeWindow_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TrpOrderCo_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Envelope_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Check_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\EditEmail_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Edit_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Heart_48x48.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

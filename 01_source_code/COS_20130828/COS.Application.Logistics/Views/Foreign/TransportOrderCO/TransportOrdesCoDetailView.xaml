@@ -1,0 +1,590 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF"  x:Class="COS.Application.Logistics.Views.TransportOrdesCoDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" MinHeight="400" MinWidth="800" MaxWidth="1650"
+             d:DesignHeight="500" d:DesignWidth="1650" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF">
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <Grid Background="#333333">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <my:COSToolBar telerik:StyleManager.Theme="Expression_Dark" Grid.Row="0" InsertButtonVisibility="Collapsed" DeleteButtonVisibility="Collapsed" UpdateButtonVisibility="Visible" CancelButtonVisibility="Visible" >
+
+            <StackPanel Orientation="Horizontal" Margin="5,5,5,5">
+                <Button Click="btnExportData_click"  ToolTip="{DynamicResource log_ExportToExcel}" telerik:StyleManager.Theme="Expression_Dark" Margin="10,0,5,0">
+                    <Image Source="/COSResources;component/Images/ExportCSV_48x48.png" Width="32" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                </Button>
+                <Button Click="btnSendExportedDataMail_click"  ToolTip="{DynamicResource log_SendEmail}" telerik:StyleManager.Theme="Expression_Dark" Margin="5,0,10,0">
+                    <Image Source="/COSResources;component/Images/Envelope_48x48.png" Width="32" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                </Button>
+            </StackPanel>
+
+
+        </my:COSToolBar>
+
+
+        <Grid Grid.Row="1" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <ScrollViewer Margin="0,0,20,0" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" Grid.ColumnSpan="6" x:Name="scrollHeader">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="265"></ColumnDefinition>
+                        <ColumnDefinition Width="272"></ColumnDefinition>
+                        <ColumnDefinition Width="272"></ColumnDefinition>
+                        <ColumnDefinition Width="272"></ColumnDefinition>
+                        <ColumnDefinition Width="272"></ColumnDefinition>
+                        <ColumnDefinition Width="272"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Background="#2d2e32">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="92"></ColumnDefinition>
+                            <ColumnDefinition Width="70"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Height="45">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Destination}" Foreground="White"></TextBlock>
+                            <Border BorderThickness="1,1,0,1" BorderBrush="Silver"></Border>
+                        </Grid>
+                        <Grid Height="45" Grid.Column="1">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Address}"  Foreground="White"></TextBlock>
+                            <Border BorderThickness="1,1,0,1" BorderBrush="Silver"></Border>
+                        </Grid>
+                        <Grid Height="45" Grid.Column="2">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Advices}"  Foreground="White">
+                            </TextBlock>
+                            <Border BorderThickness="1" BorderBrush="Silver"></Border>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Background="#2d2e32" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid  Grid.Row="0" Grid.ColumnSpan="3" Background="#414349" >
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Day1ofWeek}" Foreground="White"></TextBlock>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SelectedWeek}" Foreground="White"></TextBlock>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text=" - " Foreground="White"></TextBlock>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SelectedDate1,StringFormat=d}" Foreground="White"></TextBlock>
+                            </StackPanel>
+
+                            <Border BorderThickness="1,1,1,0" BorderBrush="Silver"></Border>
+                        </Grid>
+                        <Grid  Grid.Row="1" Background="#414349">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Volume}" Foreground="White"></TextBlock>
+                            <Border BorderThickness="1,1,0,1" BorderBrush="Silver"></Border>
+                        </Grid>
+                        <Grid  Grid.Column="1"  Grid.Row="1" Background="#414349">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Info}" Foreground="White"></TextBlock>
+                            <Border BorderThickness="1,1,0,1" BorderBrush="Silver"></Border>
+                        </Grid>
+                        <Grid  Grid.Column="2"  Grid.Row="1" Background="#414349">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Note}"  Foreground="White"></TextBlock>
+                            <Border BorderThickness="1" BorderBrush="Silver"></Border>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Background="#2d2e32" Grid.Column="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid  Grid.Row="0" Grid.ColumnSpan="3">
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Day2ofWeek}"  Foreground="White"></TextBlock>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SelectedWeek}" Foreground="White"></TextBlock>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text=" - " Foreground="White"></TextBlock>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SelectedDate2,StringFormat=d}" Foreground="White"></TextBlock>
+                            </StackPanel>
+
+                            <Border BorderThickness="1,1,1,0" BorderBrush="Silver"></Border>
+                        </Grid>
+                        <Grid  Grid.Row="1">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Volume}" Foreground="White"></TextBlock>
+                            <Border BorderThickness="1,1,0,1" BorderBrush="Silver"></Border>
+                        </Grid>
+                        <Grid  Grid.Column="1"  Grid.Row="1">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Info}" Foreground="White"></TextBlock>
+                            <Border BorderThickness="1,1,0,1" BorderBrush="Silver"></Border>
+                        </Grid>
+                        <Grid  Grid.Column="2"  Grid.Row="1">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Note}"  Foreground="White"></TextBlock>
+                            <Border BorderThickness="1" BorderBrush="Silver"></Border>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Background="#2d2e32" Grid.Column="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid  Grid.Row="0" Grid.ColumnSpan="3" Background="#414349">
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Day3ofWeek}"  Foreground="White"></TextBlock>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SelectedWeek}" Foreground="White"></TextBlock>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text=" - " Foreground="White"></TextBlock>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SelectedDate3,StringFormat=d}" Foreground="White"></TextBlock>
+                            </StackPanel>
+
+                            <Border BorderThickness="1,1,1,0" BorderBrush="Silver"></Border>
+                        </Grid>
+                        <Grid  Grid.Row="1" Background="#414349">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Volume}" Foreground="White"></TextBlock>
+                            <Border BorderThickness="1,1,0,1" BorderBrush="Silver"></Border>
+                        </Grid>
+                        <Grid  Grid.Column="1"  Grid.Row="1" Background="#414349">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Info}" Foreground="White"></TextBlock>
+                            <Border BorderThickness="1,1,0,1" BorderBrush="Silver"></Border>
+                        </Grid>
+                        <Grid  Grid.Column="2"  Grid.Row="1" Background="#414349">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Note}"  Foreground="White"></TextBlock>
+                            <Border BorderThickness="1" BorderBrush="Silver"></Border>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Background="#2d2e32" Grid.Column="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid  Grid.Row="0" Grid.ColumnSpan="3">
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Day4ofWeek}"  Foreground="White"></TextBlock>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SelectedWeek}" Foreground="White"></TextBlock>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text=" - " Foreground="White"></TextBlock>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SelectedDate4,StringFormat=d}" Foreground="White"></TextBlock>
+                            </StackPanel>
+
+                            <Border BorderThickness="1,1,1,0" BorderBrush="Silver"></Border>
+                        </Grid>
+                        <Grid  Grid.Row="1">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Volume}" Foreground="White"></TextBlock>
+                            <Border BorderThickness="1,1,0,1" BorderBrush="Silver"></Border>
+                        </Grid>
+                        <Grid  Grid.Column="1"  Grid.Row="1">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Info}" Foreground="White"></TextBlock>
+                            <Border BorderThickness="1,1,0,1" BorderBrush="Silver"></Border>
+                        </Grid>
+                        <Grid  Grid.Column="2"  Grid.Row="1">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Note}"  Foreground="White"></TextBlock>
+                            <Border BorderThickness="1" BorderBrush="Silver"></Border>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Background="#2d2e32" Grid.Column="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid  Grid.Row="0" Grid.ColumnSpan="3" Background="#414349">
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{DynamicResource log_Day5ofWeek}"  Foreground="White"></TextBlock>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SelectedWeek}" Foreground="White"></TextBlock>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text=" - " Foreground="White"></TextBlock>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SelectedDate5,StringFormat=d}" Foreground="White"></TextBlock>
+                            </StackPanel>
+
+                            <Border BorderThickness="1,1,1,0" BorderBrush="Silver"></Border>
+                        </Grid>
+                        <Grid  Grid.Row="1" Background="#414349">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Objem" Foreground="White"></TextBlock>
+                            <Border BorderThickness="1,1,0,1" BorderBrush="Silver"></Border>
+                        </Grid>
+                        <Grid  Grid.Column="1"  Grid.Row="1" Background="#414349">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Info" Foreground="White"></TextBlock>
+                            <Border BorderThickness="1,1,0,1" BorderBrush="Silver"></Border>
+                        </Grid>
+                        <Grid  Grid.Column="2"  Grid.Row="1" Background="#414349">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Poznámka" Foreground="White"></TextBlock>
+                            <Border BorderThickness="1" BorderBrush="Silver"></Border>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </ScrollViewer>
+
+
+
+            <ScrollViewer Grid.Row="1" telerik:StyleManager.Theme="Expression_Dark" Grid.ColumnSpan="6" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" ScrollChanged="mainScroller_changed">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="265"></ColumnDefinition>
+                        <ColumnDefinition Width="272"></ColumnDefinition>
+                        <ColumnDefinition Width="272"></ColumnDefinition>
+                        <ColumnDefinition Width="272"></ColumnDefinition>
+                        <ColumnDefinition Width="272"></ColumnDefinition>
+                        <ColumnDefinition Width="272"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <telerik:RadGridView Grid.Column="0" telerik:StyleManager.Theme="Office_Silver" AutoGenerateColumns="False"  ItemsSource="{Binding LocalTransportsTemps}"
+                                 CanUserInsertRows="False" x:Name="grvTransportsRecap" RowIndicatorVisibility="Collapsed" ShowColumnHeaders="False"
+                               ShowGroupPanel="False" CanUserResizeColumns="False" CanUserFreezeColumns="False" BorderBrush="black"
+                              ShowInsertRow="False"  SelectionMode="Extended" CanUserReorderColumns="False" ClipboardCopyMode="All"
+                              RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="Auto" SelectionUnit="Cell" IsFilteringAllowed="False" CanUserSortColumns="False"
+                                             RowLoaded="grvTransportsRecap_RowLoaded" >
+
+                        <telerik:RadGridView.Columns >
+
+                            <telerik:GridViewDataColumn Width="92" IsReadOnly="True"  Header="Destinace"  >
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <TextBlock Text="{Binding Destination.DestinationName}" FontFamily="Segoe UI"  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Width="70" IsReadOnly="True"  Header="Adresa"   >
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75" >
+                                            <StackPanel  Orientation="Vertical"  >
+                                                <TextBlock  Text="{Binding Destination.ordCompanyName}" FontSize="8" TextWrapping="NoWrap" FontFamily="Segoe UI" HorizontalAlignment="Left" VerticalAlignment="Center" ></TextBlock>
+                                                <TextBlock  Text="{Binding Destination.ordStreet}" FontSize="8" TextWrapping="NoWrap" FontFamily="Segoe UI" HorizontalAlignment="Left" VerticalAlignment="Center" ></TextBlock>
+                                                <TextBlock  Text="{Binding Destination.ordCity}" FontSize="8" TextWrapping="NoWrap" FontFamily="Segoe UI" HorizontalAlignment="Left" VerticalAlignment="Center" ></TextBlock>
+                                                <TextBlock  Text="{Binding Destination.ordPostalCode}" FontSize="8" TextWrapping="NoWrap" FontFamily="Segoe UI" HorizontalAlignment="Left" VerticalAlignment="Center" ></TextBlock>
+                                                <TextBlock  Text="{Binding Destination.Country.SysLocalize.en_English }" FontSize="8" TextWrapping="NoWrap" FontFamily="Segoe UI" HorizontalAlignment="Left" VerticalAlignment="Center" ></TextBlock>
+
+                                            </StackPanel>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Width="100" IsReadOnly="True"  Header="Avizace"  >
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock ToolTipService.ShowDuration="120000" Grid.RowSpan="2" Text="{Binding Advice.Value}" TextWrapping="Wrap" >
+                                                 <TextBlock.ToolTip>
+                                                   <Grid MaxWidth="400">
+                                                       <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Text="{Binding Advice.Value}"></TextBlock>
+                                                   </Grid>
+                                                  </TextBlock.ToolTip>
+                                            </TextBlock>
+                                            <telerik:RadButton Grid.Row="0" HorizontalAlignment="Right" Content="X" Grid.Column="1" Click="btnAdviceDelete_click" telerik:StyleManager.Theme="Summer"></telerik:RadButton>
+                                            <telerik:RadButton Grid.Row="1" HorizontalAlignment="Right" Content="A" Grid.Column="1" Click="btnAdvice_click" telerik:StyleManager.Theme="Summer"></telerik:RadButton>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+
+                        </telerik:RadGridView.Columns>
+
+
+                    </telerik:RadGridView>
+
+                    <telerik:RadGridView Grid.Column="1" telerik:StyleManager.Theme="Office_Silver" AutoGenerateColumns="False" ItemsSource="{Binding LocalTransports1}"
+                                 CanUserInsertRows="False" x:Name="grvTransports1" RowIndicatorVisibility="Collapsed"   ShowColumnHeaders="False"
+                             ShowGroupPanel="False"  CanUserResizeColumns="False" CanUserFreezeColumns="False"
+                              ShowInsertRow="False"  SelectionMode="Extended" CanUserReorderColumns="False" ClipboardCopyMode="All"
+                              RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="Auto" SelectionUnit="Cell" IsFilteringAllowed="False" CanUserSortColumns="False" 
+                                               RowLoaded="grvTransports1_RowLoaded" >
+                        <telerik:RadGridView.Columns >
+
+                            <telerik:GridViewDataColumn Width="70" IsReadOnly="True"  Header="Objem"  >
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <TextBox  Margin="0,1,0,1" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" TextWrapping="Wrap"  VerticalContentAlignment="Center" TextAlignment="Center" telerik:StyleManager.Theme="Summer" IsReadOnly="{Binding IsNew,Converter={StaticResource BooleanReverseConverter}}" Text="{Binding Volume,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Width="100" IsReadOnly="True"  Header="Info"   >
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Text="{Binding Info.Value}" Grid.RowSpan="2" TextWrapping="Wrap" ></TextBlock>
+                                            <telerik:RadButton Grid.Row="0" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" HorizontalAlignment="Right" Content="X" Width="18" IsEnabled="{Binding IsNew}" Grid.Column="1" Click="btnInfoDelete_click" telerik:StyleManager.Theme="Summer"></telerik:RadButton>
+                                            <telerik:RadButton Grid.Row="1" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" HorizontalAlignment="Right" Content="I" Width="18" IsEnabled="{Binding IsNew}" Grid.Column="1" Click="btnInfo_click" telerik:StyleManager.Theme="Summer"></telerik:RadButton>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Width="100" IsReadOnly="True" Header="Poznámka"  >
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Margin="0,1,0,1" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" telerik:StyleManager.Theme="Summer" IsReadOnly="{Binding IsNew,Converter={StaticResource BooleanReverseConverter}}" Text="{Binding Note,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+
+                        </telerik:RadGridView.Columns>
+
+
+                    </telerik:RadGridView>
+
+                    <telerik:RadGridView Grid.Column="2" telerik:StyleManager.Theme="Office_Silver" AutoGenerateColumns="False" ItemsSource="{Binding LocalTransports2}"
+                                 CanUserInsertRows="False" x:Name="grvTransports2" RowIndicatorVisibility="Collapsed"  ShowColumnHeaders="False"
+                               ShowGroupPanel="False"  CanUserResizeColumns="False" CanUserFreezeColumns="False"
+                              ShowInsertRow="False"  SelectionMode="Extended" CanUserReorderColumns="False" ClipboardCopyMode="All"
+                              RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="Auto" SelectionUnit="Cell" IsFilteringAllowed="False" CanUserSortColumns="False"
+                                             RowLoaded="grvTransports2_RowLoaded">
+                        <telerik:RadGridView.Columns >
+
+                            <telerik:GridViewDataColumn Width="70" IsReadOnly="True"  Header="Objem"  >
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <TextBox  Margin="0,1,0,1" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" TextWrapping="Wrap" TextAlignment="Center" VerticalContentAlignment="Center" telerik:StyleManager.Theme="Summer" IsReadOnly="{Binding IsNew,Converter={StaticResource BooleanReverseConverter}}" Text="{Binding Volume,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Width="100" IsReadOnly="True"  Header="Info"   >
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Text="{Binding Info.Value}" Grid.RowSpan="2" TextWrapping="Wrap" ></TextBlock>
+                                            <telerik:RadButton Grid.Row="0" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" HorizontalAlignment="Right" Content="X" Width="18" IsEnabled="{Binding IsNew}" Grid.Column="1" Click="btnInfoDelete_click" telerik:StyleManager.Theme="Summer"></telerik:RadButton>
+                                            <telerik:RadButton Grid.Row="1" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" HorizontalAlignment="Right" Content="I" Width="18" IsEnabled="{Binding IsNew}" Grid.Column="1" Click="btnInfo_click" telerik:StyleManager.Theme="Summer"></telerik:RadButton>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Width="100" IsReadOnly="True" Header="Poznámka"  >
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Margin="0,1,0,1" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" telerik:StyleManager.Theme="Summer" IsReadOnly="{Binding IsNew,Converter={StaticResource BooleanReverseConverter}}" Text="{Binding Note,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+
+                        </telerik:RadGridView.Columns>
+
+
+                    </telerik:RadGridView>
+
+                    <telerik:RadGridView Grid.Column="3" telerik:StyleManager.Theme="Office_Silver" AutoGenerateColumns="False" ItemsSource="{Binding LocalTransports3}"
+                                 CanUserInsertRows="False" x:Name="grvTransports3" RowIndicatorVisibility="Collapsed"  ShowColumnHeaders="False"
+                             ShowGroupPanel="False"  CanUserResizeColumns="False" CanUserFreezeColumns="False"
+                              ShowInsertRow="False"  SelectionMode="Extended" CanUserReorderColumns="False" ClipboardCopyMode="All"
+                              RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="Auto" SelectionUnit="Cell" IsFilteringAllowed="False" CanUserSortColumns="False"
+                                            RowLoaded="grvTransports3_RowLoaded" >
+                        <telerik:RadGridView.Columns >
+
+                            <telerik:GridViewDataColumn Width="70" IsReadOnly="True"  Header="Objem"  >
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <TextBox  Margin="0,1,0,1" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" TextWrapping="Wrap" TextAlignment="Center" VerticalContentAlignment="Center" telerik:StyleManager.Theme="Summer" IsReadOnly="{Binding IsNew,Converter={StaticResource BooleanReverseConverter}}" Text="{Binding Volume,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Width="100" IsReadOnly="True"  Header="Info"   >
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Text="{Binding Info.Value}" Grid.RowSpan="2" TextWrapping="Wrap" ></TextBlock>
+                                            <telerik:RadButton Grid.Row="0" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" HorizontalAlignment="Right" Content="X" Width="18" IsEnabled="{Binding IsNew}" Grid.Column="1" Click="btnInfoDelete_click" telerik:StyleManager.Theme="Summer"></telerik:RadButton>
+                                            <telerik:RadButton Grid.Row="1" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" HorizontalAlignment="Right" Content="I" Width="18" IsEnabled="{Binding IsNew}" Grid.Column="1" Click="btnInfo_click" telerik:StyleManager.Theme="Summer"></telerik:RadButton>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Width="100" IsReadOnly="True" Header="Poznámka"  >
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Margin="0,1,0,1" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" telerik:StyleManager.Theme="Summer" IsReadOnly="{Binding IsNew,Converter={StaticResource BooleanReverseConverter}}" Text="{Binding Note,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+
+                        </telerik:RadGridView.Columns>
+
+
+                    </telerik:RadGridView>
+
+                    <telerik:RadGridView Grid.Column="4" telerik:StyleManager.Theme="Office_Silver" AutoGenerateColumns="False" ItemsSource="{Binding LocalTransports4}"
+                                 CanUserInsertRows="False" x:Name="grvTransports4" RowIndicatorVisibility="Collapsed"  ShowColumnHeaders="False"
+                           ShowGroupPanel="False"  CanUserResizeColumns="False" CanUserFreezeColumns="False"
+                              ShowInsertRow="False"  SelectionMode="Extended" CanUserReorderColumns="False" ClipboardCopyMode="All"
+                              RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="Auto" SelectionUnit="Cell" IsFilteringAllowed="False" CanUserSortColumns="False"
+                                           RowLoaded="grvTransports4_RowLoaded" >
+                        <telerik:RadGridView.Columns >
+
+                            <telerik:GridViewDataColumn Width="70" IsReadOnly="True"  Header="Objem"  >
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <TextBox  Margin="0,1,0,1" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" TextWrapping="Wrap" TextAlignment="Center" VerticalContentAlignment="Center" telerik:StyleManager.Theme="Summer" IsReadOnly="{Binding IsNew,Converter={StaticResource BooleanReverseConverter}}" Text="{Binding Volume,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Width="100" IsReadOnly="True"  Header="Info"   >
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Text="{Binding Info.Value}" Grid.RowSpan="2" TextWrapping="Wrap" ></TextBlock>
+                                            <telerik:RadButton Grid.Row="0" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" HorizontalAlignment="Right" Content="X" Width="18" IsEnabled="{Binding IsNew}" Grid.Column="1" Click="btnInfoDelete_click" telerik:StyleManager.Theme="Summer"></telerik:RadButton>
+                                            <telerik:RadButton Grid.Row="1" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" HorizontalAlignment="Right" Content="I" Width="18" IsEnabled="{Binding IsNew}" Grid.Column="1" Click="btnInfo_click" telerik:StyleManager.Theme="Summer"></telerik:RadButton>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Width="100" IsReadOnly="True" Header="Poznámka"  >
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Margin="0,1,0,1" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" telerik:StyleManager.Theme="Summer" IsReadOnly="{Binding IsNew,Converter={StaticResource BooleanReverseConverter}}" Text="{Binding Note,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+
+                        </telerik:RadGridView.Columns>
+
+
+                    </telerik:RadGridView>
+
+                    <telerik:RadGridView Grid.Column="5" telerik:StyleManager.Theme="Office_Silver" AutoGenerateColumns="False" ItemsSource="{Binding LocalTransports5}"
+                                 CanUserInsertRows="False" x:Name="grvTransports5" RowIndicatorVisibility="Collapsed"  ShowColumnHeaders="False"
+                              ShowGroupPanel="False"  CanUserResizeColumns="False" CanUserFreezeColumns="False"
+                              ShowInsertRow="False"  SelectionMode="Extended" CanUserReorderColumns="False" ClipboardCopyMode="All"
+                              RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="Auto" SelectionUnit="Cell" IsFilteringAllowed="False" CanUserSortColumns="False"
+                                           RowLoaded="grvTransports5_RowLoaded" >
+                        <telerik:RadGridView.Columns >
+
+                            <telerik:GridViewDataColumn Width="70" IsReadOnly="True"  Header="Objem"  >
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <TextBox  Margin="0,1,0,1" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" TextWrapping="Wrap" TextAlignment="Center" VerticalContentAlignment="Center" telerik:StyleManager.Theme="Summer" IsReadOnly="{Binding IsNew,Converter={StaticResource BooleanReverseConverter}}" Text="{Binding Volume,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Width="100" IsReadOnly="True"  Header="Info"   >
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Text="{Binding Info.Value}" Grid.RowSpan="2" TextWrapping="Wrap" ></TextBlock>
+                                            <telerik:RadButton Grid.Row="0" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" HorizontalAlignment="Right" Content="X" Width="18" IsEnabled="{Binding IsNew}" Grid.Column="1" Click="btnInfoDelete_click" telerik:StyleManager.Theme="Summer"></telerik:RadButton>
+                                            <telerik:RadButton Grid.Row="1" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" HorizontalAlignment="Right" Content="I" Width="18" IsEnabled="{Binding IsNew}" Grid.Column="1" Click="btnInfo_click" telerik:StyleManager.Theme="Summer"></telerik:RadButton>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Width="100" IsReadOnly="True" Header="Poznámka"  >
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Margin="0,1,0,1" Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}}" telerik:StyleManager.Theme="Summer" IsReadOnly="{Binding IsNew,Converter={StaticResource BooleanReverseConverter}}" Text="{Binding Note,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+
+                        </telerik:RadGridView.Columns>
+
+
+                    </telerik:RadGridView>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+
+
+
+
+
+        <!--<telerik:RadBusyIndicator Grid.ColumnSpan="10" Grid.RowSpan="10" BusyContent="Čekejte prosím" IsBusy="{Binding IsBusy}" telerik:StyleManager.Theme="Expression_Dark"></telerik:RadBusyIndicator>-->
+
+
+    </Grid>
+</bc:BaseUserControl>

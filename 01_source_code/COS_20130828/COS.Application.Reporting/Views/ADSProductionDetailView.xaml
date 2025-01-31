@@ -1,0 +1,244 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" x:Class="COS.Application.Reporting.Views.ADSProductionDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             d:DesignHeight="1200" d:DesignWidth="1200" HorizontalAlignment="Stretch">
+
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <!--<ScrollViewer  VerticalScrollBarVisibility="Auto" telerik:StyleManager.Theme="Expression_Dark" HorizontalScrollBarVisibility="Auto" >-->
+    <Grid Background="#FF333333">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" ></ColumnDefinition>
+            <ColumnDefinition Width="*" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+            <Border>
+                <TextBlock x:Name="tblDetailInfo" Foreground="White" Margin="15,4,4,4" FontSize="15" Text="{DynamicResource rep_ProductionDetail}">
+                </TextBlock>
+            </Border>
+        </Grid>
+
+        <telerik:RadToolBar telerik:StyleManager.Theme="Expression_Dark" Grid.Row="1" Grid.ColumnSpan="2">
+            <telerik:RadButton Click="RadButton_Click" VerticalAlignment="Center" Height="32" Margin="1" Padding="7,2,7,2" ToolTip="{DynamicResource rep_tt_Filter}">
+                <Image Source="/COSResources;component/Images/Filter_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+            </telerik:RadButton>
+            <!--<telerik:RadButton>Show</telerik:RadButton>-->
+            <telerik:RadButton  Margin="1" Padding="7,2,7,2" VerticalAlignment="Center" Height="32" Click="RadButton_Click_1"  ToolTip="{DynamicResource rep_tt_Export}">
+                <Image Source="/COSResources;component/Images/ExportCSV_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                </telerik:RadButton>
+            <telerik:RadButton  Margin="1" Padding="7,2,7,2" VerticalAlignment="Center" Height="32" Click="RadButton_Click_2" ToolTip="{DynamicResource gen_tt_CleanGrid}" telerik:StyleManager.Theme="Expression_Dark">
+                <Image Source="/COSResources;component/Images/DeleteAll_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+            </telerik:RadButton>
+            
+        </telerik:RadToolBar>
+
+
+        <Grid Grid.Row="2" Background="#FF333333" Grid.Column="0" Grid.RowSpan="2">
+
+            <!--detail LIST info-->
+            <Border x:Name="borderOperatorsList" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="3" BorderBrush="Gray" BorderThickness="1.5" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0,0,0,1.5" Margin="0,0,0,3">
+                        <TextBlock Foreground="White" Margin="3" HorizontalAlignment="Center" Text="{DynamicResource rep_OperatorDowntimes}" FontWeight="Bold"></TextBlock>
+                    </Border>
+
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"></RowDefinition>
+                            <RowDefinition Height="1*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <telerik:RadGridView  BorderBrush="Transparent" Grid.Row="0" ItemsSource="{Binding SelectedHourlyProduction.Operators}" AutoGenerateColumns="False"  telerik:StyleManager.Theme="Expression_Dark"
+                                                     EditTriggers="None" CanUserDeleteRows="True" CanUserInsertRows="True" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" 
+                                                     ShowInsertRow="False" x:Name="grdOperators" SelectionMode="Extended" ClipboardCopyMode="All" CanUserSelect="True">
+                            <telerik:RadGridView.Columns>
+
+                                <telerik:GridViewDataColumn Header="{DynamicResource rep_Employee}" HeaderTextAlignment="Center" Width="180">
+                                    <telerik:GridViewDataColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Employee.FullName}" TextWrapping="Wrap"></TextBlock>
+                                        </DataTemplate>
+                                    </telerik:GridViewDataColumn.CellTemplate>
+                                </telerik:GridViewDataColumn>
+
+                                <telerik:GridViewDataColumn Header="{DynamicResource rep_HrId}" HeaderTextAlignment="Center" Width="100">
+                                    <telerik:GridViewDataColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Employee.HR_ID}"></TextBlock>
+                                        </DataTemplate>
+                                    </telerik:GridViewDataColumn.CellTemplate>
+                                </telerik:GridViewDataColumn>
+
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+
+                        <telerik:RadGridView Grid.Row="1" BorderBrush="Transparent" ItemsSource="{Binding SelectedHourlyProduction.Assets}" AutoGenerateColumns="False"  telerik:StyleManager.Theme="Expression_Dark"
+                                                     EditTriggers="None" CanUserDeleteRows="True" CanUserInsertRows="True" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" 
+                                                     ShowInsertRow="False" x:Name="grdAssets" SelectionMode="Extended" ClipboardCopyMode="All" CanUserSelect="True">
+                            <telerik:RadGridView.Columns>
+
+                                <telerik:GridViewDataColumn Header="{DynamicResource rep_Dowtimes}" HeaderTextAlignment="Center" Width="180">
+                                    <telerik:GridViewDataColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Downtime.Description}" TextWrapping="Wrap"></TextBlock>
+                                        </DataTemplate>
+                                    </telerik:GridViewDataColumn.CellTemplate>
+                                </telerik:GridViewDataColumn>
+
+                                <telerik:GridViewDataColumn Header="{DynamicResource rep_DowtimeTime}" HeaderTextAlignment="Center" Width="100">
+                                    <telerik:GridViewDataColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Time_min}"></TextBlock>
+                                        </DataTemplate>
+                                    </telerik:GridViewDataColumn.CellTemplate>
+                                </telerik:GridViewDataColumn>
+
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+
+                    </Grid>
+
+                </Grid>
+
+            </Border>
+
+        </Grid>
+
+        <Grid Grid.Row="2" Background="#FF333333" Grid.Column="1">
+
+            <!--detail LIST info-->
+            <Border x:Name="borderDetailsList"  Margin="3" BorderBrush="Gray" BorderThickness="1.5" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0,0,0,1.5" Margin="0,0,0,3">
+                        <TextBlock Foreground="White" Margin="3" HorizontalAlignment="Center" Text="{DynamicResource rep_Results}" FontWeight="Bold"></TextBlock>
+                    </Border>
+
+                    <Grid Grid.Row="1">
+                        <telerik:RadGridView BorderBrush="Gray" AutoGenerateColumns="False"  telerik:StyleManager.Theme="Expression_Dark"
+                                     SelectedItem="{Binding SelectedHourlyProduction, Mode=TwoWay}"    Margin="0,3,3,3"    SelectionMode="Extended"       
+                                     EditTriggers="None"  ShowGroupPanel="True" RowIndicatorVisibility="Collapsed"  
+                                                     ShowInsertRow="False" x:Name="grdHourlyProductions"  IsReadOnly="True"  IsTabStop="False"  ClipboardCopyMode="All" CanUserSelect="True" >
+
+                            <telerik:RadGridView.Columns>
+                                <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding Division.Value}" Header="{DynamicResource rep_Division}"></telerik:GridViewDataColumn>-->
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Date,StringFormat=d}" Header="{DynamicResource rep_hDate}"></telerik:GridViewDataColumn>
+                                <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding Week}" Header="{DynamicResource rep_Week}"></telerik:GridViewDataColumn>-->
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Shift.Description}" Header="{DynamicResource rep_Shift}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding ShiftType.Description}" Header="{DynamicResource rep_ShiftType}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding WorkGroup.Value}" Header="{DynamicResource rep_WorkGroup}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding WorkCenter.Value}"  Header="{DynamicResource rep_WorkCenter}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding ShiftPattern.Description}"  Header="{DynamicResource rep_Hour}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding ProductionOrder}" Header="{DynamicResource rep_Order}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding ItemNumber}"  Header="{DynamicResource rep_ItemNumber}"></telerik:GridViewDataColumn>
+                                <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding IsConfig}" Header="Konfig"></telerik:GridViewDataColumn>-->
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding ActualTime_min}"  Header="{DynamicResource rep_ActualTime}"></telerik:GridViewDataColumn>
+                                <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding LabourOwn}" Header="Labour own"></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding LabourTemp}" Header="Labour temp"></telerik:GridViewDataColumn>-->
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding StdLabour}"  Header="{DynamicResource rep_StdLabour}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding LabourTotal}"  Header="{DynamicResource rep_TotalLabour}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding StdPiecesPerHour}"  Header="{DynamicResource rep_StdHourPcs}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding ProducedPieces}"  Header="{DynamicResource rep_ProducedPcs}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding ScrapPieces}" Header="{DynamicResource rep_ScrapPcs}"></telerik:GridViewDataColumn>
+                                <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding ScrapWeigh}" Header="Váha zmetku"></telerik:GridViewDataColumn>-->
+                                <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding ScrapCountedWeigh}" Header="ScrapCountedWeigh"></telerik:GridViewDataColumn>-->
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding DowntimeTime_min}" Header="{DynamicResource rep_DowntimeMin}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding HrDowntimeTime_min}" Header="{DynamicResource rep_DowntimeHrMin}"></telerik:GridViewDataColumn>
+                                <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding ActOperationalTime_min}" Header="ActOperationalTime_min"></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding ActIdealTaktTime_min}" Header="ActIdealTaktTime_min"></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding ActPiecesPerHeadHour}" Header="ActPiecesPerHeadHour"></telerik:GridViewDataColumn>-->
+                                <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding StdPiecesPerHeadHour}" Header="StdPiecesPerHeadHour"></telerik:GridViewDataColumn>-->
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding KpiProductivity}" Header="{DynamicResource rep_Productivity}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding KpiPerformance}" Header="{DynamicResource rep_Performance}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding KpiQuality}"  Header="{DynamicResource rep_Quality}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding KpiAvailability}" Header="{DynamicResource rep_Availability}"></telerik:GridViewDataColumn>
+                                <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding hlpHrProductivity}" Header="hlpHrProductivity"></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding hlp_ID_Standard}" Header="hlp_ID_Standard"></telerik:GridViewDataColumn>-->
+
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+
+                    </Grid>
+
+                </Grid>
+
+            </Border>
+
+
+        </Grid>
+
+        <Grid Grid.Row="3" Background="#FF333333" Grid.Column="1">
+
+            <!--detail LIST info-->
+            <Border x:Name="borderSumsList"  Margin="3" BorderBrush="Gray" BorderThickness="1.5" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0,0,0,1.5" Margin="0,0,0,3">
+                        <TextBlock Foreground="White" Margin="3" HorizontalAlignment="Center" Text="{DynamicResource rep_ResultsTotal}" FontWeight="Bold"></TextBlock>
+                    </Border>
+
+                    <Grid Grid.Row="1">
+                        <telerik:RadGridView BorderBrush="Gray" AutoGenerateColumns="False"  telerik:StyleManager.Theme="Expression_Dark" Margin="0,3,3,3"  ColumnWidth="Auto"        
+                                     EditTriggers="None"  ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" ShowInsertRow="False" x:Name="grdHourlyProductionsSums"  IsReadOnly="True"  IsTabStop="False" SelectionMode="Extended" ClipboardCopyMode="All" CanUserSelect="True" >
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding TotalPerformance}" Header="{DynamicResource rep_Performance}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding TotalProductivity}" Header="{DynamicResource rep_Productivity}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding TotalAvailability}" Header="{DynamicResource rep_Availability}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding TotalQuality}" Header="{DynamicResource rep_Quality}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding KpiActualTime}" Header="{DynamicResource rep_ActualTime}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding OperationalTime}" Header="{DynamicResource rep_OperationalTime}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding PlannedPcs}" Header="{DynamicResource rep_PlannedPcs}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding KpiProducedPcs}" Header="{DynamicResource rep_ProducedPcs}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding ScrapPcs}" Header="{DynamicResource rep_ScrapPcs}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding ScrapCountedWeight}" Header="{DynamicResource rep_CountedScrapWeight}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding KpiDowntimeTime}" Header="{DynamicResource rep_DowntimeMin}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding HrDowntimeTime}" Header="{DynamicResource rep_DowntimeHrMin}"></telerik:GridViewDataColumn>
+                                <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding KpiActualPcsPerHeadhour}" Header="{DynamicResource rep_Quality}"></telerik:GridViewDataColumn>-->
+
+
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+
+                    </Grid>
+
+                </Grid>
+
+            </Border>
+
+
+        </Grid>
+
+        <!--<telerik:RadBusyIndicator Grid.ColumnSpan="10" Grid.RowSpan="10" BusyContent="{DynamicResource isBusy}" IsBusy="{Binding IsBusy}" telerik:StyleManager.Theme="Expression_Dark"></telerik:RadBusyIndicator>-->
+
+    </Grid>
+    <!--</ScrollViewer>-->
+</bc:BaseUserControl>

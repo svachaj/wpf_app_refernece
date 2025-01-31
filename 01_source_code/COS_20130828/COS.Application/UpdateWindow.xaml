@@ -1,0 +1,9 @@
+﻿<Window x:Class="COS.Application.UpdateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls" ResizeMode="NoResize"
+        Title="UpdateWindow" WindowStyle="None" WindowStartupLocation="CenterScreen" Height="200" Width="300" ShowInTaskbar="False">
+    <Grid Background="Transparent">      
+        <telerik:RadBusyIndicator IsBusy="True" BusyContent="Updating COS......"></telerik:RadBusyIndicator>
+    </Grid>
+</Window>

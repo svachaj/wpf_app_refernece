@@ -1,0 +1,221 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:my="clr-namespace:System;assembly=mscorlib">
+
+    <!--RadWindow.Alert(new DialogParameters() { Content = ResourceHelper.GetResource<string>("m_Body_E00000001"), Header = ResourceHelper.GetResource<string>("m_Header1_A"), Owner = (Window)COSContext.Current.RadMainWindow });-->
+
+    <!--*******************GRIDVIEW**************************-->
+
+    <my:String x:Key="GridViewAlwaysVisibleNewRow">
+        Klikněte zde pro přidání nového záznamu
+    </my:String>
+    <my:String x:Key="GridViewClearFilter">
+      Vyčistit filtry
+    </my:String>
+    <my:String x:Key="GridViewFilter">
+        Filtr
+    </my:String>
+    <my:String x:Key="GridViewFilterAnd">
+        a
+    </my:String>
+    <my:String x:Key="GridViewFilterContains">
+        Obsahuje
+    </my:String>
+    <my:String x:Key="GridViewFilterDoesNotContain">
+        Neobsahuje
+    </my:String>
+    <my:String x:Key="GridViewFilterEndsWith">
+        Končí
+    </my:String>
+    <my:String x:Key="GridViewFilterIsContainedIn">
+        Je obsaženo v
+    </my:String>
+    <my:String x:Key="GridViewFilterIsEqualTo">
+        Je rovno
+    </my:String>
+    <my:String x:Key="GridViewFilterIsGreaterThan">
+       Je vetší než
+    </my:String>
+    <my:String x:Key="GridViewFilterIsGreaterThanOrEqualTo">
+        Je vetší nebo rovno
+    </my:String>
+    <my:String x:Key="GridViewFilterIsNotContainedIn">
+        Není obsaženo v
+    </my:String>
+    <my:String x:Key="GridViewFilterIsLessThan">
+        Je menší než
+    </my:String>
+    <my:String x:Key="GridViewFilterIsLessThanOrEqualTo">
+        Je menší nebo rovno
+    </my:String>
+    <my:String x:Key="GridViewFilterIsNotEqualTo">
+        Není rovno
+    </my:String>
+    <my:String x:Key="GridViewFilterMatchCase">
+        Shoduje se
+    </my:String>
+    <my:String x:Key="GridViewFilterOr">
+        Nebo
+    </my:String>
+    <my:String x:Key="GridViewFilterSelectAll">
+        Vybrat vše
+    </my:String>
+    <my:String x:Key="GridViewFilterShowRowsWithValueThat">
+       Zobrazit řádky s hodnotou, která
+    </my:String>
+    <my:String x:Key="GridViewFilterStartsWith">
+       Začíná
+    </my:String>
+    <my:String x:Key="GridViewFilterIsNull">
+        Je NULL
+    </my:String>
+    <my:String x:Key="GridViewFilterIsNotNull">
+       Není NULL
+    </my:String>
+    <my:String x:Key="GridViewGroupPanelText">
+      Přetáhnutím hlavičky sloupce do těchto míst seskupíte data podle vybraného sloupce
+    </my:String>
+    <my:String x:Key="GridViewGroupPanelTopText">
+       Záhlaví skupiny
+    </my:String>
+    <my:String x:Key="GridViewGroupPanelTopTextGrouped">
+        Seskupeno podle:
+    </my:String>
+
+
+
+    <!--*******************PANE**************************-->
+
+    <my:String x:Key="Hide">
+        Skrýt
+    </my:String>
+    <my:String x:Key="Auto_hide">
+       Automaticky skrývat
+    </my:String>
+    <my:String x:Key="Floating">
+        Plovoucí
+    </my:String>
+    <my:String x:Key="Dockable">
+        Dokovatelný
+    </my:String>
+    <my:String x:Key="Tabbed_document">
+        Záložkový dokument
+    </my:String>
+
+    <!--*******************PAGER**************************-->
+
+    <my:String x:Key="RadDataPagerEllipsisString">
+        ...
+    </my:String>
+    <my:String x:Key="RadDataPagerOf">
+        z
+    </my:String>
+    <my:String x:Key="RadDataPagerPage">
+        Stránka
+    </my:String>
+
+    <!--*******************REPORT VIEWER**************************-->
+
+    <my:String x:Key="ReportViewer_AllFiles">
+        Všechny soubory
+    </my:String>
+    <my:String x:Key="ReportViewer_BackToolTip">
+        Zpět
+    </my:String>
+    <my:String x:Key="ReportViewer_CurrentPageToolTip">
+        Aktuální stránka
+    </my:String>
+    <my:String x:Key="ReportViewer_DocumentMapToolTip">
+        err1
+    </my:String>
+    <my:String x:Key="ReportViewer_ExportError">
+        Vyskytla se chyba v průběhu exportu.
+    </my:String>
+    <my:String x:Key="ReportViewer_ExportToolTip">
+        Exportovat
+    </my:String>
+    <my:String x:Key="ReportViewer_ExportingMessage">
+        err2
+    </my:String>
+    <my:String x:Key="ReportViewer_FirstPageToolTip">
+        První stránka
+    </my:String>
+    <my:String x:Key="ReportViewer_ForwardToolTip">
+        Dopředu
+    </my:String>
+    <my:String x:Key="ReportViewer_LastPageToolTip">
+        Poslední stránka
+    </my:String>
+    <my:String x:Key="ReportViewer_LoadingPageMessage">
+        Nahrávám ...
+    </my:String>
+    <my:String x:Key="ReportViewer_NextPageToolTip">
+        Další stránka
+    </my:String>
+    <my:String x:Key="ReportViewer_NoReportError">
+        Není načtený žádný report 
+    </my:String>
+    <my:String x:Key="ReportViewer_PageNumberGreaterThanRangeError">
+        err3
+    </my:String>
+    <my:String x:Key="ReportViewer_PageNumberLessThanRangeError">
+       err4
+    </my:String>
+    <my:String x:Key="ReportViewer_PageSetupToolTip">
+        Nastavení stránky
+    </my:String>
+    <my:String x:Key="ReportViewer_ParametersToolTip">
+        Parametry
+    </my:String>
+    <my:String x:Key="ReportViewer_PreviousPageToolTip">
+        Předchozí stránka
+    </my:String>
+    <my:String x:Key="ReportViewer_PrintPreviewToolTip">
+        Náhled tisku
+    </my:String>
+    <my:String x:Key="ReportViewer_PrintToolTip">
+        Tisk
+    </my:String>
+    <my:String x:Key="ReportViewer_ProcessingReportMessage">
+        Načítám ...
+    </my:String>
+    <my:String x:Key="ReportViewer_RefreshToolTip">
+        Obnovit
+    </my:String>
+    <my:String x:Key="ReportViewer_ReportParametersAreaValidationError">
+        err6
+    </my:String>
+    <my:String x:Key="ReportViewer_ReportParametersSelectAllText">
+        err7
+    </my:String>
+    <my:String x:Key="ReportViewer_ReportParametersValidationError">
+        err8
+    </my:String>
+    <my:String x:Key="ReportViewer_TotalPagesToolTip">
+        Celkem stránek
+    </my:String>
+    <my:String x:Key="ReportViewer_UpdatingParametersMessage">
+        Aktualizuji
+    </my:String>
+    <my:String x:Key="ReportViewer_ZoomToPageWidth">
+        Zvětšení na šířku stránky
+    </my:String>
+    <my:String x:Key="ReportViewer_ZoomToWholePage">
+        Rozšířit na celou stránku
+    </my:String>
+    <my:String x:Key="ReportViewer_ZoomToolTip">
+        Přiblížení
+    </my:String>
+    <my:String x:Key="ReportViewer_CancelButtonText">
+        Zrušit
+    </my:String>
+    <my:String x:Key="ReportViewer_PreviewButtonText">
+        Náhled
+    </my:String>
+    <my:String x:Key="ReportViewer_ReportParametersNullText">
+        err12
+    </my:String>
+    <my:String x:Key="ReportViewer_StopToolTip">
+        Zastavit
+    </my:String>
+</ResourceDictionary>

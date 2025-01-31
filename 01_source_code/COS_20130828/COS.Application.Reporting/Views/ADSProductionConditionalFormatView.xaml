@@ -1,0 +1,166 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" x:Class="COS.Application.Reporting.Views.ADSProductionConditionalFormatView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             d:DesignHeight="500" d:DesignWidth="700" MinWidth="700" HorizontalAlignment="Stretch">
+
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <!--<ScrollViewer  VerticalScrollBarVisibility="Auto" telerik:StyleManager.Theme="Expression_Dark" HorizontalScrollBarVisibility="Auto" >-->
+    <Grid Background="#FF333333">
+        <Grid.RowDefinitions>
+            <RowDefinition>
+            </RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            
+            <Border Background="Gray" Margin="1" >
+                <TextBlock FontWeight="Bold" Foreground="White" Margin="4" Text="{DynamicResource rep_CfColumn}"></TextBlock>
+                
+            </Border>
+            <Border Background="Gray" Grid.Column="1"  Margin="1" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontWeight="Bold" Foreground="White" Margin="4" Text="{DynamicResource rep_CfGreen}"></TextBlock>
+                    <!--<telerik:RadColorPicker MainPaletteHeaderText="Barva" SelectedColor="{Binding Formatting.ColorMore}"></telerik:RadColorPicker>-->
+                </StackPanel>
+                
+                
+            </Border>
+            <Border Background="Gray" Grid.Column="2" BorderThickness="0" Margin="1">
+                <TextBlock FontWeight="Bold" Foreground="White" Margin="4" Text="{DynamicResource rep_CfOrrangeMax}"></TextBlock>
+                
+            </Border>
+            <Border Background="Gray" Grid.Column="3" BorderThickness="0" Margin="1">
+                <TextBlock FontWeight="Bold" Foreground="White" Margin="4" Text="{DynamicResource rep_CfOrangeMin}"></TextBlock>
+                
+            </Border>
+            <Border Background="Gray" Grid.Column="4" BorderThickness="0" Margin="1">
+                <TextBlock FontWeight="Bold" Foreground="White" Margin="4" Text="{DynamicResource rep_CfGrey}"></TextBlock>
+                
+            </Border>
+
+            <Border Background="Gray" Grid.Row="1" Margin="1">
+                <TextBlock FontWeight="Bold" Foreground="White" Margin="4" Text="VI"></TextBlock>
+
+            </Border>
+
+            <Border Background="Gray" Grid.Row="2" Margin="1">
+                <TextBlock FontWeight="Bold" Foreground="White" Margin="4" Text="{DynamicResource rep_Performance}"></TextBlock>
+
+            </Border>
+            <Border Background="Gray" Grid.Row="3" Margin="1">
+                <TextBlock FontWeight="Bold" Foreground="White" Margin="4" Text="{DynamicResource rep_Availability}"></TextBlock>
+
+            </Border>
+            <Border Background="Gray" Grid.Row="4" Margin="1">
+                <TextBlock FontWeight="Bold" Foreground="White" Margin="4" Text="{DynamicResource rep_Quality}"></TextBlock>
+
+            </Border>
+            <Border Background="Gray" Grid.Row="5" Margin="1">
+                <TextBlock FontWeight="Bold" Foreground="White" Margin="4" Text="{DynamicResource rep_OEE}"></TextBlock>
+
+            </Border>
+
+            <Border Background="Gray" Grid.Row="6" Margin="1">
+                <TextBlock FontWeight="Bold" Foreground="White" Margin="4" Text="VA"></TextBlock>
+
+            </Border>
+
+            <Border Background="Gray" Grid.Row="7" Margin="1">
+                <TextBlock FontWeight="Bold" Foreground="White" Margin="4" Text="{DynamicResource rep_Performance}"></TextBlock>
+
+            </Border>
+            <Border Background="Gray" Grid.Row="8" Margin="1">
+                <TextBlock FontWeight="Bold" Foreground="White" Margin="4" Text="{DynamicResource rep_Availability}"></TextBlock>
+
+            </Border>
+            <Border Background="Gray" Grid.Row="9" Margin="1">
+                <TextBlock FontWeight="Bold" Foreground="White" Margin="4" Text="{DynamicResource rep_Quality}"></TextBlock>
+
+            </Border>
+            <Border Background="Gray" Grid.Row="10" Margin="1">
+                <TextBlock FontWeight="Bold" Foreground="White" Margin="4" Text="{DynamicResource rep_OEE}"></TextBlock>
+
+            </Border>
+
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Performance_More, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="2" Grid.Column="1"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Performance_LessEq, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="2" Grid.Column="2"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Performance_MoreEq, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="2" Grid.Column="3"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Performance_Eq, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="2" Grid.Column="4"></telerik:RadNumericUpDown>
+
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Availability_More, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="3" Grid.Column="1"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Availability_LessEq, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="3" Grid.Column="2"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Availability_MoreEq, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="3" Grid.Column="3"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Availability_Eq, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="3" Grid.Column="4"></telerik:RadNumericUpDown>
+
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Quality_More, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="4" Grid.Column="1"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Quality_LessEq, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="4" Grid.Column="2"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Quality_MoreEq, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="4" Grid.Column="3"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Quality_Eq, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="4" Grid.Column="4"></telerik:RadNumericUpDown>
+
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.OEE_More, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="5" Grid.Column="1"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.OEE_LessEq, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="5" Grid.Column="2"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.OEE_MoreEq, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="5" Grid.Column="3"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.OEE_Eq, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="5" Grid.Column="4"></telerik:RadNumericUpDown>
+
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Performance_More_VA, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="7" Grid.Column="1"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Performance_LessEq_VA, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="7" Grid.Column="2"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Performance_MoreEq_VA, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="7" Grid.Column="3"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Performance_Eq_VA, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="7" Grid.Column="4"></telerik:RadNumericUpDown>
+
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Availability_More_VA, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="8" Grid.Column="1"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Availability_LessEq_VA, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="8" Grid.Column="2"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Availability_MoreEq_VA, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="8" Grid.Column="3"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Availability_Eq_VA, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="8" Grid.Column="4"></telerik:RadNumericUpDown>
+
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Quality_More_VA, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="9" Grid.Column="1"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Quality_LessEq_VA, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="9" Grid.Column="2"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Quality_MoreEq_VA, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="9" Grid.Column="3"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.Quality_Eq_VA, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="9" Grid.Column="4"></telerik:RadNumericUpDown>
+
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.OEE_More_VA, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="10" Grid.Column="1"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.OEE_LessEq_VA, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="10" Grid.Column="2"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.OEE_MoreEq_VA, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="10" Grid.Column="3"></telerik:RadNumericUpDown>
+            <telerik:RadNumericUpDown Margin="2" Value="{Binding Formatting.OEE_Eq_VA, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="10" Grid.Column="4"></telerik:RadNumericUpDown>
+
+        </Grid>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <telerik:RadButton Content="{StaticResource rep_Use}" Padding="15,5,15,5" Margin="5" FontWeight="Bold" telerik:StyleManager.Theme="Expression_Dark" Click="RadButton_Click"></telerik:RadButton>
+        </StackPanel>
+    </Grid>
+    <!--</ScrollViewer>-->
+</bc:BaseUserControl>

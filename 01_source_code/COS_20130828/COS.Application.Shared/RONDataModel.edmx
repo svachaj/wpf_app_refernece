@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RONModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="RONModelStoreContainer">
+          <EntitySet Name="v_HR_FromRON_ToCOS" EntityType="RONModel.Store.v_HR_FromRON_ToCOS" store:Type="Views" store:Schema="dbo" store:Name="v_HR_FromRON_ToCOS">
+            <DefiningQuery>SELECT 
+      [v_HR_FromRON_ToCOS].[HR_ID] AS [HR_ID], 
+      [v_HR_FromRON_ToCOS].[Name] AS [Name], 
+      [v_HR_FromRON_ToCOS].[Surname] AS [Surname], 
+      [v_HR_FromRON_ToCOS].[Email] AS [Email], 
+      [v_HR_FromRON_ToCOS].[Street] AS [Street], 
+      [v_HR_FromRON_ToCOS].[City] AS [City], 
+      [v_HR_FromRON_ToCOS].[PostalCode] AS [PostalCode], 
+      [v_HR_FromRON_ToCOS].[HireDate] AS [HireDate], 
+      [v_HR_FromRON_ToCOS].[WorkGroup] AS [WorkGroup], 
+      [v_HR_FromRON_ToCOS].[CostCenter] AS [CostCenter], 
+      [v_HR_FromRON_ToCOS].[Division] AS [Division], 
+      [v_HR_FromRON_ToCOS].[SalaryGroup] AS [SalaryGroup], 
+      [v_HR_FromRON_ToCOS].[LeaveDate] AS [LeaveDate]
+      FROM [dbo].[v_HR_FromRON_ToCOS] AS [v_HR_FromRON_ToCOS]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'RON.dbo.v_HR_FromRON_ToCOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="v_HR_FromRON_ToCOS">
+          <Key>
+            <PropertyRef Name="HR_ID" />
+            <PropertyRef Name="Surname" />
+          </Key>
+          <Property Name="HR_ID" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="60" />
+          <Property Name="Street" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="HireDate" Type="datetime" />
+          <Property Name="WorkGroup" Type="nvarchar" MaxLength="30" />
+          <Property Name="CostCenter" Type="nvarchar" MaxLength="30" />
+          <Property Name="Division" Type="nvarchar" MaxLength="30" />
+          <Property Name="SalaryGroup" Type="nvarchar" MaxLength="30" />
+          <Property Name="LeaveDate" Type="datetime" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RONModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="RONEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RonEmployees" EntityType="RONModel.RonEmployee" />
+        </EntityContainer>
+        <EntityType Name="RonEmployee">
+          <Key>
+            <PropertyRef Name="HR_ID" />
+            <PropertyRef Name="Surname" />
+          </Key>
+          <Property Type="String" Name="HR_ID" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Surname" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Street" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PostalCode" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="HireDate" />
+          <Property Type="String" Name="WorkGroup" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CostCenter" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Division" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SalaryGroup" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="LeaveDate" />
+          </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RONModelStoreContainer" CdmEntityContainer="RONEntities">
+        <EntitySetMapping Name="RonEmployees">
+            <EntityTypeMapping TypeName="RONModel.RonEmployee">
+              <MappingFragment StoreEntitySet="v_HR_FromRON_ToCOS">
+                <ScalarProperty Name="LeaveDate" ColumnName="LeaveDate" />
+                <ScalarProperty Name="SalaryGroup" ColumnName="SalaryGroup" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="CostCenter" ColumnName="CostCenter" />
+                <ScalarProperty Name="WorkGroup" ColumnName="WorkGroup" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="HR_ID" ColumnName="HR_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="RONDataModel">
+        <EntityTypeShape EntityType="RONModel.RonEmployee" Width="1.5" PointX="3.375" PointY="0.75" Height="3.3263964843749996" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7242A5BC-9F18-44BF-BF2C-49277CCCF057}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>COS.Application.Reporting</RootNamespace>
+    <AssemblyName>COS.Application.Reporting</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Reporting, Version=6.2.13.110, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Telerik.Reporting.Adomd, Version=6.2.13.110, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Telerik.Reporting.XpsRendering, Version=6.2.13.110, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.Wpf, Version=6.2.13.110, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Chart, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Charting, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.DataVisualization, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Docking, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RibbonView, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.RibbonView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Documents.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\ADSProductionDetailViewModel.cs" />
+    <Compile Include="Models\ADSProductionDetailViewSumDTModel.cs" />
+    <Compile Include="Models\ADSProductionWCShiftModel.cs" />
+    <Compile Include="Models\ADSProductionWCShiftRangeModel.cs" />
+    <Compile Include="Models\DomLogisticForwarderModel.cs" />
+    <Compile Include="Models\LogisticDomesticLoadsReportViewModel.cs" />
+    <Compile Include="Models\LogisticDomesticForwarderReportViewModel.cs" />
+    <Compile Include="Models\KPIWCWGReportViewModel.cs" />
+    <Compile Include="Models\DowntimeParetoModel.cs" />
+    <Compile Include="Models\KPIReportViewModel.cs" />
+    <Compile Include="Models\DowntimeDetailModel.cs" />
+    <Compile Include="Models\KPIWcsReportViewModel.cs" />
+    <Compile Include="Models\LogisticBaseReport2ViewModel.cs" />
+    <Compile Include="Models\LogisticBaseReportViewModel.cs" />
+    <Compile Include="Models\ProductionEmployeesModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Reports\ADSProductionWCShift.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ADSProductionWCShift.designer.cs">
+      <DependentUpon>ADSProductionWCShift.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ADSProductionWCShiftRange.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ADSProductionWCShiftRange.designer.cs">
+      <DependentUpon>ADSProductionWCShiftRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DomLogisticForwarder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\DomLogisticForwarder.Designer.cs">
+      <DependentUpon>DomLogisticForwarder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DowntimePareto.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\DowntimePareto.designer.cs">
+      <DependentUpon>DowntimePareto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ProductionEmployees.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ProductionEmployees.designer.cs">
+      <DependentUpon>ProductionEmployees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DowntimeDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\DowntimeDetail.designer.cs">
+      <DependentUpon>DowntimeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ADSProductionConditionalFormatView.xaml.cs">
+      <DependentUpon>ADSProductionConditionalFormatView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ADSProductionDetailView.xaml.cs">
+      <DependentUpon>ADSProductionDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ADSProductionDetailViewSumDT.xaml.cs">
+      <DependentUpon>ADSProductionDetailViewSumDT.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ADSProductionWCShiftView.xaml.cs">
+      <DependentUpon>ADSProductionWCShiftView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ADSProductionWCShiftRangeView.xaml.cs">
+      <DependentUpon>ADSProductionWCShiftRangeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DomLogisticForwarderReportView.xaml.cs">
+      <DependentUpon>DomLogisticForwarderReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogisticDomesticLoadsReportView.xaml.cs">
+      <DependentUpon>LogisticDomesticLoadsReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogisticDomesticForwarderReportView.xaml.cs">
+      <DependentUpon>LogisticDomesticForwarderReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogisticDomesticReportFilterWindow.xaml.cs">
+      <DependentUpon>LogisticDomesticReportFilterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KPIWcWgReportView.xaml.cs">
+      <DependentUpon>KPIWcWgReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DowntimeParetoView.xaml.cs">
+      <DependentUpon>DowntimeParetoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KpiReportUsedListWindow.xaml.cs">
+      <DependentUpon>KpiReportUsedListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KpiReportFilterWindow.xaml.cs">
+      <DependentUpon>KpiReportFilterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KPIReportView.xaml.cs">
+      <DependentUpon>KPIReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DowntimeDetailRvView.xaml.cs">
+      <DependentUpon>DowntimeDetailRvView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KPIWcsReportView.xaml.cs">
+      <DependentUpon>KPIWcsReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogisticBaseReport2View.xaml.cs">
+      <DependentUpon>LogisticBaseReport2View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogisticBaseReportView.xaml.cs">
+      <DependentUpon>LogisticBaseReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogisticsReportFilterWindow.xaml.cs">
+      <DependentUpon>LogisticsReportFilterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductionEmployeesFilterWindow.xaml.cs">
+      <DependentUpon>ProductionEmployeesFilterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductionEmployeesView.xaml.cs">
+      <DependentUpon>ProductionEmployeesView.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ADSProductionWCShift.resx">
+      <DependentUpon>ADSProductionWCShift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ADSProductionWCShiftRange.resx">
+      <DependentUpon>ADSProductionWCShiftRange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DomLogisticForwarder.resx">
+      <DependentUpon>DomLogisticForwarder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DowntimePareto.resx">
+      <DependentUpon>DowntimePareto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductionEmployees.resx">
+      <DependentUpon>ProductionEmployees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DowntimeDetail.resx">
+      <DependentUpon>DowntimeDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\COS.Application.Shared\COS.Application.Shared.csproj">
+      <Project>{B2DBB0E3-4B9D-4C40-ACF3-ECC540868351}</Project>
+      <Name>COS.Application.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Common.WPF\COS.Common.WPF.csproj">
+      <Project>{97BDCC98-A0C1-4072-8834-311258B3A354}</Project>
+      <Name>COS.Common.WPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Common\COS.Common.csproj">
+      <Project>{94CB540B-4A30-49EF-8675-3DE324F2CEE4}</Project>
+      <Name>COS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Security\COS.Security.csproj">
+      <Project>{4DFD8545-77B0-40DA-A309-2941DC4CEF24}</Project>
+      <Name>COS.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Resources\COS.Resources.csproj">
+      <Project>{8B4B7105-9B1A-429B-99EE-F8244C8CB3CA}</Project>
+      <Name>COS.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\ADSProductionConditionalFormatView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ADSProductionDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ADSProductionDetailViewSumDT.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ADSProductionWCShiftView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ADSProductionWCShiftRangeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DomLogisticForwarderReportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LogisticDomesticLoadsReportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LogisticDomesticForwarderReportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LogisticDomesticReportFilterWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\KPIWcWgReportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DowntimeParetoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\KpiReportUsedListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\KpiReportFilterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\KPIReportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DowntimeDetailRvView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\KPIWcsReportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LogisticBaseReport2View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LogisticBaseReportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LogisticsReportFilterWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ProductionEmployeesFilterWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ProductionEmployeesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

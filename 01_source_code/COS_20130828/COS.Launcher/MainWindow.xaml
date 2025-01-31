@@ -1,0 +1,8 @@
+﻿<Window x:Class="COS.Launcher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" ShowInTaskbar="False"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" WindowStyle="None" AllowsTransparency="True" ResizeMode="NoResize"
+        Title="MainWindow" Height="10" Width="10" Visibility="Collapsed">
+    <Grid>
+        
+    </Grid>
+</Window>

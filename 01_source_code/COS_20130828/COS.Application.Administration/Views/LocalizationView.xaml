@@ -1,0 +1,29 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" x:Class="COS.Application.Administration.Views.LocalizationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+
+    <Grid  Background="Transparent">
+        <telerik:RadGridView Grid.Row="2" telerik:StyleManager.Theme="Expression_Dark" CellEditEnded="RadGridView_CellEditEnded"  ItemsSource="{Binding SysLocalizes, Source={StaticResource COSC},Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                              AutoGenerateColumns="False">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding ID}"  Header="{StaticResource adm_ID}"></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding cs_Czech}"  Header="{StaticResource adm_CZtext}"></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding en_English}" Header="{StaticResource adm_ENtext}"></telerik:GridViewDataColumn>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </Grid>
+
+</bc:BaseUserControl>

@@ -1,0 +1,289 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:my="clr-namespace:System;assembly=mscorlib">
+
+
+
+
+    <my:String x:Key="prod_HpSetting">
+        Nastavení HP
+    </my:String>
+    <my:String x:Key="prod_Division">
+        Divize
+    </my:String>
+    <my:String x:Key="prod_ShiftType">
+        Typ směny
+    </my:String>
+    <my:String x:Key="prod_Shift">
+        Směna
+    </my:String>
+    <my:String x:Key="prod_Date">
+        Datum
+    </my:String>
+    <my:String x:Key="prod_WorkGroup">
+        Pracovní skupina
+    </my:String>
+    <my:String x:Key="prod_WorkCenter">
+        Pracovní středisko
+    </my:String>
+    <my:String x:Key="prod_HpHeader">
+        Hodinová Produkce
+    </my:String>
+    <my:String x:Key="prod_Hour">
+        Hodina
+    </my:String>
+    <my:String x:Key="prod_Order">
+        Zakázka
+    </my:String>
+    <my:String x:Key="prod_ItemNumber">
+        Číslo položky
+    </my:String>
+    <my:String x:Key="prod_ItemDescription">
+        Popis položky
+    </my:String>
+    <my:String x:Key="prod_IsConfig">
+        Konfig
+    </my:String>
+    <my:String x:Key="prod_ActualTime">
+        Čas k dispozici
+    </my:String>
+    <my:String x:Key="prod_LabourOwn">
+        Operátoři (Vlastní)
+    </my:String>
+    <my:String x:Key="prod_LabourTemp">
+        Operátoři (Dočasní)
+    </my:String>
+    <my:String x:Key="prod_ProducedPcs">
+        Vyrobené kusy
+    </my:String>
+    <my:String x:Key="prod_ScrapPcs">
+        Odpad (ks)
+    </my:String>
+    <my:String x:Key="prod_ScrapWeight">
+        Odpad (kg)
+    </my:String>
+    <my:String x:Key="prod_Note">
+        Poznámka
+    </my:String>
+    <my:String x:Key="prod_1HrsPreset">
+        Nastavení: 1 hod
+    </my:String>
+    <my:String x:Key="prod_tt_1HrsNoPlan">
+        Nastavení 1 hodiny na: Není plánováno
+    </my:String>
+    <my:String x:Key="prod_tt_1HrsPrevMaintenance">
+        Nastavení 1 hodiny na: Preventivní údržba
+    </my:String>
+    <my:String x:Key="prod_ShiftPreset">
+        Nastavení: Směna
+    </my:String>
+    <my:String x:Key="prod_tt_ShiftHrsNoPlan">
+        Nastavení směny na: Není plánováno
+    </my:String>
+    <my:String x:Key="prod_tt_ShiftHrsPrevMaintenance">
+        Nastavení směny na: Preventivní údržba
+    </my:String>
+    <my:String x:Key="prod_tt_New">
+        Vytvořit nový záznam
+    </my:String>
+    <my:String x:Key="prod_tt_Delete">
+        Smazat vybraný záznam
+    </my:String>
+    <my:String x:Key="prod_tt_DeleteAll">
+        Smazání všech zobrazených hodinových záznamů
+    </my:String>
+    <my:String x:Key="prod_tt_Cycle1">
+        Cyklování hodiny - Použije data z poslední hodiny, které přednastaví do následující hodiny.
+    </my:String>
+    <my:String x:Key="prod_tt_Cycle2">
+        Cyklování hodiny - Použije data z aktuálně vybrané hodiny, které přednastaví do stejné hodiny.
+    </my:String>
+    <my:String x:Key="prod_tt_Cycle3">
+        Cyklování hodiny - Použije data z aktuálně vybrané hodiny, které přednastaví do následující hodiny.
+    </my:String>
+    <my:String x:Key="prod_tt_Save">
+        Uložit aktuální záznam
+    </my:String>
+    <my:String x:Key="prod_DowntimeHeader">
+        Prostoje
+    </my:String>
+    <my:String x:Key="prod_tt_AddDowntime">
+        Přidat do aktuální hodiny prostoj
+    </my:String>
+    <my:String x:Key="prod_DowntimeGrid">
+        Prostoj
+    </my:String>
+    <my:String x:Key="prod_DowntimeTimeGrid">
+        Čas
+    </my:String>
+    <my:String x:Key="prod_OperatorHeader">
+        Operátoři
+    </my:String>
+    <my:String x:Key="prod_tt_AddOperator">
+        Přidat do aktuální hodiny operátora
+    </my:String>
+    <my:String x:Key="prod_OperatorGrid">
+        Operátor
+    </my:String>
+    <my:String x:Key="prod_OrderInfo">
+        Info o zakázce
+    </my:String>
+    <my:String x:Key="prod_PlannedPcs">
+        Plánováno kusů
+    </my:String>
+    <my:String x:Key="prod_PlannedSetupTime">
+        Plánovaný čas setupu
+    </my:String>
+    <my:String x:Key="prod_TotalSetupTime">
+        Celkový čas setupu
+    </my:String>
+    <my:String x:Key="prod_ActualSetupTime">
+        Aktuální čas setupu
+    </my:String>
+    <my:String x:Key="prod_LabourTotal">
+        Celkem Operátorů
+    </my:String>
+    <my:String x:Key="prod_StdLabour">
+        Plánováno Operátorů
+    </my:String>
+    <my:String x:Key="prod_StdHourPcs">
+        Norma (ks/hod)
+    </my:String>
+    <my:String x:Key="prod_Productivity">
+        Produktivita (%)
+    </my:String>
+    <my:String x:Key="prod_Availability">
+        Dostupnost (%)
+    </my:String>
+    <my:String x:Key="prod_Performance">
+        Výkon (%)
+    </my:String>
+    <my:String x:Key="prod_Quality">
+        Kvalita (%)
+    </my:String>
+    <my:String x:Key="prod_UnsetButton">
+       Změnit
+    </my:String>
+    <my:String x:Key="prod_SetButton">
+        Nastavit
+    </my:String>
+    <my:String x:Key="prod_tt_RemoveOps">
+      Odebrat operátora
+    </my:String>
+    <my:String x:Key="prod_tt_RemoveDowntime">
+      Odebrat prostoj
+    </my:String>
+
+    <my:String x:Key="prod_tt_Filter">
+        Nastavit parametry pro přepočet hodinové produkce
+    </my:String>
+    <my:String x:Key="prod_tt_Recalc">
+       Přepočítat vybrané hodinové záznamy
+    </my:String>
+
+    <my:String x:Key="prod_Year">
+        Rok
+    </my:String>
+    <my:String x:Key="prod_Week">
+        Týden
+    </my:String>
+    <my:String x:Key="prod_Orders">
+        Počet zakázek
+    </my:String>
+    <my:String x:Key="prod_OrderInTime">
+        Zakázky v Čas 
+    </my:String>
+    <my:String x:Key="prod_OrdersService">
+        Servis - Zakázky %
+    </my:String>
+    <my:String x:Key="prod_Lines">
+        Řádky
+    </my:String>
+    <my:String x:Key="prod_LinesOnTime">
+        Řádky v Čas
+    </my:String>
+    <my:String x:Key="prod_LineService">
+        Servis - Řádky %
+    </my:String>
+    <my:String x:Key="prod_DowntimeMin">
+        Prostoj (min)
+    </my:String>
+    <my:String x:Key="prod_DowntimeHrMin">
+        Prostoj PT (min)
+    </my:String>
+
+    <my:String x:Key="prod_save">
+        Uložit
+    </my:String>
+    <my:String x:Key="prod_Cancel">
+        Zrušit
+    </my:String>
+
+
+    <my:String x:Key="prod_Name">
+        Název konfigurátoru:
+    </my:String>
+    <my:String x:Key="prod_ItemGroup">
+        Skupina položek
+    </my:String>
+    <my:String x:Key="prod_ConfChoose">
+        Výběr konfigurátoru:
+    </my:String>
+
+    <my:String x:Key="prod_User">
+        Uživatel: 
+    </my:String>
+    <my:String x:Key="prod_LockTime">
+        Čas uzamknutí:
+    </my:String>
+
+
+
+    <my:String x:Key="prod4h_NewSo">4H - Založení SO :</my:String>
+    <my:String x:Key="prod4h_So">Číslo SO</my:String>
+    <my:String x:Key="prod4h_Supplier">Dodavatel</my:String>
+    <my:String x:Key="prod4h_Manufacture">Stav výroby</my:String>
+    <my:String x:Key="prod4h_Customer">Zákazník</my:String>
+    <my:String x:Key="prod4h_Contacts">Kontakty</my:String>
+    <my:String x:Key="prod4h_Action">Název akce</my:String>
+    <my:String x:Key="prod4h_Description">Popis</my:String>
+    <my:String x:Key="prod4h_SoReceived">SO přijato</my:String>
+    <my:String x:Key="prod4h_Created">SO vytvořeno</my:String>
+    <my:String x:Key="prod4h_PlannedHrs">Celkový plánovaný čas na SO (hod.)</my:String>
+    <my:String x:Key="prod4h_SoDaedlineConstr">SO deadline - Konstrukce</my:String>
+    <my:String x:Key="prod4h_SoDaedlineProduction">SO deadline - Výroba</my:String>
+    <my:String x:Key="prod4h_SoDaedlineExpedition">SO deadline - Expedice</my:String>
+    <my:String x:Key="prod4h_SoConstructionPlanned">Plánováno pro konstrukci</my:String>
+    <my:String x:Key="prod4h_Priority">Priorita</my:String>
+    <my:String x:Key="prod4h_Difficulty">Obtížnost</my:String>
+    <my:String x:Key="prod4h_ConstructerName">Přiřazený konstruktér</my:String>
+    <my:String x:Key="prod4h_TRP">TRP</my:String>
+    <my:String x:Key="prod4h_Constructer">Konstruktér</my:String>
+    <my:String x:Key="prod4h_TransportType">Typ transportu</my:String>
+    <my:String x:Key="prod4h_ExecutionType">Typ provedení</my:String>
+    <my:String x:Key="prod4h_ManufactureDate">Plánováno pro výrobu</my:String>
+    <my:String x:Key="prod4h_Construction">Konstrukce :</my:String>
+    <my:String x:Key="prod4h_SoConstructionStart">Začátek SO</my:String>
+    <my:String x:Key="prod4h_FittingsM2">Tvarovky (m2)</my:String>
+    <my:String x:Key="prod4h_DuctM2">Trouby (m2)</my:String>
+    <my:String x:Key="prod4h_FittingsPcs">Tvarovky (ks)</my:String>
+    <my:String x:Key="prod4h_DuctPcs">Trouby (ks)</my:String>
+    <my:String x:Key="prod4h_RealHrsSpend">Celkový skutečný čas na SO (hod.)</my:String>
+    <my:String x:Key="prod4h_EndDate">Konec SO</my:String>
+    <my:String x:Key="prod4h_InProductionDate">Puštěno do výroby</my:String>
+    <my:String x:Key="prod4h_Accessories">Příslušenství :</my:String>
+    <my:String x:Key="prod4h_State">Stav</my:String>
+    <my:String x:Key="prod4h_Wg">Pracovní skupina </my:String>
+    <my:String x:Key="prod4h_Product">Produkt</my:String>
+    <my:String x:Key="prod4h_PCS">Kusy</my:String>
+    <my:String x:Key="prod4h_MO">Číslo MO</my:String>
+    <my:String x:Key="prod4h_ProductionDeadline">Deadline - Výroba</my:String>
+    <my:String x:Key="prod4h_ExpeditionDeadline">Deadline - Expedice</my:String>
+    <my:String x:Key="prod4h_Note">Poznámka</my:String>
+    <my:String x:Key="prod4h_AccessoriesPreview">Přehled přiřazených přípravků :</my:String>
+    <my:String x:Key="prod4h_AddAccessories">Přidat příslušenství</my:String>
+    <my:String x:Key="prod4h_Resale">Přeprodej</my:String>
+    <my:String x:Key="prod4h_PercValue">Hodnota (%)</my:String>
+
+
+</ResourceDictionary>

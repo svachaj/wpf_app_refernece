@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <StartArguments>EUSwd1uR0/s+hlaLUVhnVo5FOqWNqLXqjmeVoW8HbclpUN4xIfUudLCwxUhXM7HaS07jytiiG2vJawl19Q3bIxXiHN8=</StartArguments>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,62 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF"  x:Class="COS.Application.Logistics.Views.ImportPriceListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="800" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF">
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <Grid Background="#333333"  >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <telerik:RadToolBar  telerik:StyleManager.Theme="Expression_Dark" >
+                <TextBlock  Text="{DynamicResource log_Forwarder}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                <telerik:RadComboBox  VerticalAlignment="Center" ItemsSource="{Binding Forwarders, Source={StaticResource COSC}}"  
+                                                     SelectedValue="{Binding Forwarder, Mode=TwoWay}" MinWidth="200"
+                                         Margin="3" Foreground="White" telerik:StyleManager.Theme="Expression_Dark" IsTabStop="true" TabIndex="1">
+                    <telerik:RadComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"></TextBlock>
+                        </DataTemplate>
+                    </telerik:RadComboBox.ItemTemplate>
+                </telerik:RadComboBox>
+                <Button Click="btnLoadFile_click" Tag="btn_prl_LoadFile" ToolTip="{DynamicResource log_tt_LoadFile}" IsEnabled="{Binding Forwarder,Converter={StaticResource ForwarderEnabledConvertor}}">
+                    <Image Source="/COSResources;component/Images/LoadFile_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                </Button>
+                <Button Click="btnImportData_click" Tag="btn_prl_Import"  ToolTip="{DynamicResource log_tt_ImportData}" IsEnabled="{Binding Forwarder,Converter={StaticResource ForwarderEnabledConvertor}}">
+                    <Image Source="/COSResources;component/Images/Import_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                </Button>
+            </telerik:RadToolBar>
+            <telerik:RadGridView x:Name="grvImportPriceList" Grid.Row="1" AutoGenerateColumns="False" ShowInsertRow="False" telerik:StyleManager.Theme="Expression_Dark" 
+                                                      RowIndicatorVisibility="Collapsed" ItemsSource="{Binding ImportData}" CellLoaded="grvImportPriceList_CellLoaded" RowLoaded="grvImportPriceList_RowLoaded"
+                                                      CellEditEnded="grvImportPriceList_CellEditEnded" ShowGroupPanel="False">
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn x:Name="colForw" IsReadOnly="True"  DataMemberBinding="{Binding Forwarder}" Header="{DynamicResource log_Forwarder}" >
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn x:Name="colCountry" IsReadOnly="True"  DataMemberBinding="{Binding Country}" Header="{DynamicResource log_Country}" >
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn x:Name="colZone"  IsReadOnly="True" DataMemberBinding="{Binding Zone}" Header="{DynamicResource log_Zone}" >
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn x:Name="colVolume"  IsReadOnly="True"  DataMemberBinding="{Binding Volume}" Header="{DynamicResource log_VolumeCbm}" >
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn x:Name="colPrice"   DataMemberBinding="{Binding Price}" Header="{DynamicResource log_ForwarderPrice}" >
+                    </telerik:GridViewDataColumn>                
+                 
+
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+        </Grid>
+        <telerik:RadBusyIndicator Grid.ColumnSpan="10" Grid.RowSpan="10" BusyContent="{DynamicResource eng_IsBusy}" IsBusy="{Binding IsBusy}" telerik:StyleManager.Theme="Expression_Dark"></telerik:RadBusyIndicator>
+        <Button Content="Button" Visibility="Collapsed" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="53,297,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
+    </Grid>
+</bc:BaseUserControl>

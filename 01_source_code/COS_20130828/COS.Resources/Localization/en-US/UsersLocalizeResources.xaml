@@ -1,0 +1,75 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:my="clr-namespace:System;assembly=mscorlib">
+
+   
+   
+    <my:String x:Key="HR_ID_users">
+        HR ID
+    </my:String>
+
+    <my:String x:Key="LoginName_users">
+        Login
+    </my:String>
+
+    <my:String x:Key="Name_users">
+        First name
+    </my:String>
+    
+    <my:String x:Key="Surname_users">
+        Last name
+    </my:String>
+
+    <my:String x:Key="Pwd_users">
+        Password
+    </my:String>
+    
+    <my:String x:Key="Pwd_prev_users">
+        Old password
+    </my:String>
+
+    <my:String x:Key="Pwd_new_users">
+       New password
+    </my:String>
+
+    <my:String x:Key="Pwd_confirm_users">
+       Confirm password
+    </my:String>
+    
+    <my:String x:Key="Email_users">
+        E-mail
+    </my:String>
+
+    <my:String x:Key="IsActive_users">
+        Active
+    </my:String>
+
+    <my:String x:Key="AccExpire_users">
+        Account expiration (days)
+    </my:String>
+
+    <my:String x:Key="PwdExpire_users">
+        Password expiration (days)
+    </my:String>
+
+    <my:String x:Key="PwdForceChange_users">
+        Change password
+    </my:String>
+
+    <my:String x:Key="Group_users">
+        Group
+    </my:String>
+
+    <my:String x:Key="Description_users">
+        Description
+    </my:String>
+
+    <my:String x:Key="AccType_users">
+        Account type
+    </my:String>
+
+    <my:String x:Key="UserDetail_users">
+        User detail
+    </my:String>
+
+</ResourceDictionary>

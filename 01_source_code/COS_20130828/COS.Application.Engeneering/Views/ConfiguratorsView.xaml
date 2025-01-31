@@ -1,0 +1,173 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" x:Class="COS.Application.Engeneering.Views.ConfiguratorsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" KeyDown="BaseUserControl_KeyDown"
+             mc:Ignorable="d" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             d:DesignHeight="800" d:DesignWidth="1600">
+
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+               
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <Grid Background="#FF333333">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <my:COSToolBar telerik:StyleManager.Theme="Expression_Dark" Grid.Row="0"  >
+        </my:COSToolBar>
+
+
+        <Grid Background="Transparent" Grid.Row="1" x:Name="gridContent" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0" x:Name="gridDataGrid" IsEnabled="{Binding EditingMode, Converter={StaticResource EditModeEgpsConvertor}}">
+                <telerik:RadGridView telerik:StyleManager.Theme="Expression_Dark" AutoGenerateColumns="False"  SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                                     CanUserInsertRows="False" x:Name="grvConfigs" RowIndicatorVisibility="Collapsed" MaxWidth="250" ShowGroupPanel="False"
+                             ItemsSource="{Binding LocalConfigurators,Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
+                                     ShowInsertRow="False"  RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="Auto">
+                    <telerik:RadGridView.Columns >
+                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding Name}" Header="{DynamicResource eng_StdConfigName}"  >
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ItemGroup.SysLocalize.cs_Czech}" Header="{DynamicResource eng_ItemGroup}"  >
+                        </telerik:GridViewDataColumn>
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1" x:Name="gridSelectedItem">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" x:Name="gridDetailSI"  Margin="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="300"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{DynamicResource eng_StdConfigName}" Grid.Row="0" Grid.Column="0" Margin="5" Foreground="White"></TextBlock>
+                    <TextBlock Text="{DynamicResource eng_Description}" Grid.Row="1" Grid.Column="0" Margin="5" Foreground="White"></TextBlock>
+                    <TextBlock Text="{DynamicResource eng_Division}" Grid.Row="2" Grid.Column="0" Margin="5" Foreground="White"></TextBlock>
+
+                    <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding SelectedItem.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="tbxName" telerik:StyleManager.Theme="Expression_Dark"></TextBox>
+                    <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding SelectedItem.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  telerik:StyleManager.Theme="Expression_Dark"></TextBox>
+                    <telerik:RadComboBox x:Name="cmbItemGroups" Grid.Row="2" Grid.Column="1" Margin="5" SelectedItem="{Binding SelectedItem.Division, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" 
+                                       ItemsSource="{Binding Divisions,Source={StaticResource COSC}}" SelectedValuePath="ID"  >
+                        <telerik:RadComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Value}"></TextBlock>
+                            </DataTemplate>
+                        </telerik:RadComboBox.ItemTemplate>
+                    </telerik:RadComboBox>
+                </Grid>
+                <Grid Grid.Row="1" x:Name="gridFormula" Margin="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel >
+                        <TextBlock Text="{DynamicResource eng_Formula}" Foreground="White" Margin="5"></TextBlock>
+                        <Button Click="testFormula_click" Content="{DynamicResource eng_Preview}" Height="30" Margin="2,5,2,5" telerik:StyleManager.Theme="Expression_Dark"></Button>
+                    </StackPanel>
+                    <Grid Grid.Column="1">
+                        <TextBox Margin="5" VerticalScrollBarVisibility="Visible"  IsUndoEnabled="True" TextWrapping="Wrap" VerticalContentAlignment="Top" AcceptsReturn="True" Text="{Binding SelectedItem.Formula, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="60" telerik:StyleManager.Theme="Expression_Dark" ></TextBox>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="2" x:Name="gridEditor">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition ></ColumnDefinition>
+                        <ColumnDefinition Width="250"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Border  BorderBrush="Gray" BorderThickness="3">
+                            <Grid x:Name="gridCanvas">
+                                <Grid x:Name="gridLines">
+                                    
+                                </Grid>
+                                <my:DragCanvas ClipToBounds="True" x:Name="cnvMainCanvas" AllowDragOutOfView="False" AllowDragging="True" >
+                                 
+                                </my:DragCanvas>
+                                <!--<Canvas ClipToBounds="True" x:Name="cnvMainCanvas" MouseMove="cnvMainCanvas_MouseMove" MouseDown="cnvMainCanvas_MouseDown" MouseUp="cnvMainCanvas_MouseUp" MouseLeave="cnvMainCanvas_MouseLeave" >
+
+                                </Canvas>-->
+                                <Border Width="270" Background="Gray" Opacity="0.4" Height="170" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Gray" BorderThickness="2" IsEnabled="False"></Border>
+                                <Border Width="80" HorizontalAlignment="Right" BorderBrush="White" BorderThickness="2" IsEnabled="True"></Border>
+                                <!--<TextBlock x:Name="tblEsc" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="15" Foreground="Gray" Text="Mazání položky: ESC" Margin="0,2,5,0"></TextBlock>-->
+                                <telerik:RadButton x:Name="btnUpdate" VerticalAlignment="Top" Command="{Binding UpdateToolBarCommand}" HorizontalAlignment="Right" Margin="0,10,20,0" Background="Green"
+                                                   ToolTip="{DynamicResource eng_tt_Update}">
+                                    <Image Source="/COSResources;component/Images/Save_48x48.png" Height="32" VerticalAlignment="Center"></Image>
+                                </telerik:RadButton>
+                                <telerik:RadButton x:Name="btnAligment" VerticalAlignment="Top" Click="btnAligment_click" HorizontalAlignment="Right" Margin="0,82,20,0" Background="Gold"
+                                                   ToolTip="{DynamicResource eng_tt_Align}">
+                                    <Image Source="/COSResources;component/Images/HR_48x48.png" Height="32" VerticalAlignment="Center"></Image>
+                                </telerik:RadButton>
+                                <telerik:RadButton x:Name="btnDelete" VerticalAlignment="Top" Click="btnDelete_click" HorizontalAlignment="Right" Margin="0,134,20,0" Background="Red"
+                                                    ToolTip="{DynamicResource eng_tt_Delete}">
+                                    <Image Source="/COSResources;component/Images/Delete_48x48.png" Height="32" VerticalAlignment="Center"></Image>
+                                </telerik:RadButton>
+                            </Grid>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" MinHeight="200"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <telerik:RadGridView telerik:StyleManager.Theme="Expression_Dark" AutoGenerateColumns="False" 
+                                     CanUserInsertRows="False" x:Name="grvInputs" RowIndicatorVisibility="Collapsed" ShowGroupPanel="False"
+                             ItemsSource="{Binding FormInputs, Source={StaticResource COSC},Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" MinHeight="200"
+                                     ShowInsertRow="False"  RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="Auto">
+                            <telerik:RadGridView.Columns >
+                                <telerik:GridViewDataColumn IsReadOnly="True"  >
+                                    <telerik:GridViewDataColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Content="&lt;&lt;" telerik:StyleManager.Theme="Expression_Dark" Click="useInput_click"></Button>
+                                        </DataTemplate>
+                                    </telerik:GridViewDataColumn.CellTemplate>
+                                </telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding Name}" Header="{DynamicResource eng_Name}">
+                                </telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding DefaultValue}" Header="{DynamicResource eng_DefaultValue}">
+                                </telerik:GridViewDataColumn>
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+
+                        <TextBlock Text="{DynamicResource eng_ItemProps}" Foreground="White" Margin="5,2,5,2" Grid.Row="1"></TextBlock>
+                        <telerik:RadPropertyGrid x:Name="propGrid1" VerticalAlignment="Bottom" DescriptionPanelVisibility="Collapsed" MaxHeight="280" MinHeight="100" Grid.Row="2" SearchBoxVisibility="Visible" SortAndGroupButtonsVisibility="Collapsed"
+                                                 telerik:StyleManager.Theme="Expression_Dark" Item="{Binding SelectedFormItem}" AutoGeneratePropertyDefinitions="False" IsGrouped="True" LabelColumnWidth="80" >
+                            <telerik:RadPropertyGrid.PropertyDefinitions>
+                                <telerik:PropertyDefinition Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" DisplayName="{DynamicResource eng_NameFormula}" GroupName="Obecné"></telerik:PropertyDefinition>
+                                <telerik:PropertyDefinition Binding="{Binding LeftPosition, UpdateSourceTrigger=PropertyChanged}" DisplayName="{DynamicResource eng_AxisX}" GroupName="Rozložení"></telerik:PropertyDefinition>
+                                <telerik:PropertyDefinition Binding="{Binding TopPosition, UpdateSourceTrigger=PropertyChanged}" DisplayName="{DynamicResource eng_AxisY}" GroupName="Rozložení"></telerik:PropertyDefinition>
+                                <telerik:PropertyDefinition Binding="{Binding Width, UpdateSourceTrigger=PropertyChanged}" DisplayName="{DynamicResource eng_Width}" GroupName="Rozložení"></telerik:PropertyDefinition>
+                                <telerik:PropertyDefinition Binding="{Binding Height, UpdateSourceTrigger=PropertyChanged}" DisplayName="{DynamicResource eng_Height}" GroupName="Rozložení"></telerik:PropertyDefinition>
+                                <telerik:PropertyDefinition x:Name="propText" Binding="{Binding Text, UpdateSourceTrigger=PropertyChanged}" DisplayName="{DynamicResource eng_Text}" GroupName="Obecné"></telerik:PropertyDefinition>
+                                <telerik:PropertyDefinition Binding="{Binding ListValues, UpdateSourceTrigger=PropertyChanged}" DisplayName="{DynamicResource eng_List}" GroupName="Obecné"></telerik:PropertyDefinition>
+                            </telerik:RadPropertyGrid.PropertyDefinitions>
+                        </telerik:RadPropertyGrid>
+                    </Grid>
+                </Grid>
+
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</bc:BaseUserControl>

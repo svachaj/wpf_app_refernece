@@ -1,0 +1,46 @@
+﻿<telerik:RadWindow x:Class="COS.Splash.RadChangePwdWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        telerik:StyleManager.Theme="Expression_Dark"  
+		IsTopmost="True" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+    <telerik:RadWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/SplashResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </telerik:RadWindow.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="186*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0" />
+            <ColumnDefinition Width="18" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <TextBlock FontSize="12" FontWeight="Bold" Foreground="#6DFFFFFF" Text="{DynamicResource spl_User}" Grid.Row="1" VerticalAlignment="Center" Margin="0,7" Grid.Column="2" HorizontalAlignment="Right" />
+        <TextBlock FlowDirection="RightToLeft" FontSize="12" FontWeight="Bold" Foreground="#6DFFFFFF" Text="{DynamicResource spl_OldPssword}" Grid.Row="2" VerticalAlignment="Center" Grid.Column="2" />
+        <TextBlock FlowDirection="RightToLeft" FontSize="12" FontWeight="Bold" Foreground="#6DFFFFFF" Text="{DynamicResource spl_NewPassword}" Grid.Row="3" VerticalAlignment="Bottom" Grid.Column="2" />
+        <TextBlock FlowDirection="RightToLeft" FontSize="12" FontWeight="Bold" Foreground="#6DFFFFFF" Text="{DynamicResource spl_ConfirmPassword}" Grid.Row="4" VerticalAlignment="Center" Grid.Column="2" />
+        <TextBlock  FontSize="18" FontWeight="Bold" Foreground="White" Text="CZMK" Grid.Row="1" VerticalAlignment="Center"  Grid.Column="4" Margin="0,0,0,2" x:Name="tblUserName" />
+        <PasswordBox x:Name="pwxActualPWD" Background="#CEFFFFFF" FontSize="12" FontWeight="Bold" Grid.Column="4" Grid.Row="2" HorizontalAlignment="Left" TabIndex="1" VerticalAlignment="center" Width="194" />
+        <PasswordBox x:Name="pwxNewPWD" Background="#CEFFFFFF" FontSize="12" FontWeight="Bold" Grid.Column="4" Grid.Row="3" HorizontalAlignment="Left" TabIndex="1" VerticalAlignment="Bottom" Width="194" />
+        <PasswordBox x:Name="pwxConfirmPWD" Background="#CEFFFFFF" FontSize="12" FontWeight="Bold" Grid.Column="4" Grid.Row="4" HorizontalAlignment="Left" TabIndex="1" VerticalAlignment="center" Width="194" />
+        <telerik:RadButton Content="{DynamicResource spl_Save}" FontSize="14" FontWeight="normal" Grid.Column="4" Grid.Row="5" Height="auto" HorizontalAlignment="right" IsTabStop="True" telerik:StyleManager.Theme="Expression_Dark" VerticalAlignment="center" Width="111" Click="RadButton_Click" />
+    </Grid>
+</telerik:RadWindow>

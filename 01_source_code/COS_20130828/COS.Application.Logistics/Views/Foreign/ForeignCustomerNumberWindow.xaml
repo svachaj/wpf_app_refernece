@@ -1,0 +1,28 @@
+﻿<telerik:RadWindow x:Class="COS.Application.Logistics.Views.ForeignCustomerNumberWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" telerik:StyleManager.Theme="Expression_Dark"
+		xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+		Header="Zákaznická čísla" Height="300" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <telerik:RadGridView ShowInsertRow="True" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" telerik:StyleManager.Theme="Expression_Dark" AutoGenerateColumns="False" ItemsSource="{Binding LocalCustomerNumbers}">
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewComboBoxColumn DataMemberBinding="{Binding OrderedBy}" Header= "{DynamicResource log_cbOrderedByDiv}" DisplayMemberPath="CustomerName"  ItemsSource="{Binding ForeignOrderedBies,Source={StaticResource COSC}}"></telerik:GridViewComboBoxColumn>
+
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding cNumber}" Header="{DynamicResource log_cbcNumber}"></telerik:GridViewDataColumn>
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" Margin="3">
+                <Button  telerik:StyleManager.Theme="Expression_Dark"  Content="{DynamicResource log_OK}" Height="Auto"  Width="Auto" Margin="3" Padding="10,5,10,5" Click="Button_Click" />              
+            </StackPanel>
+        </Grid>
+    </Grid>
+</telerik:RadWindow>

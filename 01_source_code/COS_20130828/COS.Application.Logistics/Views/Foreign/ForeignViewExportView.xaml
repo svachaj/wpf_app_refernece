@@ -1,0 +1,95 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF"  x:Class="COS.Application.Logistics.Views.ForeignViewExportView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             MinHeight="500"
+             d:DesignHeight="500" d:DesignWidth="800" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF">
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <Grid Background="#494a4d">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <my:COSToolBar Grid.ColumnSpan="3" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="0" InsertButtonVisibility="Collapsed" DeleteButtonVisibility="Collapsed" UpdateButtonVisibility="Collapsed" CancelButtonVisibility="Collapsed">
+            <StackPanel Orientation="Horizontal" Margin="5,5,5,5">
+                <telerik:RadButton Click="RadButton_Click" VerticalAlignment="Center" Height="32" Margin="1,1,10,1" Padding="7,2,7,2" ToolTip="{DynamicResource gen_tt_Insert}" telerik:StyleManager.Theme="Expression_Dark">
+                    <Image Source="/COSResources;component/Images/Add_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center" ></Image>
+                </telerik:RadButton>
+
+                <telerik:RadButton Click="RadButtonDelete_Click" VerticalAlignment="Center" Height="32" Margin="1,1,10,1" Padding="7,2,7,2" ToolTip="{DynamicResource gen_tt_Delete}" telerik:StyleManager.Theme="Expression_Dark">
+                    <Image Source="/COSResources;component/Images/Delete_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center" ></Image>
+                </telerik:RadButton>
+
+                <telerik:RadButton Click="RadButtonEditEmails_Click" VerticalAlignment="Center" Height="32" Margin="1,1,10,1" Padding="7,2,7,2" ToolTip="{DynamicResource gen_tt_EditEmail}" telerik:StyleManager.Theme="Expression_Dark">
+                    <Image Source="/COSResources;component/Images/EditEmail_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center" ></Image>
+                </telerik:RadButton>
+            </StackPanel>
+
+
+        </my:COSToolBar>
+
+
+        <telerik:RadGridView Grid.Row="1" telerik:StyleManager.Theme="Expression_Dark" AutoGenerateColumns="False"
+                                 CanUserInsertRows="True" x:Name="grvExports" RowIndicatorVisibility="Collapsed"  ShowGroupPanel="False"
+                             ItemsSource="{Binding LocalExports}" 
+                              ShowInsertRow="False"  SelectionMode="Single" CanUserReorderColumns="false" ClipboardCopyMode="All"
+                              RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="Auto" SelectionUnit="FullRow" IsFilteringAllowed="False">
+            <telerik:RadGridView.Columns >
+
+                <telerik:GridViewDataColumn IsReadOnly="False" DataMemberBinding="{Binding CustomerNumbers}" Header="{DynamicResource log_DomesticCustomerNumber}" >
+                </telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn IsReadOnly="False" DataMemberBinding="{Binding Country}" Header="{DynamicResource log_Country}"   >
+                </telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn IsReadOnly="False" DataMemberBinding="{Binding Destination}" Header="{DynamicResource log_DomesticDestinationName}"  >
+                </telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn IsReadOnly="true" DataMemberBinding="{Binding TimeWindow}" Header="{DynamicResource log_ProdTimeWindow}"  >
+                    <telerik:GridViewDataColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding TimeWindow}" Margin="2"  VerticalAlignment="Center"></TextBlock>
+                                <telerik:RadButton telerik:StyleManager.Theme="Expression_Dark" VerticalAlignment="Center" ToolTip="{DynamicResource tt_logTimeWindowEdit}" Click="btnEditTimeWindow_click" Margin="10,2,2,2" Padding="7,2,7,2" Height="24">
+                                    <Image Source="/COSResources;component/Images/Edit_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center" ></Image>
+                                </telerik:RadButton>
+                            </StackPanel>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellTemplate>
+                </telerik:GridViewDataColumn>
+                
+                
+            </telerik:RadGridView.Columns>
+            
+
+
+
+        </telerik:RadGridView>
+        
+        <Grid Grid.Row="2">
+            <TextBlock Text="{Binding EmailAdresses}" Margin="5,5,5,5" TextWrapping="Wrap" TextAlignment="Center"></TextBlock>          
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <telerik:RadButton Content="{DynamicResource log_TwSend}" Margin="5" telerik:StyleManager.Theme="Expression_Dark" FontSize="15" MinWidth="100" Click="btnSend_click"></telerik:RadButton>
+                <telerik:RadButton Content="{DynamicResource log_TwCancel}" Margin="5" telerik:StyleManager.Theme="Expression_Dark" FontSize="15" MinWidth="100" Click="btnCancel_click"></telerik:RadButton>
+            </StackPanel>
+        </Grid>
+
+        <telerik:RadBusyIndicator Grid.ColumnSpan="10" Grid.RowSpan="10" BusyContent="{DynamicResource log_isBusyTrpOrder}" IsBusy="{Binding IsBusy}" telerik:StyleManager.Theme="Expression_Dark"></telerik:RadBusyIndicator>
+
+
+    </Grid>
+</bc:BaseUserControl>

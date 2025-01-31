@@ -1,0 +1,117 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" x:Class="COS.Application.TechnicalMaintenance.Views.TpmPlanViewModelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             d:DesignHeight="500" d:DesignWidth="900">
+
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <Grid Background="#FF333333">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="320" MinWidth="320" x:Name="leftColumn" ></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Margin="5">
+                <telerik:RadCalendar telerik:StyleManager.Theme="Expression_Dark" SelectedDate="{Binding SelectedDate, Mode=TwoWay}"></telerik:RadCalendar>
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="5">
+                <telerik:RadGridView telerik:StyleManager.Theme="Expression_Dark" AutoGenerateColumns="False" CanUserInsertRows="False"
+                                  ShowGroupPanel="False" x:Name="grvEquips"  RowIndicatorVisibility="Collapsed" ItemsSource="{Binding LocalEquipments}" ShowInsertRow="False"  EnableRowVirtualization="True"
+                                ColumnWidth="Auto" RowLoaded="RadGridView_RowLoaded"   >
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewDataColumn IsReadOnly="True" >
+                            <telerik:GridViewDataColumn.Header>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" telerik:StyleManager.Theme="Expression_Dark" 
+                                          HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="True" IsChecked="True"></CheckBox>
+                            </telerik:GridViewDataColumn.Header>
+                            <telerik:GridViewDataColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsChecked="{Binding IsChecked,Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" 
+                                          HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="True"></CheckBox>
+                                </DataTemplate>
+                            </telerik:GridViewDataColumn.CellTemplate>
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn TextWrapping="Wrap" TextAlignment="Left" Width="90" IsReadOnly="True" DataMemberBinding="{Binding EquipmentNumber}" Tag="">
+                            <telerik:GridViewDataColumn.Header>
+                                <TextBlock Text="{DynamicResource tm_EquipmentNumber}" TextWrapping="Wrap"></TextBlock>
+                            </telerik:GridViewDataColumn.Header>
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn  Width="180" TextWrapping="Wrap" IsReadOnly="True" Header="{DynamicResource tm_TpmEquipment}" DataMemberBinding="{Binding EquipmentName}" Tag=""></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn IsReadOnly="True" Header="{DynamicResource tm_Wg}" DataMemberBinding="{Binding WorkGroup.Value}" Tag=""></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn  IsReadOnly="True" Header="{DynamicResource tm_Wc}" DataMemberBinding="{Binding WorkCenter.Value}" Tag=""></telerik:GridViewDataColumn>
+
+                    </telerik:RadGridView.Columns>
+
+
+                </telerik:RadGridView>
+
+            </Grid>
+
+        </Grid>
+        <GridSplitter HorizontalAlignment="Right" 
+                  VerticalAlignment="Stretch" 
+                  Grid.Column="1" ResizeBehavior="PreviousAndNext"
+                  Width="4" Background="#FFBCBCBC"  >
+            
+        </GridSplitter>
+        <Button Grid.Column="1" telerik:StyleManager.Theme="Expression_Dark" Content=">"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,-4,0" Width="12" Height="30" Click="Button_Click"></Button>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <telerik:RadToolBar telerik:StyleManager.Theme="Expression_Dark" Grid.Row="0" Margin="5,0,0,0">
+                <telerik:RadButton VerticalAlignment="Center" Command="{Binding RefreshCommand}" ToolTip="Refresh data">
+                    <Image Source="/COSResources;component/Images/Refresh_48x48.png" Height="32" VerticalAlignment="Center"></Image>
+                </telerik:RadButton>
+                <telerik:RadButton VerticalAlignment="Center" Command="{Binding AddNewCommand}" ToolTip="{DynamicResource tm_TT_New}">
+                    <Image Source="/COSResources;component/Images/Add_48x48.png" Height="32" VerticalAlignment="Center"></Image>
+                </telerik:RadButton>
+                <telerik:RadButton VerticalAlignment="Center" Command="{Binding DeleteOneCommand}" ToolTip="{DynamicResource tm_TT_Delete}">
+                    <Image Source="/COSResources;component/Images/Delete_48x48.png" Height="32" VerticalAlignment="Center"></Image>
+                </telerik:RadButton>
+                <telerik:RadButton VerticalAlignment="Center" Command="{Binding DeleteRecurCommand}" ToolTip="{DynamicResource tm_TT_DeleteReccur}">
+                    <Image Source="/COSResources;component/Images/DeleteAll_48x48.png" Height="32" VerticalAlignment="Center"></Image>
+                </telerik:RadButton>
+                <telerik:RadButton VerticalAlignment="Center" Command="{Binding UpdateRecurCommand}" ToolTip="{DynamicResource tm_TT_UpdateReccur}">
+                    <Image Source="/COSResources;component/Images/Cycle2_48x48.png" Height="32" VerticalAlignment="Center"></Image>
+                </telerik:RadButton>
+
+            </telerik:RadToolBar>
+            <Grid Grid.Row="1" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <telerik:RadScheduleView ActiveViewDefinitionIndex="2" Grid.RowSpan="2" CurrentDate="{Binding SelectedDate, Mode=TwoWay}"
+                                         Name="radScheduleView1" AppointmentsSource="{Binding LocalPlansAppointments}" ShowDialog="radScheduleView1_ShowDialog" 
+                                      AppointmentCreating="radScheduleView1_AppointmentCreating" AppointmentDeleting="radScheduleView1_AppointmentDeleting"     SelectedAppointment="{Binding SelectedApp, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" Margin="5">
+                    <telerik:RadScheduleView.ViewDefinitions>
+                        <telerik:DayViewDefinition />
+                        <telerik:WeekViewDefinition />
+                        <telerik:MonthViewDefinition  />
+                        <telerik:TimelineViewDefinition CalendarWeekRule="FirstFourDayWeek"  />
+                    </telerik:RadScheduleView.ViewDefinitions>
+                </telerik:RadScheduleView>
+            </Grid>
+        </Grid>
+        <!--<Button Content="{DynamicResource AccType_users}" Height="23" HorizontalAlignment="Left" Margin="141,73,0,0" Name="button1" VerticalAlignment="Top" Width="75" Grid.RowSpan="2" Click="button1_Click" />-->
+    </Grid>
+</bc:BaseUserControl>

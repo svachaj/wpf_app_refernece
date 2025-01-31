@@ -1,0 +1,511 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" x:Class="COS.Application.TechnicalMaintenance.Views.TpmPlanDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="600" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="TPMLocalResources.xaml"></ResourceDictionary>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <Grid Background="#FF333333">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Margin="5">
+
+            <!--order info-->
+            <!--<Border Grid.Row="0" Grid.Column="0" Margin="3" BorderBrush="Gray" BorderThickness="1.5"  IsEnabled="{Binding EditingMode, Converter={StaticResource EditModeHPConvertor1}}">-->
+            <Border Grid.Row="0" Grid.Column="0" Margin="3" BorderBrush="Gray" BorderThickness="1.5" Width="280" HorizontalAlignment="Left" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0,0,0,1.5" Margin="0,0,0,3">
+                        <TextBlock Foreground="White" Margin="3" HorizontalAlignment="Center" Text="{DynamicResource tm_TpmHeader}"></TextBlock>
+                    </Border>
+
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="8"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource tm_TpmEquipment}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+
+
+                        <telerik:RadComboBox Grid.Row="0" Grid.Column="2"  IsEditable="True" telerik:StyleManager.Theme="Office_Black"
+                                 ItemsSource="{Binding Equipments,Source={StaticResource COSC}}" Margin="3" IsTextSearchEnabled="True"
+                     SelectedItem="{Binding SelectedItem.Equipment,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                                         VerticalAlignment="Center" DisplayMemberPath="DisplayName" >
+                            <!--<telerik:RadComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding DisplayName}"></TextBlock>
+                                </DataTemplate>
+                            </telerik:RadComboBox.ItemTemplate>-->
+                        </telerik:RadComboBox>
+
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource tm_TpmWg}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                        <TextBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" IsTabStop="False" TextAlignment="Right" x:Name="tbxWG"
+                                                   Text="{Binding SelectedItem.Equipment.WorkGroup.Value}" IsReadOnly="True"
+                                         Margin="3" telerik:StyleManager.Theme="Expression_Dark" >
+                        </TextBox>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource tm_TpmWc}"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                        <TextBox Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" IsTabStop="False" TextAlignment="Right" x:Name="tbxWC"
+                                                   Text="{Binding SelectedItem.Equipment.WorkCenter.Value}" IsReadOnly="True"
+                                         Margin="3" telerik:StyleManager.Theme="Expression_Dark" >
+                        </TextBox>
+
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="{DynamicResource tm_TpmCheckList}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                        <telerik:RadComboBox Grid.Row="4" Grid.Column="2" telerik:StyleManager.Theme="Expression_Dark" SelectionChanged="RadComboBox_SelectionChanged" 
+                                 ItemsSource="{Binding LocalCheckLists}" Margin="3" IsTextSearchEnabled="True"
+                     SelectedItem="{Binding SelectedItem.CheckList,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                                         VerticalAlignment="Center" >
+                            <telerik:RadComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding CheckListName}"></TextBlock>
+                                </DataTemplate>
+                            </telerik:RadComboBox.ItemTemplate>
+                        </telerik:RadComboBox>
+
+                        <TextBlock Grid.Row="5" Grid.Column="0" Text="{DynamicResource tm_TpmPlannedtime}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                        <telerik:RadNumericUpDown Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" IsTabStop="False" IsInteger="True"
+                                                   Value="{Binding SelectedItem.TpmPlannedTime, Mode=TwoWay}"   Minimum="0"   Margin="3" telerik:StyleManager.Theme="Expression_Dark" >
+                        </telerik:RadNumericUpDown>
+
+                        <TextBlock Grid.Row="6" Grid.Column="0" Text="{DynamicResource tm_TpmPlannedlabour}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                        <telerik:RadNumericUpDown Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" IsTabStop="False" IsInteger="True"
+                                                   Value="{Binding SelectedItem.TpmPlannedLabour, Mode=TwoWay}"  Minimum="0"    Margin="3" telerik:StyleManager.Theme="Expression_Dark" >
+                        </telerik:RadNumericUpDown>
+
+                        <TextBlock Grid.Row="7" Grid.Column="0" Text="{DynamicResource tm_TpmPriority}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                        <!--<telerik:RadNumericUpDown Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" IsTabStop="False" IsInteger="True"
+                                                   Value="{Binding SelectedItem.ID_Priority, Mode=TwoWay}"  Minimum="0"    Margin="3" telerik:StyleManager.Theme="Expression_Dark" >
+                        </telerik:RadNumericUpDown>-->
+                        <telerik:RadComboBox Grid.Row="7" Grid.Column="2" telerik:StyleManager.Theme="Expression_Dark" 
+                                             ItemsSource="{Binding TpmPriorities,Source={StaticResource COSC}}" Margin="3" IsTextSearchEnabled="True"
+                     SelectedItem="{Binding SelectedItem.TpmPriority,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                                         VerticalAlignment="Center" >
+                            <telerik:RadComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Description}"></TextBlock>
+                                </DataTemplate>
+                            </telerik:RadComboBox.ItemTemplate>
+                        </telerik:RadComboBox>
+
+                        <TextBlock Grid.Row="8" Grid.Column="0" Text="{DynamicResource tm_TpmStatus}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                        <!--<telerik:RadNumericUpDown Grid.Row="8" Grid.Column="2" VerticalAlignment="Center" IsTabStop="False" IsInteger="True"
+                                                   Value="{Binding SelectedItem.ID_Status, Mode=TwoWay}" Minimum="0"    Margin="3" telerik:StyleManager.Theme="Expression_Dark" >
+                        </telerik:RadNumericUpDown>-->
+                        <telerik:RadComboBox Grid.Row="8" Grid.Column="2" telerik:StyleManager.Theme="Expression_Dark" 
+                                             ItemsSource="{Binding TpmStatuses,Source={StaticResource COSC}}" Margin="3" IsTextSearchEnabled="True"
+                     SelectedItem="{Binding SelectedItem.TpmStatus,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                                         VerticalAlignment="Center" >
+                            <telerik:RadComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Description}"></TextBlock>
+                                </DataTemplate>
+                            </telerik:RadComboBox.ItemTemplate>
+                        </telerik:RadComboBox>
+                        
+                        <TextBlock Grid.Row="9" Grid.Column="0" Text="{DynamicResource tm_TpmFrom}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"
+                                   Visibility="{Binding EditingMode, Converter={StaticResource EditModeVisibilityConvertor}}"></TextBlock>
+
+
+                        <telerik:RadDateTimePicker Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" IsTabStop="False" TextAlignment="Right"
+                                                   SelectedValue="{Binding SelectedItem.TpmStartDateTime, Mode=TwoWay}"
+                                         Margin="3" telerik:StyleManager.Theme="Expression_Dark" Visibility="{Binding EditingMode, Converter={StaticResource EditModeVisibilityConvertor}}" >
+                        </telerik:RadDateTimePicker>
+
+
+                        <TextBlock Grid.Row="10" Grid.Column="0" Text="{DynamicResource tm_TpmTo}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"
+                                   Visibility="{Binding EditingMode, Converter={StaticResource EditModeVisibilityConvertor}}"></TextBlock>
+                        <telerik:RadDateTimePicker Grid.Row="10" Grid.Column="2" VerticalAlignment="Center" IsTabStop="False" TextAlignment="Right"
+                                                   SelectedValue="{Binding SelectedItem.TpmEndDatetime, Mode=TwoWay}" SelectableDateStart="{Binding SelectedItem.TpmStartDateTime}"
+                                         Margin="3" telerik:StyleManager.Theme="Expression_Dark" Visibility="{Binding EditingMode, Converter={StaticResource EditModeVisibilityConvertor}}" >
+                        </telerik:RadDateTimePicker>
+
+                    </Grid>
+
+                </Grid>
+
+            </Border>
+
+
+        </Grid>
+
+        <Grid Margin="5" Grid.Row="0" Grid.Column="1">
+
+            <!--order info-->
+            <!--<Border Grid.Row="0" Grid.Column="0" Margin="3" BorderBrush="Gray" BorderThickness="1.5"  IsEnabled="{Binding EditingMode, Converter={StaticResource EditModeHPConvertor1}}">-->
+            <Border Grid.Row="0" Grid.Column="0" Margin="3" BorderBrush="Gray" BorderThickness="1.5" Width="280" HorizontalAlignment="Left" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0,0,0,1.5" Margin="0,0,0,3">
+                        <TextBlock Foreground="White" Margin="3" HorizontalAlignment="Center" Text="{DynamicResource tm_TpmTimePlan}"></TextBlock>
+                    </Border>
+
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+
+                        </Grid.RowDefinitions>
+
+                        <Border Grid.Row="0" Grid.Column="0" Margin="3" BorderBrush="Gray" BorderThickness="1.5" IsEnabled="{Binding EditingMode, Converter={StaticResource EditModeEnabledConvertor}}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0,0,0,1.5" Margin="0,0,0,3">
+                                    <CheckBox Foreground="White" Margin="3" HorizontalAlignment="Left" Content ="{DynamicResource tm_TpmOneTime}"  FontWeight="Normal" FontSize="13"                                          
+                                              IsChecked="{Binding SelectedItem.TimePlanMode, Mode=TwoWay,Converter={StaticResource TimePlanModeConverter},ConverterParameter=OneTime}" ></CheckBox>
+                                </Border>
+
+                                <Grid Grid.Row="1" Height="{Binding SelectedItem.TimePlanMode, Mode=TwoWay,Converter={StaticResource TimePlanModeHeightConverter},ConverterParameter=OneTime}" IsEnabled="{Binding SelectedItem.TimePlanMode, Mode=TwoWay,Converter={StaticResource TimePlanModeConverter},ConverterParameter=OneTime}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="{DynamicResource tm_TpmFrom}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="3,0,0,3" Foreground="White"></TextBlock>
+
+
+                                    <telerik:RadDateTimePicker Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" IsTabStop="False" TextAlignment="Right"
+                                                   SelectedValue="{Binding SelectedItem.TpmStartDateTime, Mode=TwoWay}"
+                                         Margin="3" telerik:StyleManager.Theme="Expression_Dark" >
+                                    </telerik:RadDateTimePicker>
+
+
+                                    <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource tm_TpmTo}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                                    <telerik:RadDateTimePicker Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" IsTabStop="False" TextAlignment="Right"
+                                                   SelectedValue="{Binding SelectedItem.TpmEndDatetime, Mode=TwoWay}" SelectableDateStart="{Binding SelectedItem.TpmStartDateTime}"
+                                         Margin="3" telerik:StyleManager.Theme="Expression_Dark" >
+                                    </telerik:RadDateTimePicker>
+
+
+
+
+                                </Grid>
+
+                            </Grid>
+
+                        </Border>
+
+                        <Border Grid.Row="1" Grid.Column="0" Margin="3" BorderBrush="Gray" BorderThickness="1.5" IsEnabled="{Binding EditingMode, Converter={StaticResource EditModeEnabledConvertor}}" >
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0,0,0,1.5" Margin="0,0,0,3">
+                                    <CheckBox Foreground="White" Margin="3" HorizontalAlignment="Left" Content="{DynamicResource tm_TpmReccur}" FontWeight="Normal" FontSize="13"   
+                                              IsChecked="{Binding SelectedItem.TimePlanMode, Mode=TwoWay,Converter={StaticResource TimePlanModeConverter},ConverterParameter=Recurrency}"></CheckBox>
+                                </Border>
+
+                                <Grid Grid.Row="1" x:Name="grdRecurently" Height="{Binding SelectedItem.TimePlanMode, Mode=TwoWay,Converter={StaticResource TimePlanModeHeightConverter},ConverterParameter=Recurrency}" IsEnabled="{Binding SelectedItem.TimePlanMode, Mode=TwoWay,Converter={StaticResource TimePlanModeConverter},ConverterParameter=Recurrency}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource tm_TpmFromTime}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+
+
+                                    <telerik:RadTimePicker Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" IsTabStop="False" TextAlignment="Right"
+                                                   SelectedTime="{Binding SelectedItem.Recurrence.StartTime, Mode=TwoWay}" 
+                                         Margin="3" telerik:StyleManager.Theme="Expression_Dark" >
+                                    </telerik:RadTimePicker>
+
+                                    <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource tm_TpmToTime}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                                    <telerik:RadTimePicker Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" IsTabStop="False" TextAlignment="Right"
+                                                   SelectedTime="{Binding SelectedItem.Recurrence.EndTime, Mode=TwoWay}" 
+                                         Margin="3" telerik:StyleManager.Theme="Expression_Dark" >
+                                    </telerik:RadTimePicker>
+
+                                    <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="3" BorderThickness="1.5" x:Name="brdDay"
+                                             BorderBrush="{Binding SelectedItem.Recurrence.RecurrencyMode, Mode=TwoWay, Converter={StaticResource RecurrencyModeBorderBrushConverter},ConverterParameter=1}">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+
+                                            <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0,0,0,1.5" Margin="0,0,0,3">
+                                                <CheckBox Foreground="White" Margin="3" HorizontalAlignment="Left" Content="{DynamicResource tm_TpmDaily}" x:Name="chbDaily" FontWeight="Bold" FontSize="14" 
+                                                          IsChecked="{Binding SelectedItem.Recurrence.RecurrencyMode, Mode=TwoWay,Converter={StaticResource RecurrencyModeEnabledConverter},ConverterParameter=1}"></CheckBox>
+                                            </Border>
+
+                                            <Grid Grid.Row="1" x:Name="grdDaily" 
+                                                  Height="{Binding SelectedItem.Recurrence.RecurrencyMode, Mode=TwoWay,Converter={StaticResource RecurrencyModeHeightConverter},ConverterParameter=1}">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <StackPanel Orientation="Horizontal">
+                                                    <CheckBox Content="{DynamicResource tm_TpmDailyEveryDay}" Foreground="White" Margin="5" VerticalAlignment="Center" telerik:StyleManager.Theme="Expression_Dark" 
+                                                               IsChecked="{Binding SelectedItem.Recurrence.isDaily_EveryDay, Mode=TwoWay}" ></CheckBox>
+                                                    <telerik:RadNumericUpDown Margin="5" VerticalAlignment="Center" IsInteger="True"  telerik:StyleManager.Theme="Expression_Dark"
+                                                                              Minimum="1" Value="{Binding SelectedItem.Recurrence.isDaily_EveryDay_Days, Mode=TwoWay}"></telerik:RadNumericUpDown>
+                                                    <TextBlock Foreground="White" Margin="5" VerticalAlignment="Center" Text="{DynamicResource tm_TpmDay}"></TextBlock>
+                                                </StackPanel>
+
+                                                <StackPanel Orientation="Horizontal" Grid.Row="1">
+                                                    <CheckBox Content="{DynamicResource tm_TpmDailyEveryWorkDay}" Foreground="White" Margin="5" VerticalAlignment="Center" telerik:StyleManager.Theme="Expression_Dark" 
+                                                               IsChecked="{Binding SelectedItem.Recurrence.isDaily_Weekdays, Mode=TwoWay}"></CheckBox>
+                                                </StackPanel>
+
+
+
+                                            </Grid>
+
+                                        </Grid>
+
+                                    </Border>
+
+                                    <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="3"  BorderThickness="1.5"  x:Name="brdWeek"
+                                            BorderBrush="{Binding SelectedItem.Recurrence.RecurrencyMode, Mode=TwoWay, Converter={StaticResource RecurrencyModeBorderBrushConverter},ConverterParameter=2}">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+
+                                            <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0,0,0,1.5" Margin="0,0,0,3">
+                                                <CheckBox Foreground="White" Margin="3" HorizontalAlignment="Left" Content="{DynamicResource tm_TpmWeekly}" x:Name="chbWeekly" FontWeight="Bold" FontSize="14"
+                                                          IsChecked="{Binding SelectedItem.Recurrence.RecurrencyMode, Mode=TwoWay,Converter={StaticResource RecurrencyModeEnabledConverter},ConverterParameter=2}"></CheckBox>
+                                            </Border>
+
+                                            <Grid Grid.Row="1" x:Name="grdWeekly" Height="{Binding SelectedItem.Recurrence.RecurrencyMode, Mode=TwoWay,Converter={StaticResource RecurrencyModeHeightConverter},ConverterParameter=2}">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Foreground="White" Margin="5" VerticalAlignment="Center" Text="{DynamicResource tm_TpmWeeklyDayRecc}"></TextBlock>
+                                                    <telerik:RadNumericUpDown Margin="5" VerticalAlignment="Center" IsInteger="True"  telerik:StyleManager.Theme="Expression_Dark"
+                                                                              Minimum="1" Value="{Binding SelectedItem.Recurrence.isWeeklyRecursEveryWeek, Mode=TwoWay}"></telerik:RadNumericUpDown>
+                                                    <TextBlock Foreground="White" Margin="5" VerticalAlignment="Center" Text="{DynamicResource tm_TpmWeeklyDayWeekRecc}"></TextBlock>
+                                                </StackPanel>
+
+
+                                                <StackPanel Orientation="Horizontal" Grid.Row="2">
+                                                    <CheckBox Content="{DynamicResource tm_TpmMonday}" Foreground="White" Margin="5" VerticalAlignment="Center" telerik:StyleManager.Theme="Expression_Dark" 
+                                                               IsChecked="{Binding SelectedItem.Recurrence.isWeeklyMonday, Mode=TwoWay}"></CheckBox>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Grid.Row="3">
+                                                    <CheckBox Content="{DynamicResource tm_TpmThuesday}" Foreground="White" Margin="5" VerticalAlignment="Center" telerik:StyleManager.Theme="Expression_Dark" 
+                                                               IsChecked="{Binding SelectedItem.Recurrence.isWeeklyTuesday, Mode=TwoWay}"></CheckBox>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Grid.Row="4">
+                                                    <CheckBox Content="{DynamicResource tm_TpmWednesday}" Foreground="White" Margin="5" VerticalAlignment="Center" telerik:StyleManager.Theme="Expression_Dark" 
+                                                               IsChecked="{Binding SelectedItem.Recurrence.isWeeklyWednesday, Mode=TwoWay}"></CheckBox>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Grid.Row="5">
+                                                    <CheckBox Content="{DynamicResource tm_TpmThursday}" Foreground="White" Margin="5" VerticalAlignment="Center" telerik:StyleManager.Theme="Expression_Dark" 
+                                                               IsChecked="{Binding SelectedItem.Recurrence.isWeeklyThursday, Mode=TwoWay}"></CheckBox>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Grid.Row="6">
+                                                    <CheckBox Content="{DynamicResource tm_TpmFriday}" Foreground="White" Margin="5" VerticalAlignment="Center" telerik:StyleManager.Theme="Expression_Dark" 
+                                                               IsChecked="{Binding SelectedItem.Recurrence.isWeeklyFriday, Mode=TwoWay}"></CheckBox>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Grid.Row="7">
+                                                    <CheckBox Content="{DynamicResource tm_TpmSaturday}" Foreground="White" Margin="5" VerticalAlignment="Center" telerik:StyleManager.Theme="Expression_Dark" 
+                                                               IsChecked="{Binding SelectedItem.Recurrence.isWeeklySaturday, Mode=TwoWay}"></CheckBox>
+
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Grid.Row="8">
+                                                    <CheckBox Content="{DynamicResource tm_TpmSunday}" Foreground="White" Margin="5" VerticalAlignment="Center" telerik:StyleManager.Theme="Expression_Dark" 
+                                                               IsChecked="{Binding SelectedItem.Recurrence.isWeeklySunday, Mode=TwoWay}"></CheckBox>
+                                                </StackPanel>
+
+                                            </Grid>
+
+                                        </Grid>
+
+                                    </Border>
+
+                                    <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="3" BorderThickness="1.5" x:Name="brdMonth"
+                                            BorderBrush="{Binding SelectedItem.Recurrence.RecurrencyMode, Mode=TwoWay, Converter={StaticResource RecurrencyModeBorderBrushConverter},ConverterParameter=3}">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+
+                                            <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0,0,0,1.5" Margin="0,0,0,3">
+                                                <CheckBox Foreground="White" Margin="3" HorizontalAlignment="Left" Content="{DynamicResource tm_TpmMonthly}" x:Name="chbMonthly" FontWeight="Bold" FontSize="14"
+                                                          IsChecked="{Binding SelectedItem.Recurrence.RecurrencyMode, Mode=TwoWay,Converter={StaticResource RecurrencyModeEnabledConverter},ConverterParameter=3}"></CheckBox>
+                                            </Border>
+
+                                            <Grid Grid.Row="1" x:Name="grdMonthly" Height="{Binding SelectedItem.Recurrence.RecurrencyMode, Mode=TwoWay,Converter={StaticResource RecurrencyModeHeightConverter},ConverterParameter=3}">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Foreground="White" Margin="5" VerticalAlignment="Center" Text="{DynamicResource tm_TpmMonthlyDay}"></TextBlock>
+                                                    <telerik:RadNumericUpDown Minimum="1" Maximum="31" Margin="5" VerticalAlignment="Center" IsInteger="True"  telerik:StyleManager.Theme="Expression_Dark"
+                                                                              Value="{Binding SelectedItem.Recurrence.isMonthlyDay, Mode=TwoWay}"></telerik:RadNumericUpDown>
+                                                    <TextBlock Foreground="White" Margin="5" VerticalAlignment="Center" Text="{DynamicResource tm_TpmMonthlyEvery}"></TextBlock>
+                                                    <telerik:RadNumericUpDown Minimum="1" Maximum="12" Margin="5" VerticalAlignment="Center" IsInteger="True"  telerik:StyleManager.Theme="Expression_Dark"
+                                                                               Value="{Binding SelectedItem.Recurrence.isMonthlyMonth, Mode=TwoWay}"></telerik:RadNumericUpDown>
+                                                    <TextBlock Foreground="White" Margin="5" VerticalAlignment="Center" Text="{DynamicResource tm_TpmMonthlyMonth}"></TextBlock>
+
+                                                </StackPanel>
+
+
+                                            </Grid>
+
+                                        </Grid>
+
+                                    </Border>
+
+                                    <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="3" BorderBrush="Gray" BorderThickness="1.5"  >
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+
+                                            <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0,0,0,1.5" Margin="0,0,0,3">
+                                                <TextBlock Foreground="White" Margin="3" HorizontalAlignment="Center" Text="{DynamicResource tm_TpmReccurRange}" ></TextBlock>
+                                            </Border>
+
+                                            <Grid Grid.Row="1" IsEnabled="{Binding SelectedItem.TimePlanMode, Mode=TwoWay,Converter={StaticResource TimePlanModeConverter},ConverterParameter=Recurrency}">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource tm_TpmFrom}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+
+
+                                                <telerik:RadDatePicker Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" IsTabStop="False" TextAlignment="Right"
+                                                   SelectedDate="{Binding SelectedItem.Recurrence.RangeOfReccStartDate, Mode=TwoWay}" 
+                                         Margin="3" telerik:StyleManager.Theme="Expression_Dark" >
+                                                </telerik:RadDatePicker>
+
+                                                <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource tm_TpmTo}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                                                <telerik:RadDatePicker Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" IsTabStop="False" TextAlignment="Right"
+                                                   SelectedDate="{Binding SelectedItem.Recurrence.RangeOfReccEndDate, Mode=TwoWay}" 
+                                         Margin="3" telerik:StyleManager.Theme="Expression_Dark" >
+                                                </telerik:RadDatePicker>
+
+
+                                            </Grid>
+
+                                        </Grid>
+
+                                    </Border>
+
+
+                                </Grid>
+
+                            </Grid>
+
+                        </Border>
+                    </Grid>
+
+                </Grid>
+
+            </Border>
+
+
+        </Grid>
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="4" HorizontalAlignment="Right" Margin="3">
+            <telerik:RadButton telerik:StyleManager.Theme="Expression_Dark"  Content="{DynamicResource tm_Save}" Height="Auto"  Width="Auto" Margin="3" Padding="10,5,10,5" Command="{Binding UpdateCommand}" />
+            <telerik:RadButton telerik:StyleManager.Theme="Expression_Dark" Content="{DynamicResource tm_Cancel}" Height="Auto"  Width="Auto" Margin="3" Padding="10,5,10,5" Command="{Binding CancelCommand}" />
+        </StackPanel>
+    </Grid>
+</bc:BaseUserControl>

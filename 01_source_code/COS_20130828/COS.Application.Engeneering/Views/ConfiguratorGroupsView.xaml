@@ -1,0 +1,78 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" x:Class="COS.Application.Engeneering.Views.ConfiguratorGroupsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+
+
+    <Grid Background="#FF333333">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <my:COSToolBar telerik:StyleManager.Theme="Expression_Dark" Grid.Row="0" >
+        </my:COSToolBar>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+
+                <telerik:RadTreeView x:Name="cmbGroupsAll" MinWidth="150" BorderBrush="White" BorderThickness="1" Margin="2" SelectedItem="{Binding SelectedItem, Mode=TwoWay}"  
+                                     ItemsSource="{Binding LocalConfiguratorGroups}" telerik:StyleManager.Theme="Metro" >
+                    <telerik:RadTreeView.ItemTemplate>
+                        <HierarchicalDataTemplate ItemsSource="{Binding Childs}">
+                            <Grid>
+                                <TextBlock Text="{Binding SysLocalize.cs_Czech}" Visibility="{Binding CsLngVisibility,Source={StaticResource COSC}}"></TextBlock>
+                                <TextBlock Text="{Binding SysLocalize.en_English}" Visibility="{Binding EnLngVisibility, Source={StaticResource COSC}}"></TextBlock>
+                            </Grid>
+                        </HierarchicalDataTemplate>
+                    </telerik:RadTreeView.ItemTemplate>
+                </telerik:RadTreeView>
+
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+
+                <TextBlock Foreground="White"  Grid.Row="0" Grid.Column="0" Text="{DynamicResource eng_CZtext}" Margin="3" VerticalAlignment="Center"></TextBlock>
+                <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="0" Grid.Column="1"
+                     Text="{Binding SelectedItem.SysLocalize.cs_Czech, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                     Margin="3" VerticalAlignment="Center"    >
+                </TextBox>
+
+                <TextBlock Foreground="White"  Grid.Row="1" Grid.Column="0" Text="{DynamicResource eng_ENtext}" Margin="3" VerticalAlignment="Center"></TextBlock>
+                <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="1" Grid.Column="1"
+                     Text="{Binding SelectedItem.SysLocalize.en_English, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"  Margin="3" VerticalAlignment="Center"></TextBox>
+
+
+            </Grid>
+
+
+        </Grid>
+    </Grid>
+</bc:BaseUserControl>
+

@@ -1,0 +1,73 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:my="clr-namespace:System;assembly=mscorlib" >
+
+
+
+
+
+
+    <my:String x:Key="spl_RememberMe">
+        Remember me
+    </my:String>
+    <my:String x:Key="spl_UserName">
+        User
+    </my:String>
+    <my:String x:Key="spl_Password">
+       Password
+    </my:String>
+    <my:String x:Key="spl_Login">
+        Login
+    </my:String>
+    <my:String x:Key="spl_ForgottenPassword">
+       Forgot your password ?
+    </my:String>
+    <my:String x:Key="spl_WelcomeLogin">
+        Welcome in COS - Logon
+    </my:String>
+    <my:String x:Key="spl_ChangePassword">
+        Password change
+    </my:String>
+    <my:String x:Key="spl_Developed">
+        Company Operational System licenced for
+    </my:String>
+    <my:String x:Key="spl_Exit">
+        Close
+    </my:String>
+    <my:String x:Key="spl_Copyright">
+        Copyright© 2012 Calch Solution. All right reserved.
+    </my:String>
+    <my:String x:Key="spl_Version">
+        Version : 1.00.00
+    </my:String>
+    <my:String x:Key="spl_Customer">
+        Lindab s.r.o.
+    </my:String>
+    <my:String x:Key="spl_User">
+      User
+    </my:String>
+    <my:String x:Key="spl_OldPssword">
+     Old password
+    </my:String>
+    <my:String x:Key="spl_NewPassword">
+      New password
+    </my:String>
+    <my:String x:Key="spl_ConfirmPassword">
+     Confirm password
+    </my:String>
+    <my:String x:Key="spl_Save">
+       Save
+    </my:String>
+    <my:String x:Key="spl_ChangePasswordHeader">
+      Change password
+    </my:String>
+
+    <my:String x:Key="cMsgSplashHeader">
+       Login failed !
+    </my:String>
+
+    <my:String x:Key="cMsgSplashBody">
+        User name doesn't exist !
+    </my:String>
+
+</ResourceDictionary>

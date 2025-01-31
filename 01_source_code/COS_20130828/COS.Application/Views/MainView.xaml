@@ -1,0 +1,833 @@
+﻿<my:BaseUserControl xmlns:my="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF"  x:Class="COS.Application.Views.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d"  Unloaded="BaseUserControl_Unloaded"
+             xmlns:modelsAdmin="clr-namespace:COS.Application.Modules.Administration"
+              xmlns:modelsHR="clr-namespace:COS.Application.Modules.HumanResources"
+              xmlns:modelsEngeneering="clr-namespace:COS.Application.Modules.Engeneering"
+              xmlns:modelsReporting="clr-namespace:COS.Application.Modules.Reporting"
+              xmlns:modelsHP="clr-namespace:COS.Application.Modules.HourlyProduction"
+              xmlns:modelsTM="clr-namespace:COS.Application.Modules.TechnicalMaintenance"
+              xmlns:modelsOrd="clr-namespace:COS.Application.Modules.Orders"
+              xmlns:modelsLOG="clr-namespace:COS.Application.Modules.Logistic"
+              xmlns:modelsLOGdom="clr-namespace:COS.Application.Modules.Logistic.Domestic"
+              xmlns:telerikRibbon="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.RibbonView"
+             d:DesignHeight="719" d:DesignWidth="1591" >
+
+
+    <my:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </my:BaseUserControl.Resources>
+
+
+    <Grid x:Name="LayoutRoot" >
+        <Grid.RowDefinitions >
+            <RowDefinition Height="Auto">
+            </RowDefinition>
+            <RowDefinition Height="*">
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <telerik:RadRibbonView Name="radRibbonView1" VerticalAlignment="Top" TitleBarBackground="#FF494A4D" Grid.Row="0" MinimizeButtonVisibility="Visible"
+                                TitleBarVisibility="Collapsed" ApplicationButtonContent="{StaticResource App_Button}"   >
+
+            <!--*******************START OF PRODUCTION TAB********************************-->
+            <telerik:RadRibbonTab Header="{StaticResource mod_Porduction}" FontSize="14" Name="tbHourlyProduction" Tag="module_Production">
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_HourlyProduction}"  FontSize="12" >
+                    <telerik:RadRibbonButton Click="btnHourlyProduction_Click"  Name="btnHourlyProduction" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_HourlyProduction">
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/HourlyProduction_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_btn_HourlyProduction}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnHourlyProductionReCalc_Click" Name="btnHourlyProductionRecalc" Tag="subm_HourlyProductionRecalc" Text="{StaticResource submod_btn_HourlyProductionRecalc}" SmallImage="/COSResources;component/Images/ReCalc_16x16.png"/>
+                    </StackPanel>
+
+                </telerik:RadRibbonGroup>
+
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_Production4h}"  FontSize="12" >
+
+                    <telerik:RadRibbonButton Click="btnProduction4hPlanning_Click"  Name="btnProduction4hPlanning" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_Production4hPlanning">
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/Planning_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_btn_Production4hPlanning}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbSupplier_Click" Name="btnCbSupplier" Text="{StaticResource submod_cbSupplier}" Tag="subm_cbSupplier" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbManufacturer_Click" Name="btnCbManufacturer" Text="{StaticResource submod_cbManufacturer}" Tag="subm_cbManufacturer" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbPlanExecution_Click" Name="btnCbPlanExecution" Text="{StaticResource submod_cbPlanExecution}" Tag="subm_cbPlanExecution" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btncbP4HState_Click" Name="btncbP4HState" Text="{StaticResource submod_cbP4HState}" Tag="subm_cbP4HState" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbTransportType_Click" Name="btnCbTransportType" Text="{StaticResource submod_cbTransportType}" Tag="subm_cbTransportType" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbP4hDifficulty_Click" Name="btnCbP4hDifficulty" Text="{StaticResource submod_cbP4hDifficulty}" Tag="subm_cbP4hDifficulty" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                    </StackPanel>
+
+                </telerik:RadRibbonGroup>
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_ProductionOthers}"  FontSize="12" >
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnAdsCustomerService_Click" Name="btnAdsCustomerService" Tag="subm_AdsCustomerService" Text="{StaticResource submod_btn_AdsCustomerService}" SmallImage="/COSResources;component/Images/AdsCustService_16x16.png"/>
+                    </StackPanel>
+
+                </telerik:RadRibbonGroup>
+
+            </telerik:RadRibbonTab>
+
+
+            <!--*******************END OF PRODUCTION TAB********************************-->
+
+            <!--*******************START OF ENGINEERING TAB********************************-->
+            <telerik:RadRibbonTab Header="{StaticResource mod_Engeneering}" FontSize="14" Name="tbEngeneering" Tag="module_Engeneering">
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_Standards}"  FontSize="12" Tag="subm_Standards">
+                    <telerik:RadRibbonButton Click="btnStandrad_Click"  Name="btnStandrad" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/Std_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_btn_Standard}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+
+                    <!--<telerik:RadRibbonButton Click="btnConfiguratos_Click"  Name="btnConfiguratos" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_Configurators">
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/Configurators_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_btn_Configurators}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>-->
+
+                    <telerik:RadRibbonButton Click="btnConfiguratosMatrix_Click"  Name="btnConfiguratosMatrix" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_ConfiguratorsMatrix">
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/ConfiguratorsMatrix_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_btn_ConfiguratorsMatrix}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+
+                </telerik:RadRibbonGroup>
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_Codebooks}"  FontSize="12">
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbWorkGroup_Click" Name="btnCbWorkGroup" Tag="subm_cbWorkGroup" Text="{StaticResource submod_cbWorkGroup}" SmallImage="/COSResources;component/Images/WorkGroup_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbWorkCenter_Click" Name="btnCbWorkCenter" Tag="subm_cbWorkcenter" Text="{StaticResource submod_cbWorkCenter}" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbWorkGroupWorkCenters_Click" Name="btnCbWorkGroupWorkCenters" Tag="subm_cbWorkGroupWorkCenter" Text="{StaticResource submod_cbWorkGroupsWorkCenters}" SmallImage="/COSResources;component/Images/WorkGroupsWorkCenters_16x16.png"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbDowntimesGroup_Click" Name="btnCbDowntimesGroup" Text="{StaticResource submod_cbDowntimesGroups}" Tag="subm_cbDowntimesGroup" SmallImage="/COSResources;component/Images/DowntimesGroup_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbDowntimes_Click" Name="btnCbDowntimes" Text="{StaticResource submod_cbDowntimes}" Tag="subm_cbDowntimes" SmallImage="/COSResources;component/Images/Downtimes_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbDowntimesGroupDowntimes_Click" Name="btnCbDowntimesGroupDowntimes" Text="{StaticResource submod_cbDowntimesDowntimesGroups}" Tag="subm_cbDowntimesGroupDowntime" SmallImage="/COSResources;component/Images/DowntimeGroupDowntime_16x16.png"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbShifts_Click" Name="btnCbShifts" Tag="subm_cbShifts" Text="{StaticResource submod_cbShifts}" SmallImage="/COSResources;component/Images/Shift_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbShiftsType_Click" Name="btnCbShiftsType" Tag="subm_cbShiftsType" Text="{StaticResource submod_cbShiftsType}" SmallImage="/COSResources;component/Images/ShiftTypes_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbShiftPatterns_Click" Name="btnCbShiftPatterns" Tag="subm_cbShiftPattern" Text="{StaticResource submod_cbShiftPatterns}" SmallImage="/COSResources;component/Images/ShiftPattern_16x16.png"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbConfigGroup_Click"  Name="btnCbConfigGroup" Tag="subm_cbConfigGroup" Text="{StaticResource submod_cbConfigGroup}" SmallImage="/COSResources;component/Images/Division_16x16.png"/>
+                    </StackPanel>
+
+                    <!--<StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbItemsGroup_Click" Name="btnCbItemsGroup" Tag="subm_cbItemGroup" Text="{StaticResource cbItemsGroup}" SmallImage="/COSResources;component/Images/Test16.png"/>
+                    </StackPanel>-->
+
+                    <telerik:RadRibbonButton Click="btnCbItemsGroup_Click" Name="btnCbItemsGroup" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_cbItemGroup">
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/ItemsGroup_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_btn_cbItemsGroup}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+
+
+                </telerik:RadRibbonGroup>
+
+
+            </telerik:RadRibbonTab>
+
+
+            <!--*******************END OF ENGENEERING TAB********************************-->
+
+
+            <!--*******************START OF LOGISTIC TAB*******************************-->
+            <telerik:RadRibbonTab Header="{StaticResource mod_Logistic}" FontSize="14" Name="tbLogistic" Tag="module_Logistic">
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_ForeignExport}"  FontSize="12">
+
+                    <telerik:RadRibbonButton Click="btnForeignExport_Click" Name="btnForeignExport" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_ForeignExport" >
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/ForeignExport.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_ForeignExport}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+
+                    <telerik:RadRibbonButton Click="btnForeignVolumeControl_Click" Name="btnForeignVolumeControl" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_LogForeignVolumeControl" >
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/VolumeCheck_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_ForeignVolumeControl}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+
+                    <telerik:RadRibbonButton Click="btnForeignExportTransportOrderCo_Click" Name="btnForeignExportTransportOrderCo" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_ForeignExportTransportOrderCo">
+                                             
+                                             
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/TrpOrderCo_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_ForeignExportTransportOrderCo}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbForeignBafPrice_Click" Name="btnCbForeignBafPrice"  Text="{StaticResource submod_BafPrice}" Tag="subm_cbLogBafPrice" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbForeignForwarder_Click" Name="btnCbForeignForwarder"  Text="{StaticResource submod_Forwarder}" Tag="subm_cbForwarder" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbForeignOrderedBy_Click" Name="btnCbForeignOrderedBy"  Text="{StaticResource submod_OrderedBy}" Tag="subm_cbOrderedBy" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbForeignPlatform_Click" Name="btnCbForeignPlatform" Text="{StaticResource submod_Platform}" Tag="subm_cbPlatform" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbForeignTimeWindow_Click" Name="btnCbForeignTimeWindow" Text="{StaticResource submod_TimeWindows}" Tag="subm_cbTimeWindow" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbForeignTransportPayment_Click" Name="btnCbForeignTransportPayment" Text="{StaticResource submod_TransportPayment}" Tag="subm_cbTransportPayment" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbForeignUnit_Click" Name="btnCbForeignUnit" Text="{StaticResource submod_ForeignUnit}" Tag="subm_cbUnit" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbForeignCountry_Click" Name="btnCbForeignCountry" Text="{StaticResource submod_ForeignCountry}" Tag="subm_cbCountry" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbForeignZone_Click" Name="btnCbForeignZone" Text="{StaticResource submod_ForeignZone}" Tag="subm_cbZone" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbZoneCombination_Click" Name="btnCbZoneCombination" Text="{StaticResource submod_cbZoneCombination}" Tag="subm_cbZoneCombination" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnForeignExportPriceList_Click" Name="btnForeignExportPriceList" Text="{StaticResource submod_fLogpriceList}" Tag="subm_PriceList" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                    </StackPanel>
+
+                  
+
+                </telerik:RadRibbonGroup>
+
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_DomesticExport}"  FontSize="12">
+
+                    <telerik:RadRibbonButton Click="btnDomesticExport_Click" Name="btnDomesticExport" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_DomesticExport">
+                        <!--Tag="subm_DomesticExport"-->
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/DomesticExport_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_DomesticExport}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbDomesticPriceList_Click" Name="btnCbDomesticPriceList"  Text="{StaticResource submod_DomesticPriceList}" Tag="subm_cbDomesticPriceList" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <!--Tag="subm_DomesticPriceList"-->
+                        <telerikRibbon:RadRibbonButton Click="btnCbDomesticCustomer_Click" Name="btnCbDomesticCustomer"  Text="{StaticResource submod_DomesticCustomer}" Tag="" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <!--Tag="subm_DomesticCustomer"-->
+                        <telerikRibbon:RadRibbonButton Click="btnCbDomesticContactType_Click" Name="btnCbDomesticContactType"  Text="{StaticResource submod_DomesticContactType}" Tag="subm_cbDomesticContactType" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <!--Tag="subm_DomesticContactType"-->
+                    </StackPanel>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbDomesticForwarder_Click" Name="btnCbDomesticForwarder"  Text="{StaticResource submod_DomesticForwarder}" Tag="subm_cbDomesticForwarder" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <!--Tag="subm_DomesticForwarder"-->
+                        <telerikRibbon:RadRibbonButton Click="btnCbDomesticDriver_Click" Name="btnCbDomesticDriver"  Text="{StaticResource submod_DomesticDriver}" Tag="subm_cbDomesticDriver" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <!--Tag="subm_DomesticDriver"-->
+                        <telerikRibbon:RadRibbonButton Click="btnCbDomesticCartype_Click" Name="btnCbDomesticCartype"  Text="{StaticResource submod_DomesticCartype}" Tag="subm_cbDomesticCarType" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <!--Tag="subm_DomesticCartype"-->
+                    </StackPanel>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbDomesticComposition_Click" Name="btnCbDomesticComposition"  Text="{StaticResource submod_DomesticComposition}" Tag="subm_cbDomesticComposition" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <!--Tag="subm_DomesticComposition"-->
+                        <telerikRibbon:RadRibbonButton Click="btnCbDomesticDestination_Click" Name="btnCbDomesticDestination"  Text="{StaticResource submod_DomesticDestination}" Tag="" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <!--Tag="subm_DomesticDestination"-->
+                        <telerikRibbon:RadRibbonButton Click="btnCbDomesticBafPrice_Click" Name="btnCbDomesticBafPrice"  Text="{StaticResource submod_DomesticBafPrice}" Tag="subm_cbDomesticBafPrice" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <!--Tag="subm_DomesticBafPrice"-->
+                    </StackPanel>
+
+                </telerik:RadRibbonGroup>
+
+
+            </telerik:RadRibbonTab>
+
+            <!--Tag="subm_LogDomesticExport"-->
+
+            <!--*******************END OF LOGISTIC TAB********************************-->
+
+
+            <!--*******************START OF MAINTENANCE TAB*******************************-->
+            <telerik:RadRibbonTab Header="{StaticResource mod_Maintenance}" FontSize="14" Name="tbMaintenance" Tag="module_Maintenance">
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_TPM}"  FontSize="12" Tag="subm_TPM">
+
+                    <telerik:RadRibbonButton Click="btnTpmPlan_Click" Name="btnTpmPlan" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_tpmPlan">
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/TpmPlan_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_TpmPlan}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+
+                    <telerik:RadRibbonButton Click="btnTpmPlanOverview_Click" Name="btnTpmPlanOverview" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_tpmPlanOverview">
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/TpmOverview_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource subm_TpmPlanOverview}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnTpmCheckList_Click" Name="btnTpmCheckList" Tag="subm_tpmCheckList" Text="{StaticResource submod_tpmCheckList}" SmallImage="/COSResources;component/Images/TpmCheckList.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbTpmCheckListItems_Click" Name="btnCbTpmCheckListItems" Tag="subm_CbTpmCheckListItems" Text="{StaticResource submod_CbTpmCheckListItems}" SmallImage="/COSResources;component/Images/TpmCheckListItem.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnTpmChecklistSetup_Click" Name="btnTpmChecklistSetup" Tag="subm_tpmChecklistItems" Text="{StaticResource submod_TpmChecklistItems}" SmallImage="/COSResources;component/Images/TpmEquipment_16x16.png"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnTpmHolidaysCalendar_Click" Name="btnTpmHolidaysCalendar" Tag="subm_tpmHolidaysCalendar" Text="{StaticResource submod_tpmHolidaysCalendar}" SmallImage="/COSResources;component/Images/HolidayCalendar_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbTpmEquipment_Click" Name="btnCbTpmEquipment" Tag="subm_TpmEquipment" Text="{StaticResource submod_CbTpmEquipment}" SmallImage="/COSResources;component/Images/TpmEquipment_16x16.png"/>
+                    </StackPanel>
+
+                </telerik:RadRibbonGroup>
+
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_TmTools}"  FontSize="12" Tag="subm_TmTool">
+
+                    <telerik:RadRibbonButton Click="btnTmToolhandling_Click" Name="btnTmToolhandling" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_tmToolhandle">
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/Tool_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource subm_TmToolHandling}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbTmTool_Click" Name="btnCbTmTool" Tag="subm_tmToolSetting" Text="{StaticResource submod_CbTmTool}" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                    </StackPanel>
+
+                </telerik:RadRibbonGroup>
+                <!--<telerik:RadRibbonGroup>
+                    <telerik:RadRibbonButton Click="btnToolImport_Click" Name="btnToolImport" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/Tool_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="IMPORT TOOL" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>-->
+            </telerik:RadRibbonTab>
+            <!--*******************END OF MAINTENANCE TAB*******************************-->
+
+
+
+            <!--*******************START OF HR TAB*******************************-->
+            <telerik:RadRibbonTab Header="{StaticResource mod_HR}" FontSize="14" Name="tbHR" Tag="module_HumanResources">
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_Employee}"  FontSize="12" Tag="subm_Employee">
+                    <telerik:RadRibbonButton Click="btnEmployee_Click" Name="btnEmployee" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/HR_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_btn_Employee}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_Codebooks}"  FontSize="12">
+
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbBonusGroup_Click" Name="btnCbBonusGroup" Tag="subm_cbBonusGroup" Text="{StaticResource submod_cbBonusGroup}" SmallImage="/COSResources;component/Images/BonusGroup_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbSalaryGroups_Click" Name="btnCbSalaryGroups" Tag="subm_cbSalaryGroups" Text="{StaticResource submod_cbSalaryGroup}" SmallImage="/COSResources;component/Images/SalaryGroup_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbWorkPositions_Click" Name="btnCbWorkPositions" Tag="subm_cbWorkPositions" Text="{StaticResource submod_cbWorkPositions}" SmallImage="/COSResources;component/Images/WorkPosition_16x16.png"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbEmployers_Click" Name="btnCbEmployers" Tag="subm_cbEmployers" Text="{StaticResource submod_cbEmployers}" SmallImage="/COSResources;component/Images/Employer_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbDepartments_Click" Name="btnCbDepartments" Tag="subm_CbDepartments"  Text="{StaticResource subm_CbDepartments}" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbInsuranceCompany_Click" Name="btnCbInsuranceCompany" Tag=""  Text="{StaticResource subm_CbInsuranceCompany}" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                    </StackPanel>
+
+
+                </telerik:RadRibbonGroup>
+
+            </telerik:RadRibbonTab>
+            <!--*******************END OF HR TAB********************************-->
+
+
+            <!--**************START OF ADMINISTRATION TAB**************************-->
+            <telerik:RadRibbonTab Header="{StaticResource mod_Administration}" FontSize="14" Name="tbAdministration" Tag="module_Administration" >
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_Users}"  FontSize="12">
+                    <telerik:RadRibbonButton Click="btnUsers_Click" Name="btnUsers" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_Users">
+                        <!--Tag="Users"-->
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/User_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_btn_Users}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_Groups}" FontSize="12">
+                    <telerik:RadRibbonButton Click="btnGroups_Click" Name="btnGroups" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_Groups"  >
+                        <!--Tag="Groups"-->
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/Groups_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_btn_Groups}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_Localization}" FontSize="12">
+                    <telerik:RadRibbonButton Click="btnLocalization_Click" Name="btnLocalization" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_Localization" >
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/Localization_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_btn_Localization}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_SecSetting}" FontSize="12">
+                    <telerik:RadRibbonButton Click="btnSecuritySetting_Click" Name="btnSecuritySetting" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_SecuritySetting">
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/Security_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_btn_SecuritySetting}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_Codebooks}" FontSize="12">
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbAccType_Click" Name="btnCbAccType" Tag="subm_AccSetting"  Text="{StaticResource submod_cbAccType}" SmallImage="/COSResources;component/Images/AccType_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbDivisions_Click" Name="btnCbDivisions" Tag="subm_Division"  Text="{StaticResource submod_cbDivisions}" SmallImage="/COSResources;component/Images/Division_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbCostCenter_Click" Name="btnCbCostCenter" Tag="subm_CostCenter" Text="{StaticResource submod_cbCostCenters}" SmallImage="/COSResources;component/Images/CostCenter_16x16.png"/>
+                    </StackPanel>
+
+                </telerik:RadRibbonGroup>
+
+            </telerik:RadRibbonTab>
+            <!--**************END OF ADMINISTRATION TAB**************************-->
+
+
+            <!--**************START OF ORDERS TAB**************************-->
+            <telerik:RadRibbonTab Header="{StaticResource mod_Orders}" FontSize="14" Name="tbOrders" Tag="module_Orders">
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_Orders}"  FontSize="12" Tag="module_Orders">
+
+                    <telerik:RadRibbonButton Click="btnOrderInput_Click" Name="btnOrderInput" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_OrdersInput">
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/OrderInput_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_btn_OrderInput}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+
+                    <telerik:RadRibbonButton Click="btnOrderApprove_Click" Name="btnOrderApproveManagement" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_OrdersApprove">
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/OrderCompletion_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_btn_OrderApproveManagement}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+
+
+                    <telerik:RadRibbonButton Click="btnOrderManagement_Click" Name="btnOrderManagement" HorizontalAlignment="Center" VerticalAlignment="Center" Tag="subm_OrdersCompletion">
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/OrderApprove_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_btn_OrderManagement}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+
+                </telerik:RadRibbonGroup>
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_CbOrders}"  FontSize="12" Tag="module_CbOrders">
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbExecOrdUsr_Click" Name="btnCbExecOrd" Tag="subm_CbExecOrdUsr"  Text="{StaticResource subm_CbExecOrdUsr}" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbAppordUsr_Click" Name="btnCbAppOrd" Tag="subm_CbAppOrdUsr"  Text="{StaticResource subm_CbAppOrdUsr}" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                    </StackPanel>
+
+                </telerik:RadRibbonGroup>
+
+            </telerik:RadRibbonTab>
+
+
+
+
+
+            <!--**************END OF ORDERS TAB**************************-->
+
+            
+            
+            <!--**************START OF OSHA TAB**************************-->
+
+            <telerik:RadRibbonTab Header="{StaticResource mod_WorkSafety}" FontSize="14" Name="tbWorkSafety"  ><!--Tag="module_WorkSafety"-->
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_WorkSafety}"  FontSize="12">
+                    <telerik:RadRibbonButton Click="btnAccidentLog_Click" Name="btnAccidentLog" HorizontalAlignment="Center" VerticalAlignment="Center" ><!--Tag="subm_AccidentLog"-->
+
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/Heart_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_btnAccidentLog}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+
+             
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_Codebooks}" FontSize="12">
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbAreaOfAccident_Click" Name="btnCbAreaOfAccident" Tag=""  Text="{StaticResource subm_CbAreaOfAccident}" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbTypeOfInjury_Click" Name="btnCbTypeOfInjury" Tag=""  Text="{StaticResource subm_CbTypeOfInjury}" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbInjPartOfBody_Click" Name="btnCbInjPartOfBody" Tag="" Text="{StaticResource subm_CbInjPartOfBody}" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbTypeOfAccident_Click" Name="btnCbTypeOfAccident" Tag=""  Text="{StaticResource subm_CbTypeOfAccident}" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbSourceOfAccident_Click" Name="btnCbSourceOfAccident" Tag=""  Text="{StaticResource subm_CbSourceOfAccident}" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnCbCauseOfAccident_Click" Name="btnCbCauseOfAccident" Tag="" Text="{StaticResource subm_CbCauseOfAccident}" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnCbPreventAccident_Click" Name="btnCbPreventAccident" Tag=""  Text="{StaticResource subm_CbPreventAccident}" SmallImage="/COSResources;component/Images/WorkCenter_16x16.png"/>
+                    
+                    </StackPanel>
+
+                </telerik:RadRibbonGroup>
+
+            </telerik:RadRibbonTab>
+
+
+
+
+
+
+
+
+            <!--**************END OF OSHA TAB**************************-->
+
+
+            <!--*******************START OF REPORTS********************************-->
+            <telerik:RadRibbonTab Header="{StaticResource mod_Reports}" FontSize="14" Name="tbReporting" >
+                <!--Tag="module_Reporting"-->
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_Production}" FontSize="12">
+                    <telerik:RadRibbonButton Click="btnKpiReport_Click"  Name="btnKpiReport" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <!--Tag="subm_KpiReport"-->
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/Graph_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_btn_KpisReport}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnProductionDetail_Click" Name="btnProductionDetail"  Text="{StaticResource submod_ProductionDetail}" SmallImage="/COSResources;component/Images/WorkGroup_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnProductionDetailDtSum_Click" Name="btnProductionDetailDtSum"  Text="{StaticResource submod_ProductionDetailDtSum}" SmallImage="/COSResources;component/Images/WorkGroup_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnKpiWcReport_Click" Name="btnKpiWcReport"  Text="{StaticResource submod_KpiWcReport}" SmallImage="/COSResources;component/Images/WorkGroup_16x16.png"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnDowntimeDetail_Click" Name="btnDowntimeDetail"  Text="{StaticResource submod_DowntimeDetail}" SmallImage="/COSResources;component/Images/WorkGroup_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnShiftFollowUp_Click" Name="btnShiftFollowUp"  Text="{StaticResource submod_ShiftFollowUp}" SmallImage="/COSResources;component/Images/WorkGroup_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnShiftRangeFollowUp_Click" Name="btnShiftRangeFollowUp"  Text="{StaticResource submod_ShiftFollowUpRange}" SmallImage="/COSResources;component/Images/WorkGroup_16x16.png"/>
+
+                    </StackPanel>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnDowntimePareto_Click" Name="btnDowntimePareto" Visibility="Visible"   Text="{StaticResource submod_DowntimePareto}" SmallImage="/COSResources;component/Images/WorkGroup_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnAdsEmpProductivityReport_Click" Name="btnAdsEmpProductivityReport"  Text="{StaticResource submod_AdsEmpProductivityReport}" Tag="subm_AdsEmlProductivityReport" SmallImage="/COSResources;component/Images/WorkGroup_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnWcWgComparationReport_Click" Name="btnWcWgComparationReport"  Text="{StaticResource submod_WcWgComparationReport}"  SmallImage="/COSResources;component/Images/WorkGroup_16x16.png"/>
+                    </StackPanel>
+                </telerik:RadRibbonGroup>
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_Logistic}" FontSize="12">
+
+                    <telerik:RadRibbonButton Click="btnLogisticReport_Click"  Name="btnLogisticReport" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/ForeignExport.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_btn_LogisticsReport}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnLogisticReport2_Click" Name="btnLogisticReport2" Visibility="Visible"   Text="{StaticResource submod_btn_LogisticReport2}" SmallImage="/COSResources;component/Images/WorkGroup_16x16.png"/>
+                    </StackPanel>
+
+
+
+                </telerik:RadRibbonGroup>
+
+                <telerik:RadRibbonGroup Header="{StaticResource submod_LogisticCzSK}" FontSize="12">
+
+                    <telerik:RadRibbonButton Click="btnLogForwarderReport_Click"  Name="btnLogForwarderReport" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="/COSResources;component/Images/LogForwarder_48x48.png" Stretch="None" Margin="0"/>
+                                <TextBlock Text="{StaticResource submod_btn_LogisticLoadsReport}" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+
+
+                    <StackPanel>
+                        <telerikRibbon:RadRibbonButton Click="btnLogLoadsReport_Click" Name="btnLogLoadsReport" Visibility="Visible"   Text="{StaticResource submod_btn_LogisticForwarderReport}" SmallImage="/COSResources;component/Images/WorkGroup_16x16.png"/>
+                        <telerikRibbon:RadRibbonButton Click="btnLogForwarderExport_Click" Name="btnLogForwarderExport" Visibility="Visible"   Text="{StaticResource submod_btn_LogisticForwarderExport}" SmallImage="/COSResources;component/Images/WorkGroup_16x16.png"/>
+                    </StackPanel>
+
+
+                </telerik:RadRibbonGroup>
+
+
+
+
+            </telerik:RadRibbonTab>
+
+
+            <!--*******************END OF REPORTS********************************-->
+
+
+
+            <!--*******************START OF settings  ********************************-->
+            <!--<telerik:RadRibbonTab Header="Přizpůsobení" FontSize="14" Name="tbCommonSettings" Tag="module_Settings">
+
+                <telerik:RadRibbonGroup Header="Velikost písma"  FontSize="12">
+                    <telerik:RadRibbonButton Click="btnFontSizePlus_Click"  Name="btnFontSizePlus" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                               
+                                <TextBlock Text="+" FontSize="35" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+                    <telerik:RadRibbonButton Click="btnFontSizeMinus_Click"  Name="btnFontSizeMinus" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <telerik:RadRibbonButton.Content>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                              
+                                <TextBlock Text="-" FontSize="35" TextAlignment="Center" Padding="2"/>
+                            </StackPanel>
+                        </telerik:RadRibbonButton.Content>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+
+            </telerik:RadRibbonTab>-->
+
+
+            <!--*******************END OF settings  ********************************-->
+
+        </telerik:RadRibbonView>
+
+        <telerik:RadDocking Grid.Row="1" x:Name="dckMainDocking" Margin="0,0,0,24"  telerik:StyleManager.Theme="Expression_Dark">
+            <telerik:RadDocking.DocumentHost>
+                <telerik:RadSplitContainer>
+                    <telerik:RadPaneGroup x:Name="pngMain" >
+                        <modelsAdmin:UsersPane x:Name="usersPane" IsHidden="True" telerik:RadDocking.SerializationTag="usersPane"></modelsAdmin:UsersPane>
+                        <modelsAdmin:GroupsPane x:Name="groupsPane" IsHidden="True" telerik:RadDocking.SerializationTag="groupsPane"></modelsAdmin:GroupsPane>
+                        <modelsAdmin:cbAccountTypePane x:Name="accTypePane" IsHidden="True" telerik:RadDocking.SerializationTag="accTypePane"></modelsAdmin:cbAccountTypePane>
+                        <modelsAdmin:cbDivisionPane x:Name="cbDivisionPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbDivisionPane"></modelsAdmin:cbDivisionPane>
+                        <modelsAdmin:cbCostCentersPane x:Name="cbCostCentersPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbCostCentersPane"></modelsAdmin:cbCostCentersPane>
+                        <modelsAdmin:LocalizationPane x:Name="LocalizationPane" IsHidden="True" telerik:RadDocking.SerializationTag="LocalizationPane"></modelsAdmin:LocalizationPane>
+                        <modelsAdmin:SecuritySettingsPane x:Name="SecuritySettingsPane" IsHidden="True" telerik:RadDocking.SerializationTag="SecuritySettingsPane"></modelsAdmin:SecuritySettingsPane>
+                        <modelsHR:EmployeePane x:Name="employeePane" IsHidden="True" telerik:RadDocking.SerializationTag="employeePane"></modelsHR:EmployeePane>
+                        <modelsHR:cbBonusGroupsPane x:Name="cbBonusGroupsPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbBonusGroupsPane"></modelsHR:cbBonusGroupsPane>
+                        <modelsHR:cbSalaryGroupsPane x:Name="cbSalaryGroupsPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbSalaryGroupsPane"></modelsHR:cbSalaryGroupsPane>
+                        <modelsHR:cbEmployersPane x:Name="cbEmployersPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbEmployersPane"></modelsHR:cbEmployersPane>
+                        <modelsHR:cbWorkPositionsPane x:Name="cbWorkPositionsPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbWorkPositionsPane"></modelsHR:cbWorkPositionsPane>
+                        <modelsHR:cbDepartmentsPane x:Name="cbDepartmentsPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbDepartmentsPane"></modelsHR:cbDepartmentsPane>
+                        <modelsHR:cbInsuranceCompanyPane x:Name="cbInsuranceCompanyPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbInsuranceCompanyPane"></modelsHR:cbInsuranceCompanyPane>
+                        <modelsEngeneering:StandardsPane x:Name="standardPane" IsHidden="True" telerik:RadDocking.SerializationTag="standardsPane"></modelsEngeneering:StandardsPane>
+                        <modelsEngeneering:cbWorkGroupPane x:Name="cbWorkGroupPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbWorkGroupPane"></modelsEngeneering:cbWorkGroupPane>
+                        <modelsEngeneering:cbWorkCenterPane x:Name="cbWorkCenterPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbWorkCenterPane"></modelsEngeneering:cbWorkCenterPane>
+                        <modelsEngeneering:cbDowntimesPane x:Name="cbDowntimesPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbDowntimesPane"></modelsEngeneering:cbDowntimesPane>
+                        <modelsEngeneering:cbDowntimesGroupPane x:Name="cbDowntimesGroupPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbDowntimesGroupPane"></modelsEngeneering:cbDowntimesGroupPane>
+                        <modelsEngeneering:cbDowntimesGroupDowntimePane x:Name="cbDowntimesGroupDowntimePane" IsHidden="True" telerik:RadDocking.SerializationTag="cbDowntimesGroupDowntimePane"></modelsEngeneering:cbDowntimesGroupDowntimePane>
+                        <modelsEngeneering:cbItemsGroupPane x:Name="cbItemsGroupPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbItemsGroupPane"></modelsEngeneering:cbItemsGroupPane>
+                        <modelsEngeneering:cbShiftsPane x:Name="cbShiftsPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbShiftsPane"></modelsEngeneering:cbShiftsPane>
+                        <modelsEngeneering:cbShiftsTypePane x:Name="cbShiftsTypePane" IsHidden="True" telerik:RadDocking.SerializationTag="cbShiftsTypePane"></modelsEngeneering:cbShiftsTypePane>
+                        <modelsEngeneering:cbWorkGroupsWorkCentersPane x:Name="cbWorkGroupsWorkCentersPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbWorkGroupsWorkCentersPane"></modelsEngeneering:cbWorkGroupsWorkCentersPane>
+                        <modelsEngeneering:ConfiguratorsPane x:Name="ConfiguratorsPane" IsHidden="True" telerik:RadDocking.SerializationTag="ConfiguratorsPane"></modelsEngeneering:ConfiguratorsPane>
+                        <modelsEngeneering:ConfiguratorsMatrixPane x:Name="ConfiguratorsMatrixPane" IsHidden="True" telerik:RadDocking.SerializationTag="ConfiguratorsMatrixPane"></modelsEngeneering:ConfiguratorsMatrixPane>
+                        <modelsEngeneering:cbConfiguratorGroupPane x:Name="cbConfiguratorGroupPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbConfiguratorGroupPane"></modelsEngeneering:cbConfiguratorGroupPane>
+                        <modelsHP:HourlyProductionMainViewPane x:Name="cbHourlyProductionMainViewPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbHourlyProductionMainViewPane"></modelsHP:HourlyProductionMainViewPane>
+                        <modelsHP:Planning4hProductionViewPane x:Name="Planning4hProductionViewPane" IsHidden="True" telerik:RadDocking.SerializationTag="Planning4hProductionViewPane"></modelsHP:Planning4hProductionViewPane>
+                        <modelsHP:cbP4hManufacturerViewPane x:Name="cbP4hManufacturerViewPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbP4hManufacturerViewPane"></modelsHP:cbP4hManufacturerViewPane>
+                        <modelsHP:cbP4hPlanExecutionViewPane x:Name="cbP4hPlanExecutionViewPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbP4hPlanExecutionViewPane"></modelsHP:cbP4hPlanExecutionViewPane>
+                        <modelsHP:cbP4hStateViewPane x:Name="cbP4hStateViewPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbP4hStateViewPane"></modelsHP:cbP4hStateViewPane>
+                        <modelsHP:cbP4hSupplierViewPane x:Name="cbP4hSupplierViewPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbP4hSupplierViewPane"></modelsHP:cbP4hSupplierViewPane>
+                        <modelsHP:cbP4hTransportTypeViewPane x:Name="cbP4hTransportTypeViewPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbP4hTransportTypeViewPane"></modelsHP:cbP4hTransportTypeViewPane>
+                        <modelsHP:cbP4hDifficultyViewPane x:Name="cbP4hDifficultyViewPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbP4hDifficultyViewPane"></modelsHP:cbP4hDifficultyViewPane>
+                        <modelsEngeneering:cbShiftPatternsPane x:Name="cbShiftPatternsPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbShiftPatternsPane"></modelsEngeneering:cbShiftPatternsPane>
+                        <modelsReporting:cbKpiReportPane  x:Name="cbKpiReportPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbKpiReportPane"></modelsReporting:cbKpiReportPane>
+                        <modelsReporting:ProductionDetailReportPane  x:Name="ProductionDetailReportPane" IsHidden="True" telerik:RadDocking.SerializationTag="ProductionDetailReportPane"></modelsReporting:ProductionDetailReportPane>
+                        <modelsReporting:ProductionDetailDtSumReportPane  x:Name="ProductionDetailDtSumReportPane" IsHidden="True" telerik:RadDocking.SerializationTag="ProductionDetailDtSumReportPane"></modelsReporting:ProductionDetailDtSumReportPane>
+                        <modelsReporting:DowntimeDetailReportPane  x:Name="DowntimeDetailReportPane" IsHidden="True" telerik:RadDocking.SerializationTag="DowntimeDetailReportPane"></modelsReporting:DowntimeDetailReportPane>
+                        <modelsReporting:LogisticReportPane  x:Name="LogisticReportPane" IsHidden="True" telerik:RadDocking.SerializationTag="LogisticReportPane"></modelsReporting:LogisticReportPane>
+                        <modelsReporting:AdsEmpProductivityReportPane  x:Name="AdsEmpProductivityReportPane" IsHidden="True" telerik:RadDocking.SerializationTag="AdsEmpProductivityReportPane"></modelsReporting:AdsEmpProductivityReportPane>
+                        <modelsReporting:ShiftFollowUpPane  x:Name="ShiftFollowUpPane" IsHidden="True" telerik:RadDocking.SerializationTag="ShiftFollowUpPane"></modelsReporting:ShiftFollowUpPane>
+                        <modelsReporting:ShiftFollowUpRangePane  x:Name="ShiftFollowUpRangePane" IsHidden="True" telerik:RadDocking.SerializationTag="ShiftFollowUpRangePane"></modelsReporting:ShiftFollowUpRangePane>
+
+                        <modelsReporting:WcReportPane  x:Name="WcReportPane" IsHidden="True" telerik:RadDocking.SerializationTag="WcReportPane"></modelsReporting:WcReportPane>
+                        <modelsReporting:DowntimeParetoReportPane  x:Name="DowntimeParetoReportPane" IsHidden="True" telerik:RadDocking.SerializationTag="DowntimeParetoReportPane"></modelsReporting:DowntimeParetoReportPane>
+                        <modelsReporting:LogisticReport2Pane  x:Name="LogisticReport2Pane" IsHidden="True" telerik:RadDocking.SerializationTag="LogisticReport2Pane"></modelsReporting:LogisticReport2Pane>
+                        <modelsReporting:WgWcComparationReportPane  x:Name="WgWcComparationReportPane" IsHidden="True" telerik:RadDocking.SerializationTag="WgWcComparationReportPane"></modelsReporting:WgWcComparationReportPane>
+                        <modelsReporting:LogisticForwarderReportPane  x:Name="LogisticForwarderReportPane" IsHidden="True" telerik:RadDocking.SerializationTag="LogisticForwarderReportPane"></modelsReporting:LogisticForwarderReportPane>
+                        <modelsReporting:LogisticLoadsReportPane  x:Name="LogisticLoadsReportPane" IsHidden="True" telerik:RadDocking.SerializationTag="LogisticLoadsReportPane"></modelsReporting:LogisticLoadsReportPane>
+                        <modelsReporting:LogisticDomForwarderPrReportPane  x:Name="LogisticDomForwarderPrReportPane" IsHidden="True" telerik:RadDocking.SerializationTag="LogisticDomForwarderPrReportPane"></modelsReporting:LogisticDomForwarderPrReportPane>
+
+                        <modelsHP:HourlyProductionCalculationViewPane  x:Name="HourlyProductionCalculationViewPane" IsHidden="True" telerik:RadDocking.SerializationTag="HourlyProductionCalculationViewPane"></modelsHP:HourlyProductionCalculationViewPane>
+                        <modelsHP:AdsCustomerServiceViewPane  x:Name="AdsCustomerServiceViewPane" IsHidden="True" telerik:RadDocking.SerializationTag="AdsCustomerServiceViewPane"></modelsHP:AdsCustomerServiceViewPane>
+                        <modelsTM:cbTpmEquipmentPane  x:Name="cbTpmEquipmentPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbTpmEquipmentPane"></modelsTM:cbTpmEquipmentPane>
+                        <modelsTM:cbTpmPlansPane  x:Name="cbTpmPlansPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbTpmPlansPane"></modelsTM:cbTpmPlansPane>
+                        <modelsTM:TpmCheckListPane  x:Name="TpmCheckListPane" IsHidden="True" telerik:RadDocking.SerializationTag="TpmCheckListPane"></modelsTM:TpmCheckListPane>
+                        <modelsTM:cbTpmCheckListItemsPane  x:Name="cbTpmCheckListItemsPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbTpmCheckListItemsPane"></modelsTM:cbTpmCheckListItemsPane>
+                        <modelsTM:TpmHolidayCalendarPane  x:Name="TpmHolidayCalendarPane" IsHidden="True" telerik:RadDocking.SerializationTag="TpmHolidayCalendarPane"></modelsTM:TpmHolidayCalendarPane>
+                        <modelsTM:TpmCheckListSetupPane  x:Name="TpmCheckListSetupPane" IsHidden="True" telerik:RadDocking.SerializationTag="TpmCheckListSetupPane"></modelsTM:TpmCheckListSetupPane>
+                        <modelsTM:TpmPlanOVerviewPane  x:Name="TpmPlanOVerviewPane" IsHidden="True" telerik:RadDocking.SerializationTag="TpmPlanOVerviewPane"></modelsTM:TpmPlanOVerviewPane>
+                        <modelsTM:cbTmToolPane  x:Name="cbTmToolPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbTmToolPane"></modelsTM:cbTmToolPane>
+                        <modelsTM:TmToolHandlePane  x:Name="TmToolHandlePane" IsHidden="True" telerik:RadDocking.SerializationTag="TmToolHandlePane"></modelsTM:TmToolHandlePane>
+                        <modelsLOG:ForeignExportPane  x:Name="ForeignExportPane" IsHidden="True" telerik:RadDocking.SerializationTag="ForeignExportPane"></modelsLOG:ForeignExportPane>
+                        <modelsLOG:ForeignExportPriceListImportPane  x:Name="ForeignExportPriceListImportPane" IsHidden="True" telerik:RadDocking.SerializationTag="ForeignExportPriceListImportPane"></modelsLOG:ForeignExportPriceListImportPane>
+                        <modelsLOG:cbForeignExportBafPane  x:Name="cbForeignExportBafPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbForeignExportBafPane"></modelsLOG:cbForeignExportBafPane>
+                        <modelsLOG:cbForeignExportForwarderPane  x:Name="cbForeignExportForwarderPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbForeignExportForwarderPane"></modelsLOG:cbForeignExportForwarderPane>
+                        <modelsLOG:cbForeignExportOrderedByPane  x:Name="cbForeignExportOrderedByPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbForeignExportOrderedByPane"></modelsLOG:cbForeignExportOrderedByPane>
+                        <modelsLOG:cbForeignExportPlatformPane  x:Name="cbForeignExportPlatformPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbForeignExportPlatformPane"></modelsLOG:cbForeignExportPlatformPane>
+                        <modelsLOG:cbForeignExportTimeWindowPane  x:Name="cbForeignExportTimeWindowPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbForeignExportTimeWindowPane"></modelsLOG:cbForeignExportTimeWindowPane>
+                        <modelsLOG:cbForeignExportUnitPane  x:Name="cbForeignExportUnitPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbForeignExportUnitPane"></modelsLOG:cbForeignExportUnitPane>
+                        <modelsLOG:cbForeignExportCountryPane  x:Name="cbForeignExportCountryPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbForeignExportCountryPane"></modelsLOG:cbForeignExportCountryPane>
+                        <modelsLOG:cbForeignExportZonePane  x:Name="cbForeignExportZonePane" IsHidden="True" telerik:RadDocking.SerializationTag="cbForeignExportZonePane"></modelsLOG:cbForeignExportZonePane>
+                        <modelsLOG:cbForeignExportTransportPaymentPane  x:Name="cbForeignExportTransportPaymentPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbForeignExportTransportPaymentPane"></modelsLOG:cbForeignExportTransportPaymentPane>
+                        <modelsLOG:cbForeignExportZoneCombinationPane  x:Name="cbForeignExportZoneCombinationPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbForeignExportZoneCombinationPane"></modelsLOG:cbForeignExportZoneCombinationPane>
+                        <modelsLOG:ForeignVolumeCheckPane  x:Name="ForeignVolumeCheckPane" IsHidden="True" telerik:RadDocking.SerializationTag="ForeignVolumeCheckPane"></modelsLOG:ForeignVolumeCheckPane>
+                        <modelsLOG:ForeignExportTrOrderCoPane  x:Name="ForeignExportTrOrderCoPane" IsHidden="True" telerik:RadDocking.SerializationTag="ForeignExportTrOrderCoPane"></modelsLOG:ForeignExportTrOrderCoPane>
+                        
+                        <modelsLOGdom:cbDomesticExportPriceListPane  x:Name="cbDomesticExportPriceListPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbDomesticExportPriceListPane"></modelsLOGdom:cbDomesticExportPriceListPane>
+                        <modelsLOGdom:cbDomesticExportBafPricePane  x:Name="cbDomesticExportBafPricePane" IsHidden="True" telerik:RadDocking.SerializationTag="cbDomesticExportBafPricePane"></modelsLOGdom:cbDomesticExportBafPricePane>
+                        <modelsLOGdom:cbDomesticExportCarTypePane  x:Name="cbDomesticExportCarTypePane" IsHidden="True" telerik:RadDocking.SerializationTag="cbDomesticExportCarTypePane"></modelsLOGdom:cbDomesticExportCarTypePane>
+                        <modelsLOGdom:cbDomesticExportCompositionPane  x:Name="cbDomesticExportCompositionPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbDomesticExportCompositionPane"></modelsLOGdom:cbDomesticExportCompositionPane>
+                        <modelsLOGdom:cbDomesticExportContactTypePane  x:Name="cbDomesticExportContactTypePane" IsHidden="True" telerik:RadDocking.SerializationTag="cbDomesticExportContactTypePane"></modelsLOGdom:cbDomesticExportContactTypePane>
+                        <modelsLOGdom:cbDomesticExportCustomerPane  x:Name="cbDomesticExportCustomerPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbDomesticExportCustomerPane"></modelsLOGdom:cbDomesticExportCustomerPane>
+                        <modelsLOGdom:cbDomesticExportDestinationPane  x:Name="cbDomesticExportDestinationPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbDomesticExportDestinationPane"></modelsLOGdom:cbDomesticExportDestinationPane>
+                        <modelsLOGdom:cbDomesticExportDriverPane  x:Name="cbDomesticExportDriverPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbDomesticExportDriverPane"></modelsLOGdom:cbDomesticExportDriverPane>
+                        <modelsLOGdom:cbDomesticExportForwarderPane  x:Name="cbDomesticExportForwarderPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbDomesticExportForwarderPane"></modelsLOGdom:cbDomesticExportForwarderPane>
+                        <modelsLOGdom:DomesticExportPane  x:Name="DomesticExportPane" IsHidden="True" telerik:RadDocking.SerializationTag="DomesticExportPane"></modelsLOGdom:DomesticExportPane>
+
+
+                        <modelsOrd:OrderCompletionPane  x:Name="OrderCompletionPane" IsHidden="True" telerik:RadDocking.SerializationTag="OrderCompletionPane"></modelsOrd:OrderCompletionPane>
+                        <modelsOrd:OrderInputPane  x:Name="OrderInputPane" IsHidden="True" telerik:RadDocking.SerializationTag="OrderInputPane"></modelsOrd:OrderInputPane>
+                        <modelsOrd:OrderApprovePane  x:Name="OrderApprovePane" IsHidden="True" telerik:RadDocking.SerializationTag="OrderApprovePane"></modelsOrd:OrderApprovePane>
+                        <modelsOrd:cbOrderApproveUsrPane  x:Name="cbOrderApproveUsrPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbOrderApproveUsrPane"></modelsOrd:cbOrderApproveUsrPane>
+                        <modelsOrd:cbOrderExecuteUsrPane  x:Name="cbOrderExecuteUsrPane" IsHidden="True" telerik:RadDocking.SerializationTag="cbOrderExecuteUsrPane"></modelsOrd:cbOrderExecuteUsrPane>
+
+                        
+                        
+
+                    </telerik:RadPaneGroup>
+                </telerik:RadSplitContainer>
+            </telerik:RadDocking.DocumentHost>
+        </telerik:RadDocking>
+        <Border Visibility="Collapsed" Height="0" x:Name="borderNotify" Grid.Row="1" Background="Gray" BorderThickness="3" BorderBrush="Silver" Margin="0,0,0,25" Width="300" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Grid>
+                <Button Content="X" Width="50" Height="50" Margin="234,6,10,338" Click="Button_Click"></Button>
+            </Grid>
+        </Border>
+        <StatusBar Grid.Row="1" Height="23" Name="stbMain" VerticalAlignment="Bottom" Foreground="White">
+            <StatusBar.Background>
+                <SolidColorBrush />
+            </StatusBar.Background>
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <StatusBarItem>
+                <TextBlock  Margin="10,0,5,0" Text="{Binding UserFullName,Source={StaticResource COSC}}"></TextBlock>
+            </StatusBarItem>
+            <StatusBarItem Grid.Column="1">
+                <TextBlock  Margin="5,0,5,0" Text="{Binding CurrentUser.LoginName,Source={StaticResource COSC}}"></TextBlock>
+            </StatusBarItem>
+            <StatusBarItem Grid.Column="2">
+                <TextBlock Margin="5,0,5,0" Text="{Binding WeekString,Source={StaticResource COSC}}"></TextBlock>
+            </StatusBarItem>
+            <StatusBarItem Grid.Column="3">
+                <TextBlock Margin="5,0,5,0" Text="{Binding DateTimeServer, StringFormat='dd.MM.yyyy HH:mm:ss' , Source={StaticResource COSC}}"></TextBlock>
+            </StatusBarItem>
+            <StatusBarItem Grid.Column="5">
+                <TextBlock Margin="5,0,5,0" HorizontalAlignment="Right" Text="{Binding RoundtripTime,Source={StaticResource COSC}}"></TextBlock>
+            </StatusBarItem>
+            <StatusBarItem Grid.Column="6" Margin="5,0,10,0">
+                <Ellipse Fill="{Binding RoundtripTime, Source={StaticResource COSC},Converter={StaticResource ConectivityBrushConvertor}}" Height="15" Width="15" ></Ellipse>
+            </StatusBarItem>
+
+
+        </StatusBar>
+    </Grid>
+</my:BaseUserControl>

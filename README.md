@@ -4,7 +4,7 @@ This repository serves as a reference for my work, showcasing a desktop applicat
 
 This version of the application was created over 12 years ago. Subsequent versions were gradually transitioned to web technologies, first using .NET on both the client and server sides, and later replacing the client with Angular 2.
 
-## 01_source_code.zip
+## 01_source_code
 It may not be directly compatible with modern versions of Visual Studio, but it should be straightforward to explore the code, understand the project structure, and review the underlying principles.
 
 ## Manuals

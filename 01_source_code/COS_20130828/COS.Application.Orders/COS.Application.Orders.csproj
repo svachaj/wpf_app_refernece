@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C3F00633-0FB2-4316-B8B9-EC3C10BD5900}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>COS.Application.Orders</RootNamespace>
+    <AssemblyName>COS.Application.Orders</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RibbonView, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.RibbonView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Documents.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\HrDepartmentUsersApproveViewModel.cs" />
+    <Compile Include="Models\HrDepartmentUsersViewModel.cs" />
+    <Compile Include="Models\OrderApproveViewModel.cs" />
+    <Compile Include="Models\OrderCompletionViewModel.cs" />
+    <Compile Include="Models\OrderInputlViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Views\HrDepartmentUserApproveView.xaml.cs">
+      <DependentUpon>HrDepartmentUserApproveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HrDepartmentUserView.xaml.cs">
+      <DependentUpon>HrDepartmentUserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderApproveView.xaml.cs">
+      <DependentUpon>OrderApproveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderCompletionView.xaml.cs">
+      <DependentUpon>OrderCompletionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderInputlView.xaml.cs">
+      <DependentUpon>OrderInputlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RejectOrderWindow.xaml.cs">
+      <DependentUpon>RejectOrderWindow.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\COS.Application.Shared\COS.Application.Shared.csproj">
+      <Project>{B2DBB0E3-4B9D-4C40-ACF3-ECC540868351}</Project>
+      <Name>COS.Application.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Common.WPF\COS.Common.WPF.csproj">
+      <Project>{97BDCC98-A0C1-4072-8834-311258B3A354}</Project>
+      <Name>COS.Common.WPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Common\COS.Common.csproj">
+      <Project>{94CB540B-4A30-49EF-8675-3DE324F2CEE4}</Project>
+      <Name>COS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Excel\COS.Excel.csproj">
+      <Project>{F49E8F45-4F30-4324-8EF0-CF3CC319510F}</Project>
+      <Name>COS.Excel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Security\COS.Security.csproj">
+      <Project>{4DFD8545-77B0-40DA-A309-2941DC4CEF24}</Project>
+      <Name>COS.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Resources\COS.Resources.csproj">
+      <Project>{8B4B7105-9B1A-429B-99EE-F8244C8CB3CA}</Project>
+      <Name>COS.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Page Include="Views\HrDepartmentUserApproveView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HrDepartmentUserView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OrderApproveView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OrderCompletionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OrderInputlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RejectOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

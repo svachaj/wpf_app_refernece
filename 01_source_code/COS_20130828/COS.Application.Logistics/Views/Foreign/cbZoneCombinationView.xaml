@@ -1,0 +1,93 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF"  x:Class="COS.Application.Logistics.Views.cbZoneCombinationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF">
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <Grid Background="#FF333333">
+        <Grid.RowDefinitions>
+           
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="1"  Margin="1" BorderBrush="White" BorderThickness="1">
+                <Grid Margin="10" Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Margin="4" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Background="Transparent" Text="{DynamicResource log_AllZones}"></TextBlock>
+                    <telerik:RadListBox  telerik:StyleManager.Theme="Expression_Dark" Grid.Row="1"  x:Name="lstAllItems" MinWidth="100" SelectedItem="{Binding SelectedParent, Mode=TwoWay}"
+                                    FontWeight="Bold" ItemsSource="{Binding AllParentItems}" >
+                        <telerik:RadListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding DestinationName}" telerik:StyleManager.Theme="Expression_Dark" ></TextBlock>                                   
+                                </StackPanel>
+                            </DataTemplate>
+                        </telerik:RadListBox.ItemTemplate>
+                    </telerik:RadListBox>
+                </Grid>
+            </Border>
+
+
+            <Border Grid.Row="0" Grid.Column="1" Grid.RowSpan="1"  Margin="1" BorderBrush="White" BorderThickness="1">
+                <Grid Margin="10" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Margin="4" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Background="Transparent" Text="{DynamicResource log_AssignedZone}"></TextBlock>
+                    <telerik:RadListBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="1"  x:Name="lstSelectedItems" MinWidth="100" 
+                                    SelectedItem="{Binding SelectedItem, Mode=TwoWay}" MouseLeftButtonUp="lstSelectedItems_MouseLeftButtonUp" FontWeight="Bold" ItemsSource="{Binding UsedItems}">
+                        <telerik:RadListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding DestinationName}" telerik:StyleManager.Theme="Expression_Dark" ></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </telerik:RadListBox.ItemTemplate>
+                    </telerik:RadListBox>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="0" Grid.Column="2" Grid.RowSpan="1"  Margin="1" BorderBrush="White" BorderThickness="1">
+                <Grid Margin="10" Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Margin="4" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Background="Transparent" Text="{DynamicResource log_UnAssignedZone}"></TextBlock>
+                    <telerik:RadListBox  telerik:StyleManager.Theme="Expression_Dark" Grid.Row="1"  x:Name="lstItemsToAdd" MinWidth="100" SelectedItem="{Binding SelectedToAdd, Mode=TwoWay}"
+                                    MouseLeftButtonUp="lstItemsToAdd_MouseLeftButtonUp" FontWeight="Bold" ItemsSource="{Binding ReadyItems}" >
+                        <telerik:RadListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding DestinationName}" telerik:StyleManager.Theme="Expression_Dark" ></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </telerik:RadListBox.ItemTemplate>
+                    </telerik:RadListBox>
+                </Grid>
+            </Border>
+
+         
+        </Grid>
+    </Grid>
+</bc:BaseUserControl>

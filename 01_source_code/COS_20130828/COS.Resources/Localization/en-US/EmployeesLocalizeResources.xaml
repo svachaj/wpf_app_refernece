@@ -1,0 +1,137 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:my="clr-namespace:System;assembly=mscorlib">
+
+
+
+    <my:String x:Key="HR_ID_empls">
+        HR ID
+    </my:String>
+
+
+    <my:String x:Key="Name_empls">
+        Firs name
+    </my:String>
+
+    <my:String x:Key="Surname_empls">
+        Last name
+    </my:String>
+
+    <my:String x:Key="Workgroup_empls">
+        Workgroup
+    </my:String>
+
+    <my:String x:Key="ShiftPatern_empls">
+        Shift
+    </my:String>
+
+    <my:String x:Key="IsLeader_empls">
+        Is leader
+    </my:String>
+
+    <my:String x:Key="BonusGroup_empls">
+        Bonus group
+    </my:String>
+
+    <my:String x:Key="WorkPosition_empls">
+       Work position
+    </my:String>
+
+    <my:String x:Key="DivisionHR_empls">
+        Division
+    </my:String>
+
+    <my:String x:Key="Email_empls">
+        E-mail
+    </my:String>
+
+    <my:String x:Key="Photo_empls">
+        Photo
+    </my:String>
+
+    <my:String x:Key="EmployerHR_ID_empls">
+       Employer
+    </my:String>
+
+    <my:String x:Key="HireDate_empls">
+        Hire date
+    </my:String>
+
+    <my:String x:Key="Street_empls">
+        Street
+    </my:String>
+
+    <my:String x:Key="City_empls">
+        City
+    </my:String>
+
+    <my:String x:Key="PostalCode_empls">
+        Postal
+    </my:String>
+
+    <my:String x:Key="Note_empls">
+        Note
+    </my:String>
+
+    <my:String x:Key="CostCenter_empls">
+        Cost center
+    </my:String>
+
+    <my:String x:Key="SalaryGroup_empls">
+       Wage group
+    </my:String>
+
+    <my:String x:Key="BaseInfo_empls">
+        Basic information
+    </my:String>
+
+    <my:String x:Key="ExtInfo_empls">
+        Advanced information
+    </my:String>
+
+    <my:String x:Key="DisplayName_empls">
+        Name (HR ID)
+    </my:String>
+
+    <my:String x:Key="ActionState_empls">
+        State
+    </my:String>
+
+    <my:String x:Key="SelectAll_empls">
+        Select all
+    </my:String>
+
+    <my:String x:Key="eeSynchronize">
+        Sync tables
+    </my:String>
+
+    <my:String x:Key="eeStreet">
+        Street
+    </my:String>
+
+    <my:String x:Key="eePostalCode">
+      Postal
+    </my:String>
+
+    <my:String x:Key="eeWorkGroup">
+       Workgroup
+    </my:String>
+
+    <my:String x:Key="eeEmployer">
+      Employer
+    </my:String>
+
+    <my:String x:Key="eeDivision">
+       Division
+    </my:String>
+
+    <my:String x:Key="eeCostCenter">
+       Cost center
+    </my:String>
+
+    <my:String x:Key="eeSalaryGroup">
+      Wage group
+    </my:String>
+
+
+</ResourceDictionary>

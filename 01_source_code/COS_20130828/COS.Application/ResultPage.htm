@@ -1,0 +1,158 @@
+﻿<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Google Maps JavaScript API v3 Example: Directions Simple</title>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+        var directionDisplay;
+        var directionsService = new google.maps.DirectionsService();
+        var map;
+
+
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+            var regexS = "[\\?&]" + name + "=([^&#]*)";
+            var regex = new RegExp(regexS);
+            var results = regex.exec(window.location.search);
+            if (results == null)
+                return "";
+            else
+                return decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        function initialize() {
+
+
+            directionsDisplay = new google.maps.DirectionsRenderer();
+            var praha = new google.maps.LatLng(50.021858, 14.348145);
+            var mapOptions = {
+                zoom: 6,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                center: praha
+            }
+            map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+            directionsDisplay.setMap(map);
+        }
+
+        function calcRoute() {
+            directionsDisplay = new google.maps.DirectionsRenderer();
+            var praha = new google.maps.LatLng(50.021858, 14.348145);
+            var mapOptions = {
+                zoom: 6,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                center: praha
+            }
+            map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+            directionsDisplay.setMap(map);
+
+            var start = getParameterByName('start');
+            var end = getParameterByName('end');
+
+            var wps = getParameterByName('wps');
+                        
+            if (wps != null && wps.length > 0) {
+
+                var arrwps = wps.split(";");
+
+                var wypts = new Array();
+
+                for (var i = 0; i < arrwps.length; i++) {
+                    wypts[i] =  { location: arrwps[i]};
+                }                
+
+                var request = {
+                    origin: start,
+                    destination: end,
+                    waypoints: wypts,
+                    travelMode: google.maps.DirectionsTravelMode.DRIVING
+                };
+                directionsService.route(request, function (response, status) {
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        directionsDisplay.setDirections(response);
+                    }
+                });
+
+            }
+            else {
+                            
+                var request = {
+                    origin: start,
+                    destination: end,
+                    travelMode: google.maps.DirectionsTravelMode.DRIVING
+                };
+                directionsService.route(request, function (response, status) {
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        directionsDisplay.setDirections(response);
+                    }
+                });
+
+            }
+
+
+        }
+    </script>
+    <style>
+        html, body
+        {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #map_canvas
+        {
+            height: 100%;
+        }
+        
+        @media print
+        {
+            html, body
+            {
+                height: auto;
+            }
+        
+            #map_canvas
+            {
+                height: 650px;
+            }
+        }
+    </style>
+</head>
+<body onload="calcRoute()">
+    <!-- <div>
+        <b>Start: </b>
+        <select id="start" onchange="calcRoute();">
+            <option value="Kladno">Kladno</option>
+            <option value="Brno">Brno</option>
+            <option value="Praha, Radomská">Praha, Radomská</option>
+            <option value="oklahoma city, ok">Oklahoma City</option>
+            <option value="amarillo, tx">Amarillo</option>
+            <option value="gallup, nm">Gallup, NM</option>
+            <option value="flagstaff, az">Flagstaff, AZ</option>
+            <option value="winona, az">Winona</option>
+            <option value="kingman, az">Kingman</option>
+            <option value="barstow, ca">Barstow</option>
+            <option value="san bernardino, ca">San Bernardino</option>
+            <option value="los angeles, ca">Los Angeles</option>
+        </select>
+        <b>End: </b>
+        <select id="end" onchange="calcRoute();">
+           <option value="Kladno">Kladno</option>
+            <option value="Brno">Brno</option>
+            <option value="Praha, Radomská">Praha, Radomská</option>
+            <option value="oklahoma city, ok">Oklahoma City</option>
+            <option value="amarillo, tx">Amarillo</option>
+            <option value="gallup, nm">Gallup, NM</option>
+            <option value="flagstaff, az">Flagstaff, AZ</option>
+            <option value="winona, az">Winona</option>
+            <option value="kingman, az">Kingman</option>
+            <option value="barstow, ca">Barstow</option>
+            <option value="san bernardino, ca">San Bernardino</option>
+            <option value="los angeles, ca">Los Angeles</option>
+        </select>
+    </div>-->
+    <div id="map_canvas" style="top: 30px;">
+    </div>
+</body>
+</html>

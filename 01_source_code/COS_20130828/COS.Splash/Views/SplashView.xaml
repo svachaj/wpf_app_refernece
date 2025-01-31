@@ -1,0 +1,63 @@
+﻿<my:BaseUserControl xmlns:my="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" x:Class="COS.Splash.Views.SplashView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="339" d:DesignWidth="717" Width="652" Height="350" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+
+    <my:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/SplashResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </my:BaseUserControl.Resources>
+
+
+    <Grid Height="Auto" Width="Auto">
+        <Image Height="350" HorizontalAlignment="center" Name="image1" Stretch="Fill" VerticalAlignment="center" Width="650" Source="/COSResources;component/Images/Splash_650x350_new.png" />
+
+        <CheckBox Content="{DynamicResource spl_RememberMe}" Height="16" HorizontalAlignment="Left" Margin="226,192,0,0" Name="ckbRememberMe" VerticalAlignment="Top"
+                  Width="207"  Foreground="#6DFFFFFF" IsTabStop="False" IsChecked="{Binding RememberMe, Mode=TwoWay}" />
+        <TextBlock Height="27" HorizontalAlignment="Left" Margin="29,123,0,0" Name="tbkUserName" Text="{DynamicResource spl_UserName}" VerticalAlignment="Top" Foreground="#6DFFFFFF" FontSize="20" FontWeight="Bold" Width="191" FlowDirection="RightToLeft" />
+        <TextBlock FontSize="20" FontWeight="Bold" Foreground="#6DFFFFFF" Height="27" HorizontalAlignment="Left" Margin="29,156,0,0" Name="tbkPassword" Text="{DynamicResource spl_Password}" VerticalAlignment="Top" Width="191" FlowDirection="RightToLeft" />
+        <telerik:RadButton IsEnabled="{Binding LoginEnabled}" Command="{Binding LoginCommand}" telerikControls:StyleManager.Theme="Expression_Dark"   Content="{DynamicResource spl_Login}" Height="35" HorizontalAlignment="Left" Margin="252,235,0,0" Name="btnLogin" VerticalAlignment="Top" Width="155" FontWeight="Bold" FontSize="18" TabIndex="3"/>
+        <telerik:RadButton telerikControls:StyleManager.Theme="Expression_Dark"  Content="{DynamicResource spl_ForgottenPassword}" Height="25" HorizontalAlignment="Left" Margin="470,273,0,0" Name="btnForgottenPwd" VerticalAlignment="Top" Width="170" Foreground="#8BFFFFFF" IsTabStop="False" Visibility="Collapsed" >
+            <telerik:RadButton.Background>
+                <SolidColorBrush />
+            </telerik:RadButton.Background>
+            <telerik:RadButton.BorderBrush>
+                <SolidColorBrush />
+            </telerik:RadButton.BorderBrush>
+        </telerik:RadButton>
+        <TextBox Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="23" HorizontalAlignment="Left" Margin="227,125,0,0" Name="tbxUserName" VerticalAlignment="Top" Width="206" Background="#CEFFFFFF" FontSize="14" FontWeight="Bold" TabIndex="1" />
+        <PasswordBox PasswordChanged="pwxPassword_PasswordChanged" Height="23" HorizontalAlignment="Left" Margin="226,158,0,0" Name="pwxPassword"
+                     VerticalAlignment="Top" Width="207" Background="#CEFFFFFF" TabIndex="2" KeyDown="pwxPassword_KeyDown" />
+        <TextBlock FontSize="28" FontWeight="Bold" Foreground="#84FFFFFF" Height="38" HorizontalAlignment="Left" Margin="9,36,0,0" Name="tbkWelcome" Text="{DynamicResource spl_WelcomeLogin}" VerticalAlignment="Top" Width="452" FlowDirection="LeftToRight" TextAlignment="Left" />
+        <telerik:RadButton Content="{DynamicResource spl_ChangePassword}" Foreground="#8BFFFFFF" Height="25" HorizontalAlignment="Left" Margin="470,245,0,0" 
+                           Name="btnPwdChange" telerik:StyleManager.Theme="Expression_Dark" VerticalAlignment="Top" Width="170" IsTabStop="False" 
+                           Command="{Binding ChangePwdOpenWindowCommand}" IsEnabled="{Binding UserName, Converter={StaticResource EmptyStringEnabledConvertor}}">
+            <telerik:RadButton.Background>
+                <SolidColorBrush />
+            </telerik:RadButton.Background>
+            <telerik:RadButton.BorderBrush>
+                <SolidColorBrush />
+            </telerik:RadButton.BorderBrush>
+        </telerik:RadButton>
+        <TextBlock FontSize="12" FontWeight="Bold" Foreground="#2AFFFFFF" Height="14" HorizontalAlignment="Left" Margin="12,19,0,0" Name="tbkDeveloped" Text="{DynamicResource spl_Developed}" VerticalAlignment="Top" Width="301" FlowDirection="RightToLeft" />
+        <telerik:RadButton Content="{DynamicResource spl_Exit}"  FontSize="10" FontWeight="Normal" Height="18" HorizontalAlignment="Left" Margin="271,280,0,0" Name="btnExit" telerik:StyleManager.Theme="Expression_Dark" VerticalAlignment="Top" Width="116" IsTabStop="False" Click="btnExit_Click" />
+        <TextBlock FontSize="12" FontWeight="Bold" Foreground="#2AFFFFFF" Height="16" HorizontalAlignment="Left" Margin="21,324,0,0" Name="tbkCopyright" Text="{DynamicResource spl_Copyright}" VerticalAlignment="Top" Width="452" />
+        <TextBlock FontSize="12" FontWeight="Bold" Foreground="#2AFFFFFF" Height="16" HorizontalAlignment="Left" Margin="524,324,0,0" Name="tbkVersion" Text="{Binding AppVersion}" VerticalAlignment="Top" Width="116" FlowDirection="RightToLeft" />
+        <TextBlock FontSize="12" FontWeight="Bold" Foreground="#2AFFFFFF" Height="14" HorizontalAlignment="Right" Margin="0,19,158,0" Name="tbkCustomer" Text="{DynamicResource spl_Customer}" VerticalAlignment="Top" Width="175" />
+        <telerik:RadButton  Visibility="Visible"  Click="btnEngLanguage_Click" telerikControls:StyleManager.Theme="Expression_Dark" Height="22" HorizontalAlignment="Left" Margin="552,0,0,167" Name="btnEngLanguage" VerticalAlignment="Bottom" Width="36" FontWeight="Bold" FontSize="18">
+            <Image Source="/COSResources;component/Images/Eng_Flag.png" Stretch="Fill" ></Image>
+        </telerik:RadButton>
+        <telerik:RadButton Click="btnCzeLanguage_Click"  FontSize="18" FontWeight="Bold" Height="22" HorizontalAlignment="Left" Margin="594,161,0,0" Name="btnCzeLanguage" telerik:StyleManager.Theme="Expression_Dark" VerticalAlignment="Top" Width="36">
+            <Image Source="/COSResources;component/Images/CZE_Flag.png" Stretch="Fill" />
+        </telerik:RadButton>
+    </Grid>
+</my:BaseUserControl>

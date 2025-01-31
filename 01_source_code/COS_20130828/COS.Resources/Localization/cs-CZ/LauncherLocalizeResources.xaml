@@ -1,0 +1,48 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:my="clr-namespace:System;assembly=mscorlib" >
+
+
+    <my:String x:Key="Completed">
+        Dokončeno
+    </my:String>
+
+    <my:String x:Key="UpdatingFileText">
+        Aktualizování souborů...
+    </my:String>
+
+    <my:String x:Key="ControlingVersionLocalFilesText">
+        Kontrola verze aplikace...
+    </my:String>
+
+
+    <my:String x:Key="ControlingLocalFilesText">
+        Kontrola integrity souborů...
+    </my:String>
+
+
+    <my:String x:Key="CopyNewFileText">
+        Kopírování nových souborů...
+    </my:String>
+
+    <my:String x:Key="FilesUnintegrated">
+        Nelze aktualizovat aplikaci!
+    </my:String>
+
+    <my:String x:Key="ControlingServerFiles">
+        Kontrola souborů na serveru...
+    </my:String>
+
+    <my:String x:Key="ServerUnavailable">
+        Nepodařilo se spojit s aktualizačním serverem. Prosím obraťte se na správce aplikace.
+    </my:String>
+
+    <my:String x:Key="Error1">
+       Vyskytla se neočekávaná chyba. Prosím obraťte se na správce aplikace.
+    </my:String>
+
+
+
+    
+    
+</ResourceDictionary>

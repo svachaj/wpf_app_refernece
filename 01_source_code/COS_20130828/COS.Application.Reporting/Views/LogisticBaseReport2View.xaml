@@ -1,0 +1,210 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" x:Class="COS.Application.Reporting.Views.LogisticBaseReport2View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             d:DesignHeight="1200" d:DesignWidth="1200" HorizontalAlignment="Stretch">
+
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <!--<ScrollViewer  VerticalScrollBarVisibility="Auto" telerik:StyleManager.Theme="Expression_Dark" HorizontalScrollBarVisibility="Auto" >-->
+    <Grid Background="#FF333333">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+            <Border>
+                <TextBlock x:Name="tblDetailInfo" Foreground="White" Margin="15,4,4,4" FontSize="15" Text="{DynamicResource rep_LogisticReport2}">
+                </TextBlock>
+            </Border>
+        </Grid>
+
+        <telerik:RadToolBar telerik:StyleManager.Theme="Expression_Dark" Grid.Row="1" Grid.ColumnSpan="2">
+            <telerik:RadButton Click="RadButton_Click" VerticalAlignment="Center" Height="32" Margin="1" Padding="7,2,7,2" ToolTip="{DynamicResource rep_tt_Filter}">
+                <Image Source="/COSResources;component/Images/Filter_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+            </telerik:RadButton>
+          
+
+            <telerik:RadButton Click="Refresh_Click" VerticalAlignment="Center" Height="32" Margin="1" Padding="7,2,7,2" ToolTip="{DynamicResource log_tt_refresh}" telerik:StyleManager.Theme="Expression_Dark">
+                <Image Source="/COSResources;component/Images/Refresh_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center" ></Image>
+            </telerik:RadButton>
+
+            <telerik:RadButton  Padding="7,2,7,2" Margin="1,1,10,1" VerticalAlignment="Center" Height="32" Click="RadButton_Click_1" ToolTip="{DynamicResource gen_tt_CleanGrid}" telerik:StyleManager.Theme="Expression_Dark">
+                <Image Source="/COSResources;component/Images/DeleteAll_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+            </telerik:RadButton>
+
+
+            <!--<telerik:RadButton>Show</telerik:RadButton>-->
+            <!--<telerik:RadButton  Margin="1" Padding="7,2,7,2" VerticalAlignment="Center" Height="32" Click="RadButton_Click_1" ToolTip="{DynamicResource rep_tt_Print}">
+                    <Image Source="/COSResources;component/Images/Print_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                </telerik:RadButton>-->
+
+            <!--<TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource log_Country}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+            <telerik:RadComboBox Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" ItemsSource="{Binding LocalCountries}" CanAutocompleteSelectItems="True" OpenDropDownOnFocus="True"  
+                                        Width="200"      Tag="log_det_cmb_country"     Name="cmbCountries" SelectedItem="{Binding SelectedCountry, Mode=TwoWay}"
+                                         Margin="3" Foreground="White" telerik:StyleManager.Theme="Expression_Dark" IsTabStop="true" TabIndex="1" IsEditable="True">
+                <telerik:RadComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Description}"></TextBlock>
+                    </DataTemplate>
+                </telerik:RadComboBox.ItemTemplate>
+            </telerik:RadComboBox>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource log_Destination}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+            <telerik:RadComboBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" ItemsSource="{Binding LocalZoneLogistics}"  CanAutocompleteSelectItems="True" OpenDropDownOnFocus="True"
+                                        Width="200"  Tag="log_det_cmb_zone"    Name="cmbZones"       SelectedItem="{Binding SelectedZone, Mode=TwoWay}"
+                                         Margin="3" Foreground="White" telerik:StyleManager.Theme="Expression_Dark" IsTabStop="true" TabIndex="2" IsEditable="True">
+                <telerik:RadComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding DisplayName}"></TextBlock>
+                    </DataTemplate>
+                </telerik:RadComboBox.ItemTemplate>
+            </telerik:RadComboBox>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="  Od" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+
+            <telerik:RadDatePicker  Grid.Row="4" Grid.Column="1" Margin="5" telerik:StyleManager.Theme="Expression_Dark" 
+                                          SelectedValue="{Binding SelectedDateFrom, Mode=TwoWay}"  ></telerik:RadDatePicker>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text=" Do" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+
+            <telerik:RadDatePicker  Grid.Row="4" Grid.Column="2" Margin="5"  telerik:StyleManager.Theme="Expression_Dark" 
+                                         SelectedValue="{Binding SelectedDateTo, Mode=TwoWay}" ></telerik:RadDatePicker>-->
+
+        </telerik:RadToolBar>
+
+        <Grid Grid.Row="2"  Background="#494A4D">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="4" >
+                
+                
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="{DynamicResource log_VolumeCbmTotal}"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text=": "></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="{Binding SumVolumeCBM, StringFormat=n}"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="      "></TextBlock>
+
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="cmb VI"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text=": "></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="{Binding SumVolumeVI, StringFormat=n}"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="      "></TextBlock>
+
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="cbm VA"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text=": "></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="{Binding SumVolumeVA, StringFormat=n}"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="      "></TextBlock>
+
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="cbm VA - 4H"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text=": "></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="{Binding SumVolumeVA4H, StringFormat=n}"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="      "></TextBlock>
+
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="cbm VA - Total"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text=": "></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="{Binding SumVolumeVAComp, StringFormat=n}"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="      "></TextBlock>
+          
+            </StackPanel>
+            
+        </Grid>
+            
+        <Grid Grid.Row="3"  Background="#494A4D">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="4" >
+               
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="{DynamicResource log_TotalPrice}"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text=": "></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="{Binding SumPriceTotal, StringFormat=n}"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="      "></TextBlock>
+
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="{DynamicResource log_priceVI}"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text=": "></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="{Binding SumPriceVI, StringFormat=n}"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="      "></TextBlock>
+
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="{DynamicResource log_priceVA}"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text=": "></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="{Binding SumPriceVA, StringFormat=n}"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="      "></TextBlock>
+
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="{DynamicResource log_priceVA4H}"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text=": "></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="{Binding SumPriceVA4H, StringFormat=n}"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="      "></TextBlock>
+
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="{DynamicResource log_priceVAComp}"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text=": "></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="{Binding SumPriceVAComp, StringFormat=n}"></TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="      "></TextBlock>
+
+            </StackPanel>
+
+        </Grid>
+
+        <Grid Grid.Row="4" Background="#FF333333" Grid.Column="0">
+
+            <!--detail LIST info-->
+            <Border x:Name="borderDetailsList"  Margin="3" BorderBrush="Gray" BorderThickness="1.5" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0,0,0,1.5" Margin="0,0,0,3">
+                        <TextBlock Foreground="White" Margin="3" HorizontalAlignment="Center" Text="{DynamicResource rep_LogisticReportDetail}" FontWeight="Bold"></TextBlock>
+                    </Border>
+
+                    <Grid Grid.Row="1">
+                        <telerik:RadGridView BorderBrush="Gray" AutoGenerateColumns="False"  telerik:StyleManager.Theme="Expression_Dark"
+                                      Margin="0,3,3,3"    SelectionMode="Extended" MouseDoubleClick="grdMainData_MouseDoubleClick"       
+                                     EditTriggers="None"  ShowGroupPanel="True" RowIndicatorVisibility="Collapsed"  
+                                                     ShowInsertRow="False" x:Name="grdMainData"  IsReadOnly="True"  IsTabStop="False" ClipboardCopyMode="All" ClipboardPasteMode="AllSelectedCells">
+
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding PlannedDate,StringFormat=d}" Header="{DynamicResource rep_LogDate}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Country}" Header="{DynamicResource rep_Country}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Destination}" Header="{DynamicResource rep_Destination}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding OrderedBy}" Header="{DynamicResource rep_LogOrdBy}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding CustomerNumber}" Header="{DynamicResource rep_CustomerNumber}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Lnumber}" Header="{DynamicResource rep_LindabNumber}"></telerik:GridViewDataColumn>
+                                <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding TransportCount}" Header="{DynamicResource rep_ShipmentCount}"></telerik:GridViewDataColumn>-->
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding VolumeCBM}" Header="{DynamicResource rep_VolumeCbm}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding ForwarderPrice}" Header="{DynamicResource log_ForwarderPrice}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding BafPrice}" Header="{DynamicResource log_BafPrice}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding TollPrice}" Header="{DynamicResource log_TollPrice}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding TollPriceGerlach}" Header="{DynamicResource log_TollPriceGerlach}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding TotalPrice}" Header="{DynamicResource log_TotalPrice}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding TransportPayment}" Header="{DynamicResource log_TransportPayment}"></telerik:GridViewDataColumn>
+                                
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+
+                    </Grid>
+
+                </Grid>
+
+            </Border>
+
+
+        </Grid>
+
+     
+        <telerik:RadBusyIndicator Grid.ColumnSpan="10" Grid.RowSpan="10" BusyContent="{DynamicResource isBusy}" IsBusy="{Binding IsBusy}" telerik:StyleManager.Theme="Expression_Dark"></telerik:RadBusyIndicator>
+
+    </Grid>
+    <!--</ScrollViewer>-->
+</bc:BaseUserControl>

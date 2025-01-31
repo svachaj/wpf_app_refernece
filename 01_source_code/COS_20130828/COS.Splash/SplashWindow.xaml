@@ -1,0 +1,9 @@
+﻿<Window x:Class="COS.Splash.SplashWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  MouseDown="Window_MouseDown"
+  
+        Title="" Height="353" Width="652" xmlns:my="clr-namespace:COS.Splash.Views" Topmost="True" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" BorderBrush="Black" AllowsTransparency="False" IsManipulationEnabled="True" ShowInTaskbar="False">
+    <Grid>
+        <my:SplashView x:Name="splashView1" Loaded="splashView1_Loaded" Margin="-13,-13,-13,-13" />
+    </Grid>
+</Window>

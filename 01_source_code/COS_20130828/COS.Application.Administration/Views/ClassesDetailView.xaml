@@ -1,0 +1,75 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" 
+                    x:Class="COS.Application.Administration.Views.ClassesDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="300" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource adm_ID}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="0" Grid.Column="1" IsReadOnly="False" Text="{Binding SelectedItem.ID, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="3" VerticalAlignment="Center"    >
+            </TextBox>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="parentid" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="1" Grid.Column="1" IsReadOnly="False" Text="{Binding SelectedItem.ID_Parent, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="3" VerticalAlignment="Center"    >
+            </TextBox>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource adm_CZtext}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="2" Grid.Column="1"
+                     Text="{Binding SelectedItem.t_sys_localization.cs_Czech, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                     Margin="3" VerticalAlignment="Center"    >
+            </TextBox>
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="{DynamicResource adm_ENtext}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="3" Grid.Column="1"
+                     Text="{Binding SelectedItem.t_sys_localization.en_English, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"  Margin="3" VerticalAlignment="Center"></TextBox>
+
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Název" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="4" Grid.Column="1"
+                     Text="{Binding SelectedItem.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"  Margin="3" VerticalAlignment="Center"></TextBox>
+
+
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="{DynamicResource adm_RonID}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="5" Grid.Column="1"
+                     Text="{Binding SelectedItem.UserControlTag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"  Margin="3" VerticalAlignment="Center"></TextBox>
+
+
+
+
+        </Grid>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" Margin="3">
+            <telerik:RadButton telerik:StyleManager.Theme="Expression_Dark"  Content="{DynamicResource adm_save}" Height="Auto"  Width="Auto" Margin="3" Padding="10,5,10,5" Command="{Binding UpdateCommand}" />
+            <telerik:RadButton telerik:StyleManager.Theme="Expression_Dark" Content="{DynamicResource adm_Cancel}" Height="Auto"  Width="Auto" Margin="3" Padding="10,5,10,5" Command="{Binding CancelCommand}" />
+        </StackPanel>
+    </Grid>
+</bc:BaseUserControl>

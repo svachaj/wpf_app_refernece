@@ -1,0 +1,259 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:my="clr-namespace:System;assembly=mscorlib">
+  <my:String x:Key="Title">Lindab s.r.o.</my:String>
+  <!--*******************PANES**************************-->
+  <my:String x:Key="pane_CbAccountType">Codebook: Acc type</my:String>
+  <my:String x:Key="pane_CbCostCenter">Codebook: Cost centers</my:String>
+  <my:String x:Key="pane_CbDivision">Codebook: Division</my:String>
+  <my:String x:Key="pane_Groups">Access groups</my:String>
+  <my:String x:Key="pane_Localization">Localization</my:String>
+  <my:String x:Key="pane_Users">Users</my:String>
+  <my:String x:Key="pane_CbDowntimesDowntimeGroup">Codebook: Set downtimes into groups</my:String>
+  <my:String x:Key="pane_CbDowntimesGroup">Codebook: Downtime groups</my:String>
+  <my:String x:Key="pane_CbDowntimes">Codebook: Downtimes</my:String>
+  <my:String x:Key="pane_CbItemsGroup">Codebook: Item groups</my:String>
+  <my:String x:Key="pane_CbShiftPatterns">Codebook: Shift patterns</my:String>
+  <my:String x:Key="pane_CbShifts">Codebook: Shift</my:String>
+  <my:String x:Key="pane_CbShiftsType">Codebook: Shift type</my:String>
+  <my:String x:Key="pane_CbWorkCenters">Codebook: Workcenters</my:String>
+  <my:String x:Key="pane_CbWorkGroups">Codebook: Workgroups</my:String>
+  <my:String x:Key="pane_CbWorkGroupsWorkCenters">Codebook: Setup workgroups</my:String>
+  <my:String x:Key="pane_Standards">Production standards</my:String>
+  <my:String x:Key="pane_HourlyProduction">Hourly production</my:String>
+  <my:String x:Key="pane_CbBonusGroup">Codebook: Bonus groups</my:String>
+  <my:String x:Key="pane_CbEmployers">Codebook: Employer</my:String>
+  <my:String x:Key="pane_CbSalaryGroups">Codebook: Wage groups</my:String>
+  <my:String x:Key="pane_CbWorkPositions">Codebook: Work positions</my:String>
+  <my:String x:Key="pane_Employee">Employees</my:String>
+  <my:String x:Key="pane_KpiReport">KPIs Report</my:String>
+  <my:String x:Key="pane_HP_Recalculation">Recalculation hourly production</my:String>
+  <my:String x:Key="pane_PROD_AdsCustomerService">ADS - Customer service</my:String>
+  <my:String x:Key="pane_Security">Security</my:String>
+  <my:String x:Key="pane_TpmEquipment">TPM Equipment</my:String>
+  <my:String x:Key="pane_TpmPlan">TPM - New/Edit Plan</my:String>
+  <my:String x:Key="pane_TpmCheckList">TPM Checklist</my:String>
+  <my:String x:Key="pane_cbTpmCheckListItems">TPM Checklist - Items</my:String>
+  <my:String x:Key="pane_TpmHolidayCalendar">Holiday calendar</my:String>
+  <my:String x:Key="pane_TpmChecklistItems">Setup TPM checklists</my:String>
+  <my:String x:Key="pane_TpmPlanOverview">TPM plan overwiev</my:String>
+  <my:String x:Key="pane_Configurators">Configurators (Linear)</my:String>
+  <my:String x:Key="pane_ConfiguratorsMatrix">Configurators (Matrix)</my:String>
+  <my:String x:Key="pane_ForeignExport">Foreign export</my:String>
+  <my:String x:Key="pane_ForeignExportpriceListImport">Pricelist import</my:String>
+  <my:String x:Key="pane_cbForeignExportBafPane">Codebook: BAF pricelist</my:String>
+  <my:String x:Key="pane_cbForeignExportForwarderPane">Codebook: Forwarder</my:String>
+  <my:String x:Key="pane_cbForeignExportOrderedByPane">Codebook: Ordered by</my:String>
+  <my:String x:Key="pane_cbForeignExportPlatformPane">Codebook: Loading area</my:String>
+  <my:String x:Key="pane_cbForeignExportTimeWindowPane">Codebook: Time vindow</my:String>
+  <my:String x:Key="pane_cbForeignExportUnitPane">Codebook: Units</my:String>
+  <my:String x:Key="pane_cbForeignExportCountryPane">Codebook: Country</my:String>
+  <my:String x:Key="pane_cbForeignExportZonePane">Codebook: Zone</my:String>
+  <my:String x:Key="pane_cbForeignExportTransportPaymentPane">Codebook: Transport payer</my:String>
+  <my:String x:Key="pane_ProductionDetailReportPane">Production detail</my:String>
+  <my:String x:Key="pane_ProductionDetailDtSumReportPane">Production detail - Sum of downtimes time</my:String>
+  <my:String x:Key="pane_DowntimeDetailReportPane">Downtimes - Detail</my:String>
+  <my:String x:Key="pane_WcReportPane">Ovewrview - Workcenters</my:String>
+  <my:String x:Key="pane_ShiftFollowUpPane">Production follow-up - Shift</my:String>
+  <my:String x:Key="pane_AdsEmpProductivityReportPane">ADS - Employee productivity</my:String>
+  <my:String x:Key="pane_cbConfiguratorGroup">Configurators group</my:String>
+    <my:String x:Key="pane_LogisticReportPane">Forwarder report</my:String>
+  <my:String x:Key="pane_cbZoneCombinationPanePane">Destination combinations</my:String>
+  <my:String x:Key="pane_OrderInput">Order input</my:String>
+  <my:String x:Key="pane_OrderCompletion">Order administration</my:String>
+  <my:String x:Key="pane_cbTmToolPane">Codebook: Tools</my:String>
+    <my:String x:Key="pane_ForeignVolumeCheck">Volume check</my:String>
+    <my:String x:Key="pane_WgWcComparationReportPane">WG/WC Report</my:String>
+    <my:String x:Key="pane_Production4HPlanning">4H - Planning</my:String>
+    <my:String x:Key="pane_cbP4hSupplierViewPane">Cedebook: Supplier</my:String>
+    <my:String x:Key="pane_cbP4hManufacturerViewPane">Cedebook: Production state</my:String>
+    <my:String x:Key="pane_cbP4hPlanExecutionViewPane">Cedebook: Plan execution</my:String>
+    <my:String x:Key="pane_cbP4hStateViewPane">Cedebook: State</my:String>
+    <my:String x:Key="pane_cbP4hTransportTypeViewPane">Cedebook: Transport type</my:String>
+    <my:String x:Key="pane_LogisticForwarderReportPane">Shipment overview </my:String>
+    <my:String x:Key="pane_cbP4hDifficultyViewPane">Cedebook: Difficulty</my:String>
+    <my:String x:Key="pane_LogisticDomForwarderPrReportPane">Forwarder export</my:String>
+    <my:String x:Key="pane_ForeignExportTrOrdCoPane">Transport Order - Weekly</my:String>
+    <my:String x:Key="pane_CbInsuranceCompany">Insurance Company</my:String>
+
+
+
+
+    <!--*******************Application**************************-->
+  <my:String x:Key="App_MainWindowHeader">KPIs Report</my:String>
+  <my:String x:Key="App_WindownMain">COS - Company Operational System - Lindab s.r.o.</my:String>
+  <Image Source="../../Images/Cos_32x32.png" x:Key="MainAppWindowIcon">
+  </Image>
+    <my:String x:Key="app_Yes">Yes</my:String>
+    <my:String x:Key="app_No">No</my:String >
+    <my:String x:Key="app_Alert">Alert</my:String >
+    <!--*******************Ribbon View**************************-->
+  <my:String x:Key="App_Button">COS</my:String>
+  <my:String x:Key="submod_Codebooks">Codebooks</my:String>
+  <!--*******************PRODUCTION**************************-->
+  <my:String x:Key="mod_Porduction">Production</my:String>
+  <my:String x:Key="submod_HourlyProduction">Hourly production</my:String>
+  <my:String x:Key="submod_btn_HourlyProduction">HP Admin</my:String>
+  <my:String x:Key="submod_btn_HourlyProductionRecalc">HP Recalculation</my:String>
+  <my:String x:Key="submod_ProductionOthers">Others</my:String>
+  <my:String x:Key="submod_btn_AdsCustomerService">ADS - Customer services</my:String>
+  <my:String x:Key="submod_btn_Production4hPlanning">4H - Planning</my:String>
+    <my:String x:Key="submod_cbManufacturer">Production state</my:String>
+    <my:String x:Key="submod_Production4h">Production - 4H</my:String>
+    <my:String x:Key="submod_cbSupplier">Supplier</my:String>
+    <my:String x:Key="submod_cbPlanExecution">Plan execution</my:String>
+    <my:String x:Key="submod_cbP4HState">State</my:String>
+    <my:String x:Key="submod_cbTransportType">Transport type</my:String>
+    <my:String x:Key="submod_cbP4hDifficulty">Difficulty</my:String>
+
+    <!--*******************ENGINEERING**************************-->
+  <my:String x:Key="mod_Engeneering">Engineering</my:String>
+  <my:String x:Key="submod_Standards">Production standards</my:String>
+  <my:String x:Key="submod_btn_Standard">Standards</my:String>
+  <my:String x:Key="submod_cbWorkGroup">Workgroups</my:String>
+  <my:String x:Key="submod_cbWorkCenter">Workcenters</my:String>
+  <my:String x:Key="submod_cbWorkGroupsWorkCenters">Setup workgroups</my:String>
+  <my:String x:Key="submod_cbDowntimesGroups">Downtime groups</my:String>
+  <my:String x:Key="submod_cbDowntimes">Downtimes</my:String>
+  <my:String x:Key="submod_cbDowntimesDowntimesGroups">Setup downtimes</my:String>
+  <my:String x:Key="submod_cbShifts">Shift</my:String>
+  <my:String x:Key="submod_cbShiftsType">Shift type</my:String>
+  <my:String x:Key="submod_cbShiftPatterns">Shift pattern</my:String>
+  <my:String x:Key="submod_btn_cbItemsGroup">Item groups</my:String>
+  <my:String x:Key="submod_btn_Configurators">Configurators (Linear)</my:String>
+  <my:String x:Key="submod_btn_ConfiguratorsMatrix">Configurators (Matrix)</my:String>
+  <my:String x:Key="submod_cbConfigGroup">Configurators group</my:String>
+  <!--*******************LOGISTIC**************************-->
+  <my:String x:Key="mod_Logistic">Logistic</my:String>
+  <my:String x:Key="submod_ForeignExport">Foreign</my:String>
+  <my:String x:Key="submod_fLogpriceList">Pricelist import</my:String>
+  <my:String x:Key="submod_BafPrice">BAF pricelist</my:String>
+  <my:String x:Key="submod_Forwarder">Forwarder</my:String>
+  <my:String x:Key="submod_OrderedBy">Ordered by</my:String>
+  <my:String x:Key="submod_Platform">Loading platform</my:String>
+  <my:String x:Key="submod_TimeWindows">Time window</my:String>
+  <my:String x:Key="submod_TransportPayment">Tansport payer</my:String>
+  <my:String x:Key="submod_ForeignUnit">Unit</my:String>
+  <my:String x:Key="submod_ForeignCountry">Country</my:String>
+  <my:String x:Key="submod_ForeignZone">Zone</my:String>
+  <my:String x:Key="submod_cbZoneCombination">Destination combinations</my:String>
+    <my:String x:Key="submod_ForeignVolumeControl">Volume check</my:String>
+    <my:String x:Key="submod_DomesticExport">Domestic export</my:String>
+    <my:String x:Key="submod_DomesticPriceList">Price list</my:String>
+    <my:String x:Key="submod_DomesticCustomer">Customers</my:String>
+    <my:String x:Key="submod_DomesticContactType">Contact type</my:String>
+    <my:String x:Key="submod_DomesticForwarder">Forwarder</my:String>
+    <my:String x:Key="submod_DomesticDriver">Driver</my:String>
+    <my:String x:Key="submod_DomesticCartype">Car type</my:String>
+    <my:String x:Key="submod_DomesticComposition">Composition</my:String>
+    <my:String x:Key="submod_DomesticDestination">Destination</my:String>
+    <my:String x:Key="submod_DomesticBafPrice">BAF</my:String>
+    <my:String x:Key="submod_btn_LogisticLoadsReport">Shipment overview</my:String>
+    <my:String x:Key="submod_btn_LogisticsReport">Shipment overview</my:String>
+    <my:String x:Key="submod_btn_LogisticForwarderExport">Forwarder export</my:String>
+    <my:String x:Key="submod_ForeignExportTransportOrderCo">Transport Order - Weekly</my:String>
+
+    <my:String x:Key="pane_cbDomesticExportPriceListPane">Price list</my:String>
+    <my:String x:Key="pane_DomesticExportPane">Domestic export</my:String>
+    <my:String x:Key="pane_cbDomesticExportCustomerPane">Customers</my:String>
+    <my:String x:Key="pane_cbDomesticExportContactTypePane">Contact type</my:String>
+    <my:String x:Key="pane_cbDomesticExportForwarderPane">Forwarder</my:String>
+    <my:String x:Key="pane_cbDomesticExportDriverPane">Driver</my:String>
+    <my:String x:Key="pane_cbDomesticExportCarTypePane">Car type</my:String>
+    <my:String x:Key="pane_cbDomesticExportCompositionPane">Composition</my:String>
+    <my:String x:Key="pane_cbDomesticExportDestinationPane">Destination</my:String>
+    <my:String x:Key="pane_cbDomesticExportBafPricePane">BAF</my:String>
+    <my:String x:Key="pane_LogisticLoadsReportPane">Forwarder report</my:String>
+
+    
+
+
+
+
+
+    <!--*******************MAINTENANCE**************************-->
+  <my:String x:Key="mod_Maintenance">Maintenance</my:String>
+  <my:String x:Key="submod_TPM">Preventive maintenance</my:String>
+  <my:String x:Key="submod_TpmPlan">TPM Plan</my:String>
+  <my:String x:Key="submod_tpmCheckList">TPM Checklist</my:String>
+  <my:String x:Key="submod_CbTpmCheckListItems">TPM Checklist - Items</my:String>
+  <my:String x:Key="submod_CbTpmEquipment">TPM Equipment</my:String>
+  <my:String x:Key="submod_tpmHolidaysCalendar">Holiday calendar</my:String>
+  <my:String x:Key="submod_TpmChecklistItems">Setup TPM checklist</my:String>
+  <my:String x:Key="subm_TpmPlanOverview">TPM preview</my:String>
+  <my:String x:Key="submod_CbTmTool">Tool setup</my:String>
+  <!--*******************HUMAN RESOURCES**************************-->
+  <my:String x:Key="mod_HR">Human Resources</my:String>
+  <my:String x:Key="submod_Employee">Employees</my:String>
+  <my:String x:Key="submod_btn_Employee">Employees</my:String>
+  <my:String x:Key="submod_cbBonusGroup">Bonus groups</my:String>
+  <my:String x:Key="submod_cbSalaryGroup">Wage groups</my:String>
+  <my:String x:Key="submod_cbWorkPositions">Work positions</my:String>
+  <my:String x:Key="submod_cbEmployers">Employer</my:String>
+  <!--*******************ADMINISTRATION**************************-->
+  <my:String x:Key="mod_Administration">Administration</my:String>
+  <my:String x:Key="submod_Users">Users</my:String>
+  <my:String x:Key="submod_btn_Users">Users</my:String>
+  <my:String x:Key="submod_Groups">Access groups</my:String>
+  <my:String x:Key="submod_btn_Groups">Groups</my:String>
+  <my:String x:Key="submod_Localization">label localization</my:String>
+  <my:String x:Key="submod_btn_Localization">Localization</my:String>
+  <my:String x:Key="submod_SecSetting">General security</my:String>
+  <my:String x:Key="submod_btn_SecuritySetting">Security</my:String>
+  <my:String x:Key="submod_cbAccType">Account type</my:String>
+  <my:String x:Key="submod_cbDivisions">Division</my:String>
+  <my:String x:Key="submod_cbCostCenters">Cost center</my:String>
+  <!--*******************REPORTS**************************-->
+  <my:String x:Key="mod_Reports">Reports</my:String>
+  <my:String x:Key="submod_Production">Production reports</my:String>
+  <my:String x:Key="submod_btn_KpisReport">KPIs Report</my:String>
+  <my:String x:Key="submod_ProductionDetail">Production detail</my:String>
+  <my:String x:Key="submod_ProductionDetailDtSum">Production detail - Sum of downtimes</my:String>
+  <my:String x:Key="submod_DowntimeDetail">Downtimes - Detail</my:String>
+  <my:String x:Key="submod_KpiWcReport">Preview - Workcenters</my:String>
+  <my:String x:Key="submod_ShiftFollowUp">Production follow-up - Shift</my:String>
+  <my:String x:Key="submod_AdsEmpProductivityReport">ADS - Employee productivity</my:String>
+  <my:String x:Key="submod_Logistic">Logistic</my:String>
+  <my:String x:Key="submod_btn_LogisticReport">Shipment overview</my:String>
+  <my:String x:Key="submod_DowntimePareto">Top 10 - Downtimes</my:String>
+    <my:String x:Key="submod_WcWgComparationReport"> WG/WC Report </my:String>
+    <my:String x:Key="submod_btn_LogisticForwarderReport">Forwarder report</my:String>
+      <my:String x:Key="submod_LogisticCzSK">Logistic - Domestic market</my:String>
+    
+
+    <!--*******************ORDERS**************************-->
+  <my:String x:Key="mod_Orders">Orders</my:String>
+  <my:String x:Key="submod_Orders">Place / Manage orders</my:String>
+  <my:String x:Key="submod_btn_OrderInput">Place order</my:String>
+  <my:String x:Key="submod_btn_OrderManagement">Manage orders</my:String>
+  <my:String x:Key="submod_btn_OrderApproveManagement">Orders Approval</my:String>
+  <my:String x:Key="pane_OrderApprove">Order approval</my:String>
+  <my:String x:Key="submod_CbOrders">Codebooks: Orders</my:String>
+  <my:String x:Key="subm_CbExecOrdUsr">Buyers</my:String>
+  <my:String x:Key="subm_CbAppOrdUsr">Approvers</my:String>
+  <my:String x:Key="subm_CbDepartments">Departmets</my:String>
+  <my:String x:Key="pane_CbDepartmens">Departments</my:String>
+  <my:String x:Key="pane_OrderExecutePane">Buyers list</my:String>
+  <my:String x:Key="pane_cbOrderApproveUsrPane">Approvers</my:String>
+  <my:String x:Key="submod_btn_LogisticReport2">Customer Overview</my:String>
+  <my:String x:Key="pane_LogisticReport2Pane">Customer overview</my:String>
+  <my:String x:Key="submod_TmTools">Tool Setup</my:String>
+  <my:String x:Key="pane_TmToolHandlePane">Tool Handling</my:String>
+  <my:String x:Key="subm_TmToolHandling">Tool Handling</my:String>
+  <my:String x:Key="submod_ShiftFollowUpRange">Production follow-up (range) - Shift</my:String>
+  <my:String x:Key="pane_ShiftFollowUpRangePane">Production follow-up (range) - Shift</my:String>
+
+
+    <!--*******************Work Safety**************************-->
+    <my:String x:Key="mod_WorkSafety">Work Safety</my:String>
+    <my:String x:Key="submod_WorkSafety">Work Safety</my:String>
+    <my:String x:Key="submod_btnAccidentLog">Accident Log</my:String>
+    <my:String x:Key="subm_CbAreaOfAccident">Areas</my:String>
+    <my:String x:Key="subm_CbTypeOfInjury">Injury type</my:String>
+    <my:String x:Key="subm_CbInjPartOfBody">Part of body</my:String>
+    <my:String x:Key="subm_CbTypeOfAccident">Accident type</my:String>
+    <my:String x:Key="subm_CbSourceOfAccident">Source of Accident</my:String>
+    <my:String x:Key="subm_CbCauseOfAccident">Cause of Accident</my:String>
+    <my:String x:Key="subm_CbPreventAccident">Prevent measures</my:String>   
+    <my:String x:Key="subm_CbInsuranceCompany">Insurance company</my:String>
+
+
+</ResourceDictionary>

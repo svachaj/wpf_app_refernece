@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <StartArguments>
+    </StartArguments>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PublishUrlHistory>E:\Update\|D:\Update\|\\cz46SQL0001\COS_Update\COS_TEST\|\\cz46SQL0001\COS_Update\COS_PRODUCTION\|\\czdt0001\update\</PublishUrlHistory>
+    <InstallUrlHistory>\\46dt0001\Install Test\|\\Lindab\01_COS\COS_Installer_0001\Install Test\|http://calch.cz/cos/</InstallUrlHistory>
+    <SupportUrlHistory />
+    <UpdateUrlHistory>\\cz46SQL0001\COS_Update\COS_PRODUCTION\|\\cz46SQL0001\COS_Update\COS_TEST\|\\czdt0001\update\|\\czdt0001\COS_Test\|\\czdt0001\Lindab\01_COS\COS_FilesToInstall\COS_Test\</UpdateUrlHistory>
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
+</Project>

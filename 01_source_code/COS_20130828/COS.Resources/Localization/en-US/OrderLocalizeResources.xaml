@@ -1,0 +1,53 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:my="clr-namespace:System;assembly=mscorlib">
+  <my:String x:Key="rep_ordDepartment">Department</my:String>
+  <my:String x:Key="rep_ordSubject">Order subject</my:String>
+  <my:String x:Key="rep_ordNote">Order body (note)</my:String>
+  <my:String x:Key="rep_ordItems">Items</my:String>
+  <my:String x:Key="rep_ordItem">Item</my:String>
+  <my:String x:Key="rep_ordCount">Count</my:String>
+  <my:String x:Key="rep_ordUnit">Unit</my:String>
+  <my:String x:Key="rep_ordRequiredDate">Required delivery date</my:String>
+  <my:String x:Key="rep_ordPriority">Priority</my:String>
+  <my:String x:Key="rep_ordSave">Save</my:String>
+  <my:String x:Key="rep_ordOrderList">Order list</my:String>
+  <my:String x:Key="rep_ordOrderItems">Order items - detail</my:String>
+  <my:String x:Key="rep_ordStatus">Status</my:String>
+  <my:String x:Key="rep_ordResponse">Answer</my:String>
+  <my:String x:Key="rep_ordAcceprDate">Order accepted</my:String>
+  <my:String x:Key="rep_ordDeliveryDate">Delivery date</my:String>
+  <my:String x:Key="rep_ordFinishedDate">Order completed</my:String>
+  <my:String x:Key="rep_ordCreateDate">Order created</my:String>
+  <my:String x:Key="rep_ordFrom">From</my:String>
+  <my:String x:Key="rep_ordTo">To</my:String>
+  <my:String x:Key="rep_ordReject">Reject</my:String>
+  <my:String x:Key="rep_ordApprove">Approve by</my:String>
+  <my:String x:Key="rep_ordApproveDate">Approve date</my:String>
+  <my:String x:Key="m_OrdDepartment">Select department</my:String>
+  <my:String x:Key="m_OrdSubject">Fill subject</my:String>
+  <my:String x:Key="m_OrdDetail">Fill order description or select items</my:String>
+  <my:String x:Key="m_OrdDeliveryDate">Select delivery date</my:String>
+  <my:String x:Key="m_OrdPriority">Select priority</my:String>
+  <my:String x:Key="m_OrdItemName">Fill item name in detail</my:String>
+  <my:String x:Key="m_OrdItemCount">Fill item count in detail</my:String>
+  <my:String x:Key="rep_ordRejectOrder">Reject order : Message</my:String>
+  <my:String x:Key="rep_ordOk">Ok</my:String>
+  <my:String x:Key="rep_ordCancel">Cancel</my:String>
+  <my:String x:Key="rep_ordApproveOrd">Approve</my:String>
+  <my:String x:Key="rep_ordRejectedBy">Rejected</my:String>
+  <my:String x:Key="rep_ordRejectedDate">Rejected - Date</my:String>
+  <my:String x:Key="rep_ordRejectedReason">Reject reason</my:String>
+  <my:String x:Key="ord_AppDepartment">Department</my:String>
+  <my:String x:Key="ord_AssignUsr">Assigned Users</my:String>
+  <my:String x:Key="ord_RestUsr">Users</my:String>
+  <my:String x:Key="ord_EstPrice">
+  </my:String>
+  <my:String x:Key="rep_ordAttach">Attachment</my:String>
+  <my:String x:Key="ordPreview">Preview</my:String>
+  <my:String x:Key="ordSaveAtt">Save</my:String>
+  <my:String x:Key="rep_ordId">ID Ord.</my:String>
+  <my:String x:Key="rep_ordCreatedBy">Created by</my:String>
+    <my:String x:Key="rep_ordApproved">Is Approved</my:String>
+
+
+    
+</ResourceDictionary>

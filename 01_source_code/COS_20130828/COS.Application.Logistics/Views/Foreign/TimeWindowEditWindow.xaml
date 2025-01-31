@@ -1,0 +1,24 @@
+﻿<telerik:RadWindow x:Class="COS.Application.Logistics.Views.Foreign.TimeWindowEditWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"                   
+		xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                   telerik:StyleManager.Theme="Expression_Dark"
+		Header="{DynamicResource log_TimeWindowEdit}" Height="120" Width="220">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid>
+            <telerik:RadTimePicker telerik:StyleManager.Theme="Expression_Dark" Grid.Row="8" Grid.Column="1" IsReadOnly="False" SelectedTime="{Binding SelectedItem.ProdTimeWindow,Mode=TwoWay}" 
+                     Margin="3" VerticalAlignment="Center">
+            </telerik:RadTimePicker>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <telerik:RadButton Content="OK" Margin="5" telerik:StyleManager.Theme="Expression_Dark" Width="50" Click="btnOK_click"></telerik:RadButton>
+                <telerik:RadButton Content="Zrušit" Margin="5" telerik:StyleManager.Theme="Expression_Dark" Width="50" Click="btnCancel_click"></telerik:RadButton>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</telerik:RadWindow>

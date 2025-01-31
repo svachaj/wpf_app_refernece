@@ -1,0 +1,230 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" 
+                    x:Class="COS.Application.Orders.Views.OrderCompletionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="1280" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <Grid Background="#333333">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Border BorderBrush="White" BorderThickness="1" Margin="2">
+                <Grid Margin="0,10,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid>
+                        <!--<telerik:RadToolBar telerik:StyleManager.Theme="Expression_Dark">
+                            <telerik:RadButton Content="Pridat" IsEnabled="{Binding IsReadOnly}" telerik:StyleManager.Theme="Expression_Dark" Click="RadButton_Click"></telerik:RadButton>
+                            <telerik:RadButton Content="Zrusit" IsEnabled="{Binding IsReadOnly, Converter={StaticResource BooleanReverseConverter}}" telerik:StyleManager.Theme="Expression_Dark" Click="RadButton_Click_1"></telerik:RadButton>
+                        </telerik:RadToolBar>-->
+                    </Grid>
+
+                    <ScrollViewer Grid.Row="1" telerik:StyleManager.Theme="Expression_Dark" VerticalScrollBarVisibility="Auto">
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+
+                            <TextBlock Grid.Row="2" FontSize="11" Text="{DynamicResource rep_ordSubject}" Margin="3,1,3,1" Foreground="White"></TextBlock>
+                            <TextBox Grid.Row="3" telerik:StyleManager.Theme="Expression_Dark" Margin="3" IsReadOnly="True"
+                         Text="{Binding SelectedItem.Subject}"></TextBox>
+
+                            <TextBlock Grid.Row="4" FontSize="11" Text="{DynamicResource rep_ordNote}" Margin="3,1,3,1" Foreground="White"></TextBlock>
+                            <TextBox Grid.Row="5" telerik:StyleManager.Theme="Expression_Dark" MinHeight="100" Margin="3" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" MaxHeight="150" VerticalContentAlignment="Top"
+                         Text="{Binding SelectedItem.Note}"></TextBox>
+
+                            <TextBlock Grid.Row="6" FontSize="11" Text="{DynamicResource rep_ordRequiredDate}" Margin="3,1,3,1" Foreground="White"></TextBlock>
+                            <TextBox Grid.Row="7" telerik:StyleManager.Theme="Expression_Dark" Margin="3" IsReadOnly="True"
+                         Text="{Binding SelectedItem.RequiredDate, StringFormat=d}"></TextBox>
+
+                            <TextBlock Grid.Row="8" FontSize="11" Text="{DynamicResource rep_ordPriority}" Margin="3,1,3,1" Foreground="White"></TextBlock>
+                            <TextBox Grid.Row="9" telerik:StyleManager.Theme="Expression_Dark" Margin="3" IsReadOnly="True"
+                         Text="{Binding SelectedItem.Priority.Description, Mode=OneWay}"></TextBox>
+
+                            <TextBlock Grid.Row="10" FontSize="11" Text="{DynamicResource rep_ordResponse}" Margin="3,1,3,1" Foreground="White"></TextBlock>
+                            <TextBox Grid.Row="11" telerik:StyleManager.Theme="Expression_Dark" MinHeight="100" Margin="3"  AcceptsReturn="True" TextWrapping="Wrap" MaxHeight="300" VerticalContentAlignment="Top"
+                         Text="{Binding SelectedItem.ResponseNote, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            <!--<StackPanel Grid.Row="6" Orientation="Horizontal">
+                            <TextBlock  FontSize="11" Text="Položky" Margin="3,1,3,1" Foreground="White"></TextBlock>
+                            <telerik:RadButton Content="Pridat" Margin="3" telerik:StyleManager.Theme="Expression_Dark" Click="RadButton_Click_3"></telerik:RadButton>
+                            <telerik:RadButton Content="Odebrat" Margin="3" telerik:StyleManager.Theme="Expression_Dark" Click="RadButton_Click_4"></telerik:RadButton>
+                        </StackPanel>-->
+                            <!--<telerik:RadGridView IsReadOnly="True" CanUserInsertRows="False" CanUserDeleteRows="False" x:Name="grdDetails" AutoGenerateColumns="False" IsFilteringAllowed="False" Grid.Row="7" Margin="3" ShowGroupPanel="False" ShowInsertRow="False" RowIndicatorVisibility="Collapsed"
+                                     telerik:StyleManager.Theme="Expression_Dark" ItemsSource="{Binding SelectedItemDetails}">
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn Header="Položka" Width="*" DataMemberBinding="{Binding ItemName}"></telerik:GridViewDataColumn>
+                                <telerik:GridViewMaskedTextBoxColumn MaskType="Numeric" Header="Počet" DataMemberBinding="{Binding ItemCount}"></telerik:GridViewMaskedTextBoxColumn>
+                                <telerik:GridViewDataColumn Header="Jednotka" DataMemberBinding="{Binding ItemUnit}"></telerik:GridViewDataColumn>
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>-->
+
+
+                            <TextBlock Grid.Row="12" FontSize="11" Text="{DynamicResource rep_ordDeliveryDate}" Margin="3,1,3,1" Foreground="White"></TextBlock>
+                            <telerik:RadDatePicker Grid.Row="13" telerik:StyleManager.Theme="Expression_Dark" Margin="3" 
+                                     SelectedValue="{Binding SelectedItem.DeliveryDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></telerik:RadDatePicker>
+<TextBlock Grid.Row="14" FontSize="11" Text="Předpokládaná cena" Margin="3,1,3,1" Foreground="White"></TextBlock>
+                            <telerik:RadNumericUpDown Grid.Row="15" telerik:StyleManager.Theme="Expression_Dark" Margin="3" 
+                                     Value="{Binding SelectedItem.RecommendedPrice, Mode=TwoWay}" IsEnabled="False"></telerik:RadNumericUpDown>
+
+<TextBlock Grid.Row="16" FontSize="11" Text="Skutečná cena" Margin="3,1,3,1" Foreground="White"></TextBlock>
+                            <telerik:RadNumericUpDown Grid.Row="17" telerik:StyleManager.Theme="Expression_Dark" Margin="3" 
+                                     Value="{Binding SelectedItem.RealPrice, Mode=TwoWay}"></telerik:RadNumericUpDown>
+                            
+                            <TextBlock Grid.Row="18" FontSize="11" Text="{DynamicResource rep_ordStatus}" Margin="3,1,3,1" Foreground="White"></TextBlock>
+                            <telerik:RadComboBox Grid.Row="19" telerik:StyleManager.Theme="Expression_Dark" Margin="3" ItemsSource="{Binding Source={StaticResource COSC}, Path=OrderStatus}"
+                                     SelectedItem="{Binding SelectedItem.Status, Mode=TwoWay}" DisplayMemberPath="Description"></telerik:RadComboBox>
+
+                            <TextBlock Grid.Row="20" FontSize="11" Text="{DynamicResource rep_ordApprove}" Margin="3,1,3,1" Foreground="White"></TextBlock>
+                            <TextBox Grid.Row="21" telerik:StyleManager.Theme="Expression_Dark" Margin="3" IsReadOnly="True"
+                         Text="{Binding SelectedItem.ApprovedBy.FullName, Mode=OneWay}"></TextBox>
+
+                            <TextBlock Grid.Row="22" FontSize="11" Text="{DynamicResource rep_ordApproveDate}" Margin="3,1,3,1" Foreground="White"></TextBlock>
+                            <TextBox Grid.Row="23" telerik:StyleManager.Theme="Expression_Dark" Margin="3" IsReadOnly="True"
+                         Text="{Binding SelectedItem.ApproveDate, Mode=OneWay, StringFormat=d}"></TextBox>
+
+                            <TextBlock Grid.Row="24" FontSize="11" Text="{DynamicResource rep_ordAttach}" Margin="3,1,3,1" Foreground="White"></TextBlock>
+                            <StackPanel Grid.Row="25" Margin="3" Orientation="Horizontal">
+                                <TextBlock Text="{Binding SelectedItem.Attachment}" Foreground="White" Margin="3" Width="200" TextWrapping="Wrap"></TextBlock>
+                                <telerik:RadButton Click="btnpreview_click" Content="{DynamicResource ordPreview}" Width="50" Margin="3" telerik:StyleManager.Theme="Expression_Dark"></telerik:RadButton>
+                                <telerik:RadButton Click="btnsavefile_click" Content="{DynamicResource ordSaveAtt}" Width="50" Margin="3" telerik:StyleManager.Theme="Expression_Dark"></telerik:RadButton>
+                            </StackPanel> 
+                        </Grid>
+                    </ScrollViewer>
+                    <Grid Grid.Row="2">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <telerik:RadButton Content="{DynamicResource rep_ordSave}"  telerik:StyleManager.Theme="Expression_Dark" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Width="100" Click="RadButton_Click_2"></telerik:RadButton>
+                            <telerik:RadButton Content="{DynamicResource rep_ordReject}" telerik:StyleManager.Theme="Expression_Dark" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Width="100" Click="RadButtonReject_Click"></telerik:RadButton>
+                        </StackPanel>
+
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Border BorderBrush="White" BorderThickness="1" Margin="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="4*"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock FontSize="11" FontWeight="Bold" Text="{DynamicResource rep_ordOrderList}" Margin="3" VerticalAlignment="Center"  HorizontalAlignment="Center" Foreground="White"></TextBlock>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <telerik:RadButton Margin="3,3,10,3" telerik:StyleManager.Theme="Expression_Dark"  Click="btnrefresh_click">
+                                <Image Source="/COSResources;component/Images/Refresh_48x48.png" Height="20" VerticalAlignment="Center"></Image>
+                            </telerik:RadButton>
+                            <TextBlock Text="{DynamicResource rep_ordFrom}" Foreground="White" VerticalAlignment="Center" Margin="3"></TextBlock>
+                            <telerik:RadDatePicker telerik:StyleManager.Theme="Expression_Dark" Margin="3" SelectedValue="{Binding SelectedDateFrom, Mode=TwoWay}"></telerik:RadDatePicker>
+                            <TextBlock Text="{DynamicResource rep_ordTo}" Foreground="White" VerticalAlignment="Center" Margin="3"></TextBlock>
+                            <telerik:RadDatePicker telerik:StyleManager.Theme="Expression_Dark" Margin="3" SelectedValue="{Binding SelectedDateTo, Mode=TwoWay}"></telerik:RadDatePicker>
+                            <telerik:RadComboBox Margin="3" telerik:StyleManager.Theme="Expression_Dark" Width="100"
+                                         SelectedItem="{Binding SelectedFilterStatus, Mode=TwoWay}" ItemsSource="{Binding Path=OrderStatus, Source={StaticResource COSC}}"></telerik:RadComboBox>
+                            <telerik:RadButton Content="X" Margin="2,4,5,4" telerik:StyleManager.Theme="Expression_Dark" Click="RadButton_Click_5"></telerik:RadButton>
+                        </StackPanel>
+                    </Grid>
+
+                    <telerik:RadGridView x:Name="grdOrders" AutoGenerateColumns="False" IsFilteringAllowed="True" Grid.Row="1" Margin="3" ShowGroupPanel="True" ShowInsertRow="False" RowIndicatorVisibility="Collapsed"
+                                 SelectedItem="{Binding SelectedItem}" RowLoaded="grdOrders_RowLoaded"   IsReadOnly="True" telerik:StyleManager.Theme="Expression_Dark" ItemsSource="{Binding LocalOrders}">
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewDataColumn Header="{DynamicResource rep_ordId}" DataMemberBinding="{Binding ID}"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="{DynamicResource rep_ordPriority}" DataMemberBinding="{Binding Priority.Description}"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="{DynamicResource rep_ordStatus}" DataMemberBinding="{Binding Status.Description}"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="{DynamicResource rep_ordDepartment}" DataMemberBinding="{Binding Department.Description}"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="{DynamicResource rep_ordSubject}" DataMemberBinding="{Binding Subject}" Width="200" MaxWidth="200" TextWrapping="Wrap"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="{DynamicResource rep_ordNote}" DataMemberBinding="{Binding Note}" Width="*" MinWidth="350" MaxWidth="500" TextWrapping="Wrap"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="{DynamicResource rep_ordResponse}" DataMemberBinding="{Binding ResponseNote}" Width="*" MinWidth="350" MaxWidth="500" TextWrapping="Wrap"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="{DynamicResource rep_ordCreatedBy}" DataMemberBinding="{Binding CreatedBy.FullName}"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="{DynamicResource rep_ordCreateDate}" DataMemberBinding="{Binding CreateDate, StringFormat=d}"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="{DynamicResource rep_ordRequiredDate}" DataMemberBinding="{Binding RequiredDate, StringFormat=d}"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="{DynamicResource rep_ordAcceprDate}" DataMemberBinding="{Binding AcceptedDate, StringFormat=d}"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="{DynamicResource rep_ordDeliveryDate}" DataMemberBinding="{Binding DeliveryDate, StringFormat=d}"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="{DynamicResource rep_ordFinishedDate}" DataMemberBinding="{Binding FinishedDate, StringFormat=d}"></telerik:GridViewDataColumn>
+                        </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+
+                    <Grid Grid.Row="2">
+                        <TextBlock FontSize="11" Text="{DynamicResource rep_ordOrderItems}" VerticalAlignment="Center" FontWeight="Bold" Margin="3" HorizontalAlignment="Center" Foreground="White"></TextBlock>
+
+                    </Grid>
+                    <telerik:RadGridView x:Name="grdDetailsOrder" AutoGenerateColumns="False" IsFilteringAllowed="False" Grid.Row="3" Margin="3" ShowGroupPanel="False" ShowInsertRow="False" RowIndicatorVisibility="Collapsed"
+                                     telerik:StyleManager.Theme="Expression_Dark" ItemsSource="{Binding SelectedItem.OrderDetails}" SelectionMode="Single" SelectionUnit="Cell" >
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewDataColumn Header="{DynamicResource rep_ordItem}" Width="*" DataMemberBinding="{Binding ItemName}" IsReadOnly="True"></telerik:GridViewDataColumn>
+                            <telerik:GridViewMaskedTextBoxColumn MaskType="Numeric" Header="{DynamicResource rep_ordCount}" DataMemberBinding="{Binding ItemCount}" IsReadOnly="True"></telerik:GridViewMaskedTextBoxColumn>
+                            <telerik:GridViewDataColumn Header="{DynamicResource rep_ordUnit}" DataMemberBinding="{Binding ItemUnit}" IsReadOnly="True"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="{DynamicResource rep_ordStatus}" IsFilterable="False" IsSortable="False" IsReadOnly="False">
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Status.Description}" Foreground="White" Margin="3"></TextBlock>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                                <telerik:GridViewDataColumn.CellEditTemplate>
+                                    <DataTemplate>
+                                        <telerik:RadComboBox telerik:StyleManager.Theme="Expression_Dark" Margin="3" ItemsSource="{Binding Source={StaticResource COSC}, Path=OrderStatus}"
+                                     SelectedItem="{Binding Status, Mode=TwoWay}" DisplayMemberPath="Description"></telerik:RadComboBox>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellEditTemplate>
+                            </telerik:GridViewDataColumn>
+                        </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+                </Grid>
+            </Border>
+        </Grid>
+
+
+
+    </Grid>
+</bc:BaseUserControl>
+
+

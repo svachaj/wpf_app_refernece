@@ -1,0 +1,34 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:my="clr-namespace:System;assembly=mscorlib">
+  <my:String x:Key="adm_RonID">RON ID</my:String>
+  <my:String x:Key="adm_CZtext">Czech label</my:String>
+  <my:String x:Key="adm_ENtext">English label</my:String>
+  <my:String x:Key="adm_Division">Division</my:String>
+  <my:String x:Key="adm_Value">Value</my:String>
+  <my:String x:Key="adm_GroupName">Group name</my:String>
+  <my:String x:Key="adm_Description">Description</my:String>
+  <my:String x:Key="adm_save">Save</my:String>
+  <my:String x:Key="adm_Cancel">Cancel</my:String>
+  <my:String x:Key="adm_GroupList">List of groups</my:String>
+  <my:String x:Key="adm_Name">Name</my:String>
+  <my:String x:Key="adm_Action">Action</my:String>
+  <my:String x:Key="adm_AccType">Account type</my:String>
+  <my:String x:Key="adm_HrID">HR ID</my:String>
+  <my:String x:Key="adm_LoginName">Login</my:String>
+  <my:String x:Key="adm_ConfirmPAssword">Confirm password</my:String>
+  <my:String x:Key="adm_FirstName">First name</my:String>
+  <my:String x:Key="adm_Surname">Last name</my:String>
+  <my:String x:Key="adm_Group">Group</my:String>
+  <my:String x:Key="adm_Email">E-mail</my:String>
+  <my:String x:Key="adm_IsActive">Active</my:String>
+  <my:String x:Key="adm_AccountExpire">Account expiration</my:String>
+  <my:String x:Key="adm_PasswordExpire">Password expiration</my:String>
+  <my:String x:Key="adm_PwdForceChange">Force change password</my:String>
+  <my:String x:Key="adm_Password">Password</my:String>
+  <my:String x:Key="adm_OldPassword">Old password</my:String>
+  <my:String x:Key="adm_NewPassword">New password</my:String>
+  <my:String x:Key="adm_ConfirmPassword">Confirm password</my:String>
+  <my:String x:Key="adm_CostCenter">Cost center</my:String>
+  <my:String x:Key="adm_UserDetail">User: Detail</my:String>
+  <my:String x:Key="adm_ID">ID</my:String>
+  <my:String x:Key="admIDDDD">ergerger</my:String>
+</ResourceDictionary>

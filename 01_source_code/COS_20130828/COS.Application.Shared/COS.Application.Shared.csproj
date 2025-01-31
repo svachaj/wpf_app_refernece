@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B2DBB0E3-4B9D-4C40-ACF3-ECC540868351}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>COS.Application.Shared</RootNamespace>
+    <AssemblyName>COS.Application.Shared</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ImportMatrixConfiguratorData.cs" />
+    <Compile Include="ImportPriceListData.cs" />
+    <Compile Include="COSContext.cs" />
+    <Compile Include="COSDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>COSDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="HelperClasses.cs" />
+    <Compile Include="ImportStandardData.cs" />
+    <Compile Include="Metadata\AccountType.shared.cs" />
+    <Compile Include="Metadata\BonusGroup.shared.cs" />
+    <Compile Include="Metadata\ConfiguratorGroup.shared.cs" />
+    <Compile Include="Metadata\AccidentLog.shared.cs" />
+    <Compile Include="Metadata\ForeignExportTransportOrder.shared.cs" />
+    <Compile Include="Metadata\DomesticCustomer.shared.cs" />
+    <Compile Include="Metadata\ProdDifficulty.shared.cs" />
+    <Compile Include="Metadata\VA4H_difficultyType.shared.cs" />
+    <Compile Include="Metadata\VA4H.shared.cs" />
+    <Compile Include="Metadata\ProdPlanTransportType.shared.cs" />
+    <Compile Include="Metadata\ProdPlanExecutionType.shared.cs" />
+    <Compile Include="Metadata\ProdPlanState.shared.cs" />
+    <Compile Include="Metadata\ProdPlanManufacture.shared.cs" />
+    <Compile Include="Metadata\ProdPlanSupplier.shared.cs" />
+    <Compile Include="Metadata\DomesticExportDetail.shared.cs" />
+    <Compile Include="Metadata\SysAction.shared.cs" />
+    <Compile Include="Metadata\DomesticCustomerContact.shared.cs" />
+    <Compile Include="Metadata\DomesticDestination.shared.cs" />
+    <Compile Include="Metadata\DomesticComposition.shared.cs" />
+    <Compile Include="Metadata\DomesticForwarder.shared.cs" />
+    <Compile Include="Metadata\DomesticContactType.shared.cs" />
+    <Compile Include="Metadata\DomesticExport.shared.cs" />
+    <Compile Include="Metadata\Order.shared.cs" />
+    <Compile Include="Metadata\ForeignExport.shared.cs" />
+    <Compile Include="Metadata\HrDepartment.shared.cs" />
+    <Compile Include="Metadata\OrderPriority.shared.cs" />
+    <Compile Include="Metadata\OrderStatus.shared.cs" />
+    <Compile Include="Metadata\ForeignOrderedBy.shared.cs" />
+    <Compile Include="Metadata\ForeignPlatform.shared.cs" />
+    <Compile Include="Metadata\ProductionAsset.Shared.cs" />
+    <Compile Include="Metadata\SysLocalize.shared.cs" />
+    <Compile Include="Metadata\TmToolWC.shared.cs" />
+    <Compile Include="Metadata\TpmCheckList.shared.cs" />
+    <Compile Include="Metadata\TpmPlanExecution.shared.cs" />
+    <Compile Include="Metadata\TpmCheckList_CheckListItem.shared.cs" />
+    <Compile Include="Metadata\TpmPlan.shared.cs" />
+    <Compile Include="Metadata\ForeignExportDetail.shared.cs" />
+    <Compile Include="Metadata\ViewEmployee.shared.cs" />
+    <Compile Include="Metadata\TransportPayment.shared.cs" />
+    <Compile Include="Metadata\Unit.shared.cs" />
+    <Compile Include="Metadata\Destination.shared.cs" />
+    <Compile Include="Metadata\Forwarder.shared.cs" />
+    <Compile Include="Metadata\Country.shared.cs" />
+    <Compile Include="Metadata\HourlyProduction.Shared.cs" />
+    <Compile Include="Metadata\ProductionHRResource.Shared.cs" />
+    <Compile Include="Metadata\ZoneLogistics.shared.cs" />
+    <Compile Include="Metadata\ForeignTransportPayment.shared.cs" />
+    <Compile Include="Metadata\TpmStatus.shared.cs" />
+    <Compile Include="Metadata\TpmPriority.shared.cs" />
+    <Compile Include="Metadata\TpmRecurrencePattern.shared.cs" />
+    <Compile Include="Metadata\Equipment.shared.cs" />
+    <Compile Include="Metadata\ProductionOrderInfo.Shared.cs" />
+    <Compile Include="Metadata\Downtime.shared.cs" />
+    <Compile Include="Metadata\DowntimeGroup.shared.cs" />
+    <Compile Include="Metadata\SysClass.shared.cs" />
+    <Compile Include="Metadata\WorkCenter.shared.cs" />
+    <Compile Include="Metadata\Shift.shared.cs" />
+    <Compile Include="Metadata\ShiftType.shared.cs" />
+    <Compile Include="Metadata\Division.shared.cs" />
+    <Compile Include="Metadata\CostCenter.shared.cs" />
+    <Compile Include="Metadata\ItemGroup.shared.cs" />
+    <Compile Include="Metadata\WorkPosition.shared.cs" />
+    <Compile Include="Metadata\ShiftPatern.shared.cs" />
+    <Compile Include="Metadata\SalaryGroup.shared.cs" />
+    <Compile Include="Metadata\WorkGroup.shared.cs" />
+    <Compile Include="Metadata\EmployerHR.shared.cs" />
+    <Compile Include="Metadata\Employee.Shared.cs" />
+    <Compile Include="Metadata\User.Shared.cs" />
+    <Compile Include="Production\ExcelExport.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportingClasses.cs" />
+    <Compile Include="RONDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RONDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SynchronizeItem.cs" />
+    <Compile Include="TM\Helpers.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="COSDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>COSDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\COS.Common\COS.Common.csproj">
+      <Project>{94CB540B-4A30-49EF-8675-3DE324F2CEE4}</Project>
+      <Name>COS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Excel\COS.Excel.csproj">
+      <Project>{F49E8F45-4F30-4324-8EF0-CF3CC319510F}</Project>
+      <Name>COS.Excel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Security\COS.Security.csproj">
+      <Project>{4DFD8545-77B0-40DA-A309-2941DC4CEF24}</Project>
+      <Name>COS.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Resources\COS.Resources.csproj">
+      <Project>{8B4B7105-9B1A-429B-99EE-F8244C8CB3CA}</Project>
+      <Name>COS.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="RONDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RONDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

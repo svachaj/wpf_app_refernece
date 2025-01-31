@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3EBBC63B-1A79-4469-ACA1-17613137EC44}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>COS.Application.Engeneering</RootNamespace>
+    <AssemblyName>COS.Application.Engeneering</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RibbonView, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Controls.RibbonView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\MKRAL\AppData\Roaming\Telerik\Updates\RadControls_for_WPF_2012_1_0215_Dev_hotfix\Binaries\WPF40\Telerik.Windows.Documents.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\ConfiguratorsViewModel.cs" />
+    <Compile Include="Models\ConfiguratorGroupsViewModel.cs" />
+    <Compile Include="Models\DowntimeGroupDowntimeViewModel.cs" />
+    <Compile Include="Models\MatrixConfiguratorsViewModel.cs" />
+    <Compile Include="Models\ShiftPatternsDetailViewModel.cs" />
+    <Compile Include="Models\ShiftPatternsViewModel.cs" />
+    <Compile Include="Models\WorkGroupsWorkCentersViewModel.cs" />
+    <Compile Include="Models\DowntimesDetailViewModel.cs" />
+    <Compile Include="Models\DowntimesGroupDetailViewModel.cs" />
+    <Compile Include="Models\DowntimesGroupViewModel.cs" />
+    <Compile Include="Models\DowntimesViewModel.cs" />
+    <Compile Include="Models\ItemsGroupDetailViewModel.cs" />
+    <Compile Include="Models\ItemsGroupViewModel.cs" />
+    <Compile Include="Models\ShiftsDetailViewModel.cs" />
+    <Compile Include="Models\ShiftsTypeDetailViewModel.cs" />
+    <Compile Include="Models\ShiftsTypeViewModel.cs" />
+    <Compile Include="Models\ShiftsViewModel.cs" />
+    <Compile Include="Models\StandardsViewModel.cs" />
+    <Compile Include="Models\WorkCentersDetailViewModel.cs" />
+    <Compile Include="Models\WorkCentersViewModel.cs" />
+    <Compile Include="Models\WorkGroupDetailViewModel.cs" />
+    <Compile Include="Models\WorkGroupsViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Views\ConfiguratorsView.xaml.cs">
+      <DependentUpon>ConfiguratorsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConfiguratorWCSWindow.xaml.cs">
+      <DependentUpon>ConfiguratorWCSWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConfiguratorGroupsView.xaml.cs">
+      <DependentUpon>ConfiguratorGroupsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DowntimeGroupDowntimeView.xaml.cs">
+      <DependentUpon>DowntimeGroupDowntimeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MatrixConfiguratorsView.xaml.cs">
+      <DependentUpon>MatrixConfiguratorsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StdFilterWindow.xaml.cs">
+      <DependentUpon>StdFilterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShiftPatternsDetailView.xaml.cs">
+      <DependentUpon>ShiftPatternsDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShiftPatternsView.xaml.cs">
+      <DependentUpon>ShiftPatternsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UnexistsStdFilterWindow.xaml.cs">
+      <DependentUpon>UnexistsStdFilterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WorkGroupsWorkCentersView.xaml.cs">
+      <DependentUpon>WorkGroupsWorkCentersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DowntimesDetailView.xaml.cs">
+      <DependentUpon>DowntimesDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DowntimesGroupDetailView.xaml.cs">
+      <DependentUpon>DowntimesGroupDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DowntimesGroupView.xaml.cs">
+      <DependentUpon>DowntimesGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DowntimesView.xaml.cs">
+      <DependentUpon>DowntimesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ItemsGroupDetailView.xaml.cs">
+      <DependentUpon>ItemsGroupDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ItemsGroupView.xaml.cs">
+      <DependentUpon>ItemsGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShiftsDetailView.xaml.cs">
+      <DependentUpon>ShiftsDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShiftsTypeDetailView.xaml.cs">
+      <DependentUpon>ShiftsTypeDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShiftsTypeView.xaml.cs">
+      <DependentUpon>ShiftsTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShiftsView.xaml.cs">
+      <DependentUpon>ShiftsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StandardsView.xaml.cs">
+      <DependentUpon>StandardsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WorkCentersDetailView.xaml.cs">
+      <DependentUpon>WorkCentersDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WorkCentersView.xaml.cs">
+      <DependentUpon>WorkCentersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WorkGroupDetailView.xaml.cs">
+      <DependentUpon>WorkGroupDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WorkGroupsView.xaml.cs">
+      <DependentUpon>WorkGroupsView.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\COS.Application.Shared\COS.Application.Shared.csproj">
+      <Project>{B2DBB0E3-4B9D-4C40-ACF3-ECC540868351}</Project>
+      <Name>COS.Application.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Common.WPF\COS.Common.WPF.csproj">
+      <Project>{97BDCC98-A0C1-4072-8834-311258B3A354}</Project>
+      <Name>COS.Common.WPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Common\COS.Common.csproj">
+      <Project>{94CB540B-4A30-49EF-8675-3DE324F2CEE4}</Project>
+      <Name>COS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Excel\COS.Excel.csproj">
+      <Project>{F49E8F45-4F30-4324-8EF0-CF3CC319510F}</Project>
+      <Name>COS.Excel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Security\COS.Security.csproj">
+      <Project>{4DFD8545-77B0-40DA-A309-2941DC4CEF24}</Project>
+      <Name>COS.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Resources\COS.Resources.csproj">
+      <Project>{8B4B7105-9B1A-429B-99EE-F8244C8CB3CA}</Project>
+      <Name>COS.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Page Include="Views\ConfiguratorsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ConfiguratorWCSWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ConfiguratorGroupsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DowntimeGroupDowntimeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MatrixConfiguratorsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StdFilterWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ShiftPatternsDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ShiftPatternsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UnexistsStdFilterWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\WorkGroupsWorkCentersView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DowntimesDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DowntimesGroupDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DowntimesGroupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DowntimesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ItemsGroupDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ItemsGroupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ShiftsDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ShiftsTypeDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ShiftsTypeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ShiftsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StandardsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\WorkCentersDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\WorkCentersView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\WorkGroupDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\WorkGroupsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

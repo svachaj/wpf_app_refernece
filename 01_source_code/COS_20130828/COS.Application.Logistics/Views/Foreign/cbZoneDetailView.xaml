@@ -1,0 +1,142 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" 
+                    x:Class="COS.Application.Logistics.Views.cbZoneDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="300" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource log_Id}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="0" Grid.Column="1" IsReadOnly="True" Text="{Binding SelectedItem.ID, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="3" VerticalAlignment="Center">
+            </TextBox>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource log_cbCode}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="1" Grid.Column="1" IsReadOnly="False" Text="{Binding SelectedItem.Code, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="3" VerticalAlignment="Center">
+            </TextBox>
+
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource log_cbCountryCode}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <!--<telerik:RadComboBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="2" Grid.Column="1" CanAutocompleteSelectItems="True" OpenDropDownOnFocus="True"
+                                 ItemsSource="{Binding Countries,Source={StaticResource COSC}}" IsEditable="True" 
+                     SelectedItem="{Binding SelectedItem.Country,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"  Margin="3" VerticalAlignment="Center">
+                <telerik:RadComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Code}"></TextBlock>
+                    </DataTemplate>
+                </telerik:RadComboBox.ItemTemplate>
+            </telerik:RadComboBox>-->
+
+            <telerik:RadComboBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="2" Grid.Column="1"  IsEditable="True" CanAutocompleteSelectItems="True"  DisplayMemberPath="Code"  ItemsSource="{Binding Countries,Source={StaticResource COSC}}"
+                                 OpenDropDownOnFocus="True"  SelectedItem="{Binding SelectedItem.Country, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"  Margin="3" VerticalAlignment="Center">
+              
+            </telerik:RadComboBox>
+
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="{DynamicResource log_cbDestination}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="3" Grid.Column="1" IsReadOnly="False" Text="{Binding SelectedItem.DestinationName, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="3" VerticalAlignment="Center">
+            </TextBox>
+
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="{DynamicResource log_cblNumber}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="4" Grid.Column="1" IsReadOnly="False" Text="{Binding SelectedItem.lNumber, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="3" VerticalAlignment="Center">
+            </TextBox>
+
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="{DynamicResource log_isCombination}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="5" Grid.Column="1" IsReadOnly="False" Text="{Binding SelectedItem.cNumber, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="3" VerticalAlignment="Center">
+            </TextBox>
+
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="{DynamicResource log_cbcNumber}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <Button telerik:StyleManager.Theme="Expression_Dark" Grid.Row="6" Grid.Column="1" Content="{DynamicResource log_cNumberSetup}"
+                     Margin="3" VerticalAlignment="Center" Click="Button_Click">
+            </Button>
+
+            <TextBlock Grid.Row="7" Grid.Column="0" Text="{DynamicResource log_Distance}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <telerik:RadNumericUpDown telerik:StyleManager.Theme="Expression_Dark" Grid.Row="7" Grid.Column="1" 
+                             Value="{Binding SelectedItem.Distance, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" Margin="3" VerticalAlignment="Center" Minimum="0" NumberDecimalDigits="0">
+            </telerik:RadNumericUpDown>
+
+            <TextBlock Grid.Row="8" Grid.Column="0" Text="Avizace" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <Button telerik:StyleManager.Theme="Expression_Dark" Grid.Row="8" Grid.Column="1" Content="{DynamicResource log_cNumberSetup}"
+                     Margin="3" VerticalAlignment="Center" Click="btnAdvices_Click">
+            </Button>
+
+            <TextBlock Grid.Row="9" Grid.Column="0" Text="{DynamicResource log_ProdTimeWindow}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <telerik:RadTimePicker telerik:StyleManager.Theme="Expression_Dark" Grid.Row="9" Grid.Column="1" IsReadOnly="False" SelectedTime="{Binding SelectedItem.ProdTimeWindow, Mode=TwoWay}" 
+                     Margin="3" VerticalAlignment="Center">
+            </telerik:RadTimePicker>
+
+            <TextBlock Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Text="{DynamicResource log_ZnOrderInfo}" Margin="3" HorizontalAlignment="Center"  VerticalAlignment="Center"></TextBlock>
+
+            <TextBlock Grid.Row="11" Grid.Column="0" Text="{DynamicResource log_ZnCompany}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="11" Grid.Column="1" IsReadOnly="False" TextWrapping="Wrap" Text="{Binding SelectedItem.ordCompanyName, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="3" VerticalAlignment="Center">
+            </TextBox>
+
+            <TextBlock Grid.Row="12" Grid.Column="0" Text="{DynamicResource log_ZnStreet}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="12" Grid.Column="1" IsReadOnly="False" TextWrapping="Wrap" Text="{Binding SelectedItem.ordStreet, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="3" VerticalAlignment="Center">
+            </TextBox>
+
+            <TextBlock Grid.Row="13" Grid.Column="0" Text="{DynamicResource log_ZnCity}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="13" Grid.Column="1" IsReadOnly="False" TextWrapping="Wrap" Text="{Binding SelectedItem.ordCity, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="3" VerticalAlignment="Center">
+            </TextBox>
+
+            <TextBlock Grid.Row="14" Grid.Column="0" Text="{DynamicResource log_ZnPostalCode}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="14" Grid.Column="1" IsReadOnly="False" TextWrapping="Wrap" Text="{Binding SelectedItem.ordPostalCode, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="3" VerticalAlignment="Center">
+            </TextBox>
+
+
+
+
+
+        </Grid>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" Margin="3">
+            <telerik:RadButton telerik:StyleManager.Theme="Expression_Dark"  Content="{DynamicResource log_Save}" Height="Auto"  Width="Auto" Margin="3" Padding="10,5,10,5" Command="{Binding UpdateCommand}" />
+            <telerik:RadButton telerik:StyleManager.Theme="Expression_Dark" Content="{DynamicResource log_Cancel}" Height="Auto"  Width="Auto" Margin="3" Padding="10,5,10,5" Command="{Binding CancelCommand}" />
+        </StackPanel>
+    </Grid>
+</bc:BaseUserControl>

@@ -1,0 +1,113 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" 
+                    x:Class="COS.Application.Logistics.Views.Domestic.cbDomesticCustomerContactsDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                    xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="500" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="5"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource log_Id}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="0" Grid.Column="1" IsReadOnly="True" Text="{Binding SelectedItem.ID, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="3" VerticalAlignment="Center">
+            </TextBox>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource log_DomesticCustomerName}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="1" Grid.Column="1" 
+                     Text="{Binding SelectedItem.CustomerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"  Margin="3" VerticalAlignment="Center"></TextBox>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource log_DomesticCustomerCountry}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <telerik:RadComboBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="2" Grid.Column="1" 
+                                 SelectedItem="{Binding SelectedItem.Country, Mode=TwoWay}"
+                    ItemsSource="{Binding LocalCountries}"  DisplayMemberPath="Description"  
+                                 Margin="3" VerticalAlignment="Center"></telerik:RadComboBox>
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="{DynamicResource log_DomesticCustomerNumber}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="3" Grid.Column="1" 
+                     Text="{Binding SelectedItem.CustomerNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"  Margin="3" VerticalAlignment="Center"></TextBox>
+
+
+
+            <Grid Grid.Row="5" Grid.ColumnSpan="3">
+                <Grid Background="Transparent">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource log_DomesticCustomerContacts}" FontWeight="Bold" Margin="4" VerticalAlignment="Center"></TextBlock>
+
+                    <my:COSToolBar telerik:StyleManager.Theme="Expression_Dark" Grid.Row="1" Margin="3,0,3,0" UpdateButtonVisibility="Collapsed" CancelButtonVisibility="Collapsed" InsertButtonVisibility="Collapsed" DeleteButtonVisibility="Collapsed" >
+                        <telerik:RadButton  VerticalAlignment="Center" Click="btnInsert_Click" ToolTip="{DynamicResource gen_tt_Insert}">
+                            <Image Source="/COSResources;component/Images/Add_48x48.png" Height="24" VerticalAlignment="Center"></Image>
+                        </telerik:RadButton>
+                        <telerik:RadButton  VerticalAlignment="Center" Click="btnDelete_Click" ToolTip="{DynamicResource gen_tt_Delete}">
+                            <Image Source="/COSResources;component/Images/Delete_48x48.png" Height="24" VerticalAlignment="Center"></Image>
+                        </telerik:RadButton>
+                    </my:COSToolBar>
+                    <Grid Grid.Row="2">
+
+                        <telerik:RadGridView telerik:StyleManager.Theme="Expression_Dark" AutoGenerateColumns="False" MouseDoubleClick="grvCodeBook_MouseDoubleClick"
+                                 CanUserInsertRows="False" x:Name="grvCodebook" RowIndicatorVisibility="Collapsed"
+                             ItemsSource="{Binding SelectedItem.Contacts}" Margin="3,0,3,0"
+                              ShowInsertRow="False"  ShowGroupPanel="False"
+                              RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="Auto" SelectionMode="Extended" ClipboardCopyMode="All">
+                            <telerik:RadGridView.Columns>
+
+                                <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding Name}" Header="{DynamicResource log_DomesticName}"  >
+                                </telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding Surname}" Header="{DynamicResource log_DomesticSurname}"  >
+                                </telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding PhoneNumber}" Header="{DynamicResource log_DomesticPhone}"  >
+                                </telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding Email}" Header="{DynamicResource log_DomesticEmail}"  >
+                                </telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ContactType.Description}" Header="{DynamicResource log_DomesticContactType}"  >
+                                </telerik:GridViewDataColumn>
+
+
+                            </telerik:RadGridView.Columns>
+
+                        </telerik:RadGridView>
+                    </Grid>
+
+                    <Border Grid.ColumnSpan="10" Grid.RowSpan="10" BorderBrush="White" BorderThickness="1"></Border>
+                </Grid>
+            </Grid>
+
+
+        </Grid>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" Margin="3">
+            <telerik:RadButton telerik:StyleManager.Theme="Expression_Dark"  Content="{DynamicResource log_Save}" Height="Auto"  Width="Auto" Margin="3" Padding="10,5,10,5" Command="{Binding UpdateCommand}" />
+            <telerik:RadButton telerik:StyleManager.Theme="Expression_Dark" Content="{DynamicResource log_Cancel}" Height="Auto"  Width="Auto" Margin="3" Padding="10,5,10,5" Command="{Binding CancelCommand}" />
+        </StackPanel>
+    </Grid>
+</bc:BaseUserControl>

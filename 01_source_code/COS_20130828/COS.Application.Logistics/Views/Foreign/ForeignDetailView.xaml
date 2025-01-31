@@ -1,0 +1,570 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF"  x:Class="COS.Application.Logistics.Views.ForeignDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="800" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF">
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+
+    <Grid Background="BLACK">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" telerik:StyleManager.Theme="Expression_Dark">
+            <Grid HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+                <!--shipment info-->
+                <Border x:Name="borderShipment" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Margin="3" BorderBrush="Gray" BorderThickness="1.5" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0,0,0,1.5" Margin="0,0,0,3">
+                            <TextBlock Foreground="White" Margin="3" HorizontalAlignment="Center" Text="{DynamicResource log_Shipment}" FontWeight="Bold"></TextBlock>
+                        </Border>
+
+                        <Grid Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                <ColumnDefinition Width="280"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource log_Country}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                            <telerik:RadComboBox Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" ItemsSource="{Binding LocalCountries}" CanAutocompleteSelectItems="True" OpenDropDownOnFocus="True"  
+                                              Tag="log_det_cmb_country"     Name="cmbCountries" SelectionChanged="countryRadComboBox_SelectionChanged"
+                                         Margin="3" Foreground="White" telerik:StyleManager.Theme="Expression_Dark" IsTabStop="true" TabIndex="1" IsEditable="True">
+                                <telerik:RadComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Description}"></TextBlock>
+                                    </DataTemplate>
+                                </telerik:RadComboBox.ItemTemplate>
+                            </telerik:RadComboBox>
+
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource log_Destination}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                            <telerik:RadComboBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" ItemsSource="{Binding LocalZoneLogistics}"  CanAutocompleteSelectItems="True" OpenDropDownOnFocus="True"
+                                          Tag="log_det_cmb_zone"    Name="cmbZones"       SelectedValue="{Binding SelectedItem.Destination, Mode=TwoWay}"
+                                         Margin="3" Foreground="White" telerik:StyleManager.Theme="Expression_Dark" IsTabStop="true" TabIndex="2" IsEditable="True">
+                                <telerik:RadComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding DisplayName}"></TextBlock>
+                                    </DataTemplate>
+                                </telerik:RadComboBox.ItemTemplate>
+                            </telerik:RadComboBox>
+
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource log_Forwarder}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                            <telerik:RadComboBox Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" ItemsSource="{Binding Forwarders, Source={StaticResource COSC}}"  
+                                                Tag="log_det_cmb_forwarder"     SelectedValue="{Binding SelectedItem.Forwarder, Mode=TwoWay}" CanAutocompleteSelectItems="True" OpenDropDownOnFocus="True"
+                                         Margin="3" Foreground="White" telerik:StyleManager.Theme="Expression_Dark" IsTabStop="true" TabIndex="3" IsEditable="True">
+                                <telerik:RadComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Name}"></TextBlock>
+                                    </DataTemplate>
+                                </telerik:RadComboBox.ItemTemplate>
+                            </telerik:RadComboBox>
+
+
+
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="{DynamicResource log_VolumeCbm}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <telerik:RadNumericUpDown Tag="log_det_num_volumecbm" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="4" Grid.Column="3" Minimum="0"
+                             Value="{Binding SelectedItem.VolumeCbm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"                                                 
+                              Margin="3" VerticalAlignment="Center" TabIndex="5">
+                            </telerik:RadNumericUpDown>
+
+
+
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="{DynamicResource log_Unit}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                            <telerik:RadComboBox Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" ItemsSource="{Binding ForeignUnits, Source={StaticResource COSC}}"  
+                                               Tag="log_det_cmb_unit"      SelectedItem="{Binding SelectedItem.Unit, Mode=TwoWay}" CanAutocompleteSelectItems="True" OpenDropDownOnFocus="True"
+                                         Margin="3" Foreground="White" telerik:StyleManager.Theme="Expression_Dark" IsTabStop="true" TabIndex="4" IsEditable="True">
+                                <telerik:RadComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding UnitName}"></TextBlock>
+                                    </DataTemplate>
+                                </telerik:RadComboBox.ItemTemplate>
+                            </telerik:RadComboBox>
+
+                            <TextBlock Grid.Row="5" Grid.Column="0" Text="{DynamicResource log_UnitNo}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <telerik:RadNumericUpDown Tag="log_det_num_nounit" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="5" Grid.Column="3" IsInteger="True" 
+                             Value="{Binding SelectedItem.NoUnit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                              Margin="3" VerticalAlignment="Center"  TabIndex="6" Maximum="1" IsEditable="True" IsEnabled="false" Minimum="1">
+                            </telerik:RadNumericUpDown>
+
+
+                            <TextBlock Grid.Row="6" Grid.Column="0" Text="{DynamicResource log_ForwarderPrice}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <CheckBox Tag="log_det_chb_forwarderprice" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="6" Grid.Column="1" IsChecked="{Binding SelectedItem.IsForwarderPriceChanged, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" ></CheckBox>
+                            <telerik:RadNumericUpDown  telerik:StyleManager.Theme="Expression_Dark" Grid.Row="6" Grid.Column="3"
+                             Value="{Binding SelectedItem.ForwarderPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                                        IsEnabled="{Binding SelectedItem.IsForwarderPriceChanged}"
+                              Margin="3" VerticalAlignment="Center" TabIndex="7">
+                            </telerik:RadNumericUpDown>
+
+                            <TextBlock Grid.Row="7" Grid.Column="0" Text="{DynamicResource log_BafPrice}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <CheckBox Tag="log_det_chb_bafprice" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="7" Grid.Column="1" IsChecked="{Binding SelectedItem.IsBafPriceChanged, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" ></CheckBox>
+                            <telerik:RadNumericUpDown  telerik:StyleManager.Theme="Expression_Dark" Grid.Row="7" Grid.Column="3"
+                             Value="{Binding SelectedItem.BafPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                                                    IsEnabled="{Binding SelectedItem.IsBafPriceChanged}"
+                              Margin="3" VerticalAlignment="Center" TabIndex="8">
+                            </telerik:RadNumericUpDown>
+
+                            <TextBlock Grid.Row="8" Grid.Column="0" Text="{DynamicResource log_TollPrice}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <telerik:RadNumericUpDown Tag="log_det_num_tollprice" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="8" Grid.Column="3"
+                             Value="{Binding SelectedItem.TollPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                                                   IsEnabled="True"
+                              Margin="3" VerticalAlignment="Center" TabIndex="9">
+                            </telerik:RadNumericUpDown>
+
+                            <TextBlock Grid.Row="9" Grid.Column="0" Text="{DynamicResource log_TollPriceGerlach}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <telerik:RadNumericUpDown Tag="log_det_num_tollpricegerlach" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="9" Grid.Column="3"
+                             Value="{Binding SelectedItem.TollPriceGerlach, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                                                   IsEnabled="True"
+                              Margin="3" VerticalAlignment="Center" TabIndex="9">
+                            </telerik:RadNumericUpDown>
+
+                            <TextBlock Grid.Row="10" Grid.Column="0" Text="{DynamicResource log_TotalPrice}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <telerik:RadNumericUpDown telerik:StyleManager.Theme="Expression_Dark" Grid.Row="10" Grid.Column="3"
+                             Value="{Binding SelectedItem.TotalPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                                                   IsEnabled="False"
+                              Margin="3" VerticalAlignment="Center" TabIndex="10">
+                            </telerik:RadNumericUpDown>
+
+
+                            <!--konec nove sekce-->
+
+
+
+
+
+
+
+                            <TextBlock Grid.Row="11" Grid.Column="0" Text="{DynamicResource log_PlannedDate}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                            <telerik:RadDatePicker Tag="log_det_dtp_planneddate" Grid.Row="11" Grid.Column="2" VerticalAlignment="Center" 
+                                                   SelectedValue="{Binding SelectedItem.PlannedDate, Mode=TwoWay}"
+                                         Margin="3" telerik:StyleManager.Theme="Expression_Dark" TabIndex="11">
+                            </telerik:RadDatePicker>
+
+                            <TextBlock Grid.Row="12" Grid.Column="0" Text="{DynamicResource log_Platform}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                            <telerik:RadComboBox Tag="log_det_cmb_platform" Grid.Row="12" Grid.Column="2" VerticalAlignment="Center" ItemsSource="{Binding ForeignPlatforms, Source={StaticResource COSC}}" IsEditable="True"
+                                                     SelectedValue="{Binding SelectedItem.Platform, Mode=TwoWay}" telerik:StyleManager.Theme="Expression_Dark" CanAutocompleteSelectItems="True" OpenDropDownOnFocus="True"
+                                             Margin="3" Foreground="White"  IsTabStop="true" TabIndex="12">
+                                <telerik:RadComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding PlatformName}"></TextBlock>
+                                    </DataTemplate>
+                                </telerik:RadComboBox.ItemTemplate>
+                            </telerik:RadComboBox>
+
+
+                            <TextBlock Grid.Row="13" Grid.Column="0" Text="{DynamicResource log_TimeWindow}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                            <telerik:RadComboBox Tag="log_det_cmb_timewindow" Grid.Row="13" Grid.Column="2" VerticalAlignment="Center" ItemsSource="{Binding ForeignTimeWindows, Source={StaticResource COSC}}"  
+                                                 Text="{Binding SelectedItem.TimeWindow, Mode=TwoWay}" IsEditable="True" CanAutocompleteSelectItems="True"
+                                         Margin="3"  IsTabStop="true" TabIndex="13" DisplayMemberPath="fText">
+
+                            </telerik:RadComboBox>
+
+                            <TextBlock Grid.Row="14" Grid.Column="0" Text="{DynamicResource log_Priority}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                            <telerik:RadNumericUpDown Tag="log_det_num_priority" Grid.Row="14" Grid.Column="2" VerticalAlignment="Center" Minimum="1" Maximum="10"   
+                                                   Value="{Binding SelectedItem.Priority, Mode=TwoWay}"
+                                         Margin="3" telerik:StyleManager.Theme="Expression_Dark" IsInteger="True" TabIndex="14">
+                            </telerik:RadNumericUpDown>
+
+                            <TextBlock Grid.Row="15" Grid.Column="0" Text="{DynamicResource log_TRP}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <TextBox Tag="log_det_tbx_trp" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="15" Grid.Column="2"
+                             Text="{Binding SelectedItem.TRP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                              Margin="3" VerticalAlignment="Center" TabIndex="15">
+                            </TextBox>
+
+                            <TextBlock Grid.Row="16" Grid.Column="0" Text="{DynamicResource log_IsInProgess}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <CheckBox Tag="log_det_chb_IsInProgress" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="16" Grid.Column="2" IsChecked="{Binding SelectedItem.IsInProgess, Mode=TwoWay}" VerticalAlignment="Center" Margin="3" TabIndex="16"></CheckBox>
+
+                            <TextBlock Grid.Row="17" Grid.Column="0" Text="{DynamicResource log_LoadCheck}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <CheckBox Tag="log_det_chb_loadcheck" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="17" Grid.Column="2" IsChecked="{Binding SelectedItem.LoadCheck, Mode=TwoWay}" VerticalAlignment="Center" Margin="3" TabIndex="16"></CheckBox>
+
+                            <TextBlock Grid.Row="18" Grid.Column="0" Text="{DynamicResource log_LoadCheckVi}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <CheckBox Tag="log_det_chb_loadcheckvi" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="18" Grid.Column="2" IsChecked="{Binding SelectedItem.ViLoadCheck, Mode=TwoWay}" VerticalAlignment="Center" Margin="3" TabIndex="17"></CheckBox>
+
+                            <TextBlock Grid.Row="19" Grid.Column="0" Text="{DynamicResource log_TruckOnRamp}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <CheckBox Tag="log_det_chb_truckonramp" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="19" Grid.Column="2" IsChecked="{Binding SelectedItem.TruckOnRamp, Mode=TwoWay}" VerticalAlignment="Center" Margin="3" TabIndex="18"></CheckBox>
+
+                            <TextBlock Grid.Row="20" Grid.Column="0" Text="{DynamicResource log_LoadDepart}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <CheckBox Tag="log_det_chb_finished" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="20" Grid.Column="2" IsChecked="{Binding SelectedItem.Finished, Mode=TwoWay}" VerticalAlignment="Center" Margin="3" TabIndex="19"></CheckBox>
+
+                            <TextBlock Grid.Row="21" Grid.Column="0" Text="{DynamicResource log_InvoiceCheck}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <StackPanel Grid.Row="21" Grid.Column="2" VerticalAlignment="Center"  Orientation="Horizontal">
+                                <CheckBox Tag="log_det_chb_invoicecheck" telerik:StyleManager.Theme="Expression_Dark" VerticalAlignment="Center" Margin="3" IsChecked="{Binding SelectedItem.InvoiceCheck, Mode=TwoWay}" TabIndex="20"></CheckBox>
+                                <TextBlock VerticalAlignment="Center" Foreground="White" Margin="10,3,3,3" Text="{Binding SelectedItem.InvoiceCheckDate, StringFormat=d}"></TextBlock>
+                            </StackPanel>
+
+                            <TextBlock Grid.Row="22" Grid.Column="0" Text="{DynamicResource log_CompleteLoading}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <StackPanel Grid.Row="22" Grid.Column="2" VerticalAlignment="Center"  Orientation="Horizontal">
+                                <CheckBox Tag="log_det_chb_iscompleted" telerik:StyleManager.Theme="Expression_Dark" VerticalAlignment="Center" Margin="3" IsChecked="{Binding SelectedItem.IsCompleted, Mode=TwoWay}" TabIndex="21"></CheckBox>
+                            </StackPanel>
+
+                            <TextBlock Grid.Row="23" Grid.Column="0" Text="{DynamicResource log_IsOrderLocked}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <StackPanel Grid.Row="23" Grid.Column="2" VerticalAlignment="Center"  Orientation="Horizontal">
+                                <CheckBox Tag="log_det_chb_iscompleted" telerik:StyleManager.Theme="Expression_Dark" VerticalAlignment="Center" Margin="3" IsChecked="{Binding SelectedItem.IsOrderLocked, Mode=TwoWay}" TabIndex="22"></CheckBox>
+                            </StackPanel>
+                         
+                            <!--<telerik:RadRichTextBox Grid.Row="13" Grid.Column="1" telerik:StyleManager.Theme="Expression_Dark" 
+                             DataContext="{Binding SelectedItem.PersonalNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                              Margin="3" VerticalAlignment="Center">
+                        </telerik:RadRichTextBox>-->
+
+                        </Grid>
+
+                    </Grid>
+
+                </Border>
+
+                <!--detail info-->
+                <Border x:Name="borderDetail" Grid.Row="1" Grid.Column="1" Margin="3" BorderBrush="Gray" BorderThickness="1.5" DataContext="{Binding SelectedDetailItem, Mode=TwoWay}" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0,0,0,1.5" Margin="0,0,0,3">
+                            <TextBlock Foreground="White" Margin="3" HorizontalAlignment="Center" Text="{DynamicResource log_CargoPrices}" FontWeight="Bold"></TextBlock>
+                        </Border>
+
+                        <Grid Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                <ColumnDefinition Width="200"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource log_OrderedBy}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                            <telerik:RadComboBox Tag="log_det_cmb_orderedby" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" ItemsSource="{Binding ForeignOrderedBies, Source={StaticResource COSC}}"  
+                                                     SelectedValue="{Binding OrderedBy, Mode=TwoWay}"
+                                         Margin="3" Foreground="White" telerik:StyleManager.Theme="Expression_Dark" IsTabStop="true" TabIndex="26">
+                                <telerik:RadComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding CustomerName}"></TextBlock>
+                                    </DataTemplate>
+                                </telerik:RadComboBox.ItemTemplate>
+                            </telerik:RadComboBox>
+
+                            <!--<TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource log_Unit}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                        <telerik:RadComboBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" ItemsSource="{Binding ForeignUnits, Source={StaticResource COSC}}"  
+                                                     SelectedItem="{Binding Unit, Mode=TwoWay}"
+                                         Margin="3" Foreground="White" telerik:StyleManager.Theme="Expression_Dark" IsTabStop="true" TabIndex="1">
+                            <telerik:RadComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding UnitName}"></TextBlock>
+                                </DataTemplate>
+                            </telerik:RadComboBox.ItemTemplate>
+                        </telerik:RadComboBox>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource log_UnitNo}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                        <telerik:RadNumericUpDown telerik:StyleManager.Theme="Expression_Dark" Grid.Row="2" Grid.Column="3" IsInteger="True"
+                             Value="{Binding NoUnit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                              Margin="3" VerticalAlignment="Center">
+                        </telerik:RadNumericUpDown>-->
+
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="{DynamicResource log_VolumeCbm}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <telerik:RadNumericUpDown Tag="log_det_num_detail_volumecbm" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="3" Grid.Column="3"
+                             Value="{Binding VolumeCbm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                              Margin="3" VerticalAlignment="Center" TabIndex="27">
+                            </telerik:RadNumericUpDown>
+
+                            <!--<telerik:RadButton telerik:StyleManager.Theme="Expression_Dark" Grid.Row="3" Grid.Column="3" Content="{DynamicResource tm_Save}" Height="Auto"  Width="Auto" Margin="3"   />-->
+
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="{DynamicResource log_ForwarderPrice}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <!--<CheckBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="4" Grid.Column="1" IsChecked="{Binding IsForwarderPriceChanged, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" ></CheckBox>-->
+                            <telerik:RadNumericUpDown telerik:StyleManager.Theme="Expression_Dark" Grid.Row="4" Grid.Column="3"
+                             Value="{Binding ForwarderPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                                       IsEnabled="False"            
+                              Margin="3" VerticalAlignment="Center" TabIndex="28">
+                            </telerik:RadNumericUpDown>
+
+                            <TextBlock Grid.Row="5" Grid.Column="0" Text="{DynamicResource log_BafPrice}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <!--<CheckBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="5" Grid.Column="1" IsChecked="{Binding IsBafPriceChanged, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" ></CheckBox>-->
+                            <telerik:RadNumericUpDown telerik:StyleManager.Theme="Expression_Dark" Grid.Row="5" Grid.Column="3"
+                             Value="{Binding BafPRice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                                                IsEnabled="False"
+                              Margin="3" VerticalAlignment="Center">
+                            </telerik:RadNumericUpDown>
+
+                            <TextBlock Grid.Row="6" Grid.Column="0" Text="{DynamicResource log_TollPrice}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <telerik:RadNumericUpDown telerik:StyleManager.Theme="Expression_Dark" Grid.Row="6" Grid.Column="3"
+                                                     IsEnabled="False"
+                             Value="{Binding TollPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                              Margin="3" VerticalAlignment="Center">
+                            </telerik:RadNumericUpDown>
+
+                            <TextBlock Grid.Row="7" Grid.Column="0" Text="{DynamicResource log_TollPriceGerlach}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <telerik:RadNumericUpDown telerik:StyleManager.Theme="Expression_Dark" Grid.Row="7" Grid.Column="3"
+                                                     IsEnabled="False"
+                             Value="{Binding TollPriceGerlach, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                              Margin="3" VerticalAlignment="Center">
+                            </telerik:RadNumericUpDown>
+
+                            <TextBlock Grid.Row="8" Grid.Column="0" Text="{DynamicResource log_TotalPrice}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <telerik:RadNumericUpDown telerik:StyleManager.Theme="Expression_Dark" Grid.Row="8" Grid.Column="3"
+                             Value="{Binding TotalPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                              IsEnabled="False" Margin="3" VerticalAlignment="Center">
+                            </telerik:RadNumericUpDown>
+
+                            <TextBlock Grid.Row="9" Grid.Column="0" Text="{DynamicResource log_TransportPayment}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                            <telerik:RadComboBox Tag="log_det_cmb_transportpayment" Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" ItemsSource="{Binding ForeignTransportPayments, Source={StaticResource COSC}}"  
+                                                     SelectedValue="{Binding TransportPayment, Mode=TwoWay}" CanAutocompleteSelectItems="True" OpenDropDownOnFocus="True"
+                                         Margin="3" Foreground="White" telerik:StyleManager.Theme="Expression_Dark" IsTabStop="true" TabIndex="32" IsEditable="True">
+                                <telerik:RadComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Description}"></TextBlock>
+                                    </DataTemplate>
+                                </telerik:RadComboBox.ItemTemplate>
+                            </telerik:RadComboBox>
+
+                            <TextBlock Grid.Row="10" Grid.Column="0" Text="{DynamicResource log_CostCenter}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3" Foreground="White"></TextBlock>
+                            <telerik:RadComboBox Tag="log_det_cmb_costcenter" Grid.Row="10" Grid.Column="2" VerticalAlignment="Center" ItemsSource="{Binding CostCenters, Source={StaticResource COSC}}"  
+                                                     SelectedValue="{Binding CostCenter, Mode=TwoWay}" CanAutocompleteSelectItems="True" OpenDropDownOnFocus="True"
+                                         Margin="3" Foreground="White" telerik:StyleManager.Theme="Expression_Dark" IsTabStop="true" TabIndex="33" IsEditable="True">
+                                <telerik:RadComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Description}"></TextBlock>
+                                    </DataTemplate>
+                                </telerik:RadComboBox.ItemTemplate>
+                            </telerik:RadComboBox>
+
+                            <Button Tag="log_det_btn_adddetail1"  Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="3" Margin="3" Click="Button_Click" telerik:StyleManager.Theme="Expression_Dark" Content="{DynamicResource log_AddContent}" TabIndex="34"></Button>
+
+                        </Grid>
+
+                    </Grid>
+
+                </Border>
+
+                <!--detail info-->
+                <Border x:Name="borderDetailTotals" Grid.Row="0" Grid.Column="1" Margin="3" BorderBrush="Gray" BorderThickness="1.5"  >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0,0,0,1.5" Margin="0,0,0,3">
+                            <TextBlock Foreground="White" Margin="3" HorizontalAlignment="Center" Text="{DynamicResource log_PricesTotal}" FontWeight="Bold"></TextBlock>
+                        </Border>
+
+                        <Grid Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                <ColumnDefinition Width="200"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="{DynamicResource log_FaNote}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <TextBox Tag="log_det_tbx_invoicenote" Grid.Row="4" Height="60" Grid.Column="2" TextWrapping="Wrap" Margin="3" VerticalAlignment="Center" Text="{Binding SelectedItem.InvoiceNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" TabIndex="25">
+                            </TextBox>
+
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource log_Note}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <TextBox Tag="log_det_tbx_note" Grid.Row="1" Height="70" Grid.Column="2" TextWrapping="Wrap" Margin="3" VerticalAlignment="Center" Text="{Binding SelectedItem.Note, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" TabIndex="22">
+                            </TextBox>
+
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource log_NoteVi}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <TextBox Tag="log_det_tbx_vinote" Grid.Row="2" Height="70" Grid.Column="2" TextWrapping="Wrap" Margin="3" VerticalAlignment="Center" Text="{Binding SelectedItem.ViNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" TabIndex="23">
+                            </TextBox>
+
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="{DynamicResource log_pNote}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <TextBox Tag="log_det_tbx_personalnote" Grid.Row="3" Height="70" Grid.Column="2" TextWrapping="Wrap" Margin="3" VerticalAlignment="Center" Text="{Binding SelectedItem.PersonalNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" TabIndex="24">
+                            </TextBox>
+
+                            <TextBlock Grid.Row="5" Grid.Column="0" Text="{DynamicResource log_IsThreeSome}" Margin="3" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                            <CheckBox Tag="log_det_chb_IsThreeSome" telerik:StyleManager.Theme="Expression_Dark" Grid.Row="5" Grid.Column="2" IsChecked="{Binding SelectedItem.IsThreeSome, Mode=TwoWay}" VerticalAlignment="Center" Margin="3" TabIndex="19"></CheckBox>
+
+
+                        </Grid>
+
+                    </Grid>
+
+                </Border>
+
+
+                <!--detail LIST info-->
+                <Border x:Name="borderDetailsList" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="3" BorderBrush="Gray" BorderThickness="1.5" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="0,0,0,1.5" Margin="0,0,0,3">
+                            <TextBlock Foreground="White" Margin="3" HorizontalAlignment="Center" Text="{DynamicResource log_ShipmentContent}" FontWeight="Bold"></TextBlock>
+                        </Border>
+
+                        <Grid Grid.Row="1">
+
+                            <telerik:RadListBox ItemsSource="{Binding SelectedItem.Connections}"  SelectionChanged="RadListBox_SelectionChanged"  telerik:StyleManager.Theme="Expression_Dark">
+                                <telerik:RadListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border x:Name="borderDetailsList" Margin="3" BorderBrush="Gray" BorderThickness="1.5" >
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                </Grid.RowDefinitions>
+
+                                                <Border Grid.Row="0" BorderBrush="Gray" Background="Black"   BorderThickness="0,0,0,1.5" Margin="0,0,0,3">
+
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                            <ColumnDefinition></ColumnDefinition>
+                                                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                        </Grid.ColumnDefinitions>
+                                                        <StackPanel Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal">
+                                                            <Button  Visibility="Visible" Margin="3" Click="btnDetailAdd_Click" telerik:StyleManager.Theme="Expression_Dark">
+                                                                <Image Source="/COSResources;component/Images/Add_16x16.png" Height="16" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                                                            </Button>
+
+                                                            <TextBlock Foreground="White" Margin="3" Text="{Binding Destination.DestinationName}" FontWeight="Bold"></TextBlock>
+                                                        </StackPanel>
+                                                        <Button  Visibility="Visible" Grid.Column="2" Margin="3" Click="btnConnlDelete_Click" telerik:StyleManager.Theme="Expression_Dark">
+                                                            <Image Source="/COSResources;component/Images/Delete_16x16.png" Height="16" Width="16" VerticalAlignment="Center" HorizontalAlignment="Right"></Image>
+                                                        </Button>
+                                                    </Grid>
+                                                </Border>
+
+                                                <telerik:RadGridView  AutoGenerateColumns="False" Grid.Row="1" telerik:StyleManager.Theme="Expression_Dark"
+                                        CanUserInsertRows="False" x:Name="grvDetails" GotFocus="grvDetails_GotFocus" RowIndicatorVisibility="Collapsed" ShowGroupPanel="False"
+                                     MaxWidth="1630"   PreviewMouseLeftButtonUp="grvDetails_MouseLeftButtonDown" 
+                             ItemsSource="{Binding ExportDetails}"  
+                              ShowInsertRow="False"  
+                              RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="Auto">
+                                                    <telerik:RadGridView.Columns >
+                                                        <telerik:GridViewDataColumn IsReadOnly="True">
+                                                            <telerik:GridViewDataColumn.CellTemplate>
+                                                                <DataTemplate>
+                                                                    <telerik:RadButton  Click="deleteSelectedItemClick" ToolTip="{DynamicResource log_tt_DeleteCargo}">
+                                                                        <Image Source="/COSResources;component/Images/Delete_16_Dark.png" Height="16" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                                                                    </telerik:RadButton>
+                                                                </DataTemplate>
+                                                            </telerik:GridViewDataColumn.CellTemplate>
+                                                        </telerik:GridViewDataColumn>
+                                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding OrderedByString}" Header="{DynamicResource log_OrderedBy}">
+                                                        </telerik:GridViewDataColumn>
+                                                        <!--<telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding Unit.UnitName}" Header="{DynamicResource log_Unit}">
+                                </telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding NoUnit}" Header="{DynamicResource log_UnitNo}">
+                                </telerik:GridViewDataColumn>-->
+                                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding VolumeCbm}" Header="{DynamicResource log_VolumeCbm}">
+                                                        </telerik:GridViewDataColumn>
+                                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding ForwarderPrice}" Header="{DynamicResource log_ForwarderPrice}">
+                                                        </telerik:GridViewDataColumn>
+                                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding BafPRice}" Header="{DynamicResource log_BafPrice}">
+                                                        </telerik:GridViewDataColumn>
+                                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding TollPrice}" Header="{DynamicResource log_TollPrice}">
+                                                        </telerik:GridViewDataColumn>
+                                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding TotalPrice}" Header="{DynamicResource log_TotalPrice}">
+                                                        </telerik:GridViewDataColumn>
+                                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding TransportPaymentString}" Header="{DynamicResource log_TransportPayment}">
+                                                        </telerik:GridViewDataColumn>
+                                                        <telerik:GridViewDataColumn IsReadOnly="True" DataMemberBinding="{Binding CostCenter.Description}" Header="{DynamicResource log_CostCenter}">
+                                                        </telerik:GridViewDataColumn>
+                                                    </telerik:RadGridView.Columns>
+                                                </telerik:RadGridView>
+                                            </Grid>
+                                        </Border>
+
+                                    </DataTemplate>
+                                </telerik:RadListBox.ItemTemplate>
+                            </telerik:RadListBox>
+
+
+
+                        </Grid>
+
+                    </Grid>
+
+                </Border>
+            </Grid>
+
+
+        </ScrollViewer>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center"  Margin="3">
+            <telerik:RadButton telerik:StyleManager.Theme="Expression_Dark"  Content="{DynamicResource tm_Save}" Tag="log_det_btn_saveandrewrite" Height="Auto"  Width="Auto" Margin="3" Padding="10,5,10,5" Command="{Binding UpdateAndRewriteCommand}" TabIndex="29" />
+            <!--<telerik:RadButton telerik:StyleManager.Theme="Expression_Dark"  Content="{DynamicResource tm_Save}" Height="Auto"  Width="Auto" Margin="3" Padding="10,5,10,5" Command="{Binding UpdateCommand}" TabIndex="29" />-->
+            <telerik:RadButton telerik:StyleManager.Theme="Expression_Dark" Content="{DynamicResource tm_Cancel}" Height="Auto"  Width="Auto" Margin="3" Padding="10,5,10,5" Command="{Binding CancelCommand}" TabIndex="30" OverridesDefaultStyle="True" />
+            
+        </StackPanel>
+    </Grid>
+</bc:BaseUserControl>

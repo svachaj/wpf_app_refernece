@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="COS.Application.Controls.FormItemControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" Canvas.Left="{Binding FormItem.LeftPosition, Mode=TwoWay}"
+             Canvas.Top="{Binding FormItem.TopPosition, Mode=TwoWay}" MouseLeave="Grid_MouseLeave" MouseUp="Grid_mouseUp" 
+             mc:Ignorable="d"  MouseDown="Grid_MouseDown" MouseMove="Grid_MouseMove"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <Border  Cursor="SizeAll" x:Name="mainBorder" BorderBrush="{Binding MainBorderBrush}" BorderThickness="1" CornerRadius="3" >
+        <Grid IsEnabled="{Binding IsEditable}" x:Name="mainGrid" >
+            
+        </Grid>
+    </Border>
+
+</UserControl>

@@ -1,0 +1,32 @@
+﻿<my:BaseUserControl x:Class="COS.Common.WPF.Controls.GenericCodebookView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              xmlns:my="clr-namespace:COS.Common.WPF"
+                      xmlns:myc="clr-namespace:COS.Common.WPF.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid>          
+            <myc:COSToolBar telerik:StyleManager.Theme="Expression_Dark">
+
+            </myc:COSToolBar>
+        </Grid>
+
+        <telerik:RadGridView DataError="grvMainData_DataError" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" telerik:StyleManager.Theme="Expression_Dark" x:Name="grvMainData" Grid.Row="1" AddingNewDataItem="grvMainData_AddingNewDataItem" Deleting="grvMainData_Deleting" RowEditEnded="grvMainData_RowEditEnded"
+                                RowValidating="grvMainData_RowValidating" CellValidating="grvMainData_CellValidating">
+
+        </telerik:RadGridView>
+
+        <telerik:RadBusyIndicator Grid.ColumnSpan="10" Grid.RowSpan="10" BusyContent="{DynamicResource log_GenerateMail}" IsBusy="{Binding IsBusy}" telerik:StyleManager.Theme="Expression_Dark"></telerik:RadBusyIndicator>
+
+
+    </Grid>
+</my:BaseUserControl>

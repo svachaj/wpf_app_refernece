@@ -1,0 +1,262 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:my="clr-namespace:System;assembly=mscorlib">
+  <my:String x:Key="Title">Lindab s.r.o.</my:String>
+  <!--*******************PANES**************************-->
+  <my:String x:Key="pane_CbAccountType">Číselník: Typ účtu</my:String>
+  <my:String x:Key="pane_CbCostCenter">Číselník: Nákladová střediska</my:String>
+  <my:String x:Key="pane_CbDivision">Číselník: Divize</my:String>
+  <my:String x:Key="pane_Groups">Přístupové skupiny</my:String>
+  <my:String x:Key="pane_Localization">Lokalizace popisků</my:String>
+  <my:String x:Key="pane_Users">Uživatelé</my:String>
+  <my:String x:Key="pane_CbDowntimesDowntimeGroup">Číselník: Nastavení prostojů do skupin</my:String>
+  <my:String x:Key="pane_CbDowntimesGroup">Číselník: Skupiny prostojů</my:String>
+  <my:String x:Key="pane_CbDowntimes">Číselník: Prostoje</my:String>
+  <my:String x:Key="pane_CbItemsGroup">Číselník: Skupiny položek</my:String>
+  <my:String x:Key="pane_CbShiftPatterns">Číselník: Směnové vzory</my:String>
+  <my:String x:Key="pane_CbShifts">Číselník: Směny</my:String>
+  <my:String x:Key="pane_CbShiftsType">Číselník: Typy směn</my:String>
+  <my:String x:Key="pane_CbWorkCenters">Číselník: Pracovní střediska</my:String>
+  <my:String x:Key="pane_CbWorkGroups">Číselník: Pracovní skupiny</my:String>
+  <my:String x:Key="pane_CbWorkGroupsWorkCenters">Číselník: Nastavení pracovních skupin</my:String>
+  <my:String x:Key="pane_Standards">Výrobní normy</my:String>
+  <my:String x:Key="pane_HourlyProduction">Hodinová produkce</my:String>
+  <my:String x:Key="pane_CbBonusGroup">Číselník: Bonusové skupiny</my:String>
+  <my:String x:Key="pane_CbEmployers">Číselník: Zaměstnavatel</my:String>
+  <my:String x:Key="pane_CbSalaryGroups">Číselník: Mzdové skupiny</my:String>
+  <my:String x:Key="pane_CbWorkPositions">Číselník: Pracovní pozice</my:String>
+  <my:String x:Key="pane_Employee">Zaměstnanci</my:String>
+  <my:String x:Key="pane_KpiReport">KPIs Report</my:String>
+  <my:String x:Key="pane_HP_Recalculation">Přepočet hodinových záznamů</my:String>
+  <my:String x:Key="pane_PROD_AdsCustomerService">ADS - Zákaznický Servis</my:String>
+  <my:String x:Key="pane_Security">Zabezpečení</my:String>
+  <my:String x:Key="pane_TpmEquipment">TPM Vybavení</my:String>
+  <my:String x:Key="pane_TpmPlan">TPM - Nový/Úprava Plánu</my:String>
+  <my:String x:Key="pane_TpmCheckList">TPM List</my:String>
+  <my:String x:Key="pane_cbTpmCheckListItems">TPM List - Položky</my:String>
+  <my:String x:Key="pane_TpmHolidayCalendar">Kalendář Svátků</my:String>
+  <my:String x:Key="pane_TpmChecklistItems">Nastavení TPM Listů</my:String>
+  <my:String x:Key="pane_TpmPlanOverview">Přehled TPM</my:String>
+  <my:String x:Key="pane_Configurators">Konfigurátory (Lineární)</my:String>
+  <my:String x:Key="pane_ConfiguratorsMatrix">Konfigurátory (Maticové)</my:String>
+  <my:String x:Key="pane_ForeignExport">Zahraniční Export</my:String>
+  <my:String x:Key="pane_ForeignExportpriceListImport">Import ceníků</my:String>
+  <my:String x:Key="pane_cbForeignExportBafPane">Číselník: BAF ceník</my:String>
+  <my:String x:Key="pane_cbForeignExportForwarderPane">Číselník: Dopravce</my:String>
+  <my:String x:Key="pane_cbForeignExportOrderedByPane">Číselník: Divize</my:String>
+  <my:String x:Key="pane_cbForeignExportPlatformPane">Číselník: Nákladová rampa</my:String>
+  <my:String x:Key="pane_cbForeignExportTimeWindowPane">Číselník: Časová okna</my:String>
+  <my:String x:Key="pane_cbForeignExportUnitPane">Číselník: Jednotky</my:String>
+  <my:String x:Key="pane_cbForeignExportCountryPane">Číselník: Země</my:String>
+  <my:String x:Key="pane_cbForeignExportZonePane">Číselník: Zóna</my:String>
+  <my:String x:Key="pane_cbForeignExportTransportPaymentPane">Číselník: Plátce dopravy</my:String>
+  <my:String x:Key="pane_ProductionDetailReportPane">Výrobní detail</my:String>
+  <my:String x:Key="pane_ProductionDetailDtSumReportPane">Výrobní detail - Součet času prostojů</my:String>
+  <my:String x:Key="pane_DowntimeDetailReportPane">Prostoje - Detail</my:String>
+  <my:String x:Key="pane_WcReportPane">Přehled - Pracovní Střediska</my:String>
+  <my:String x:Key="pane_ShiftFollowUpPane">Sledování výroby - Směna</my:String>
+  <my:String x:Key="pane_AdsEmpProductivityReportPane">ADS - Produktivita zaměstnanců</my:String>
+  <my:String x:Key="pane_cbConfiguratorGroup">Skupiny konfiguratorů</my:String>
+  <my:String x:Key="pane_LogisticReportPane">Report dopravce</my:String>
+    <my:String x:Key="pane_LogisticLoadReportPane">Přehled nakládek</my:String>
+    
+  <my:String x:Key="pane_cbZoneCombinationPanePane">Kombinace destinací</my:String>
+  <my:String x:Key="pane_OrderInput">Zadání objednávky</my:String>
+  <my:String x:Key="pane_OrderCompletion">Správa objednávek</my:String>
+  <my:String x:Key="pane_cbTmToolPane">Číselník: Nástroje</my:String>
+  <my:String x:Key="pane_ForeignVolumeCheck">Kontrola objemu</my:String>
+  <my:String x:Key="pane_WgWcComparationReportPane">WG/WC Report</my:String>
+  <my:String x:Key="pane_Production4HPlanning">4H - Plánování</my:String>
+    <my:String x:Key="pane_cbP4hSupplierViewPane">Číselník: Dodavatel</my:String>
+    <my:String x:Key="pane_cbP4hManufacturerViewPane">Číselník: Stav výroby</my:String>
+    <my:String x:Key="pane_cbP4hPlanExecutionViewPane">Číselník: Realizace plánu</my:String>
+    <my:String x:Key="pane_cbP4hStateViewPane">Číselník: Stav</my:String>
+    <my:String x:Key="pane_cbP4hTransportTypeViewPane">Číselník: Typ transportu</my:String>
+    <my:String x:Key="pane_LogisticForwarderReportPane">Přehled nakládek CZ</my:String>
+    <my:String x:Key="pane_cbP4hDifficultyViewPane">Číselník: Obtížnost</my:String>
+    <my:String x:Key="pane_LogisticDomForwarderPrReportPane">Export dopravce</my:String>
+    <my:String x:Key="pane_ForeignExportTrOrdCoPane">Objednávka Dopravy - Týdenní </my:String>
+    <my:String x:Key="pane_CbInsuranceCompany">Pojišťovny</my:String>
+
+
+
+    <!--*******************Application**************************-->
+  <my:String x:Key="App_MainWindowHeader">KPIs Report</my:String>
+  <my:String x:Key="App_WindownMain">COS - Company Operational System - Lindab s.r.o.</my:String>
+  <Image Source="../../Images/Cos_32x32.png" x:Key="MainAppWindowIcon">
+  </Image>
+
+    <my:String x:Key="app_Yes">Ano</my:String>
+    <my:String x:Key="app_No">Ne</my:String >
+    <my:String x:Key="app_Alert">Upozornění</my:String >
+
+    <!--*******************Ribbon View**************************-->
+  <my:String x:Key="App_Button">COS</my:String>
+  <my:String x:Key="submod_Codebooks">Číselníky</my:String>
+  <!--*******************PRODUCTION**************************-->
+  <my:String x:Key="mod_Porduction">Výroba</my:String>
+  <my:String x:Key="submod_HourlyProduction">Hodinová Produkce</my:String>
+  <my:String x:Key="submod_btn_HourlyProduction">Zápis HP</my:String>
+  <my:String x:Key="submod_btn_HourlyProductionRecalc">Přepočet HP</my:String>
+  <my:String x:Key="submod_ProductionOthers">Ostatní</my:String>
+  <my:String x:Key="submod_btn_AdsCustomerService">ADS - Zákaznický Servis</my:String>
+    <my:String x:Key="submod_btn_Production4hPlanning">4H - Plánování</my:String>
+    <my:String x:Key="submod_cbManufacturer">Stav výroby</my:String>
+    <my:String x:Key="submod_Production4h">Výroba - 4H</my:String>
+    <my:String x:Key="submod_cbSupplier">Dodavatel</my:String>
+    <my:String x:Key="submod_cbPlanExecution">Realizace plánu</my:String>
+    <my:String x:Key="submod_cbP4HState">Stav</my:String>
+    <my:String x:Key="submod_cbTransportType">Typ transportu</my:String>
+    <my:String x:Key="submod_cbP4hDifficulty">Obtížnosti</my:String>
+    
+
+    <!--*******************ENGINEERING**************************-->
+  <my:String x:Key="mod_Engeneering">Technické Oddělení</my:String>
+  <my:String x:Key="submod_Standards">Výrobní normy</my:String>
+  <my:String x:Key="submod_btn_Standard">Normy</my:String>
+  <my:String x:Key="submod_cbWorkGroup">Pracovní skupiny</my:String>
+  <my:String x:Key="submod_cbWorkCenter">Pracovní střediska</my:String>
+  <my:String x:Key="submod_cbWorkGroupsWorkCenters">Nastavení pracovních skupin</my:String>
+  <my:String x:Key="submod_cbDowntimesGroups">Skupiny prostojů</my:String>
+  <my:String x:Key="submod_cbDowntimes">Prostoje</my:String>
+  <my:String x:Key="submod_cbDowntimesDowntimesGroups">Nastavení prostojů do skupin</my:String>
+  <my:String x:Key="submod_cbShifts">Směny</my:String>
+  <my:String x:Key="submod_cbShiftsType">Typy směn</my:String>
+  <my:String x:Key="submod_cbShiftPatterns">Směnové vzory</my:String>
+  <my:String x:Key="submod_btn_cbItemsGroup">Skupiny výrobků</my:String>
+  <my:String x:Key="submod_btn_Configurators">Konfigurátory (Lineární)</my:String>
+  <my:String x:Key="submod_btn_ConfiguratorsMatrix">Konfigurátory (Maticové)</my:String>
+  <my:String x:Key="submod_cbConfigGroup">Skupiny konfigurátorů</my:String>
+  <!--*******************LOGISTIC**************************-->
+  <my:String x:Key="mod_Logistic">Logistika</my:String>
+  <my:String x:Key="submod_ForeignExport">Zahraniční</my:String>
+  <my:String x:Key="submod_fLogpriceList">Import ceníků</my:String>
+  <my:String x:Key="submod_BafPrice">BAF ceník</my:String>
+  <my:String x:Key="submod_Forwarder">Dopravce</my:String>
+  <my:String x:Key="submod_OrderedBy">Divize</my:String>
+  <my:String x:Key="submod_Platform">Nákladová rampa</my:String>
+  <my:String x:Key="submod_TimeWindows">Časové okno</my:String>
+  <my:String x:Key="submod_TransportPayment">Transport - plátce</my:String>
+  <my:String x:Key="submod_ForeignUnit">Jednotky</my:String>
+  <my:String x:Key="submod_ForeignCountry">Země</my:String>
+  <my:String x:Key="submod_ForeignZone">Zóna</my:String>
+  <my:String x:Key="submod_cbZoneCombination">Kombinace destinací</my:String>
+  <my:String x:Key="submod_ForeignVolumeControl">Kontrola objemu</my:String>
+  <my:String x:Key="submod_DomesticExport">Domácí export</my:String>
+    <my:String x:Key="submod_DomesticPriceList">Ceník</my:String>
+    <my:String x:Key="submod_DomesticCustomer">Zákazníci</my:String>
+    <my:String x:Key="submod_DomesticContactType">Typ kontaktů</my:String>
+    <my:String x:Key="submod_DomesticForwarder">Dopravci</my:String>
+    <my:String x:Key="submod_DomesticDriver">Řidiči</my:String>
+    <my:String x:Key="submod_DomesticCartype">Typ auta</my:String>
+    <my:String x:Key="submod_DomesticComposition">Kompozice</my:String>
+    <my:String x:Key="submod_DomesticDestination">Destinace</my:String>
+    <my:String x:Key="submod_DomesticBafPrice">BAF</my:String>
+    <my:String x:Key="submod_btn_LogisticLoadsReport">Přehled nakládek CZ</my:String>
+    <my:String x:Key="submod_btn_LogisticsReport">Přehled nakládek</my:String>
+    <my:String x:Key="submod_btn_LogisticForwarderExport">Export dopravce</my:String>
+    <my:String x:Key="submod_ForeignExportTransportOrderCo">Obj. Dopravy - Týdenní</my:String>
+
+
+    <my:String x:Key="pane_cbDomesticExportPriceListPane">Ceník</my:String>
+    <my:String x:Key="pane_DomesticExportPane">Domácí export</my:String>
+    <my:String x:Key="pane_cbDomesticExportCustomerPane">Zákazníci</my:String>
+    <my:String x:Key="pane_cbDomesticExportContactTypePane">Typ kontaktů</my:String>
+    <my:String x:Key="pane_cbDomesticExportForwarderPane">Dopravce</my:String>
+    <my:String x:Key="pane_cbDomesticExportDriverPane">Řidič</my:String>
+    <my:String x:Key="pane_cbDomesticExportCarTypePane">Typ auta</my:String>
+    <my:String x:Key="pane_cbDomesticExportCompositionPane">Kompozice</my:String>
+    <my:String x:Key="pane_cbDomesticExportDestinationPane">Destinace</my:String>
+    <my:String x:Key="pane_cbDomesticExportBafPricePane">BAF</my:String>
+    <my:String x:Key="pane_LogisticLoadsReportPane">Report dopravce</my:String>
+ 
+
+
+
+    <!--*******************MAINTENANCE**************************-->
+  <my:String x:Key="mod_Maintenance">Údržba</my:String>
+  <my:String x:Key="submod_TPM">Preventivní Údržba</my:String>
+  <my:String x:Key="submod_TpmPlan">TPM Plán</my:String>
+  <my:String x:Key="submod_tpmCheckList">TPM List</my:String>
+  <my:String x:Key="submod_CbTpmCheckListItems">TPM List - Položky</my:String>
+  <my:String x:Key="submod_CbTpmEquipment">TPM Vybavení</my:String>
+  <my:String x:Key="submod_tpmHolidaysCalendar">Kalendář Svátků</my:String>
+  <my:String x:Key="submod_TpmChecklistItems">Nastavení TPM Listů</my:String>
+  <my:String x:Key="subm_TpmPlanOverview">Přehled TPM</my:String>
+  <my:String x:Key="submod_CbTmTool">Nastavení nástrojů</my:String>
+  <!--*******************HUMAN RESOURCES**************************-->
+  <my:String x:Key="mod_HR">Lidské Zdroje</my:String>
+  <my:String x:Key="submod_Employee">Zaměstnanci</my:String>
+  <my:String x:Key="submod_btn_Employee">Zaměstnanci</my:String>
+  <my:String x:Key="submod_cbBonusGroup">Bonusové skupiny</my:String>
+  <my:String x:Key="submod_cbSalaryGroup">Mzdové skupiny</my:String>
+  <my:String x:Key="submod_cbWorkPositions">Pracovní pozice</my:String>
+  <my:String x:Key="submod_cbEmployers">Zaměstnavatel</my:String>
+  <!--*******************ADMINISTRATION**************************-->
+  <my:String x:Key="mod_Administration">Administrace</my:String>
+  <my:String x:Key="submod_Users">Uživatelé</my:String>
+  <my:String x:Key="submod_btn_Users">Uživatelé</my:String>
+  <my:String x:Key="submod_Groups">Přístupové Skupiny</my:String>
+  <my:String x:Key="submod_btn_Groups">Skupiny</my:String>
+  <my:String x:Key="submod_Localization">Lokalizace Popisků</my:String>
+  <my:String x:Key="submod_btn_Localization">Lokalizace</my:String>
+  <my:String x:Key="submod_SecSetting">Obecné Zabezpečení</my:String>
+  <my:String x:Key="submod_btn_SecuritySetting">Zabezpečení</my:String>
+  <my:String x:Key="submod_cbAccType">Typy účtů</my:String>
+  <my:String x:Key="submod_cbDivisions">Divize</my:String>
+  <my:String x:Key="submod_cbCostCenters">Nákladové skupiny</my:String>
+  <!--*******************REPORTS**************************-->
+  <my:String x:Key="mod_Reports">Reporty</my:String>
+  <my:String x:Key="submod_Production">Výrobní Reporty</my:String>
+  <my:String x:Key="submod_btn_KpisReport">KPIs Report</my:String>
+  <my:String x:Key="submod_ProductionDetail">Výrobní detail</my:String>
+  <my:String x:Key="submod_ProductionDetailDtSum">Výrobní detail - Součet času prostojů</my:String>
+  <my:String x:Key="submod_DowntimeDetail">Prostoje - Detail</my:String>
+  <my:String x:Key="submod_KpiWcReport">Přehled - Pracovní Střediska</my:String>
+  <my:String x:Key="submod_ShiftFollowUp">Sledování výroby - Směna</my:String>
+  <my:String x:Key="submod_AdsEmpProductivityReport">ADS - Produktivita zaměstnanců</my:String>
+    <my:String x:Key="submod_Logistic">Logistika - Zahraniční Trh</my:String>
+    <my:String x:Key="submod_LogisticCzSK">Logistika - Domácí Trh</my:String>
+    <my:String x:Key="submod_btn_LogisticReport">Přehled nakládek</my:String>
+  <my:String x:Key="submod_DowntimePareto">Top 10 - Prostoje</my:String>
+    <my:String x:Key="submod_WcWgComparationReport">WG/WC Report</my:String>
+    <my:String x:Key="submod_btn_LogisticForwarderReport">Report dopravce</my:String>
+
+    
+
+    <!--*******************ORDERS**************************-->
+  <my:String x:Key="mod_Orders">Objednávky</my:String>
+  <my:String x:Key="submod_Orders">Zadání / Správa objednávek</my:String>
+  <my:String x:Key="submod_btn_OrderInput">Zadání objednávky</my:String>
+  <my:String x:Key="submod_btn_OrderManagement">Správa objednávek</my:String>
+  <my:String x:Key="submod_btn_OrderApproveManagement">Schvalování objednávek</my:String>
+  <my:String x:Key="pane_OrderApprove">Schvalování objednávek</my:String>
+  <my:String x:Key="submod_CbOrders">Číselníky: Objednávky</my:String>
+  <my:String x:Key="subm_CbExecOrdUsr">Nákupčí</my:String>
+  <my:String x:Key="subm_CbAppOrdUsr">Schvalovatelé</my:String>
+  <my:String x:Key="subm_CbDepartments">Oddělení</my:String>
+  <my:String x:Key="pane_CbDepartmens">Oddělení</my:String>
+  <my:String x:Key="pane_OrderExecutePane">Seznam nákupčích</my:String>
+  <my:String x:Key="pane_cbOrderApproveUsrPane">Schvalovatelé</my:String>
+  <my:String x:Key="submod_btn_LogisticReport2">Přehled zákazníků</my:String>
+  <my:String x:Key="pane_LogisticReport2Pane">Přehled  zákazníků</my:String>
+  <my:String x:Key="submod_TmTools">Nastavení přípravků</my:String>
+  <my:String x:Key="pane_TmToolHandlePane">Správa přípravků</my:String>
+  <my:String x:Key="subm_TmToolHandling">Správa přípravků</my:String>
+  <my:String x:Key="submod_ShiftFollowUpRange">Sledování výroby (období) - Směna</my:String>
+  <my:String x:Key="pane_ShiftFollowUpRangePane">Sledování výroby (období) - Směna</my:String>
+
+
+    <!--*******************Work Safety**************************-->
+    <my:String x:Key="mod_WorkSafety">Bezpečnost Práce</my:String>
+    <my:String x:Key="submod_WorkSafety">Bezpečnost Práce</my:String>
+    <my:String x:Key="submod_btnAccidentLog">Kniha úrazů</my:String>
+    <my:String x:Key="subm_CbAreaOfAccident">Seznam míst</my:String>
+    <my:String x:Key="subm_CbTypeOfInjury">Typ zranění</my:String>
+    <my:String x:Key="subm_CbInjPartOfBody">Části těla</my:String>
+    <my:String x:Key="subm_CbTypeOfAccident">Typ nehod</my:String>
+    <my:String x:Key="subm_CbSourceOfAccident">Zdroj nehod</my:String>
+    <my:String x:Key="subm_CbCauseOfAccident">Příčiny nehod</my:String>
+    <my:String x:Key="subm_CbPreventAccident">Seznam Opatření</my:String>
+    <my:String x:Key="subm_CbInsuranceCompany">Zdravotní Pojišťovny</my:String>
+
+
+</ResourceDictionary>

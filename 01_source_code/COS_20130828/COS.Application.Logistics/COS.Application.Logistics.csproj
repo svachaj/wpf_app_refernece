@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{09FB407E-A64C-4ACA-90B9-368A775B5BA2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>COS.Application.Logistics</RootNamespace>
+    <AssemblyName>COS.Application.Logistics</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Docking, Version=2012.3.1404.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.ImageEditor, Version=2012.3.1404.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RibbonView, Version=2012.3.1404.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RichTextBoxUI, Version=2011.3.1220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Foreign\cbBafPriceViewModel.cs" />
+    <Compile Include="Models\Foreign\cbBafPriceDetailViewModel.cs" />
+    <Compile Include="Models\Foreign\cbForwarderDetailViewModel.cs" />
+    <Compile Include="Models\Foreign\cbForwarderViewModel.cs" />
+    <Compile Include="Models\Foreign\cbOrderedByDetailViewModel.cs" />
+    <Compile Include="Models\Foreign\cbOrderedByViewModel.cs" />
+    <Compile Include="Models\Foreign\cbPlatformDetailViewModel.cs" />
+    <Compile Include="Models\Foreign\cbPlatformViewModel.cs" />
+    <Compile Include="Models\Foreign\cbTimeWindowDetailViewModel.cs" />
+    <Compile Include="Models\Foreign\cbTimeWindowViewModel.cs" />
+    <Compile Include="Models\Foreign\cbUnitDetailViewModel.cs" />
+    <Compile Include="Models\Foreign\cbUnitViewModel.cs" />
+    <Compile Include="Models\Foreign\cbCountryDetailViewModel.cs" />
+    <Compile Include="Models\Foreign\cbCountryViewModel.cs" />
+    <Compile Include="Models\Foreign\cbZoneDetailViewModel.cs" />
+    <Compile Include="Models\Foreign\cbZoneViewModel.cs" />
+    <Compile Include="Models\Foreign\cbTransportPaymentDetailViewModel.cs" />
+    <Compile Include="Models\Foreign\cbTransportPaymentViewModel.cs" />
+    <Compile Include="Models\Domestic\cbDomesticDriverDetailViewModel.cs" />
+    <Compile Include="Models\Domestic\cbDomesticDriverViewModel.cs" />
+    <Compile Include="Models\Domestic\cbDomesticContactTypeDetailViewModel.cs" />
+    <Compile Include="Models\Domestic\cbDomesticContactTypeViewModel.cs" />
+    <Compile Include="Models\Domestic\cbDomesticCarTypeDetailViewModel.cs" />
+    <Compile Include="Models\Domestic\cbDomesticCarTypeViewModel.cs" />
+    <Compile Include="Models\Domestic\cbDomesticCompositionDetailViewModel.cs" />
+    <Compile Include="Models\Domestic\cbDomesticCompositionViewModel.cs" />
+    <Compile Include="Models\Domestic\cbDomesticForwarderDetailViewModel.cs" />
+    <Compile Include="Models\Domestic\cbDomesticForwarderViewModel.cs" />
+    <Compile Include="Models\Domestic\cbDomesticBafPriceDetailViewModel.cs" />
+    <Compile Include="Models\Domestic\cbDomesticBafPriceViewModel.cs" />
+    <Compile Include="Models\Domestic\cbDomesticDestinationDetailViewModel.cs" />
+    <Compile Include="Models\Domestic\cbDomesticDestinationViewModel.cs" />
+    <Compile Include="Models\Domestic\cbDomesticCustomerContactsViewModel.cs" />
+    <Compile Include="Models\Domestic\cbDomesticCustomerContactsDetailViewModel.cs" />
+    <Compile Include="Models\Domestic\cbDomesticContactDetailViewModel.cs" />
+    <Compile Include="Models\Domestic\DomesticPriceListDetailViewModel.cs" />
+    <Compile Include="Models\Domestic\DomesticPriceListViewModel.cs" />
+    <Compile Include="Models\Foreign\ForeignVolumeControlViewModel.cs" />
+    <Compile Include="Models\Domestic\DomesticExportViewModel.cs" />
+    <Compile Include="Models\Domestic\DomesticExportDetailViewModel.cs" />
+    <Compile Include="Models\Foreign\ForeignDetailViewModel.cs" />
+    <Compile Include="Models\Foreign\ForeignViewModel.cs" />
+    <Compile Include="Models\Foreign\ImportPriceListViewModel.cs" />
+    <Compile Include="Models\Foreign\TransportOrderCO\TransportOrdesCoDetailViewModel.cs" />
+    <Compile Include="Models\Foreign\TransportOrderCO\TransportOrdesCoViewModel.cs" />
+    <Compile Include="Models\Foreign\ForeignViewExportViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Views\Foreign\BafPricesRecalculationWindow.xaml.cs">
+      <DependentUpon>BafPricesRecalculationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbBafPriceView.xaml.cs">
+      <DependentUpon>cbBafPriceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbBafPriceDetailView.xaml.cs">
+      <DependentUpon>cbBafPriceDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbForwarderDetailView.xaml.cs">
+      <DependentUpon>cbForwarderDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbForwarderView.xaml.cs">
+      <DependentUpon>cbForwarderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbOrderedByDetailView.xaml.cs">
+      <DependentUpon>cbOrderedByDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbOrderedByView.xaml.cs">
+      <DependentUpon>cbOrderedByView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbPlatformDetailView.xaml.cs">
+      <DependentUpon>cbPlatformDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbPlatformView.xaml.cs">
+      <DependentUpon>cbPlatformView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbTimeWindowDetailView.xaml.cs">
+      <DependentUpon>cbTimeWindowDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbTimeWindowView.xaml.cs">
+      <DependentUpon>cbTimeWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbUnitDetailView.xaml.cs">
+      <DependentUpon>cbUnitDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbUnitView.xaml.cs">
+      <DependentUpon>cbUnitView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbCountryDetailView.xaml.cs">
+      <DependentUpon>cbCountryDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbCountryView.xaml.cs">
+      <DependentUpon>cbCountryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbZoneDetailView.xaml.cs">
+      <DependentUpon>cbZoneDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbZoneView.xaml.cs">
+      <DependentUpon>cbZoneView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbTransportPaymentDetailView.xaml.cs">
+      <DependentUpon>cbTransportPaymentDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbTransportPaymentView.xaml.cs">
+      <DependentUpon>cbTransportPaymentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\cbZoneCombinationView.xaml.cs">
+      <DependentUpon>cbZoneCombinationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\ForeignExportAdviceWindow.xaml.cs">
+      <DependentUpon>ForeignExportAdviceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\ForeignExportInfoWindow.xaml.cs">
+      <DependentUpon>ForeignExportInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\ForeignVolumeControlWindowEditView.xaml.cs">
+      <DependentUpon>ForeignVolumeControlWindowEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\cbDomesticBafPriceDetailView.xaml.cs">
+      <DependentUpon>cbDomesticBafPriceDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\cbDomesticBafPriceView.xaml.cs">
+      <DependentUpon>cbDomesticBafPriceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\cbDomesticDriverDetailView.xaml.cs">
+      <DependentUpon>cbDomesticDriverDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\cbDomesticDriverView.xaml.cs">
+      <DependentUpon>cbDomesticDriverView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\cbDomesticContactTypeDetailView.xaml.cs">
+      <DependentUpon>cbDomesticContactTypeDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\cbDomesticContactTypeView.xaml.cs">
+      <DependentUpon>cbDomesticContactTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\cbDomesticCarTypeDetailView.xaml.cs">
+      <DependentUpon>cbDomesticCarTypeDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\cbDomesticCarTypeView.xaml.cs">
+      <DependentUpon>cbDomesticCarTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\cbDomesticCompositionDetailView.xaml.cs">
+      <DependentUpon>cbDomesticCompositionDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\cbDomesticCompositionView.xaml.cs">
+      <DependentUpon>cbDomesticCompositionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\cbDomesticForwarderDetailView.xaml.cs">
+      <DependentUpon>cbDomesticForwarderDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\cbDomesticForwarderView.xaml.cs">
+      <DependentUpon>cbDomesticForwarderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\cbDomesticDestinationDetailView.xaml.cs">
+      <DependentUpon>cbDomesticDestinationDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\cbDomesticDestinationView.xaml.cs">
+      <DependentUpon>cbDomesticDestinationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\cbDomesticCustomerContactsView.xaml.cs">
+      <DependentUpon>cbDomesticCustomerContactsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\cbDomesticCustomerContactsDetailView.xaml.cs">
+      <DependentUpon>cbDomesticCustomerContactsDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\cbDomesticCustomerContactDetailView.xaml.cs">
+      <DependentUpon>cbDomesticCustomerContactDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\DomesticExportDetailView.xaml.cs">
+      <DependentUpon>DomesticExportDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\DomesticPriceListDetailView.xaml.cs">
+      <DependentUpon>DomesticPriceListDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\DomesticPriceListView.xaml.cs">
+      <DependentUpon>DomesticPriceListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\ForeignVolumeControlView.xaml.cs">
+      <DependentUpon>ForeignVolumeControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Domestic\DomesticExportView.xaml.cs">
+      <DependentUpon>DomesticExportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\ForeignCustomerNumberWindow.xaml.cs">
+      <DependentUpon>ForeignCustomerNumberWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\ForeignDetailView.xaml.cs">
+      <DependentUpon>ForeignDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\ForeignExportAddZoneWindow.xaml.cs">
+      <DependentUpon>ForeignExportAddZoneWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\ForeignsView.xaml.cs">
+      <DependentUpon>ForeignsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\ImportPriceListView.xaml.cs">
+      <DependentUpon>ImportPriceListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\TimeWindowEditWindow.xaml.cs">
+      <DependentUpon>TimeWindowEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\TransportOrderCO\TransportOrdesCoDetailView.xaml.cs">
+      <DependentUpon>TransportOrdesCoDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\TransportOrderCO\TransportOrdesCoView.xaml.cs">
+      <DependentUpon>TransportOrdesCoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foreign\ForeignViewExportView.xaml.cs">
+      <DependentUpon>ForeignViewExportView.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Resources\template_OrderSheet.xls" />
+    <None Include="Resources\template_OrderSheet.xlsx" />
+    <None Include="Resources\template_timewindow1.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\COS.Application.Shared\COS.Application.Shared.csproj">
+      <Project>{B2DBB0E3-4B9D-4C40-ACF3-ECC540868351}</Project>
+      <Name>COS.Application.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Common.WPF\COS.Common.WPF.csproj">
+      <Project>{97BDCC98-A0C1-4072-8834-311258B3A354}</Project>
+      <Name>COS.Common.WPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Common\COS.Common.csproj">
+      <Project>{94CB540B-4A30-49EF-8675-3DE324F2CEE4}</Project>
+      <Name>COS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Direction\COS.Direction.csproj">
+      <Project>{578A242B-1B66-464E-ABF4-83E92C0F324A}</Project>
+      <Name>COS.Direction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Excel\COS.Excel.csproj">
+      <Project>{F49E8F45-4F30-4324-8EF0-CF3CC319510F}</Project>
+      <Name>COS.Excel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Resources\COS.Resources.csproj">
+      <Project>{8B4B7105-9B1A-429B-99EE-F8244C8CB3CA}</Project>
+      <Name>COS.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COS.Security\COS.Security.csproj">
+      <Project>{4DFD8545-77B0-40DA-A309-2941DC4CEF24}</Project>
+      <Name>COS.Security</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Page Include="Views\Foreign\BafPricesRecalculationWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbBafPriceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbBafPriceDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbForwarderDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbForwarderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbOrderedByDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbOrderedByView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbPlatformDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbPlatformView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbTimeWindowDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbTimeWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbUnitDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbUnitView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbCountryDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbCountryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbZoneDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbZoneView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbTransportPaymentDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbTransportPaymentView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\cbZoneCombinationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\ForeignExportAdviceWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\ForeignExportInfoWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\ForeignVolumeControlWindowEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\cbDomesticBafPriceDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\cbDomesticBafPriceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\cbDomesticDriverDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\cbDomesticDriverView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\cbDomesticContactTypeDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\cbDomesticContactTypeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\cbDomesticCarTypeDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\cbDomesticCarTypeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\cbDomesticCompositionDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\cbDomesticCompositionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\cbDomesticForwarderDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\cbDomesticForwarderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\cbDomesticDestinationDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\cbDomesticDestinationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\cbDomesticCustomerContactsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\cbDomesticCustomerContactsDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\cbDomesticCustomerContactDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\DomesticExportDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\DomesticPriceListDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\DomesticPriceListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\ForeignVolumeControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Domestic\DomesticExportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\ForeignCustomerNumberWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\ForeignDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\ForeignExportAddZoneWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\ForeignsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\ImportPriceListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\LocalLogisticResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Foreign\TimeWindowEditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\TransportOrderCO\TransportOrderResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Foreign\TransportOrderCO\TransportOrdesCoDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\TransportOrderCO\TransportOrdesCoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Foreign\ForeignViewExportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

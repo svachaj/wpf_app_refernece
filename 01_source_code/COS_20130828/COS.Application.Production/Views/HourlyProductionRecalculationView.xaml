@@ -1,0 +1,105 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" x:Class="COS.Application.Production.Views.HourlyProductionRecalculationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                    
+             mc:Ignorable="d" xmlns:my="clr-namespace:COS.Common.WPF.Controls;assembly=COS.Common.WPF" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             d:DesignHeight="1200" d:DesignWidth="1200" HorizontalAlignment="Stretch">
+
+
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="HPLocalResources.xaml"></ResourceDictionary>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+
+
+
+    <!--<ScrollViewer  VerticalScrollBarVisibility="Auto" telerik:StyleManager.Theme="Expression_Dark" HorizontalScrollBarVisibility="Auto" Background="Transparent" >-->
+    <Grid Background="#FF333333">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <telerik:RadToolBar  telerik:StyleManager.Theme="Expression_Dark" >
+            <Button Click="btnFilter_click"  Height="32">
+                <Image Source="/COSResources;component/Images/Filter_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="{StaticResource prod_tt_Filter}"></Image>
+            </Button>
+            <Button Command="{Binding RecalculateCommand}"  Height="32">
+                <Image Source="/COSResources;component/Images/ReCalc_48x48.png"  VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="{StaticResource prod_tt_Recalc}"></Image>
+            </Button>
+        </telerik:RadToolBar>
+        <Grid Grid.Row="1" x:Name="grdHPlist"   Margin="3">
+            <telerik:RadGridView BorderBrush="Gray" Grid.Row="2" ItemsSource="{Binding LocalHourlyProductions}" AutoGenerateColumns="False"  telerik:StyleManager.Theme="Expression_Dark"                                      
+                                     EditTriggers="None"  ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" 
+                                                     ShowInsertRow="False" x:Name="grdHourlyProductions"  IsReadOnly="True"  IsTabStop="False"  >
+
+                <telerik:RadGridView.Columns>
+                    <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding Division.Value}" Header="Divize"></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Date,StringFormat=d}" Header="Datum"></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Week}" Header="Týden"></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Shift.Description}" Header="Směna"></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding ShiftType.Description}" Header="Typ směny"></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding WorkGroup.Value}" Header="Pracovní skupina"></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding WorkCenter.Value}" Header="Pracovní středisko"></telerik:GridViewDataColumn>-->
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Date, StringFormat=d}"  Header="{StaticResource prod_Date}"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ProductionOrder}" Header="{StaticResource prod_Order}"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ItemNumber}"  Header="{StaticResource prod_ItemNumber}"></telerik:GridViewDataColumn>
+                    <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding IsConfig}" Header="Konfig"></telerik:GridViewDataColumn>-->
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ActualTime_min}"  Header="{StaticResource prod_ActualTime}"></telerik:GridViewDataColumn>
+                    <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding LabourOwn}" Header="Labour own"></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding LabourTemp}" Header="Labour temp"></telerik:GridViewDataColumn>-->
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding StdLabour}"  Header="{StaticResource prod_StdLabour}"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding LabourTotal}"  Header="{StaticResource prod_LabourTotal}"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding StdPiecesPerHour}"  Header="{StaticResource prod_StdHourPcs}"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ProducedPieces}"  Header="{StaticResource prod_ProducedPcs}"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ScrapPieces}" Header="{StaticResource prod_ScrapPcs}"></telerik:GridViewDataColumn>
+                    <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding ScrapWeigh}" Header="Váha zmetku"></telerik:GridViewDataColumn>-->
+                    <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding ScrapCountedWeigh}" Header="ScrapCountedWeigh"></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding DowntimeTime_min}" Header="DowntimeTime_min"></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding HrDowntimeTime_min}" Header="HrDowntimeTime_min"></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding ActOperationalTime_min}" Header="ActOperationalTime_min"></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding ActIdealTaktTime_min}" Header="ActIdealTaktTime_min"></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding ActPiecesPerHeadHour}" Header="ActPiecesPerHeadHour"></telerik:GridViewDataColumn>-->
+                    <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding StdPiecesPerHeadHour}" Header="StdPiecesPerHeadHour"></telerik:GridViewDataColumn>-->
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding KpiProductivity}" Header="{StaticResource prod_Productivity}"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding KpiPerformance}" Header="{StaticResource prod_Performance}"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding KpiQuality}"  Header="{StaticResource prod_Quality}"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding KpiAvailability}" Header="{StaticResource prod_Availability}"></telerik:GridViewDataColumn>
+                    <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding hlpHrProductivity}" Header="hlpHrProductivity"></telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding hlp_ID_Standard}" Header="hlp_ID_Standard"></telerik:GridViewDataColumn>-->
+
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+        </Grid>
+        <Grid Grid.ColumnSpan="10" Grid.RowSpan="10" x:Name="gridProgress" Visibility="{Binding IsBusy, Converter={StaticResource VisibilityBoolConvertor}}">
+            <Grid Background="Gray" Opacity="0.5">
+              
+
+                
+            </Grid>
+            <Grid Background="Transparent" Grid.ColumnSpan="10" Grid.RowSpan="10">
+
+                <telerik:RadProgressBar VerticalAlignment="Center" HorizontalAlignment="Center" Width="300" Height="45"  telerik:StyleManager.Theme="Expression_Dark"
+                                    Minimum="0" Value="{Binding CurrentHPCount}" Maximum="{Binding LocalHourlyProductions.Count}">
+
+                </telerik:RadProgressBar>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock  Text="{Binding CurrentHPCount}"></TextBlock>
+                    <TextBlock  Text=" / "></TextBlock>
+                    <TextBlock  Text="{Binding LocalHourlyProductions.Count}"></TextBlock>
+                </StackPanel>
+
+            </Grid>
+        </Grid>
+    </Grid>
+
+
+    <!--</ScrollViewer>-->
+</bc:BaseUserControl>

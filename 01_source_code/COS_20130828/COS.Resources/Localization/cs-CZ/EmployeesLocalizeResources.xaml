@@ -1,0 +1,137 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:my="clr-namespace:System;assembly=mscorlib">
+
+
+
+    <my:String x:Key="HR_ID_empls">
+        HR ID
+    </my:String>
+
+
+    <my:String x:Key="Name_empls">
+        Jméno
+    </my:String>
+
+    <my:String x:Key="Surname_empls">
+        Příjmení
+    </my:String>
+
+    <my:String x:Key="Workgroup_empls">
+        Pracovní skupina
+    </my:String>
+
+    <my:String x:Key="ShiftPatern_empls">
+        Směna
+    </my:String>
+
+    <my:String x:Key="IsLeader_empls">
+        Vedoucí
+    </my:String>
+
+    <my:String x:Key="BonusGroup_empls">
+        Bonusová skupina
+    </my:String>
+
+    <my:String x:Key="WorkPosition_empls">
+        Pracovní pozice
+    </my:String>
+
+    <my:String x:Key="DivisionHR_empls">
+        Divize
+    </my:String>
+
+    <my:String x:Key="Email_empls">
+        Email
+    </my:String>
+
+    <my:String x:Key="Photo_empls">
+        Fotografie
+    </my:String>
+
+    <my:String x:Key="EmployerHR_ID_empls">
+       Zaměstnavatel
+    </my:String>
+
+    <my:String x:Key="HireDate_empls">
+        Datum nástupu
+    </my:String>
+
+    <my:String x:Key="Street_empls">
+        Ulice
+    </my:String>
+
+    <my:String x:Key="City_empls">
+        Město
+    </my:String>
+
+    <my:String x:Key="PostalCode_empls">
+        PSČ
+    </my:String>
+
+    <my:String x:Key="Note_empls">
+        Poznámka
+    </my:String>
+
+    <my:String x:Key="CostCenter_empls">
+        Nákladové středisko
+    </my:String>
+
+    <my:String x:Key="SalaryGroup_empls">
+        Mzdová skupina
+    </my:String>
+
+    <my:String x:Key="BaseInfo_empls">
+        Základní info
+    </my:String>
+
+    <my:String x:Key="ExtInfo_empls">
+        Doplňující info
+    </my:String>
+
+    <my:String x:Key="DisplayName_empls">
+        Jméno (HR ID)
+    </my:String>
+
+    <my:String x:Key="ActionState_empls">
+        Stav
+    </my:String>
+
+    <my:String x:Key="SelectAll_empls">
+        Vybrat vše
+    </my:String>
+
+    <my:String x:Key="eeSynchronize">
+        Synchronizovat tabulky
+    </my:String>
+
+    <my:String x:Key="eeStreet">
+        Ulice
+    </my:String>
+
+    <my:String x:Key="eePostalCode">
+      PSČ
+    </my:String>
+
+    <my:String x:Key="eeWorkGroup">
+       Pracovní Skupina
+    </my:String>
+
+    <my:String x:Key="eeEmployer">
+      Zaměstnavatel
+    </my:String>
+
+    <my:String x:Key="eeDivision">
+       Divize
+    </my:String>
+
+    <my:String x:Key="eeCostCenter">
+       Nákladové Středisko
+    </my:String>
+
+    <my:String x:Key="eeSalaryGroup">
+      Mzdová Skupina
+    </my:String>
+
+
+</ResourceDictionary>

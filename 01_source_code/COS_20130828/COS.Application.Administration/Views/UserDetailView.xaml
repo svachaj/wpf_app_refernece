@@ -1,0 +1,111 @@
+﻿<bc:BaseUserControl xmlns:bc="clr-namespace:COS.Common.WPF;assembly=COS.Common.WPF" x:Class="COS.Application.Administration.Views.UserDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="700" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+    <bc:BaseUserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/COSResources;component/COSBaseResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/COSResources;component/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </bc:BaseUserControl.Resources>
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource adm_AccType}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <telerik:RadComboBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding SysAccountTypes,Source={StaticResource COSC}}"
+                                  SelectedValuePath="ID" SelectedValue="{Binding SelectedUser.AccountType_ID, Mode=TwoWay}" Margin="3">
+                <telerik:RadComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Description}"></TextBlock>
+                    </DataTemplate>
+                </telerik:RadComboBox.ItemTemplate>
+            </telerik:RadComboBox>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource adm_HrID}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" x:Name="tbxHRID" Grid.Row="1" Grid.Column="1" Text="{Binding HRIDValid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"  Margin="3" VerticalAlignment="Center"
+                     LostFocus="tbxHRID_LostFocus">
+
+            </TextBox>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource adm_LoginName}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="2" Grid.Column="1" Text="{Binding LoginNameValid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"  Margin="3" VerticalAlignment="Center"></TextBox>
+
+            <!--<TextBlock Grid.Row="3" Grid.Column="0" Text="{DynamicResource Pwd_prev_users}" Margin="3" VerticalAlignment="Center"></TextBlock>-->
+            <!--<PasswordBox telerik:StyleManager.Theme="Expression_Dark" PasswordChanged="pwdPassword_PasswordChanged" Grid.Row="3" Grid.Column="1" Margin="3" VerticalAlignment="Center" x:Name="pwdActualPassword"></PasswordBox>-->
+
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="{DynamicResource adm_NewPassword}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <PasswordBox telerik:StyleManager.Theme="Expression_Dark" PasswordChanged="pwdPassword_PasswordChanged" Grid.Row="4" Grid.Column="1"   Margin="3" VerticalAlignment="Center" x:Name="pwdNewPassword"></PasswordBox>
+
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="{DynamicResource adm_ConfirmPAssword}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <PasswordBox telerik:StyleManager.Theme="Expression_Dark" PasswordChanged="pwdPassword_PasswordChanged" Grid.Row="5" Grid.Column="1"   Margin="3" VerticalAlignment="Center" x:Name="pwdConfirmPassword"></PasswordBox>
+
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="{DynamicResource adm_FirstName}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="6" Grid.Column="1" Text="{Binding NameValid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"  Margin="3" VerticalAlignment="Center"></TextBox>
+
+            <TextBlock Grid.Row="7" Grid.Column="0" Text="{DynamicResource adm_Surname}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="7" Grid.Column="1" Text="{Binding SurnameValid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"  Margin="3" VerticalAlignment="Center"></TextBox>
+
+            <TextBlock Grid.Row="8" Grid.Column="0" Text="{DynamicResource adm_Group}" Margin="3" VerticalAlignment="Center"></TextBlock>
+
+            <telerik:RadComboBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="8" Grid.Column="1" ItemsSource="{Binding SysGroups, Source={StaticResource COSC}}"
+                                                  SelectedValuePath="ID" SelectedValue="{Binding SelectedUser.Group_ID, Mode=TwoWay}" Margin="3">
+                <telerik:RadComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                    </DataTemplate>
+                </telerik:RadComboBox.ItemTemplate>
+            </telerik:RadComboBox>
+
+            <TextBlock Grid.Row="0" Grid.Column="3" Text="{DynamicResource adm_Email}" Margin="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="0" Grid.Column="4" Text="{Binding SelectedUser.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"  Margin="3" VerticalAlignment="Center"></TextBox>
+
+            <TextBlock Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Margin="3" Text="{DynamicResource adm_IsActive}"></TextBlock>
+            <CheckBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="1" Grid.Column="4" IsChecked="{Binding SelectedUser.IsActive, Mode=TwoWay}" VerticalAlignment="Center" Margin="3"></CheckBox>
+
+            <TextBlock Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" Margin="3" Text="{DynamicResource adm_AccountExpire}"></TextBlock>
+            <telerik:RadNumericUpDown telerik:StyleManager.Theme="Expression_Dark" Grid.Row="2" Grid.Column="4" Value="{Binding SelectedUser.AccountExpireDays, Mode=TwoWay}" Minimum="0" Maximum="999" IsInteger="True" VerticalAlignment="Center" Margin="3"></telerik:RadNumericUpDown>
+
+            <TextBlock Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" Margin="3" Text="{DynamicResource adm_PasswordExpire}"></TextBlock>
+            <telerik:RadNumericUpDown telerik:StyleManager.Theme="Expression_Dark" Grid.Row="3" Grid.Column="4" Value="{Binding SelectedUser.PwdExpireDays, Mode=TwoWay}" Minimum="0" Maximum="999" IsInteger="True" VerticalAlignment="Center" Margin="3"></telerik:RadNumericUpDown>
+
+            <TextBlock Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" Margin="3" Text="{DynamicResource adm_PwdForceChange}"></TextBlock>
+            <CheckBox telerik:StyleManager.Theme="Expression_Dark" Grid.Row="4" Grid.Column="4" IsChecked="{Binding SelectedUser.PwdForceChange, Mode=TwoWay}" VerticalAlignment="Center" Margin="3"></CheckBox>
+
+            <StackPanel Grid.Row="5" Grid.ColumnSpan="10" Grid.Column="3" Margin="3" Grid.RowSpan="10">
+                <TextBlock   Margin="1" Text="{DynamicResource adm_Description}" FontSize="11"></TextBlock>
+                <TextBox telerik:StyleManager.Theme="Expression_Dark" Text="{Binding SelectedUser.Description, Mode=TwoWay}"  Height="95" TextWrapping="Wrap"></TextBox>
+            </StackPanel>
+        </Grid>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" Margin="3">
+            <telerik:RadButton telerik:StyleManager.Theme="Expression_Dark"  Content="{DynamicResource adm_save}" Height="Auto"  Width="Auto" Margin="3" Padding="10,5,10,5" Command="{Binding UpdateCommand}" />
+            <telerik:RadButton telerik:StyleManager.Theme="Expression_Dark" Content="{DynamicResource adm_Cancel}" Height="Auto"  Width="Auto" Margin="3" Padding="10,5,10,5" Command="{Binding CancelCommand}" />
+        </StackPanel>
+    </Grid>
+</bc:BaseUserControl>
